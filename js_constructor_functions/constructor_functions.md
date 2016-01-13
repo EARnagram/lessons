@@ -1,0 +1,360 @@
+<img src="images/ga.png" height="100px" width="80px" float="left">
+# My Function, My Choice!
+
+![Arnold Explosions](images/arnold_junior.jpg)
+
+## Constructor Functions
+### Starring Arnold Schwarzenegger
+
+| Lesson Objectives |
+| :--- |
+| Use constructor functions to create variable objects |
+| Explain how `new` relates to constructor functions |
+| Describe the need for constructor functions in OOP |
+| Explain how `this` is used in constructor functions |
+| Explain the difference between the returned values of
+regular functions and constructor functions |
+
+## Roadmap
+
+1. Gaining Ground on Object Oriented Programming Concepts - Intro to Prototypal
+ Inheritance
+2. Arnold's Big New Blockbuster - Moving Away from Object Literals
+3. We're Gonna Need an Army - Custom Constructor Function
+4. Arnold the Machine - Practice
+5. Arnold's Moronic Script - Lab
+
+## 1. Gaining Ground on OOP Concepts
+### Intro to Prototypal Inheritance
+
+![protoman](images/proto_inh.jpg)
+
+As we already know, as developers we practice OOP techniques to craft our
+programs from models of real-world objects.
+
+Virtually all OOP languages use what's known as a class-based approach where
+new objects are created from classes that are used to construct new objects.
+JavaScript is the only OOP language in wide use that uses a prototype-based
+style of OOP where new objects are based upon the prototype of other objects,
+not a class (...until ES6 is everywhere).
+
+We call this prototypal inheritance - we'll come to fully understand this term
+later in the course. For now, we'll focus on a key aspect: creating custom
+constructor functions that give us the ability to create countless similar, yet
+variable objects.
+
+**When do you think you'd need multiple versions of an object?**
+
+## 2. Arnold's Big New Blockbuster
+### Moving Away from Object Literals
+
+![arnold yell](images/arnold_yell.jpg)
+
+Spry ol' Arnold Schwarzenegger is spending his entire fortune on creating one
+final, ultimate action movie that pulls together all of his hits of the past.
+
+```javascript
+var arnold = {
+  name:  "Arnold",
+  health:     10000,
+  oneLiners:  [
+               "You should not drink and bake.",
+               "Stick around!",
+               "You're luggage.",
+               "What killed de dinosaurs? DE ICE AGE!",
+               "Hasta la vista... baby."
+              ]
+}
+```
+
+> What do we call this syntax (hint: how did we create the object)?
+
+Arnold has been training for his big shoot as he expects this will be the
+greatest film ever.
+
+> How would we add a __key__ of `girlyMan` with a __value__ of `false`?
+
+> Let's add a method to `arnold` called `machete` that takes one signature
+called `enemy`, removes `100` from the `enemy.health` property, logs out the
+second string in `oneLiners`, and if the enemy's health is 0 or less, `return`
+the enemy's scream.
+
+#### Pause - The Constructinator
+
+As we know, javascript comes with a ton of built in methods. Today, we're going
+to look at the `constructor` method.
+
+In chrome, I'd like everyone type `arnold.constructor` in the console.
+
+**What did you get?**
+
+What this is telling us, is that using object literal notation to create new
+objects is just a shortcut for calling `var arnold = new Object();`.  So
+`arnold` was actually created by the Object() constructor function! We simply
+added properties within it, much like adding the `girlyMan` attribute or the
+`machete` method.
+
+#### Back to Your Regularly Scheduled Programming
+
+He's even learning new, BIGGER moves to beat the bad guys:
+
+```javascript
+arnold.shotgun = function(enemy1, enemy2, enemy3) {
+  enemy1.health -= 100;
+  enemy2.health -= 100;
+  enemy3.health -= 100;
+
+  console.log(arnold.oneLiners[4]);
+
+  if (enemy1.health < 0) return enemy1.scream;
+  if (enemy2.health < 0) return enemy2.scream;
+  if (enemy3.health < 0) return enemy3.scream;
+}
+```
+But this method takes three whole enemies - that's going to be a lot of time
+and money if we do casting calls for each enemy. Sure, we may use an object
+constructor for the main villain:
+
+``` javascript
+var headVillain = new Object();
+
+headVillain.name = "Thulsa Doom";
+
+headVillain.actor = "James Earl Jones";
+
+headVillain.scream = "HISSSSSSSS!";
+
+headVillain.health = 5000;
+```
+
+But Arnold's budget simply cannot accomodate taking this long to find actors.
+And we already know that object literal notation doesn't go too much faster...
+
+> Help create a `predator` object.
+
+We need to hire extras as henchmen and a lot of them. There must be a faster way
+to access a ton of similar, but slightly variable talent!
+
+## 3. We're Gonna Need an Army
+### Introducing Custom Constructor Functions
+![](images/exp3.jpg)
+
+Let's look at a `henchman` object written in object literal notation.
+
+
+```javascript
+var henchman = {
+  health: 20,
+  puny: true,
+  scream: "AHHH!!",
+  alarm: function() {
+    alert("Intruder!!");
+  }
+}
+```
+
+And as we've said it's pretty tiring (& expensive!!!) to make all the henchmen
+are like this; let's make a constructor function instead!
+
+Instead of opening up an object, and assigning it to an object literal, we'll
+be creating them with a function.
+
+```javascript
+var Henchman = function() {
+	this.health = 20;
+	this.puny = true;
+	this.alarm = function() {
+		alert("Intruder!");
+	}
+}
+```
+
+> Don't forget to capitalize your constructor functions!
+
+#### Then `this` Thing Happened...
+
+`this` is a simple, yet frustratingly difficult keyword to fully grok. We'll be
+taking it in bite sizes throughout WDI.
+
+In the case of the `Henchman` constructor function, `this` refers to the object
+that is being created. Therefore, you're placing the same values directly on the
+new variable by simply calling:
+
+`var bennet = new Henchman();`
+
+Howevever, `this` is much more powerful than it seems. Since we're assigning
+properties to an object as it's being created, we have full control over the
+range of values assigned to each __instance__ (the created object) of the
+constructor function.  
+
+```javascript
+var Henchman = function(puny, scream, health) {
+  this.health = health;
+  this.puny = puny;
+  this.scream = scream;
+  this.alarm = function(enemy) {
+    alert("Intruder! It's " + enemy.name + "!");
+  }
+  this.shoot = function(enemy) {
+    enemy.health -= 100;
+    if (enemy.health <= 0) return enemy.oneLiners[0];
+  }
+}
+```
+
+When we create a new object using this constructor function, we assign the
+values to the properties of the object as it's being created.
+
+Let's create a new henchman:
+
+```javascript
+var annoyingKindergartener = new Henchman(true, "It's a tumor!!", 25);
+```
+
+Now, when we type: `annoyingKindergartener.scream;` we get `"It's a tumor!"`.
+
+> Let's build a couple more henchmen.
+
+What we've done is create a variable constructor so Arnold can mess with all
+these henchmen, puny or otherwise.
+
+__What are some other properties we could add to our henchman constructor
+function?__
+
+#### Arnold, the Fear of Any Henchman - Referencing Other Objects
+
+Let's add to our constructor functions to see how we can reference other objects
+in creating our new objects.
+
+As any seasoned henchman will tell you, Arnold is fear incarnate. So much so,
+that the average henchman will assign the concept of fear to Arnold in their
+mind.
+
+```javascript
+var Henchman = function(puny, scream, health, fear) {
+  this.fear = fear;
+  this.health = health;
+  this.puny = puny;
+  this.scream = scream;
+  this.alarm = function(enemy) {
+    alert("Intruder! It's " + enemy.name + "!");
+  }
+  this.shoot = function(enemy) {
+    enemy.health -= 100;
+    if (enemy.health <= 0) return enemy.oneLiners[0];
+  }
+}
+
+// Create new instance of henchman
+var sully = new Henchman(true, "Gyahahahhhhh", 65, arnold);
+```
+
+Now, if we were to type `sully.fear;` into our chrome console, we'd see that we
+get an object back, referencing our `arnold` object.
+
+> What if I wanted to reference their boss, the `headVillain`?
+
+#### Intro to the Prototype
+
+We'll have a lesson on this in the future, but I feel it's important to mention
+here.
+
+Assigning functions within a constructor function is actually bad form. While
+there is only a single copy of the constructor function in memory, each object
+being created takes up a little more memory. If each of these objects have
+copies of a bunch of functions, it could add up.
+
+By moving our object's methods to the _prototype_ of the constructor, there
+will be only one copy of those functions, instead of one for each of the objects
+created with the henchman constructor function!
+
+Putting functions on the __prototype__ of a constructor function instead of on
+each object is best practice and it'll be what you see much more often in the
+field.
+
+As an example:
+
+```javascript
+var Henchman = function(puny, scream, health, fear) {
+  this.fear = fear;
+  this.health = health;
+  this.puny = puny;
+  this.scream = scream;
+}
+
+Henchman.prototype.shoot = function(enemy) {
+	enemy.health -= 100;
+   if (enemy.health <= 0) return enemy.oneLiners[0];
+}
+
+Henchman.prototype.alarm = function(enemy) {
+    alert("Intruder! It's " + enemy.name + "!");
+}
+
+var dynamo = new Henchman(true, "LAAAAAAH!", 200, arnold);
+```
+And we can call methods in the __exact same way__ as our previous constructor
+function.
+
+`dyanmo.alarm(arnold);`
+
+Again, we'll get into this in MUCH more detail later on.
+
+#### That's a wrap!
+
+**When do you think you'd need multiple objects?**
+
+**Do you think constructor functions could have helped you in our last objects
+lesson's lab?**
+
+## 4. Arnold the Machine
+### Practice
+
+![terminators](images/terminators.jpg)
+
+__Now it's your turn to create a constructor function with custom methods!__
+
+Turns out Arnold spent about half his money making a factory that produces
+terminators that look and act just like him. Maybe a waste, but we'll see if it
+pays dividends in the box office:
+
+- Create your own `terminator` constructor function and make the Arnold object
+into a variable constructor function. Make sure he has all the awesome
+properties we know and expect from Arnold.
+
+Arnold also needs a bunch of heroes for his new flick. Although he'll be doing
+pretty much everything, it's always nice to have a bud.
+
+- Create a hero constructor function from scratch with different abilities.
+Make a Sylvester Stallone and Jean-Claude van Damm based on the same hero
+constructor!
+
+## 5. Arnold's Moronic Script
+### Lab
+![mr.freeze](images/freezearnold.jpg)
+
+
+Arnold wrote the worst script. Before he follows through with it all, you need
+to model it for him so he can tell how terrible it is.
+
+You can find the starter code in your repo.
+
+##### Two options for this lab:
+
+1. I've included a version I wrote if you'd like to fill out my "script". Model
+the script for Arnold so he can tell how terrible his ideas really are.
+2. Rewrite Arnold's script! If you choose the more open path, you must:
+   - Use constructor functions and references to other objects in your version
+   of his film.
+   - Use at least 3 constructor functions
+   - Use references often
+
+__BONUS__: Add functions to the prototype of your different constructor functions.
+
+#### References
+
+[MDN Working with Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects)
+
+[Beautiful Response on the Value of Prototypal Inheritance](http://stackoverflow.com/questions/2800964/benefits-of-prototypal-inheritance-over-classical)
+
+[Wikipedia - Object Oriented Programming](http://en.wikipedia.org/wiki/Object-oriented_programming)
