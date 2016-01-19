@@ -1,3 +1,5 @@
+/*The Box Model and its Components*/
+
 #box-model {
   margin: 50px auto;
   border: 3px solid red;
@@ -5,14 +7,11 @@
   width: 100px;
 }
 
-.square {
-  width: 100px;
-  height: 100px;
-  color: white;
-  line-height: 100px;
-  vertical-align: middle;
-  text-align: center;
-  font-size: 48px;
+
+/*Inline Vs. Block*/
+
+#inline-vs-block div {
+  border: 1px dotted gray;
 }
 
 .inline {
@@ -27,8 +26,17 @@
   display: inline-block;
 }
 
-#inline-vs-block div {
-  border: 1px dotted gray;
+
+/*Positioning*/
+
+.square {
+  width: 100px;
+  height: 100px;
+  color: white;
+  line-height: 100px;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 48px;
 }
 
 #spacing-container {
@@ -64,8 +72,12 @@
   top: 80%;
 }
 
+
+/*Floats*/
+
 #floats img {
   float: left;
+  width: 400px;
 }
 
 #columns div {

@@ -19,10 +19,121 @@
 
 1. Intro to the Box Model
 2. The Box Model and Its Components
-3. Inline vs. Block
-4. Positioning - Static, Relative, Absolute, & Fixed
+3. Display
+4. Positioning
 5. Floats and Clears
 6. Outro
 
 ## Intro to the Box Model
+
+![Panels](http://www.collectivenext.com/sites/default/files/styles/medium/public/blog-images/understanding-comics-p61.png?itok=iibrRHw2)
+
+I'm going to first make a crazy comparisom, and follow it up with a  prediction. 
+
+First, for the comparison:
+
+>  *Website design is quite similar to comics' panel layout.*
+> 
+> — Ezra Arez Raez, 2016
+
+Now for the prediction: open chrome and visit any site.
+
+Now, if you'll relax your eyes as you stare into that website, I'm sure you'll make out a number of rectangles in that site - go ahead, count them!
+
+I can assume this because, much like comics - predominantly relying on the rectangular panel for the majority of their page layout - **the web is made of rectangles.**
+
+We use HTML to decide what rectangles we want and what should go in them.
+
+We use CSS to decide how they should look (recall yesterday's lesson), and where they should go (welcome to this lesson).
+
+##### Assets
+
+Today we'll be working from the `starter_code/` directory in the repo. Please copy the code outside of the `instructor/` folder. 
+
+## The Box Model and its Components
+
+You may be familiar with the following diagram:
+
+![box-model](http://s6.postimg.org/gi8r6c341/css_box_model.png)
+
+Open Chrome's Dev Tools by using cmd+opt+i.
+
+Click "Elements" (in the dev tools toolbar), then `<div id="box-model">` in the page source. Find the multicolored rectangles at the bottom of "Styles," then follow along with me: 
+
+- **Margin** - The empty area around a border, where we don't want anything else on the page to render.
+- **Border** - A solid (or dashed, or dotted, etc.) line around the padding and content. Can be zero pixels (invisible) or bigger.
+- **Padding** - The area between the border and the content, where we can give the content some breathing room
+- **Content** - The contents of the box; also what we size when we set a width and height in CSS.
+
+#### Love the Dev Tools
+
+Chrome's Dev Tools are one of the nicest things to ever happen to developers. This is because we can alter our webpages __while__ viewing them in the browser!
+
+Take the next 5 minutes to play with the following:
+
+- **Margins** - Remember that the values for a single margin property works clockwise from the top, `margin: Abovepx Rightpx Belowpx Leftpx;`
+- **Borders** - Find new textures and sizes.
+- **Padding** - See what negative values can accomplish.
+- **Height, Width, Top, Bottom, Left, Right** - See what these do to your box!
+
+> Remember, if you've ever gone too far off the deep-end, simply refresh the page!
+
+## Display
+
+![inline vs block](http://netdna.webdesignerdepot.com/uploads/2012/08/boxmodel-block-vs-inline.png)
+
+At the heart of positioning is the `display` property. There are four values that greatly effect our webpage.
+
+1. An **inline** element renders without a line break above or below it, so that other content is right next to it. Inline elements can't be given a width, height, or margins.
+2. A **block** element renders with a line break above and below it, so they don't have anything next to them. By default, they take up the entire width of their parent element. Block elements can be given a height and a width.
+3. An **inline-block** element is placed as an inline element (on the same line as adjacent content), but it behaves like a block element. This makes the element a block box but will allow other elements to sit next to it on the same line.
+4. If you assign **none** as the value of the display, this will make the element and its content disappear from the page entirely!
+
+#### Practice
+
+~~In `<div id="inline-vs-block">`, notice what happens when you change width, height, margin, and padding for inline, block, and inline-block elements.~~ 
+
+## Positioning
+
+![](http://www.forbiddenplanet.co.uk/blog/wp-content/uploads/2010/08/what01.gif)
+
+The `position` property in CSS allows the content to move around the page in four separate fashions: static, relative, absolute, and fixed.
+
+##### Static Positioning
+
+HTML elements are `position: static` by default. A "static positioned" element is always positioned according to the normal flow of the page and are not affected by the top, bottom, left, and right properties.
+
+##### Relative Positioning
+
+Declaring `position:relative` allows you to position the element top, bottom, left, or right relative to where it would normally occur.
+
+##### Absolute Positioning
+
+Setting `position: absolute` on an element lets you position it according to the edges of its parent element. This has the side effect of removing it from the flow– that is, other elements will act like it isn't there.
+
+##### Fixed Positioning
+
+An element with `position: fixed` is positioned relative to the edges of the browser window.  It will not move even if the window is scrolled, so a fixed positioned element will stay right where it is.
+
+## Floats
+
+The float property defines whether or not an element should stick to the side 
+
+<p style="text-align: center">
+
+<img src='https://cloud.githubusercontent.com/assets/40461/8234489/3b61ef02-15d4-11e5-8864-435fb6e0c3cc.png'>
+
+</p>
+
+Note that "absolutely positioned" elements ignore the float property as they are removed from the normal document flow.
+
+Floated elements remain a part of the flow of the web page. This is distinctly different than page elements that use absolute positioning.
+
+There are four valid values for the float property. "Left" and "right" float elements those directions, respectively. "None" (the default) ensures the element will not float and "inherit" which will assume the float value from that elements parent element.
+
+## Outro
+
+- Compare the elements of The Box Model - margin, border, padding, content.
+- How do floats work with clears to create a multicolumn layout?
+- Compare inline-block, block, and inline.
 
