@@ -35,7 +35,7 @@ HTML is the essential building blocks of website. It is the steel beams of your 
 
 *Markup*  - This is what **HTML tags** do to the text inside them. They mark it as a certain type of text (*italicised* text, for example).
 
-*Language* - This one is pretty straightforward. It has its own syntax and structure like any other language, programmatic or human.
+*Language* - This one is pretty straightforward. HTML has its own syntax and structure like any other language, programmatic or human.
 
 For the most part, tags have an opening, and a closing tag with the content sandwiched in the middle.
 
