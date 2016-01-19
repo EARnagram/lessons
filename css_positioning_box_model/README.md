@@ -136,4 +136,3 @@ There are four valid values for the float property. "Left" and "right" float ele
 - Compare the elements of The Box Model - margin, border, padding, content.
 - How do floats work with clears to create a multicolumn layout?
 - Compare inline-block, block, and inline.
-
