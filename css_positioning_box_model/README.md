@@ -28,7 +28,7 @@
 
 ![Panels](http://www.collectivenext.com/sites/default/files/styles/medium/public/blog-images/understanding-comics-p61.png?itok=iibrRHw2)
 
-I'm going to first make a crazy comparisom, and follow it up with a  prediction. 
+I'm going to first make a crazy comparison, and follow it up with a wild assumption.
 
 First, for the comparison:
 
@@ -36,7 +36,7 @@ First, for the comparison:
 > 
 > — Ezra Arez Raez, 2016
 
-Now for the prediction: open chrome and visit any site.
+Now for the wild assumption: open chrome and visit any site.
 
 Now, if you'll relax your eyes as you stare into that website, I'm sure you'll make out a number of rectangles in that site - go ahead, count them!
 
@@ -82,16 +82,17 @@ Take the next 5 minutes to play with the following:
 
 ![inline vs block](http://netdna.webdesignerdepot.com/uploads/2012/08/boxmodel-block-vs-inline.png)
 
-At the heart of positioning is the `display` property. There are four values that greatly effect our webpage.
+At the heart of positioning is the `display` property. There are five values that greatly effect our webpage.
 
 1. An **inline** element renders without a line break above or below it, so that other content is right next to it. Inline elements can't be given a width, height, or margins.
 2. A **block** element renders with a line break above and below it, so they don't have anything next to them. By default, they take up the entire width of their parent element. Block elements can be given a height and a width.
 3. An **inline-block** element is placed as an inline element (on the same line as adjacent content), but it behaves like a block element. This makes the element a block box but will allow other elements to sit next to it on the same line.
 4. If you assign **none** as the value of the display, this will make the element and its content disappear from the page entirely!
+5. **flex** is a new and interesting display option for CSS3. I'm planning to cover it in greater detail in a later lesson on responsive CSS, so I don't want to spend too much time on it now. However just to mention, it obviates the need for floats (see below in "Positioning") and removes the margins between things. It essentially makes your positioning more *flexible*, while simultaneously making your site less accodmodating (`display: flex;` will not work with browsers IE9 and older). 
 
-#### Practice
+#### Practice Display
 
-~~In `<div id="inline-vs-block">`, notice what happens when you change width, height, margin, and padding for inline, block, and inline-block elements.~~ 
+In `<div id="inline-vs-block">`, notice what happens when you change width, height, margin, and padding for inline, block, and inline-block elements. Take 5 minutes to alter these in the Chrome Dev Tools.
 
 ## Positioning
 
@@ -115,15 +116,15 @@ Setting `position: absolute` on an element lets you position it according to the
 
 An element with `position: fixed` is positioned relative to the edges of the browser window.  It will not move even if the window is scrolled, so a fixed positioned element will stay right where it is.
 
+### CSS Directions
+
+Siblings to the `position` property, the `left`, `right`, `top`, and `bottom` properties are known as the CSS Directions. By Default, they're set to `auto`, and these properties do nothing while `position: static;`. They move an element by adding a pixel amount to the respective direction between it and the nearest element or border.
+
 ## Floats
 
-The float property defines whether or not an element should stick to the side 
+The float property defines whether or not an element should stick to the side and contain it's own line.
 
-<p style="text-align: center">
-
-<img src='https://cloud.githubusercontent.com/assets/40461/8234489/3b61ef02-15d4-11e5-8864-435fb6e0c3cc.png'>
-
-</p>
+![Float Layout](https://cloud.githubusercontent.com/assets/40461/8234489/3b61ef02-15d4-11e5-8864-435fb6e0c3cc.png)
 
 Note that "absolutely positioned" elements ignore the float property as they are removed from the normal document flow.
 
@@ -131,8 +132,29 @@ Floated elements remain a part of the flow of the web page. This is distinctly d
 
 There are four valid values for the float property. "Left" and "right" float elements those directions, respectively. "None" (the default) ensures the element will not float and "inherit" which will assume the float value from that elements parent element.
 
+### Clear
+
+As a sister attribute to Float, `clear` allows an element to ignore float rules, and move itself *past* the float. You can set a clear to `left`, `right`, `both`, and `none` (default).
+
+Compare these two photos. A footer with `clear:none;`.
+
+![](https://css-tricks.com/wp-content/csstricks-uploads/unclearedfooter.png)
+
+Versus a footer with `clear: both` or `clear: right`:
+
+![](https://css-tricks.com/wp-content/csstricks-uploads/clearedfooter.png)
+
 ## Outro
 
-- Compare the elements of The Box Model - margin, border, padding, content.
+While positioning can be a struggle early on, consistent practice will eventually lead to full groking. As you can see, viewing html elements as the rectangular panels that they are will assist you in conquering this tricky CSS beast.
+
+##### Final Questions
+
+- Explain the difference between `margin`, `border`, `padding`, and `content`.
 - How do floats work with clears to create a multicolumn layout?
 - Compare inline-block, block, and inline.
+
+#### References
+
+[All About Floats](https://css-tricks.com/all-about-floats/)
+
