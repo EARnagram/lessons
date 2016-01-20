@@ -64,8 +64,20 @@ Click "Elements" (in the dev tools toolbar), then `<div id="box-model">` in the 
 - **Border** - A solid (or dashed, or dotted, etc.) line around the padding and content. Can be zero pixels (invisible) or bigger.
 - **Padding** - The area between the border and the content, where we can give the content some breathing room
 - **Content** - The contents of the box; also what we size when we set a width and height in CSS.
+- **Box-Sizing** - `box-sizing` is an interesting property. By default it's set to `content-box`, but we often assume sizing works in terms `border-box`. The difference is subtle but important. `content-box` sets the `height` and `width` of a box to the content, whereas `border-box` assigns them to the size of the border. 
 
-#### Love the Dev Tools
+Let's add to our `.box-model` class and see what these do:
+
+``` css
+.box-model {
+  margin: 50px auto;
+  border: 3px solid red;
+  padding: 50px;
+  width: 100px;
+}
+```
+
+#### Love thy Dev Tools
 
 Chrome's Dev Tools are one of the nicest things to ever happen to developers. This is because we can alter our webpages __while__ viewing them in the browser!
 
@@ -74,7 +86,7 @@ Take the next 5 minutes to play with the following:
 - **Margins** - Remember that the values for a single margin property works clockwise from the top, `margin: Abovepx Rightpx Belowpx Leftpx;`
 - **Borders** - Find new textures and sizes.
 - **Padding** - See what negative values can accomplish.
-- **Height, Width, Top, Bottom, Left, Right** - See what these do to your box!
+- **Height, Width, and Box-Sizing** - See what these do to your box!
 
 > Remember, if you've ever gone too far off the deep-end, simply refresh the page!
 
@@ -88,7 +100,27 @@ At the heart of positioning is the `display` property. There are five values tha
 2. A **block** element renders with a line break above and below it, so they don't have anything next to them. By default, they take up the entire width of their parent element. Block elements can be given a height and a width.
 3. An **inline-block** element is placed as an inline element (on the same line as adjacent content), but it behaves like a block element. This makes the element a block box but will allow other elements to sit next to it on the same line.
 4. If you assign **none** as the value of the display, this will make the element and its content disappear from the page entirely!
-5. **flex** is a new and interesting display option for CSS3. I'm planning to cover it in greater detail in a later lesson on responsive CSS, so I don't want to spend too much time on it now. However just to mention, it obviates the need for floats (see below in "Positioning") and removes the margins between things. It essentially makes your positioning more *flexible*, while simultaneously making your site less accodmodating (`display: flex;` will not work with browsers IE9 and older). 
+5. **flex** is a new and interesting display option for CSS3. I'm planning to cover it in greater detail in a later lesson on responsive CSS, so I don't want to spend too much time on it now. However just to mention, it obviates the need for floats (see below in "Positioning") and removes the margins between things. It essentially makes your positioning more *flexible*, while simultaneously making your site less accodmodating (`display: flex;` will not work with browsers IE9 and older).
+
+Lets see the difference between inline, block, and inline-block by adding these rules to our CSS.
+
+``` css
+.inline-vs-block {
+  border: 1px dotted gray;
+}
+
+.inline {
+  display: inline;
+}
+
+.block {
+  display: block;
+}
+
+.inline-block {
+  display: inline-block;
+}
+```
 
 #### Practice Display
 
@@ -120,6 +152,43 @@ An element with `position: fixed` is positioned relative to the edges of the bro
 
 Siblings to the `position` property, the `left`, `right`, `top`, and `bottom` properties are known as the CSS Directions. By Default, they're set to `auto`, and these properties do nothing while `position: static;`. They move an element by adding a pixel amount to the respective direction between it and the nearest element or border.
 
+Again, let's see what happens when we add these new position properties to our code (go ahead and overwrite classes `.spacing container`, `.one`, `.two`, `.three`, and `.four`).
+
+``` css
+.spacing-container {
+  height: 500px;
+  width: 500px;
+  background-color: gray;
+  position: relative;
+}
+
+.one {
+  background-color: red;
+  position: static;
+}
+
+.two {
+  background-color: blue;
+  position: relative;
+  top: -100px;
+  left: 100px;
+}
+
+.three {
+  background-color: green;
+  position: absolute;
+  top: 200px;
+  left: 200px;
+}
+
+.four {
+  background-color: black;
+  position: fixed;
+  right: 100px;
+  top: 80%;
+}
+```
+
 ## Floats
 
 The float property defines whether or not an element should stick to the side and contain it's own line.
@@ -140,9 +209,23 @@ Compare these two photos. A footer with `clear:none;`.
 
 ![](https://css-tricks.com/wp-content/csstricks-uploads/unclearedfooter.png)
 
-Versus a footer with `clear: both` or `clear: right`:
+Versus a footer with `clear: both` or `clear: left`:
 
 ![](https://css-tricks.com/wp-content/csstricks-uploads/clearedfooter.png)
+
+Finally, let's see how these floats work!
+
+``` css
+.img-example {
+  float: left;
+  width: 400px;
+}
+
+.columns > div {
+  float: left;
+  width: 50%;
+}
+```
 
 ## Outro
 
@@ -156,5 +239,8 @@ While positioning can be a struggle early on, consistent practice will eventuall
 
 #### References
 
+[Box-Sizing](https://css-tricks.com/box-sizing/)
+
 [All About Floats](https://css-tricks.com/all-about-floats/)
 
+[CSS Positioning Tutorial](http://www.barelyfitz.com/screencast/html-training/css/positioning/)
