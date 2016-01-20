@@ -28,7 +28,7 @@ This lab will happen in 3 steps.
 2. Trade webpages with your neighbor. Constructively critique the site, help with syntax, and point out what was confusing. (10 minutes)
 3. Discuss what you found. (5 minutes)
 
-### Create Profile Website - 40 Minutes
+### Part 1 - Create Profile Website (40 Minutes)
 
 **Using HTML & CSS, build a webpage.** The webpage must have:
 
@@ -60,7 +60,7 @@ In your CSS, please incorporate:
 - Add color and style to the text and background, edit borders, text, and spacing
 - A Google Font
 
-### Trade!
+### Part 2 - Trade!
 
 Read through your partner's code. 
 
@@ -70,41 +70,26 @@ Use the following style guide to check the webpage:
 
 **HTML**
 
-​	[ ] All necessary boilerplate (`<head>`, `<!DOCTYPE html>`, etc.)
-
-​	[ ] HTML structures separated by comments
-
-​	[ ] Semantic tags, both *structural* (e.g. `<footer>`, `<header>`, etc.) and 
-
-​		*typographic* (`<strong>`, `<em>`, etc.)
-
-​	[ ] Indentation convention used is 2-space tabs
-
-​	[ ] All text surrounded by tags
-
-​	[ ] Appropriate attributes for html tags
-
-​		[ ] `alt` for `<img>`
-
-​		[ ] `src` for `<img>`
-
-​		[ ] `href` for `<a>`
-
-​		[ ] `href` for `<link>`
+- [ ] All necessary boilerplate (`<head>`, `<!DOCTYPE html>`, etc.)
+- [ ] HTML structures separated by comments
+- [ ] Semantic tags, both *structural* (e.g. `<footer>`, `<header>`, etc.) and *typographic* (`<strong>`, `<em>`, etc.)
+- [ ] Indentation convention used is 2-space tabs
+- [ ] All text surrounded by tags
+- [ ] Appropriate attributes for html tags
+	- [ ] `alt` for `<img>`
+	- [ ] `src` for `<img>`
+	- [ ] `href` for `<a>`
+	- [ ] `href` for `<link>`
 
 **CSS**
 
-​	[ ] Clear syntax
+- [ ] Clear syntax
+- [ ] Clear use of classes 
+- [ ] No ids
+- [ ] Legible styling
+- [ ] If using CSS Inheritance, it is easily read
 
-​	[ ] Clear use of classes 
-
-​	[ ] No ids
-
-​	[ ] Legible styling
-
-​	[ ] If using CSS Inheritance, it is easily read
-
-### Discuss
+### Part 3 - Discuss
 
 Tell your partner what you found, especially the parts you found difficult to understand in their code. Remember to be specific. Think:
 
