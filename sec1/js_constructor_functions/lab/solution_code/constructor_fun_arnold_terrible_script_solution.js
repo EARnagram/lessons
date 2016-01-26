@@ -1,31 +1,31 @@
-//  _____     _        _ _         ____                _ _   _   _          
-// |_   _|__ | |_ __ _| | |_   _  |  _ \ ___  ___ __ _| | | | |_| |__   ___ 
+//  _____     _        _ _         ____                _ _   _   _
+// |_   _|__ | |_ __ _| | |_   _  |  _ \ ___  ___ __ _| | | | |_| |__   ___
 //   | |/ _ \| __/ _` | | | | | | | |_) / _ \/ __/ _` | | | | __| '_ \ / _ \
 //   | | (_) | || (_| | | | |_| | |  _ <  __/ (_| (_| | | | | |_| | | |  __/
 //   |_|\___/ \__\__,_|_|_|\__, | |_| \_\___|\___\__,_|_|_|  \__|_| |_|\___|
-//                         |___/                                            
-//  _____      _                    ____       ____                        
-// |  ___|   _| |_ _   _ _ __ ___  |___ \ _   / ___|___  _ __   __ _ _ __  
-// | |_ | | | | __| | | | '__/ _ \   __) (_) | |   / _ \| '_ \ / _` | '_ \ 
+//                         |___/
+//  _____      _                    ____       ____
+// |  ___|   _| |_ _   _ _ __ ___  |___ \ _   / ___|___  _ __   __ _ _ __
+// | |_ | | | | __| | | | '__/ _ \   __) (_) | |   / _ \| '_ \ / _` | '_ \
 // |  _|| |_| | |_| |_| | | |  __/  / __/ _  | |__| (_) | | | | (_| | | | |
-// |_|   \__,_|\__|\__,_|_|  \___| |_____(_)  \____\___/|_| |_|\__,_|_| |_|                                                                       
-//                  _   ____       _           _                  _ _   _     
-//   __ _ _ __   __| | |  _ \ ___ | |__   ___ | |_ ___  __      _(_) |_| |__  
-//  / _` | '_ \ / _` | | |_) / _ \| '_ \ / _ \| __/ __| \ \ /\ / / | __| '_ \ 
+// |_|   \__,_|\__|\__,_|_|  \___| |_____(_)  \____\___/|_| |_|\__,_|_| |_|
+//                  _   ____       _           _                  _ _   _
+//   __ _ _ __   __| | |  _ \ ___ | |__   ___ | |_ ___  __      _(_) |_| |__
+//  / _` | '_ \ / _` | | |_) / _ \| '_ \ / _ \| __/ __| \ \ /\ / / | __| '_ \
 // | (_| | | | | (_| | |  _ < (_) | |_) | (_) | |_\__ \  \ V  V /| | |_| | | |
-//  \__,_|_| |_|\__,_| |_| \_\___/|_.__/ \___/ \__|___/   \_/\_/ |_|\__|_| |_|                                                                         
-//  ____        _                         
-// | __ )  __ _| |_ _ __ ___   __ _ _ __  
-// |  _ \ / _` | __| '_ ` _ \ / _` | '_ \ 
+//  \__,_|_| |_|\__,_| |_| \_\___/|_.__/ \___/ \__|___/   \_/\_/ |_|\__|_| |_|
+//  ____        _
+// | __ )  __ _| |_ _ __ ___   __ _ _ __
+// |  _ \ / _` | __| '_ ` _ \ / _` | '_ \
 // | |_) | (_| | |_| | | | | | (_| | | | |
-// |____/ \__,_|\__|_| |_| |_|\__,_|_| |_|                                  
-                               
+// |____/ \__,_|\__|_| |_| |_|\__,_|_| |_|
+
 // by Arnold Schwarzenegger
 
 /* ACT ONE */
 
 /* One day, a man entered the world that would change the world and everything, but
- especially the world, forever. 
+ especially the world, forever.
 
 His name was Arnold Schwarzenegger.  */
 
@@ -54,7 +54,7 @@ var arnold = {
 
 
     // Create a Schwarzenegger constructor function then create Arnold's parents.
-    
+
     // Include a health key
     // Include a gender key
     // Include a name key
@@ -71,16 +71,17 @@ var dahd = new Schwarzenegger(50, "M", "Gustav");
 /* Arnold was a special boy from day one, but he experienced tragedy early on. */
 
 var batman = {
-    name: "Bruce Wayne",
-    revenge: function(mom, dad) {
-        mom.health = 0;
-        dad.health = 0;
+  name: "Bruce Wayne",
+  revenge: function(enemies) {
+    for (var i = 0; i < enemies.length; i++) {
+      enemies[i].health = 0;
     }
+  }
 }
 
-    // Use the batman object's method revenge to kill both parents.
+// Use the batman object's method revenge to kill both parents.
 
-batman.revenge(mahm, dahd);
+batman.revenge([mahm, dahd]);
 
 
 /* After that day, at a mere age of 7, Arnold swore revenge. */
@@ -93,18 +94,18 @@ batman.revenge(mahm, dahd);
 arnold.age = 7;
 arnold.swearRevenge = batman;
 
-/* Arnold then moved to the jungle to train for his future fight. He learned much 
-and grew strong chopping down the vines in the jungle. 
+/* Arnold then moved to the jungle to train for his future fight. He learned much
+and grew strong chopping down the vines in the jungle.
 
 With the sword in his hand he decided to change his name to Conan. He knew his future
 woudl be as a warrior. */
 
-    // Change arnold's firstName value to "Conan"
+    // Change the arnold object's firstName value to "Conan"
     // Push the string "Stick around!" into the arnold.oneLiners array!
 
 arnold.firstName = "Conan";
 arnold.oneLiners.push("Stick around!");
- 
+
 arnold.machete = function(enemy) {
   enemy.health -= 500;
   if (enemy.health < 0) {
@@ -113,7 +114,7 @@ arnold.machete = function(enemy) {
   }
 }
 
-/* Arnold moved on from the jungle, and met a young, brilliant scientist named
+/* Conan moved on from the jungle, and met a young, brilliant scientist named
 Dr. Larry Arbogast */
 
     // Create a larry object
@@ -121,7 +122,7 @@ Dr. Larry Arbogast */
     // Add a key health and set it to 30
     // Add a key name and set it to "Dr. Larry Arbogast"
 
-    // Push larry's name into Arnold's friends array
+    // Push larry's name into the arnold object's friends array
 
 var larry = {
   doctor: true,
@@ -135,23 +136,19 @@ arnold.friends.push(larry.name);
 /* They became friends - best friends. That is until batman killed him too!*/
 
 
-    // Use the revenge method again and kill larry
+    // Use the revenge method again and kill larry (don't forget to pass him
+    // into the function as an array!).
 
-// batman.revenge(larry);
-// |||||| This will throw an error! I just wanted to show that larry's health would ||||||
-// |||||| still be put to 0, since he takes the place of the first parameter. Not   ||||||
-// |||||| considered good form, since the script cannot run after the error. I just ||||||
-// |||||| wanted to show you how javascript works!                                  ||||||                                   
-batman.revenge(larry, mahm); // I'm only adding mahm back so you can drag this whole code
-                             // into chrome's dev tools and it will run the whole script.
+batman.revenge([larry]);
 
-/* Arnold realized he would never be happy unless he went after batman */
+
+/* Conan realized he would never be happy unless he went after batman */
 
 
 /* ACT 2 */
 
-/* No one knew why Batman hated Arnold so much. But Batman had plans to erase
-Arnold from the planet forever. He was building an army. */
+/* No one knew why Batman hated Conan so much. But Batman had plans to erase
+Conan from the planet forever. He was building an army. */
 
 
     // Build a henchbat (henchmen, but for batman) constructor function
@@ -183,20 +180,21 @@ var greg = new Henchbat(60, "Darn I'm dead!");
 var craig = new Henchbat(65, "This job sucked. I didn't even get any boots.");
 
 
-/* Bruce Wayne knew these henchmen would only slow him down - he was had another
+/* Bruce Wayne knew these henchmen would only slow him down - he had another
 plan up his sleeve. */
 
-/* Arnold came to Gotham, the supposed streets of Batman. He was determined to
+/* Conan came to Gotham, the supposed streets of Batman. He was determined to
 defeat the evil Batman. He went to the nearest gun shop and bought a shotgun.*/
 
     // Push the string "Hasta la Vista... baby." into arnold.oneLiners
 
 arnold.oneLiners.push("Hasta la Vista... baby.")
 
-    // Create a shotgun method on arnold 
-    // It should take three enemies and reduces their health by 100. 
+    // Create a shotgun method on arnold
+    // It should take three enemies and reduces their health by 100.
     // If their health goes below 1, make them scream!
-    // Log out Hasta La Vista from Arnold's oneLiners array to the console.
+    // Log out Hasta La Vista from the arnold object's oneLiners array to the
+    // console.
 
 arnold.shotgun = function(enemy1, enemy2, enemy3) {
     enemy1.health -= 100;
@@ -207,34 +205,34 @@ arnold.shotgun = function(enemy1, enemy2, enemy3) {
     if (enemy3.health < 1) console.log(enemy3.scream);
 }
 
-/* On one of Batman's nightly patrols, he sees Arnold roaming his streets with 
-a shotgun! Batman sends out three henchmen to take out Arnold. */
+/* On one of Batman's nightly patrols, he sees Conan roaming his streets with
+a shotgun! Batman sends out three henchmen to take out Conan. */
 
     // Have a gunfight in the streets of gotham!
-    // Make sure Arnold wins!
+    // Make sure Conan wins!
 
 greg.shoot(arnold);
 kyle.shoot(arnold);
 arnold.shotgun(kyle, greg, craig);
 
 
-/* Arnold was bloodied and bruised, but he was ready for more. Batman looked down
+/* Conan was bloodied and bruised, but he was ready for more. Batman looked down
 on him from a steeple. He called out
 
-"Hey Arnold! You won't make it out of these streets alive."
+"Hey Conan! You won't make it out of these streets alive."
 
-"But I've done nothing to you! Why all de death, Batman?" replied Arnold.
+"But I've done nothing to you! Why all de death, Batman?" replied Conan.
 
-"It's not what you've done - it's what you did do in the future." 
+"It's not what you've done - it's what you did do in the future."
 
-Arnold was confused. How could he have done something in the future?
+Conan was confused. How could he have done something in the future?
 
-He realized, if he was going to make it out of this alive, he needed bigger 
+He realized, if he was going to make it out of this alive, he needed bigger
 weapons. */
 
 /* ACT 3 */
 
-/* Arnold bought a ton of dynamite for his next encounter with the Batman. */
+/* Conan bought a ton of dynamite for his next encounter with the Batman. */
 
 
     // Push "Here's my ticket" into the arnold.oneLiners array
@@ -260,7 +258,7 @@ arnold.dynamite = function(enemy1, enemy2, enemy3, enemy4, enemy5, enemy6, enemy
 }
 
 /* But batman was ready too. He was creating terminators, actual mechanical clones
- of Arnold to defeat his nemesis. */
+ of Conan to defeat his nemesis. */
 
     // Create a terminator constructor function
     // Give them 5 descriptive keys
@@ -300,8 +298,8 @@ var michel  = new Terminator(900, "Pourquoi!?", "narcissus");
 var mich    = new Terminator(300, "MAIN MICH IS DOWN!", "rose")
 var doug    = new Terminator(700, "Bogus dude.", "buttercup");
 
-/* Arnold received a mysterious letter in the mail from a CW that showed a map
-to the Batcave.  With dynamite in hand, Arnold felt ready to take on the Batman. 
+/* Conan received a mysterious letter in the mail from a CW that showed a map
+to the Batcave.  With dynamite in hand, Conan felt ready to take on the Batman.
 
 However, just to be safe, he decided to have a cell phone where he could call his
 friends. */
@@ -311,7 +309,7 @@ friends. */
 
 arnold.cellphone = true;
 
-    // Create a constructor function for Arnold's friends.
+    // Create a constructor function for Conan's friends.
     // Make 5 distinct keys
     // Ensure they have a function that affects an enemy
     // Make sure they have a scream and a health key.
@@ -337,7 +335,8 @@ var dannyDevito   = new Friend(40, "I did it for my Twin", false, "Danny Devito"
 var lindaHamilton = new Friend(500, "Keep my son safe!", false, "Linda Hamilton");
 var carlWeathers  = new Friend(2000, "Whoa, whoa, whoa. There’s still plenty of \
                                meat on these bones. Now you take me home, throw \
-                               me in a pot, add some broth, a potato...", true, "Carl Weathers");
+                               me in a pot, add some broth, a potato...", true,
+                               "Carl Weathers");
 
 // I'm adding an extra method to carlWeathers because he's so cool.
 carlWeathers.omegaDestruction = function(enemy) {
@@ -345,16 +344,16 @@ carlWeathers.omegaDestruction = function(enemy) {
   if (enemy.health < 1) console.log(enemy.scream);
 }
 
-/* Arnold goes to the batcave with his cellphone and dynamite. And an enormous
+/* Conan goes to the batcave with his cellphone and dynamite. And an enormous
 battle ensues. */
-  
+
 
 mikey.laserEyes(arnold);
 m1ke.megaPunch(arnold);
 michael.laserEyes(arnold);
 michel.megaPunch(arnold);
 
-arnold.punch(mikey);                                // Arnold kills mikey!
+arnold.punch(mikey);                                // Conan kills mikey!
 
 doug.megaPunch(arnold);
 miike.megaPunch(arnold);
@@ -364,7 +363,7 @@ michel.laserEyes(arnold);
 michael.megaPunch(arnold);
 doug.laserEyes(arnold);
 
-arnold.cellphone;                                   // Arnold calls his friends!
+arnold.cellphone;                                   // Conan calls his friends!
 
 carlWeathers.blast(mich);
 dannyDevito.blast(michael);
@@ -376,22 +375,22 @@ console.log(carlWeathers.name + ": NOOOO!! DANNY!");
 
 carlWeathers.omegaDestruction(michael);                           // Mr. Weathers exacts revenge!
 
-arnold.dynamite(mikey, m1ke, michael, mich, doug, michel, miike); // Arnold destroys them all
+arnold.dynamite(mikey, m1ke, michael, mich, doug, michel, miike); // Conan destroys them all
                                                                   // killing mikey and micahel twice
 
-    // Create a fight between Arnold and terminators
-    // When Arnold's health gets low, bring in his friends!
+    // Create a fight between Conan and terminators
+    // When Conan's health gets low, bring in his friends!
 
     // Defeat the terminators (bring their health down to 0.)
 
-/* Arnold has batman cornered. He's hurt, and isn't going anywhere.
+/* Conan has batman cornered. He's hurt, and isn't going anywhere.
 
-"Why did you kill my parents? Why are you so set on fighting me?" bellowed Arnold.
+"Why did you kill my parents? Why are you so set on fighting me?" bellowed Conan.
 
-"You ruined me Conan Arnold - you destroyed the idea of Batman. You will turn us 
+"You ruined me Conan Arnold - you destroyed the idea of Batman. You will turn us
 into a joke when you play Mr. Freeze!"
 
-Arnold was hurt - he had no idea his future would hurt Batman so bad.
+Conan was hurt - he had no idea his future would hurt Batman so bad.
 
 In fact, he was so hurt, he decided to ice Batman.
 */
@@ -406,25 +405,17 @@ arnold.ice = function(enemy) {
 arnold.ice(batman);
 
     // push "What killed de Dinosaurs? DE ICE AGE!" to arnold.oneLiners
-    // Add an ice method to arnold that brings an enemy down to zero and 
+    // Add an ice method to arnold that brings an enemy down to zero and
     // logs out a arnold.oneLiners[4]
 
-/* Then Carl Weathers high fived Arnold and the world was saved from Batman.
+/* Then Carl Weathers high fived Conan and the world was saved from Batman.
 
     http://media.giphy.com/media/pHb82xtBPfqEg/giphy.gif
 
 */
 
-//  _____ _            _____           _               ___ 
+//  _____ _            _____           _               ___
 // |_   _| |__   ___  | ____|_ __   __| |             |__ \
 //   | | | '_ \ / _ \ |  _| | '_ \ / _` |               / /
-//   | | | | | |  __/ | |___| | | | (_| |  _   _   _   |_| 
-//   |_| |_| |_|\___| |_____|_| |_|\__,_| (_) (_) (_)  (_)                                                         
-
-
-
-
-
-
-
-
+//   | | | | | |  __/ | |___| | | | (_| |  _   _   _   |_|
+//   |_| |_| |_|\___| |_____|_| |_|\__,_| (_) (_) (_)  (_)

@@ -1,14 +1,12 @@
-# Javascript Functions and Methods Practice
+# Rocky's Function Summit
 
 ![Rocky](http://www.changesinlongitude.com/wp-content/uploads/2011/08/rocky-movie-on-steps.jpg)
 
-> According to feedback from the weekend, you guys wanted more practice
+## Javascript Functions & Methods Practice
 
-working with javascript methods. Here are some exercises you can practice in 
+Similar to Rocky's summit to the top of the Philidelphia Museum of Art, here are a set of code challenges for you to train on. 
 
-Chrome's console.
-
-> Don't forget - Google is your friend!
+**Do not try and complete all of these in a night!** In fact, the very hard challenges will likely be too difficult for you to solve at your current state. These challenges should act as the jazzercise tape stuck in your old VHS machine: exercise!
 
 ## Easy
 

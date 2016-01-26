@@ -1,4 +1,3 @@
-<img src="images/ga.png" height="100px" width="80px" float="left">
 # My Function, My Choice!
 
 ![Arnold Explosions](images/arnold_junior.jpg)
@@ -17,17 +16,15 @@ regular functions and constructor functions |
 
 ## Roadmap
 
-1. Gaining Ground on Object Oriented Programming Concepts - Intro to Prototypal
- Inheritance
-2. Arnold's Big New Blockbuster - Moving Away from Object Literals
+1. Gaining Ground on Object Oriented Programming Concepts
+2. Arnold's Big New Blockbuster - Going Beyond from Object Literals
 3. We're Gonna Need an Army - Custom Constructor Function
 4. Arnold the Machine - Practice
-5. Arnold's Moronic Script - Lab
+5. Outro
 
-## 1. Gaining Ground on OOP Concepts
-### Intro to Prototypal Inheritance
-
+## Gaining Ground on OOP Concepts
 ![protoman](images/proto_inh.jpg)
+### Intro to Prototypal Inheritance
 
 As we already know, as developers we practice OOP techniques to craft our
 programs from models of real-world objects.
@@ -45,10 +42,9 @@ variable objects.
 
 **When do you think you'd need multiple versions of an object?**
 
-## 2. Arnold's Big New Blockbuster
-### Moving Away from Object Literals
-
+## Arnold's Big New Blockbuster
 ![arnold yell](images/arnold_yell.jpg)
+### Going Beyond from Object Literals
 
 Spry ol' Arnold Schwarzenegger is spending his entire fortune on creating one
 final, ultimate action movie that pulls together all of his hits of the past.
@@ -96,7 +92,8 @@ added properties within it, much like adding the `girlyMan` attribute or the
 
 #### Back to Your Regularly Scheduled Programming
 
-He's even learning new, BIGGER moves to beat the bad guys:
+Arnold is so pumped about his new blackhole of an investment, he's even learning
+newer, BIGGER moves to beat the bad guys:
 
 ```javascript
 arnold.shotgun = function(enemy1, enemy2, enemy3) {
@@ -135,9 +132,9 @@ And we already know that object literal notation doesn't go too much faster...
 We need to hire extras as henchmen and a lot of them. There must be a faster way
 to access a ton of similar, but slightly variable talent!
 
-## 3. We're Gonna Need an Army
-### Introducing Custom Constructor Functions
+## We're Gonna Need an Army
 ![](images/exp3.jpg)
+### Introducing Custom Constructor Functions
 
 Let's look at a `henchman` object written in object literal notation.
 
@@ -154,7 +151,7 @@ var henchman = {
 ```
 
 And as we've said it's pretty tiring (& expensive!!!) to make all the henchmen
-are like this; let's make a constructor function instead!
+in this fashion; let's make a constructor function instead!
 
 Instead of opening up an object, and assigning it to an object literal, we'll
 be creating them with a function.
@@ -185,13 +182,13 @@ new variable by simply calling:
 Howevever, `this` is much more powerful than it seems. Since we're assigning
 properties to an object as it's being created, we have full control over the
 range of values assigned to each __instance__ (the created object) of the
-constructor function.  
+constructor function.
 
 ```javascript
 var Henchman = function(puny, scream, health) {
-  this.health = health;
   this.puny = puny;
   this.scream = scream;
+  this.health = health;
   this.alarm = function(enemy) {
     alert("Intruder! It's " + enemy.name + "!");
   }
@@ -232,10 +229,10 @@ mind.
 
 ```javascript
 var Henchman = function(puny, scream, health, fear) {
-  this.fear = fear;
-  this.health = health;
   this.puny = puny;
   this.scream = scream;
+  this.health = health;
+  this.fear = fear;
   this.alarm = function(enemy) {
     alert("Intruder! It's " + enemy.name + "!");
   }
@@ -256,7 +253,7 @@ get an object back, referencing our `arnold` object.
 
 #### Intro to the Prototype
 
-We'll have a lesson on this in the future, but I feel it's important to mention
+We'll go more in depth to this in the future, but I feel it's important to mention
 here.
 
 Assigning functions within a constructor function is actually bad form. While
@@ -307,10 +304,9 @@ Again, we'll get into this in MUCH more detail later on.
 **Do you think constructor functions could have helped you in our last objects
 lesson's lab?**
 
-## 4. Arnold the Machine
-### Practice
-
+## Arnold the Machine
 ![terminators](images/terminators.jpg)
+### Practice
 
 __Now it's your turn to create a constructor function with custom methods!__
 
@@ -329,27 +325,8 @@ pretty much everything, it's always nice to have a bud.
 Make a Sylvester Stallone and Jean-Claude van Damm based on the same hero
 constructor!
 
-## 5. Arnold's Moronic Script
-### Lab
-![mr.freeze](images/freezearnold.jpg)
+## Outro
 
-
-Arnold wrote the worst script. Before he follows through with it all, you need
-to model it for him so he can tell how terrible it is.
-
-You can find the starter code in your repo.
-
-##### Two options for this lab:
-
-1. I've included a version I wrote if you'd like to fill out my "script". Model
-the script for Arnold so he can tell how terrible his ideas really are.
-2. Rewrite Arnold's script! If you choose the more open path, you must:
-   - Use constructor functions and references to other objects in your version
-   of his film.
-   - Use at least 3 constructor functions
-   - Use references often
-
-__BONUS__: Add functions to the prototype of your different constructor functions.
 
 #### References
 
