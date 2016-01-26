@@ -222,11 +222,9 @@ Now, when we type: `annoyingKindergartener.scream;` we get `"It's a tumor!"`.
 
 > Let's build a couple more henchmen.
 
-What we've done is create a variable constructor so Arnold can mess with all
-these henchmen, puny or otherwise.
+What we've done is create a variable constructor to build henchmen with the same key names but different values.
 
-__What are some other properties we could add to our henchman constructor
-function?__
+__What are some other properties we could add to our henchman constructor function?__
 
 #### Arnold, the Fear of Any Henchman - Referencing Other Objects
 
