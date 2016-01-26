@@ -4,9 +4,7 @@
 
 ## Constructor Functions Lab
 
-Arnold wrote the worst script. Before he follows through with it all, you need
-
-to model it for him in JS so he can tell how terrible it is.
+Arnold wrote the worst script. Before he follows through with it all, you need to model it for him in JS so he can tell how terrible it is.
 
 You can find the `starter_code/` directory in your class repo.
 
