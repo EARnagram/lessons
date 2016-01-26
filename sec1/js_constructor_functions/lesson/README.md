@@ -11,16 +11,15 @@
 | Explain how `new` relates to constructor functions |
 | Describe the need for constructor functions in OOP |
 | Explain how `this` is used in constructor functions |
-| Explain the difference between the returned values of
-regular functions and constructor functions |
+| Explain the difference between the returned values of regular functions and constructor functions |
 
 ## Roadmap
 
 1. Gaining Ground on Object Oriented Programming Concepts
-2. Arnold's Big New Blockbuster - Going Beyond from Object Literals
+2. Arnold's Big New Blockbuster - Going Beyond Object Literals
 3. We're Gonna Need an Army - Custom Constructor Function
 4. Arnold the Machine - Practice
-5. Outro
+5. That's a Wrap! - Outro
 
 ## Gaining Ground on OOP Concepts
 ![protoman](images/proto_inh.jpg)
@@ -44,7 +43,7 @@ variable objects.
 
 ## Arnold's Big New Blockbuster
 ![arnold yell](images/arnold_yell.jpg)
-### Going Beyond from Object Literals
+### Going Beyond Object Literals
 
 Spry ol' Arnold Schwarzenegger is spending his entire fortune on creating one
 final, ultimate action movie that pulls together all of his hits of the past.
@@ -70,30 +69,14 @@ greatest film ever.
 
 > How would we add a __key__ of `girlyMan` with a __value__ of `false`?
 
-> Let's add a method to `arnold` called `machete` that takes one signature
-called `enemy`, removes `100` from the `enemy.health` property, logs out the
-second string in `oneLiners`, and if the enemy's health is 0 or less, `return`
-the enemy's scream.
+**Let's add a method to `arnold` called `machete`.** It should:
 
-#### Pause - The Constructinator
+- Take one argument called `enemy` 
+- Remove `100` from the `enemy.health` property
+- Log out the second string in the `oneLiners` array
+- `return` the enemy's scream, if the enemy's health is 0 or less.
 
-As we know, javascript comes with a ton of built in methods. Today, we're going
-to look at the `constructor` method.
-
-In chrome, I'd like everyone type `arnold.constructor` in the console.
-
-**What did you get?**
-
-What this is telling us, is that using object literal notation to create new
-objects is just a shortcut for calling `var arnold = new Object();`.  So
-`arnold` was actually created by the Object() constructor function! We simply
-added properties within it, much like adding the `girlyMan` attribute or the
-`machete` method.
-
-#### Back to Your Regularly Scheduled Programming
-
-Arnold is so pumped about his new blackhole of an investment, he's even learning
-newer, BIGGER moves to beat the bad guys:
+Arnold is so pumped about his new blackhole of an investment, he's going way beyond your everyday machete:
 
 ```javascript
 arnold.shotgun = function(enemy1, enemy2, enemy3) {
@@ -123,6 +106,34 @@ headVillain.scream = "HISSSSSSSS!";
 
 headVillain.health = 5000;
 ```
+
+### Pause for Clarity
+
+Before we can truly understand what's happening with JS constructor functions, there are a couple key terms that we should cover.
+
+#### The `constructor` Property
+As we know, javascript comes with a ton of built in methods. Today, we're going to look at the `constructor` method.
+
+In chrome, I'd like everyone type `arnold.constructor` in the console.
+
+**What did you get?**
+
+What this is telling us, is that using object literal notation to create new
+objects is just a shortcut for calling `var arnold = new Object();`.  So
+`arnold` was actually created by the Object() constructor function! We simply
+added properties within it, much like adding the `girlyMan` attribute or the
+`machete` method.
+
+#### The `new` Operator
+
+According to MDN:
+> "The new operator creates an instance of a user-defined object type or of one of the built-in object types that has a constructor function."
+
+***...whut?***
+
+For now, simply understand that using the `new` operator before a constructor function is passing in a `{}` to bind to the variable aspects of the function. Or, simpler yet, it's creating a new object out of the function. If this is still confusing, don't worry, we'll be revisiting this throughout the lesson.
+
+### Back to Our Regularly Scheduled Programming...
 
 But Arnold's budget simply cannot accomodate taking this long to find actors.
 And we already know that object literal notation doesn't go too much faster...
@@ -297,13 +308,6 @@ function.
 
 Again, we'll get into this in MUCH more detail later on.
 
-#### That's a wrap!
-
-**When do you think you'd need multiple objects?**
-
-**Do you think constructor functions could have helped you in our last objects
-lesson's lab?**
-
 ## Arnold the Machine
 ![terminators](images/terminators.jpg)
 ### Practice
@@ -325,8 +329,14 @@ pretty much everything, it's always nice to have a bud.
 Make a Sylvester Stallone and Jean-Claude van Damm based on the same hero
 constructor!
 
-## Outro
+## That's a Wrap!
+Inheritance is one of the most important aspects of programming. You can now create templates for the repeated objects in your programs!
 
+Let's take a moment to review what we've learned:
+
+1. Explain the `new` operator and the `constructor` property
+2. How is `this` used in constructor functions?
+3. Why are constructor functions so essential in OOP?
 
 #### References
 
