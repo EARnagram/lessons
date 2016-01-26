@@ -67,7 +67,7 @@ var arnold = {
 Arnold has been training for his big shoot as he expects this will be the
 greatest film ever.
 
-> How would we add a __key__ of `girlyMan` with a __value__ of `false`?
+> How would we add a __key__ of `puny` with a __value__ of `false`?
 
 **Let's add a method to `arnold` called `machete`.** It should:
 
@@ -118,18 +118,20 @@ In chrome, I'd like everyone type `arnold.constructor` in the console.
 
 **What did you get?**
 
-What this is telling us, is that using object literal notation to create new
-objects is just a shortcut for calling `var arnold = new Object();`.  So
-`arnold` was actually created by the Object() constructor function! We simply
-added properties within it, much like adding the `girlyMan` attribute or the
-`machete` method.
+What this is telling us, is that using object literal notation to create new objects is just a shortcut for calling:
+
+```javascript
+var arnold = new Object();
+
+```  
+So `arnold` was actually created by the `Object` constructor function! We simply added properties within it, much like adding the `puny` attribute or the `machete` method.
 
 #### The `new` Operator
 
 According to MDN:
 > "The new operator creates an instance of a user-defined object type or of one of the built-in object types that has a constructor function."
 
-***...whut?***
+***uhh... whut?***
 
 For now, simply understand that using the `new` operator before a constructor function is passing in a `{}` to bind to the variable aspects of the function. Or, simpler yet, it's creating a new object out of the function. If this is still confusing, don't worry, we'll be revisiting this throughout the lesson.
 
@@ -181,12 +183,9 @@ var Henchman = function() {
 
 #### Then `this` Thing Happened...
 
-`this` is a simple, yet frustratingly difficult keyword to fully grok. We'll be
-taking it in bite sizes throughout WDI.
+`this` is a simple, yet frustratingly difficult keyword to fully grok. We'll be taking it in bite sizes throughout WDI.
 
-In the case of the `Henchman` constructor function, `this` refers to the object
-that is being created. Therefore, you're placing the same values directly on the
-new variable by simply calling:
+In the case of the `Henchman` constructor function, `this` refers to the object that is being created by the `new` operator. Therefore, you're placing the same values directly on the new variable by simply calling:
 
 `var bennet = new Henchman();`
 
