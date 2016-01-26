@@ -1,0 +1,122 @@
+@import url(https://fonts.googleapis.com/css?family=Cabin+Condensed);
+
+body {
+  background-color: tan;
+}
+
+nav {
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+nav ul {
+  padding: 0;
+  margin: 0 auto;
+}
+
+header {
+  clear: both;
+  position: relative;
+  margin: 0px auto;
+  text-align: center;
+  background-color: navy;
+  max-width: 90%;
+  max-height: 920px;
+  border-radius: 20px;
+  color: white;
+  font-family: Cabin Condensed;
+}
+
+header h1 {
+  font-size: 3rem;
+  padding-top: 15px;
+}
+
+header h2 {
+  font-size: 2.3rem;
+  padding-bottom: 15px;
+}
+
+header img {
+  border: 1px solid white;
+  max-width: 90%;
+}
+
+li {
+  list-style-type: none;
+}
+
+main {
+  background-color: navy;
+  color: white;
+  max-width: 90%;
+  margin: 10px auto;
+  border-radius: 20px;
+}
+
+main > div {
+  margin: 15px 3px 10px 3px;
+}
+
+main > div > img {
+  max-width: 250px;
+  border: 1px solid white;
+  border-radius: 10px;
+}
+
+footer {
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+/* Navbar with Floats */
+
+nav .nav {
+  display: inline-block;
+  margin: 20px auto;
+}
+
+nav .nav-menu-items {
+  float: right;
+  padding: 0 0 0 20px;
+}
+
+nav .nav-strong {
+  float: left;
+}
+
+/* Reduce size with Media Queries */
+
+/* Using with the Display Flex */
+
+main {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+main > div {
+  max-width: 260px;
+}
+
+/* Navbar with FlexBox */
+
+footer > ul {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+
+.flex-grow-class {
+  padding: 8px;
+}
+
+.flex-grow-class:nth-child(1) {
+  flex-grow: 1;
+
+}
