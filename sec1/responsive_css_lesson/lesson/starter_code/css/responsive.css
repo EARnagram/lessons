@@ -4,6 +4,8 @@ body {
   background-color: tan;
 }
 
+/* Top Navbar */
+
 nav {
   max-width: 90%;
   margin: 0 auto;
@@ -13,6 +15,8 @@ nav ul {
   padding: 0;
   margin: 0 auto;
 }
+
+/* Large Header */
 
 header {
   clear: both;
@@ -48,6 +52,8 @@ li {
   list-style-type: none;
 }
 
+/* Three Info Media Boxes */
+
 main {
   background-color: navy;
   color: white;
@@ -66,77 +72,25 @@ main > div > img {
   border-radius: 10px;
 }
 
+/* Footer Navbar */
+
 footer {
   max-width: 90%;
   margin: 0 auto;
 }
 
+/* ------------------ */
 /* Navbar with Floats */
+/* ------------------ */
 
-nav .nav {
-  display: inline-block;
-  margin: 20px auto;
-}
-
-nav .nav-menu-items {
-  float: right;
-  padding: 0 0 0 20px;
-}
-
-nav .nav-strong {
-  float: left;
-}
-
+/* ------------- */
 /* Media Queries */
+/* ------------- */
 
-@media (max-width:600px) {
-  nav .nav {
-    display: block;
-    float: none;
-  }
+/* --------------------------- */
+/* Using Display Flex */
+/* --------------------------- */
 
-  nav .nav-menu-items {
-    padding-left: 0;
-  }
-}
-
-/* Using with the Display Flex */
-
-main {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-main > div {
-  max-width: 260px;
-  padding: 5px;
-}
-
+/* ------------------- */
 /* Navbar with FlexBox */
-
-footer > ul {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  margin: 0 0 10px 0;
-  padding: 0;
-}
-
-.flex-grow-class {
-  padding: 8px;
-}
-
-.flex-grow-class:nth-child(1) {
-  flex-grow: 1;
-}
-
-@media (max-width:600px) {
-  footer > ul {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
+/* ------------------- */

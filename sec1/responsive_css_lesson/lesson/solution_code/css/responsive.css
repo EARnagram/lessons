@@ -4,6 +4,8 @@ body {
   background-color: tan;
 }
 
+/* Top Navbar */
+
 nav {
   max-width: 90%;
   margin: 0 auto;
@@ -13,6 +15,8 @@ nav ul {
   padding: 0;
   margin: 0 auto;
 }
+
+/* Large Header */
 
 header {
   clear: both;
@@ -48,6 +52,8 @@ li {
   list-style-type: none;
 }
 
+/* Three Info Media Boxes */
+
 main {
   background-color: navy;
   color: white;
@@ -66,12 +72,16 @@ main > div > img {
   border-radius: 10px;
 }
 
+/* Footer Navbar */
+
 footer {
   max-width: 90%;
   margin: 0 auto;
 }
 
+/* ------------------ */
 /* Navbar with Floats */
+/* ------------------ */
 
 nav .nav {
   display: inline-block;
@@ -87,7 +97,9 @@ nav .nav-strong {
   float: left;
 }
 
+/* ------------- */
 /* Media Queries */
+/* ------------- */
 
 @media (max-width:600px) {
   nav .nav {
@@ -100,7 +112,9 @@ nav .nav-strong {
   }
 }
 
-/* Using with the Display Flex */
+/* --------------------------- */
+/* Using Display Flex */
+/* --------------------------- */
 
 main {
   display: flex;
@@ -115,7 +129,9 @@ main > div {
   padding: 5px;
 }
 
+/* ------------------- */
 /* Navbar with FlexBox */
+/* ------------------- */
 
 footer > ul {
   display: flex;
