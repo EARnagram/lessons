@@ -49,7 +49,7 @@ Go ahead and copy the `starter_code/` directory out of the repository. We'll be 
 
 ## Navbars with Floats
 
-
+Floats are the old school method to creating a 
 
 
 
