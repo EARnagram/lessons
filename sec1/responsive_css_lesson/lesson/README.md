@@ -182,7 +182,7 @@ footer > ul {
 
 ## But Wait, There's More!
 
-You are now an honorary Billy Mays Tribute Salesperson. Please share your responsive wares across the Internet.
+You are now an honorary Billy Mays Tribute Salesperson. Please share your responsive wares across the Internet responsibly.
 
 But a few questions before we leave:
 
