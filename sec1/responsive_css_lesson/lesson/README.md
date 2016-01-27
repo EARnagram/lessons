@@ -1,4 +1,4 @@
-# Billy Mays' Incredible, One-of-a-Kind, Space-Making, Incredible, Amazing, Incredible Tool
+# The Billy Mays Tribute Salesmen Collective
 
 ![Billy Mays](http://www.tampabay.com/resources/images/dti/rendered/2008/06/b4s_bug060608_26262a_8col.jpg)
 
@@ -15,9 +15,10 @@
 #### Road Map
 
 1. Billy Mays Here - Intro to Responsive Website Design
-2. Media Queries
-3. Using the Flex Box
-4. But Wait, There's More!
+2. Using Floats with Navbars
+3. Media Queries & Max/Min Width
+4. Using the Flex Box
+5. But Wait, There's More!
 
 ## BILLY MAYS HERE!
 
@@ -33,26 +34,28 @@
 
 Once upon a time, long, long ago, nearly every screen was either 640x480, 800x600, or 1024x768, and you could expect that people had most of their screen occupied by a broswer window.
 
-Those were the good old days when Billy Mays (RIP) was still slinging his helpful wares.
+Those were the good old days when Billy Mays (RIP) was still slinging his helpful wares. It's up to us as part of the Billy Mays Tribute Salesmen Collective to followin his footsteps and spread the good word on responsive design.
 
-Now, people will be looking at our websites on phones, tables, browser windows scrunched up all tiny, and maybe even watches (please remember this lesson; it'll be funny to go back and read this README in a few years). 
+Now, people will be looking at our websites on phones, tables, browser windows scrunched up all tiny, and maybe even watches (please remember this lesson; it'll be funny to go back and read this README in a few years and ask: "Who the hell is Billy Mays??"). 
 
-You can compare the difference - just resize the x-axis of your browser window:
+You can compare the difference - just resize the width of your browser window:
 
 - [Limited Responsiveness](https://streetcleaner.bandcamp.com/album/payback)
 - [Fully Fledged Responsiveness](http://www.piedpiper.com/)
 
 It's your responsibility, as the web developer, to make your site work as well as you can for as many people as you can– including people viewing on phones, tablets, and yes, even watches.
 
-## Media Queries and Min/Max-Widths
-
 Go ahead and copy the `starter_code/` directory out of the repository. We'll be working in that for the class.
+
+## Navbars with Floats
+
+
 
 
 
 ## But Wait, There's More!
 
-
+You are now 
 
 #### References
 
@@ -69,4 +72,3 @@ Go ahead and copy the `starter_code/` directory out of the repository. We'll be 
 [CSS FlexBox Essentials](https://www.youtube.com/watch?v=G7EIAgfkhmg)
 
 [CSS FlexBox Practical Examples](https://www.youtube.com/watch?v=H1lREysgdgc)
-

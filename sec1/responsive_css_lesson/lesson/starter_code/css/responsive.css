@@ -17,7 +17,7 @@ nav ul {
 header {
   clear: both;
   position: relative;
-  margin: 0px auto;
+  margin: 0 auto;
   text-align: center;
   background-color: navy;
   max-width: 90%;
@@ -29,16 +29,18 @@ header {
 
 header h1 {
   font-size: 3rem;
-  padding-top: 15px;
+  padding-top: 20px;
 }
 
 header h2 {
   font-size: 2.3rem;
-  padding-bottom: 15px;
+  padding-bottom: 20px;
 }
 
 header img {
   border: 1px solid white;
+  border-radius: 20px;
+  margin: -10px 0 -10px 0;
   max-width: 90%;
 }
 
@@ -85,7 +87,14 @@ nav .nav-strong {
   float: left;
 }
 
-/* Reduce size with Media Queries */
+/* Media Queries */
+
+@media (max-width:600px) {
+  nav .nav {
+    display: block;
+    float: none;
+  }
+}
 
 /* Using with the Display Flex */
 
@@ -99,6 +108,7 @@ main {
 
 main > div {
   max-width: 260px;
+  padding: 5px;
 }
 
 /* Navbar with FlexBox */
@@ -118,5 +128,11 @@ footer > ul {
 
 .flex-grow-class:nth-child(1) {
   flex-grow: 1;
+}
 
+@media (max-width:600px) {
+  footer > ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
