@@ -88,8 +88,12 @@ nav .nav {
   margin: 20px auto;
 }
 
-nav .nav-menu-items {
+nav .container-ul {
   float: right;
+}
+
+nav .nav-menu-items {
+  float: left;
   padding: 0 0 0 20px;
 }
 
@@ -105,6 +109,10 @@ nav .nav-strong {
   nav .nav {
     display: block;
     float: none;
+  }
+
+  nav .container-ul {
+    float: left;
   }
 
   nav .nav-menu-items {

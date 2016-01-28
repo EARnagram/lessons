@@ -120,13 +120,17 @@ nav .nav {
 }
 ```
 
-We're changing the display to ease our use of floats. Now, we'll float the `.nav-strong` element left, and the `.nav-menu-items` right.
+We're changing the display to ease our use of floats. Now, we'll float the `.nav-strong` element left, and the `.container-ul` right. We then must float all the `.nav-menu-items` left so they don't display in reverse on our document.
 
 We'll need to add padding to the left of each of the `.nav-menu-items` `<li>` elements so they don't bunch up on one another.
 
 ``` CSS
-nav .nav-menu-items {
+nav .container-ul {
   float: right;
+}
+
+nav .nav-menu-items {
+  float: left;
   padding: 0 0 0 20px;
 }
 
@@ -161,6 +165,10 @@ In general, this is used with the max or min-width property. Let's see how we'd 
     display: block;
     float: none;
   }
+  
+  nav .container-ul {
+    float: left;
+  }
 
   nav .nav-menu-items {
     padding-left: 0;
@@ -168,7 +176,7 @@ In general, this is used with the max or min-width property. Let's see how we'd 
 }
 ```
 
-Notice how the navbar stacks when we skinny the webpage.
+Notice how the navbar stacks when we skinny the webpage. We had to float it left because before it was pushing to the right side.
 
 Take note of the `<header>`'s use of the `max-width` property as well.
 
@@ -223,12 +231,12 @@ Let's use a [flexbox property demonstrator](http://codepen.io/justd/pen/yydezN?e
 | Parent Property | Definition                               |
 | --------------- | ---------------------------------------- |
 | flex-direction  | Row or column - reverse or natural flow. |
-| flex-wrap       | If the contents are too wide, they can `wrap` or `wrap-reverse |
-| justify-content | Horizontal flow.                         |
-| align-items     | Vertical flow.                           |
+| flex-wrap       | If the contents are too wide, they can `wrap` or `wrap-reverse` |
+| justify-content | Determines horizontal flow.              |
+| align-items     | Determines vertical flow.                |
 | align-content   | Affects the flow when things wrap.       |
 
-#### Children Flex Properties
+#### Child Flex Properties
 
 | Child Property | Definition                               |
 | -------------- | ---------------------------------------- |
@@ -311,7 +319,7 @@ You are now an honorary Billy Mays Tribute Salesperson. Please share your respon
 But a few questions before we leave:
 
 1. What is mobile first design and how does it relate to responsive CSS?
-2. Explain the differences between `align-content`, `align-items`, and `justify-content`?
+2. Explain the differences between `align-content`, `align-items`, and `justify-content`.
 3. What's the difference between a flex child and flex parent attribute?
 
 #### References
