@@ -149,7 +149,7 @@ To do this, we'll need to use a **media query**.
 
 Essentially, you're telling the webpage to treat content differently according to a certain property.
 
-In general, this is f
+In general, this is used with the max or min-width property. Let's see how we'd use a media query and the max-width property to change our navbar when the screen is less than 600px:
 
 ``` CSS
 /* ------------- */
@@ -168,12 +168,87 @@ In general, this is f
 }
 ```
 
+Notice how the navbar stacks when we skinny the webpage.
+
+Take note of the `<header>`'s use of the `max-width` property as well.
+
+``` css
+header {
+  clear: both;
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+  background-color: navy;
+  max-width: 90%;
+  max-height: 920px;
+  border-radius: 20px;
+  color: white;
+  font-family: Cabin Condensed;
+}
+
+header img {
+  border: 1px solid white;
+  border-radius: 20px;
+  margin: -10px 0 -10px 0;
+  max-width: 90%;
+}
+```
+
+This is why the image and header shrink with the page (as well as the `max-height` property in the `<header>`).
+
 ## Using the Flex-Box
 
+Floats are annoying. Flexible Boxes are significantly less annoying.
+
+> "[The FlexBox] aims at providing a more efficient way to lay out, align and distribute space among items in a container, even when their size is unknown and/or dynamic (thus the word "flex")." 
+> 
+> — CSS Tricks
+
+Flexboxes are best at dealing with small portions of an application rather than entire webpages.
+
+Things like small media objects and navbars are perfect for flexboxes, as they deal with the shifting sizes of a webpage much better than any block, inline, or inline-block element.
+
+Unfortunately, the flexbox has too many feautres for us to go through every single one, but we're going to try and hit the essentials.
+
+First, there are two major families of flexbox properties: *parent and child*.
+
+The parent properties go on the enclosing box. They determine how the children will interact with each other.
+
+The child properties isolate one element *inside* the flexbox. These will change how that one child element will act in regards to its siblings.
+
+Let's use a [flexbox property demonstrator](http://codepen.io/justd/pen/yydezN?editors=1100) to understand what options are available to us with `display: flex`.
+
+#### Parent Flex Properties
+
+| Parent Property | Definition                               |
+| --------------- | ---------------------------------------- |
+| flex-direction  | Row or column - reverse or natural flow. |
+| flex-wrap       | If the contents are too wide, they can `wrap` or `wrap-reverse |
+| justify-content | Horizontal flow.                         |
+| align-items     | Vertical flow.                           |
+| align-content   | Affects the flow when things wrap.       |
+
+#### Children Flex Properties
+
+| Child Property | Definition                               |
+| -------------- | ---------------------------------------- |
+| order          | Default is 0. Positive numbers will go last, and negative first. |
+| flex-grow      | Controls the ratio of the amount of space an element will grow in a flex box. |
+| flex-shrink    | Like flex-grow, but with making the element smaller. |
+| flex-basis     | Becomes the standard for the size of the element before the child elements grow. |
+| flex           | Takes three parameters: combo of flex-grow, flex-shrink and flex-basis. |
+| align-self     | Allows the default alignment to be overridden for an individual flex item. |
+
+#### Try out the FlexBox with Our Media Objects
+
+Now that we're a little familiar with the flex-box, let's see it in action!
+
+Lets first change that `<main>` element and the 3 enclosing `<div>`.
+
 ``` CSS
-/* --------------------------- */
+/* ------------------ */
 /* Using Display Flex */
-/* --------------------------- */
+/* ------------------ */
 
 main {
   display: flex;
@@ -187,7 +262,17 @@ main > div {
   max-width: 260px;
   padding: 5px;
 }
+```
 
+Now we can see the three elements dynamically wrap as soon as the webpage gets thinner.
+
+#### Navbar with Flexbox
+
+Sometimes isolating children of the flex-box is extremely necessary. Below is an example of a navbar made using `display:flex`. 
+
+Look how the use of `flex-grow` allows the title to command the majority of real-estate on the navbar.
+
+``` css
 /* ------------------- */
 /* Navbar with FlexBox */
 /* ------------------- */
@@ -216,6 +301,8 @@ footer > ul {
   }
 }
 ```
+
+Take note of the media query used here: we're changing the direction to columns instead of row so they stack in the same fashion as our navbar at the top of the page.
 
 ## But Wait, There's More!
 
