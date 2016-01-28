@@ -61,13 +61,13 @@ var render = function() {
 
   // Render Winner Component
   var winnerEl = document.getElementById("winner");
+  renderBoard();
   if (!won) {
     winnerEl.textContent = "Winner: ?";
   } else {
     winnerEl.textContent = "Winner: " + currentPlayer;
+    alert("Yo dawg, I can't believe " + currentPlayer + " just won!! DAYYUM!")
   }
-
-  renderBoard();
 };
 
 // As an example, we can "render" a component separately
@@ -106,5 +106,14 @@ document.getElementById("board")
           if (!won && cellEl.textContent === "") {
             move(cellIndex);
             render();
+          } else if (!won && cellEl.textContent !== "") {
+            cellEl.classList.add("fade-in");
+            setTimeout(function() {
+              cellEl.classList.add("fade-out");
+            }, 1100);
+            setTimeout(function() {
+              cellEl.classList.remove("fade-in");
+              cellEl.classList.remove("fade-out");
+            }, 2000)
           }
         });

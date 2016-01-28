@@ -8,7 +8,7 @@
 | ---------------------------------------- |
 | Describe media queries and how to write them |
 | Create rules that adjust styles for phones, tablets, and computers |
-| Describe mobile first design |
+| Describe mobile first design             |
 | Use `display:flex` for a responsive design |
 | Manipulate flexible boxes with `flex-direction`, `flex-wrap`, `justify-content`, `align-items`, and `align-content` properties |
 
@@ -23,9 +23,9 @@
 ## BILLY MAYS HERE!
 
 > ARE YOU TIRED OF YOUR DESIGNS GOING DOWN THE TUBE AS SOON AS SOMEONE OPENS UP YOUR WEBSITE ON A PHONE!?!?!?!?!
->
+> 
 > WELL, THROW THOSE WORRIES OUT THE DOOR!
->
+> 
 > WELCOME TO RESPONSIVE CSS!
 
 ![](http://api.ning.com/files/Kk19*2P3xgYqiykJv8EedsK8vZPAaTdJWxTjdO7cYG6obt10sE-tzo0IKGJqFHkfSFqP2-KSn8BJHaV9CnhOfB*Kkzs*ZOX*/BillyMaysPWNSGod.JPG)
@@ -47,6 +47,33 @@ It's your responsibility, as the web developer, to make your site work as well a
 
 #### Mobile First Design
 
+Due to the rise in use of these alternatives, many developers have considered planning for the smaller devices before they design for the desktop. 
+
+Why? Lets look at a few facts (taken from codemyviews.com):
+
+- There are over **1.2 billion** mobile web users worldwide
+- In the U.S., 25% of mobile Web users are mobile-only (they rarely use a desktop to access the web)
+- Mobile apps have been downloaded 10.9 billion times
+- Mobile device sales are increasing across the board with over 85 percent of new handsets able to access the mobile Web
+
+Due to these reasons - and big shot, Eric Schmidt claiming it was the future for Google - a lot of people are considering this a viable option.
+
+Now there are plenty of positives and negatives to each design approach, but they boil down to this  pithy saying: ***Graceful Degradation vs. Progressive Enhancement***.
+
+**Graceful Degradation**: Desktop first. Explore the full capabilities of a desktop and remove selectively, cutting away the fat and leaving an elegant core.
+
+**Progressive Enhancement**: Mobile first. Start with the most core features first, then add features as they become necessary.
+
+For the most part, *mobile first design is "better"*.
+
+I put this in quotes because while it makes you solve the difficult task of a responsive design with a limited real estate first, **it makes you solve the difficult part first**.
+
+Solving the limiting, difficult aspects first can be a negative for creativity! Some developers feel it gets in the way of their best design motives.
+
+Since we're learning, we'll be doing today's lesson as a *Graceful Degradation*, but stay open to the idea of mobile first design in future projects.
+
+##### Assets for Lesson
+
 Go ahead and copy the `starter_code/` directory out of the repository. We'll be working in that for the class.
 
 ## Navbars with Floats
@@ -59,7 +86,7 @@ Lets look at the top navbar in the `starter_code/`.
 
 First, lets isolate and examine the code already written for our website:
 
-```CSS
+``` CSS
 /* Top Navbar */
 
 nav {
@@ -86,7 +113,7 @@ Be aware that the element beneath the navbar has already been given a clear.
 
 In order to space our page correctly, and get the navbar to move with the resizing of the window, we'll have to add floats to our elements. First, lets center our `<li>` elements by accessing the class `.nav`, and change it's display to `inline-block`.
 
-```CSS
+``` CSS
 nav .nav {
   display: inline-block;
   margin: 20px auto;
@@ -97,7 +124,7 @@ We're changing the display to ease our use of floats. Now, we'll float the `.nav
 
 We'll need to add padding to the left of each of the `.nav-menu-items` `<li>` elements so they don't bunch up on one another.
 
-```CSS
+``` CSS
 nav .nav-menu-items {
   float: right;
   padding: 0 0 0 20px;
@@ -112,9 +139,19 @@ Now, you'll see that the navbar elements will respond well to the resizing of th
 
 ## Media Queries and the Min/Max Width
 
-Let's get that top Navbar to stack vertically above our `<header>` when the webpage has a width under 600px.
+Let's get that top Navbar to stack above our `<header>` when the webpage has a width under 600px.
 
-```CSS
+To do this, we'll need to use a **media query**. 
+
+> "A media query consists of a media type and at least one expression that limits the style sheets' scope by using media features, such as width, height, and color."
+> 
+> — Thanks MDN
+
+Essentially, you're telling the webpage to treat content differently according to a certain property.
+
+In general, this is f
+
+``` CSS
 /* ------------- */
 /* Media Queries */
 /* ------------- */
@@ -133,7 +170,7 @@ Let's get that top Navbar to stack vertically above our `<header>` when the webp
 
 ## Using the Flex-Box
 
-```CSS
+``` CSS
 /* --------------------------- */
 /* Using Display Flex */
 /* --------------------------- */
@@ -188,19 +225,17 @@ But a few questions before we leave:
 
 1. What is mobile first design and how does it relate to responsive CSS?
 2. Explain the differences between `align-content`, `align-items`, and `justify-content`?
-3. Name the 5 (or 6) flex children CSS properties?
+3. What's the difference between a flex child and flex parent attribute?
 
 #### References
 
+[Mobile First Design: Why It’s Great and Why It Sucks](https://codemyviews.com/blog/mobilefirst)
+
+[MDN Using Media Queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries)
+
 [CSS-Tricks Complete Guide to FlexBoxes](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 
-[MDN Using CSS Flexible Boxes](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes)
-
-[Flexy Boxes Playground](http://the-echoplex.net/flexyboxes/)
-
 [Flexbox Properties Demonstration](http://codepen.io/justd/pen/yydezN?editors=1100)
-
-[A Visual Guide to CSS3 Flexbox Properties](https://scotch.io/tutorials/a-visual-guide-to-css3-flexbox-properties)
 
 [CSS FlexBox Essentials](https://www.youtube.com/watch?v=G7EIAgfkhmg)
 
