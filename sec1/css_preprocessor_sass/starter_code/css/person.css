@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Calligraffitti);
 
 html, body {
-  height: 100%; 
+  height: 100%;
 }
 
 body {
@@ -17,9 +17,10 @@ h1 {
   color: #ff00ff;
   font-family: Calligraffitti;
   text-shadow: 1px 1px 1px #000;
+  font-size: 3rem;
 }
 
-/* Flair generics */
+/* Flair features */
 
 .flair {
   margin: 2em;
@@ -29,40 +30,38 @@ h1 {
   height: 300px;
   position: relative;
 }
-
 .flair div {
-    background: url('') no-repeat center center;
     border:1px dashed blue;
 }
-  
-.flair-head {
+
+.flair .flair-head {
     width: 40%;
     height: 20%;
     margin: 0 auto;
     transform-origin: 50% 100%;
 }
-  
-.flair-body {
+
+.flair .flair-body {
     width: 60%;
     height: 40%;
     margin: 0 auto;
     position: relative;
-    z-index: 200;
+    z-index: 100;
 }
-  
-.flair-arm {
+
+.flair .flair-arm {
     width: 15%;
     height: 40%;
     position: absolute;
     top: 20%;
-}    
- 
-.flair-arm-l {
+}
+
+.flair .flair-arm-l {
       left: 10%;
       transform-origin: 60% 12%;
 }
-    
-.flair-arm-r {
+
+.flair .flair-arm-r {
       right: 10%;
       transform-origin: 40% 12%;
 }
@@ -75,11 +74,11 @@ h1 {
     transform-origin: 50% 0%;
 }
 
-.flair-leg-l {
+.flair .flair-leg-l {
       left: 30%;
 }
-    
-.flair-leg-r {
+
+.flair .flair-leg-r {
       right: 30%;
 }
 
@@ -88,7 +87,7 @@ h1 {
      background-color: #ffe4c4;
      border-radius: 20%;
 }
-  
+
 #basic .flair-head {
      border-radius: 50%;
 }

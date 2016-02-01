@@ -165,7 +165,7 @@ In general, this is used with the max or min-width property. Let's see how we'd 
     display: block;
     float: none;
   }
-  
+
   nav .container-ul {
     float: left;
   }
@@ -335,3 +335,5 @@ But a few questions before we leave:
 [CSS FlexBox Essentials](https://www.youtube.com/watch?v=G7EIAgfkhmg)
 
 [CSS FlexBox Practical Examples](https://www.youtube.com/watch?v=H1lREysgdgc)
+
+[Using Modernizr with Flexbox](http://zomigi.com/blog/using-modernizr-with-flexbox/)

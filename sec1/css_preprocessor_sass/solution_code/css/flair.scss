@@ -7,7 +7,7 @@ $body-pink: #ffe4c4;
 @import 'newstyle';
 
 html, body {
-  height: 100%; 
+  height: 100%;
 }
 
 body {
@@ -47,7 +47,7 @@ h1 {
     transform-origin: 50% 100%;
     background-color: $body-pink;
   }
-  
+
   .flair-body {
     width: 60%;
     height: 40%;
@@ -56,26 +56,26 @@ h1 {
     z-index: 200;
     background-color: $text-pink;
   }
-  
+
   .flair-arm {
     width: 15px / 200px * 100%;
     height: 40px / 100px * 100%;
     position: absolute;
     top: 20%;
     background-color: $body-pink;
-    
-    
+
+
     &-l {
       left: 10%;
       transform-origin: 60% 12%;
     }
-    
+
     &-r {
       right: 10%;
       transform-origin: 40% 12%;
     }
   }
-  
+
   .flair-leg {
     width: 15%;
     height: 40%;
@@ -83,11 +83,11 @@ h1 {
     top: 55%;
     transform-origin: 50% 0%;
     background-color: $body-pink;
-   
+
     &-l {
       left: 30%;
     }
-    
+
     &-r {
       right: 30%;
     }
@@ -98,19 +98,8 @@ h1 {
    > div {
      border-radius: 20%;
    }
-  
+
   .flair-head {
      border-radius: 50%;
   }
-}
-
-.friendship {
-  background-color: rebeccapurple;
-}
-
-.final-score {
-  text-align: center;
-  font-size: 5rem;
-  text-shadow: 1px 1px 1px #000;
-  z-index: 600;
 }

@@ -74,13 +74,4 @@ h1 {
 #basic .flair-head {
   border-radius: 50%; }
 
-.friendship {
-  background-color: rebeccapurple; }
-
-.final-score {
-  text-align: center;
-  font-size: 5rem;
-  text-shadow: 1px 1px 1px #000;
-  z-index: 600; }
-
 /*# sourceMappingURL=output.css.map */
