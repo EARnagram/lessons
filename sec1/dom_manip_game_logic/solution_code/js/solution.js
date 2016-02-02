@@ -1,3 +1,4 @@
+$(function() {
 console.log("WE LOADED!");
 
 // Current Turn holder
@@ -9,53 +10,11 @@ var Player = function(id) {
 	this.id   = "p" + id;
 }
 
-// Create players
-var p1 = new Player(0);
-var p2 = new Player(1);
-var p3 = new Player(2);
-var p4 = new Player(3);
+// Create List of Players
+var players = [new Player(0), new Player(1), new Player(2), new Player(3)];
 
 // Model the board
-var board = [p1, p2, p3, p4];
-
-// Print who's up
-var printPlayers = function() {
-	var print = "";
-	board.forEach(function(event, index) {
-		event === currentTurn ? print += "  p" + (index + 1) : print += "  ____";
-	});
-	console.log("Who's Up?\n" + print);
-}
-
-// Next Turn
-var nextTurn = function() {
-	var counter = 0;
-	board.forEach(function(event, index) {
-		if (event === currentTurn) counter += index + 1;
-	});
-	switch (counter) {
-		case 1:
-			currentTurn = board[1];
-			break;
-		case 2:
-			currentTurn = board[2];
-			break;
-		case 3:
-			currentTurn = board[3];
-			break;
-		default:
-			currentTurn = board[0];
-			break;
-	}
-}
-
-// Clear class from objects that are not current turn
-var renderClass = function() {
-	board.forEach(function(event) {
-		event !== currentTurn ? $("#" + event.id).removeClass('selected') : $("#" + event.id).addClass('selected');
-	});
-	$('.switch').html(currentTurn.name + " is up!");
-}
+var board = [null, null, null, null];
 
 // Click function for button to change who's up
 // PS I moved the button manipulation to the render folder
@@ -63,4 +22,53 @@ $('.switch').click(function() {
 	nextTurn();
 	renderClass();
 	printPlayers();
+});
+
+// Next Turn
+function nextTurn() {
+	for (var i = 0; i < board.length; i++) {
+		if (board[i] === 1) {
+			// Set current turn
+			currentTurn = players[i];
+
+			// Set up next turn
+			board[i] = null;
+			if (i === 3) {
+				board[0] = 1;
+			} else {
+				board[i + 1] = 1;
+			}
+			// Break out if the player has been found
+			break;
+		}
+	}
+	// Start Game if no player found
+	if (currentTurn === undefined) {
+		currentTurn = players[0];
+		board[0] = 1;
+	}
+}
+
+// Clear class from objects that are not current turn
+function renderClass() {
+	board.forEach(function(event, index) {
+		if (event === 1) {
+			$("#" + players[index].id).addClass('selected');
+		} else {
+		$("#" + players[index].id).removeClass('selected') :
+		}
+	});
+	// Alert who's turn it is on the button
+	$('.switch').text(currentTurn.name + " is up!");
+}
+
+// Print who's up
+function printPlayers() {
+	var print = "";
+	board.forEach(function(event, index) {
+		event === 1 ? print += "  p" + (index + 1) : print += "  ____";
+	});
+	console.log("Who's Up?\n" + print);
+}
+
 });

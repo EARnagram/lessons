@@ -4,9 +4,9 @@
 
 | Lesson Objectives |
 | :--- |
+| Use an HTML/CSS/JS Framework |
 | Describe the grid system |
 | Create a responsive website with Bootstrap |
-| Describe a HTML/CSS/JS Framework |
 
 
 #### Road Map
@@ -17,15 +17,15 @@
 
 ## Poor Ol' Uncle Derry
 
-Uncle Derry loves him some fishin. You however, do not. In fact, even 
+Uncle Derry loves him some fishin. You however, do not. In fact, even
 Uncle Derry is just plain annoying.
 
-Nevertheless, Uncle Derry heard from Aunt Dawn who heard from Grammy 
-Penny who heard from Peepaw Wilson that you were a big time web 
-developer. And now, poor ol' Uncle Derry needs help on his desperate 
+Nevertheless, Uncle Derry heard from Aunt Dawn who heard from Grammy
+Penny who heard from Peepaw Wilson that you were a big time web
+developer. And now, poor ol' Uncle Derry needs help on his desperate
 fishing website's homepage.
 
-You feel bad for your uncle, but your time is short as a billionaire 
+You feel bad for your uncle, but your time is short as a billionaire
 web-developer. You decide to help, but put in the minimal effort with
 a CSS/JS Framework called Bootstrap.
 
@@ -33,23 +33,24 @@ a CSS/JS Framework called Bootstrap.
 
 Bootstrap is a CSS/JS Framework. It makes styling a breeze!
 
-Bootstrap easily and efficiently scales your websites and applications 
+Bootstrap easily and efficiently scales your websites and applications
 with a single code base, from phones to tablets to desktops with CSS
 media queries.
 
-With Bootstrap, you get extensive and beautiful documentation for 
-common HTML elements, dozens of custom HTML and CSS components, and 
+With Bootstrap, you get extensive and beautiful documentation for
+common HTML elements, dozens of custom HTML and CSS components, and
 awesome jQuery plugins.
 
-Bootstrap ships with vanilla CSS, but its source code utilizes the two 
-most popular CSS preprocessors, Less and Sass. Quickly get started 
+Bootstrap ships with vanilla CSS, but its source code utilizes the two
+most popular CSS preprocessors, Less and Sass. Quickly get started
 with precompiled CSS or build on the source.
 
+> CFU: Describe an CSS Framework in a Tweet.
 
 ## Installing Bootstrap
 
-I've added a markdown for [How to Add Twitter Bootstrap to Your Rails App](https://github.com/ga-students/WDI_DTLA_6/blob/master/resources/cheatsheets/bootstrap_cheatsheet.md)
-to Github and included it in `WDI_DTLA_6/resources/cheatsheets` (in
+I've added a markdown for [How to Add Twitter Bootstrap to Your Rails App](https://github.com/ga-students/WDI_DTLA_8/blob/master/resources/cheatsheets/bootstrap_cheatsheet.md)
+to Github and included it in `WDI_DTLA_8/resources/cheatsheets` (in
 your repos).
 
 But for this lesson, we'll just be using a good ol' CDN.
@@ -62,6 +63,8 @@ But for this lesson, we'll just be using a good ol' CDN.
 
 Include these in your head tag.
 
+> CFU
+
 ## Bootstrap Goodies
 
 Bootstrap comes with quite a bit. Too much to cover in one lesson in
@@ -70,25 +73,27 @@ fact, but lets look at the most essential features of [Bootstrap](http://getboot
 #### Break into Groups!
 
 1. Navbars
-2. Masthead/Jumbotron/Buttons
+2. Jumbotron/Buttons
 3. Grid System
 4. Tables
 5. Modals
 6. Input Groups
 7. Panels
 
-Each group should take __15 minutes__ to research their topic, and be able 
-to present it to the class with a small amount of sample code to 
-demonstrate what they've learned. 
+Each group should take __15 minutes__ to research their topic, and be able
+to present it to the class with a small amount of sample code to
+demonstrate what they've learned.
 
 ### __*Your sample code should be about fishing.*__
 
 Remember: we're here to help Uncle Derry.
 
+> CFU
+
 ## Fix Up Uncle Derry's Site
 
-Take 20 minutes to use what you've learned in bootstrap to fix up 
-Uncle Derry's Site. Try and use __NO custom CSS__ when styling his 
+Take 20 minutes to use what you've learned in bootstrap to fix up
+Uncle Derry's Site. Try and use __NO custom CSS__ when styling his
 site! Make sure it looks something like this when you're done:
 
 __navbar__:
@@ -107,7 +112,7 @@ Uncle Derry is thrilled at your styling (or as thrilled as Uncle Derry
 can be). Let's see what we've learned.
 
 1. What is a CSS Framework?
-2. How does Bootstrap help us optimize our websites for different 
+2. How does Bootstrap help us optimize our websites for different
    screen sizes?
 3. Why would a developer bother to use a CSS Framework's grid system?
 
