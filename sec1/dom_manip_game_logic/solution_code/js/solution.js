@@ -28,8 +28,6 @@ $('.switch').click(function() {
 function nextTurn() {
 	for (var i = 0; i < board.length; i++) {
 		if (board[i] === 1) {
-			// Set current turn
-			currentTurn = players[i];
 
 			// Set up next turn
 			board[i] = null;
@@ -53,9 +51,10 @@ function nextTurn() {
 function renderClass() {
 	board.forEach(function(event, index) {
 		if (event === 1) {
+			currentTurn = players[index];
 			$("#" + players[index].id).addClass('selected');
 		} else {
-		$("#" + players[index].id).removeClass('selected') :
+			$("#" + players[index].id).removeClass('selected');
 		}
 	});
 	// Alert who's turn it is on the button
