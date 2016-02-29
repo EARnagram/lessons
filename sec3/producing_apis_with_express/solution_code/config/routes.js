@@ -9,10 +9,10 @@ var burgersController = require('../controllers/burgers');
 router.get('/', welcomeController.index);
 
 // burgers resource paths:
-router.get('/burgers',      burgersController.index);
-router.get('/burgers/:id',  burgersController.show);
-router.post('/burgers',     burgersController.create);
-router.put('/burgers/:id', burgersController.update);
+router.get('/burgers',        burgersController.index);
+router.get('/burgers/:id',    burgersController.show);
+router.post('/burgers',       burgersController.create);
+router.put('/burgers/:id',    burgersController.update);
 router.delete('/burgers/:id', burgersController.destroy);
 
 module.exports = router;
