@@ -1,20 +1,23 @@
 var burgers = require('../data/burger_data');
 
 var index = function(req, res, next){
-  res.json(burgers);
+  if (burgers) {
+    res.json(burgers);
+  } else {
+    res.json({err: "Where did all the burgers go?!?"});
+  }
 };
 
 var show = function(req, res, next){
   var id = Number(req.params.id);
-  var check = false;
-  burgers.forEach((burger,i) => {
-    if (burger.id === id) {
-      check = true;
-      res.json(burger);
-    } else if (i === burgers.length - 1 && !check) {
-      res.json({err: "That burger must have escaped this island!"})
-    }
+  var chosenBurger = burgers.find(burger => {
+    return burger.id === id;
   })
+  if (chosenBurger) {
+    res.json(chosenBurger);
+  } else {
+    res.json({err: "That burger must have escaped this island!"})
+  }
 };
 
 var create = function(req, res, next) {
@@ -32,34 +35,32 @@ var create = function(req, res, next) {
 
 var update = function(req, res, next) {
   var updateBurger = req.body;
-  console.log(req.body);
   var id = Number(req.params.id);
-  var check = false;
-  burgers.forEach((burger, i) => {
-    if (burger.id === id) {
-      check = true;
-      if (updateBurger.title)       burgers[i].title       = updateBurger.title;
-      if (updateBurger.ingredients) burgers[i].ingredients = updateBurger.ingredients;
-      if (updateBurger.price)       burgers[i].price       = updateBurger.price;
-      res.json({msg: "Burger updated!"})
-    } else if (i === burgers.length - 1 && !check) {
-      res.json({err: "That burger doesn't exist!"})
-    }
-  })
+  var burger = burgers.find(burger => {
+    return burger.id === id;
+  });
+  if (updateBurger !== burger) {
+    if (updateBurger.title)       burger.title       = updateBurger.title;
+    if (updateBurger.ingredients) burger.ingredients = updateBurger.ingredients;
+    if (updateBurger.price)       burger.price       = updateBurger.price;
+    res.json({msg: "Burger updated!"})
+  } else {
+    res.json({err: "That burger doesn't exist!"})
+  }
 }
 
 var destroy = function(req, res, next) {
-  var id = Number(req.params.id);
-  var check = false;
-  burgers.forEach((burger, i) => {
-    if (burger.id === id) {
-      burgers.splice(i, 1);
-      check = true;
-      res.json({msg: "Always sad to see a burger go..."})
-    } else if (i === burgers.length -1 && !check) {
-      res.json({err: "Why are you trying to delete my burgers?"})
-    }
-  })
+  var id           = Number(req.params.id);
+  var chosenBurger = burgers.find(burger => {
+    return burger.id === id;
+  });
+  var cBurgerId = burgers.indexOf(chosenBurger);
+  if (chosenBurger) {
+    burgers.splice(cBurgerId, 1)
+    res.json({msg: "Always sad to see a burger go..."})
+  } else {
+    res.json({err: "Why are you trying to delete my burgers?"})
+  }
 }
 
 module.exports = {
