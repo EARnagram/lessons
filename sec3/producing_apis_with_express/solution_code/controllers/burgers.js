@@ -38,9 +38,9 @@ var update = function(req, res, next) {
   burgers.forEach((burger, i) => {
     if (burger.id === id) {
       check = true;
-      if (updateBurger.title)       burgers[i].title       = updateBurger.title
-      if (updateBurger.ingredients) burgers[i].ingredients = updateBurger.ingredients
-      if (updateBurger.price)       burgers[i].price       = updateBurger.price
+      if (updateBurger.title)       burgers[i].title       = updateBurger.title;
+      if (updateBurger.ingredients) burgers[i].ingredients = updateBurger.ingredients;
+      if (updateBurger.price)       burgers[i].price       = updateBurger.price;
       res.json({msg: "Burger updated!"})
     } else if (i === burgers.length - 1 && !check) {
       res.json({err: "That burger doesn't exist!"})
