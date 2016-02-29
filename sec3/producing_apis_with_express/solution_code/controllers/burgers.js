@@ -44,6 +44,8 @@ var update = function(req, res, next) {
     if (updateBurger.ingredients) burger.ingredients = updateBurger.ingredients;
     if (updateBurger.price)       burger.price       = updateBurger.price;
     res.json({msg: "Burger updated!"})
+  } else if (updateBurger === burger) {
+    res.json({msg: "That burger is perfect the way it is!"})
   } else {
     res.json({err: "That burger doesn't exist!"})
   }

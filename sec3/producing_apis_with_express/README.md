@@ -69,6 +69,7 @@ We'll be using Postman for the majority of this lesson - let's have a quick revi
 
 **PURPLE** - Set your headers - such as if you want to accept raw JSON.
 
-**ORANGE** - Set the payload in the body - this is where you can send data to the server.
+**ORANGE** - Set the data payload in the body - this is where you can send data to the server.
 
 Postman does a lot more than this, but this is where we'll predominately be working during this class.
+
