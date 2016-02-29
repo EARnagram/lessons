@@ -4,10 +4,9 @@
 
 | Lesson Objectives: SWBAT                 |
 | ---------------------------------------- |
-| Create Web APIs that serve data          |
-| Control routes and the request and response objects |
+| Define a RESTful JSON web service (an "API") |
+| Produce a RESTful HTTP JSON web service (an "API”) with Express |
 | Use Postman to send data to communicate with a web API |
-| Use Express to create RESTful Web APIs   |
 
 ##### <u>Road Map</u>
 
@@ -71,5 +70,57 @@ We'll be using Postman for the majority of this lesson - let's have a quick revi
 
 **ORANGE** - Set the data payload in the body - this is where you can send data to the server.
 
-Postman does a lot more than this, but this is where we'll predominately be working during this class.
+Postman does a lot more than this, but this is where we'll predominately work during this class.
 
+#### Welcome to Cheeseburgers in Cyberspace
+
+Before we get into routing our own API, go ahead and take **5 minutes** to read over the `starter_code/`.  Focus on `data/`, `config/`, and `controllers/`.
+
+Let's go into `controllers/welcome.js` and see what's happening.
+
+```javascript
+var index = function(req, res, next) {
+  res.json({msg: "You have found Cheeseburgers in Cyberspace... a new kind of island paradise!"});
+};
+
+module.exports = {
+  index: index
+};
+```
+
+We're creating a function called `index()` that loads the response object with JSON and delivers it.
+
+We then export the function for use in other files.
+
+Let's see what's using that function in `config/routes.js`
+
+```javascript
+var express = require('express'),
+    router  = new express.Router();
+
+// Require controllers.
+var welcomeController = require('../controllers/welcome');
+
+// root path:
+router.get('/', welcomeController.index);
+
+module.exports = router;
+```
+
+You learned about the express router yesterday - here we're setting a GET path for our root address and we're attaching that to the `index` function used in the `welcomeController`. We then export the router object to use in our server.
+
+```javascript
+// server.js
+// Load local libraries.
+var routes   = require('./config/routes');
+
+// ...
+// Defines all of our "dynamic" routes.
+app.use('/', routes);
+```
+
+Everyone should `npm install` and `nodemon` in the terminal and see what happens when we call to our route path.
+
+#### Creating our Own Burger Resource: Index and Show
+
+We will begin by 
