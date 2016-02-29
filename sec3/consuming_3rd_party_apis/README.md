@@ -4,15 +4,15 @@
 
 ## Consuming 3rd Party APIs
 
-| Learning Objectives - SWBAT |
-| :--- |
+| Learning Objectives - SWBAT              |
+| :--------------------------------------- |
 | Define and Differentiate a RESTful Web API |
-| Explain why we use APIs |
+| Explain why we use APIs                  |
 | Difference between producing, exposing, and consuming API |
-| Use `request` npm to access a (RWS)API |
-| Read API documentation |
-| Explain XDR/CORS |
-| Explain JSON |
+| Use `request` npm to access a (RWS)API   |
+| Read API documentation                   |
+| Explain XDR/CORS                         |
+| Explain JSON                             |
 
 #### Road Map
 1. Enter the Library of Babel, Man of the Book - Intro to RESTful Web 
@@ -32,7 +32,7 @@ the library, and if that were true, there could be one _messianiac
 deliverer_ that has read _the one book_ that catalogs the entire 
 libary.
 
-By the end of this lesson, I hope that you are that __"Man of the 
+By the end of this lesson, I hope that you are that __"Person of the 
 Book"__, that can lead us to the "legible books" of the internet.
 
 #### Using RESTful Web Services
@@ -40,21 +40,7 @@ Web APIs, or RESTful Web Services, can feel a lot like the Library of
 Babel, but in practice, are significantly easier to naviagate than the 
 fictional tower of babel.
 
-If only Borges' library had followed RESTful routing principles!
-
-But before we go into routing, __take 2 minutes__ to research what 
-an API really is.
-
-> What did you get?!
-
-I bet you found a bunch of stuff that made little or no sense to you. 
-That's because an API refers to many different things in computing,
-however, they all mean about the same thing.
-
-Application Programming Interfaces essentially define how you can use
-(interact with) any program or object on a computer. For instance, an
-Array in JS - the API is a collection of methods, eg. push, shift, 
-forEach, etc.
+If only Borges' library had followed a REST architecture!
 
 In our class, and in your life as Web Developers, you'll hear people 
 say APIs a lot, however, what they mean are [Web APIs](https://en.wikipedia.org/wiki/Web_API),
@@ -117,28 +103,33 @@ Today we're going to focus on `request`.  AJAX can become difficult to
 manage due to its asynchronous nature and seemingly magical quality of
 overriding usual __XDR__ / __CORS__ protection.
 
-#### Carrajo, more acronyms?
+#### XDR & CORS
 
-Yes. Get used to - programming loves a cute acronym.
+Web browsers have a security policy called the same-site origin policy, which blocks Web pages from accessing data from another domain. 
+
+Web sites often work around this policy by having their server request content from another site's server in the backend, thus circumventing the check within the browser, as shown in the following diagram.
+
+![Non-XDR Diagram](https://i-msdn.sec.s-msft.com/dynimg/IC279943.gif)
 
 __XDR__ - Cross-Domain Request
 
-- a way to make anonymous requests to third-party sites that support 
-  XDR and opt in to making their data available across domains
+- Cross-Domain Requests are requests made to a server under a different domain. They break same-site origin policy, and therefore need a way to get around it.
+
+![XDR](https://i-msdn.sec.s-msft.com/dynimg/IC283863.gif)
 
 __CORS__ - Cross Origin Resource Sharing
 
 - A resource makes a cross-origin HTTP request when it requests a
-  resource from a different domain than the one which served itself.
+  resource from a different domain than the one which served itself. CORS gives web servers cross-domain access controls, which enable secure cross-domain data transfers. Modern browsers use CORS in an **API container** - such as AJAX - to mitigate risks of cross-origin HTTP requests.
 
-CORS are the protocol for how an XDR is made.
+It's important to understand **CORS is the protocol object for how an XDR is made.**
 
 ## Consume API - Find the Pokedex!
 
 ![pokedex](https://s-media-cache-ak0.pinimg.com/236x/f7/f1/93/f7f1933d305c2e2d83bf67f570146b3e.jpg)
 
-If all books exist in Borges' Library of Babel, then there be a pokedex 
-in there somewhere!
+If all books exist in Borges' Library of Babel, then surely there's a pokedex 
+in there somewhere.
 
 Let's use the starter code to learn how to use the `request` module.
 
@@ -170,16 +161,15 @@ After you've reviewed the docs, complete the following:
 
 2. Now consume the API data of an issue and use it to access one of 
    the instructor's github accounts (don't be [black hats](https://en.wikipedia.org/wiki/Black_hat)!).
-   
+
 3. Access your partner's project 2 commit log.
 
 4. BONUS: See if you can produce earnagram's "bio" using cURL
-	- You'll need to `brew install jsawk`.
-	- You'll also need to use the `--silent` flag instead of `-i`
-	- Last, you'll need to use `jsawk` by piping in ( ` | ` ) the
-	  following: `jsawk 'return this.bio'`
-
-5. DOUBLE BONUS: Change your own bio github bio using `PATCH`!
+   - You'll need to `brew install jsawk`.
+   - You'll also need to use the `--silent` flag instead of `-i`
+   - Last, you'll need to use `jsawk` by piping in ( ` | ` ) the
+     following: `jsawk 'return this.bio'`
+5. DOUBLE BONUS: Change your own github bio using `PATCH`!
 
 ## You Must be The Man with the Book!
 <img src="http://entertainment.inquirer.net/files/2012/10/arnold-schwarzenegger-total-recall-book.jpg" alt="arnold book" height=300px>
@@ -193,7 +183,9 @@ Let's review:
 
 > What is an API?
 
+
 > What is CORS?
+
 
 > Name and explain the 4 ways we access web APIs.
 
@@ -204,8 +196,13 @@ Let's review:
 
 [Request github](https://github.com/request/request#custom-http-headers)
 
+[MDN CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS)
+
 [Web API Wiki](https://en.wikipedia.org/wiki/Web_API)
 
 [PokéAPI](http://pokeapi.co/docs/)
 
+[Microsoft XDR](https://msdn.microsoft.com/en-us/library/dd573303(v=vs.85).aspx)
+
 [Codecademy API Lessons](https://www.codecademy.com/apis)
+
