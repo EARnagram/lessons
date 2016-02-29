@@ -11,8 +11,8 @@
 
 ##### <u>Road Map</u>
 
-1. Cheeseburgers in Cyberspace - Intro to APIs
-2. Using Postman
+1. Cheeseburgers in Cyberspace
+2. What is an API?
 3. Serving Up Data - GET Requests/Responses
 4. Create Data - POST
 5. Update Data - PUT
@@ -21,5 +21,11 @@
 
 ## Cheeseburgers in Cyberspace
 
-Jimmy Buffett didn't stop when he conquered our ears with Margaritaville and Cheesburgers in Paradise. No, he moved on to our stomachs with island escapism themed restaurants. Now, he has his sites [sic] on our minds by implanting cheesburgers into cyberspace.
+Jimmy Buffett didn't stop when he conquered our ears with Margaritaville and Cheesburgers in Paradise. No, he moved on to our stomachs with island escapism themed restaurants. Now, he has his sites [sic] set on our minds by implanting cheesburgers into cyberspace.
+
+Welcome to your first job out of GA - serving burgers in cyberspace.
+
+You'll be doing so by creating an API with 
+
+
 
