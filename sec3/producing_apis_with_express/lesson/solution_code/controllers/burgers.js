@@ -1,6 +1,15 @@
 var burgers = require('../data/burger_data');
 
-var index = function(req, res, next){
+module.exports = {
+  index:   index,
+  show:    show,
+  create:  create,
+  update:  update,
+  destroy: destroy
+};
+
+// Burger Methods
+function index(req, res, next) {
   if (burgers) {
     res.json(burgers);
   } else {
@@ -8,9 +17,9 @@ var index = function(req, res, next){
   }
 };
 
-var show = function(req, res, next){
-  var id = Number(req.params.id);
-  var chosenBurger = burgers.find(burger => {
+function show(req, res, next) {
+  var id = parseInt(req.params.id);
+  var chosenBurger = burgers.find(function(burger) {
     return burger.id === id;
   })
   if (chosenBurger) {
@@ -20,7 +29,7 @@ var show = function(req, res, next){
   }
 };
 
-var create = function(req, res, next) {
+function create(req, res, next) {
   var burger   = req.body;
   var preCount = burgers.length;
   burger.id    = burgers.id;
@@ -33,10 +42,10 @@ var create = function(req, res, next) {
   }
 }
 
-var update = function(req, res, next) {
+function update(req, res, next) {
   var updateBurger = req.body;
-  var id = Number(req.params.id);
-  var burger = burgers.find(burger => {
+  var id = parseInt(req.params.id);
+  var burger = burgers.find(function(burger) {
     return burger.id === id;
   });
   if (updateBurger !== burger) {
@@ -51,9 +60,9 @@ var update = function(req, res, next) {
   }
 }
 
-var destroy = function(req, res, next) {
-  var id           = Number(req.params.id);
-  var chosenBurger = burgers.find(burger => {
+function destroy(req, res, next) {
+  var id           = parseInt(req.params.id);
+  var chosenBurger = burgers.find(function(burger) {
     return burger.id === id;
   });
   var cBurgerId = burgers.indexOf(chosenBurger);
@@ -64,11 +73,3 @@ var destroy = function(req, res, next) {
     res.json({err: "Why are you trying to delete my burgers?"})
   }
 }
-
-module.exports = {
-  index:   index,
-  show:    show,
-  create:  create,
-  update:  update,
-  destroy: destroy
-};

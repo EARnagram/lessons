@@ -1,6 +1,11 @@
 var facepaints = require('../data/facepaint_data');
 
-var index = function(req, res, next){
+module.exports = {
+  index: index,
+  show: show
+}
+
+function index(req, res, next) {
   var queryString = req.query;
   if (queryString.safe4Skin) {
     var queriedFP = facepaints.filter(facepaint => {
@@ -14,9 +19,9 @@ var index = function(req, res, next){
   }
 };
 
-var show = function(req, res, next){
-  var id = Number(req.params.id);
-  var chosenFacepaint = facepaints.find(facepaint => {
+function show(req, res, next) {
+  var id = parseInt(req.params.id);
+  var chosenFacepaint = facepaints.find(function(facepaint) {
     return facepaint.id === id;
   })
   if (chosenFacepaint) {
@@ -25,8 +30,3 @@ var show = function(req, res, next){
     res.json({err: "We don't sell that whack facepaint. Woot Woot!"})
   }
 };
-
-module.exports = {
-  index: index,
-  show: show
-}
