@@ -33,6 +33,7 @@ request('http://pokeapi.co/api/v1/pokemon/1/', function (error, response, body) 
 //eval(locus);
 
 
-// curl -i "https://api.github.com/repos/ademars94/surfing_app/issues/3/comments"
+// curl -i "https://api.github.com/repos/ga-students/WDI_DTLA_8/issues/"
+// curl --silent "https://api.github.com/repos/ga-students/WDI_DTLA_8/issues/1" -u <valid_username>:<valid_password> | jsawk "return this.title + ': \n\n' + this.body"
 // curl --silent "https://api.github.com/users/earnagram" | jsawk 'return this.bio'
 // curl --request PATCH --data '{"bio": "string of some sort"}'  "https://api.github.com/user" -u un:password

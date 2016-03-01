@@ -22,23 +22,20 @@
 4. Practice - GitHub API
 5. Outro
 
-## Enter the Library of Babel, Man of the Book
+## Enter the Library of Babel
 
 Borges wrote of a universe in the form of a [library](https://libraryofbabel.info/).
 In this universal library is a labriynth of hexaganol rooms, each
-containing 4 walls of books, each 410 pages in length. If infinite,
-it's said that all iterations of 410 pages in length were present in
-the library, and if that were true, there could be one _messianiac
-deliverer_ that has read _the one book_ that catalogs the entire
+containing 4 walls of books, each 410 pages in length. Supposedly infinite,
+it's said that all iterations of books containing 410 pages were present in
+the library, and if that were true, there could be one _messianiac deliverer_ that has read _the one book_ that catalogs the entire
 libary.
 
-By the end of this lesson, I hope that you are that __"Person of the
-Book"__, that can lead us to the "legible books" of the internet.
+By the end of this lesson, I hope that you are  *"el Hombre del Libro"*, that can lead us to the "legible books" of the internet.
 
 #### Using RESTful Web Services
 Web APIs, or RESTful Web Services, can feel a lot like the Library of
-Babel, but in practice, are significantly easier to naviagate than the
-fictional tower of babel.
+Babel, but lucky us, are significantly easier to naviagate.
 
 If only Borges' library had followed a REST architecture!
 
@@ -61,8 +58,8 @@ in these APIs.
 
 <img src='http://workshops.lewagon.org/assets/tech-entrepreneurs/web-api-8a6605a7574f6aad09970f6c79508a0d.png' alt='KISS4Compy' height="400px">
 
-Earlier today, we've seen how to create an API. Now we're getting
-into producing/exposing and consuming APIs.
+Earlier today, we've seen how to produce an API. Now we're getting
+into consuming APIs.
 
 ## Producing the API
 
@@ -94,7 +91,7 @@ one we used in our Rails projects.
 
 We can access an API in many different ways:
 
-1. From the terminal, we can use cURL (`curl`)
+1. From the terminal, we can use cURL (`curl` - originally named because of "see URL")
 2. From the browser (a desktop GUI for HTTP requests)
 3. Asyncronously from our node server using the `request` node package
 4. Asyncronously "from" our client-side using AJAX requests
@@ -105,7 +102,7 @@ overriding usual __XDR__ / __CORS__ protection.
 
 #### XDR & CORS
 
-Web browsers have a security policy called the same-site origin policy, which blocks Web pages from accessing data from another domain.
+Web browsers have a security policy called the same-site origin policy, which blocks Web pages from accessing data from a different domain.
 
 Web sites often work around this policy by having their server request content from another site's server in the backend, thus circumventing the check within the browser, as shown in the following diagram.
 
@@ -151,41 +148,40 @@ This is what we're going to do:
 
 <img src="https://help.github.com/assets/images/site/be-social.gif" alt="github">
 
-Everyone take 5 minutes to review the [GitHub documentation](https://developer.github.com/v3/)
+Everyone take 10 minutes to review the [GitHub documentation](https://developer.github.com/v3/)
 with your partner/s.
 
 After you've reviewed the docs, complete the following:
 
-1. Produce/Expose GitHub issues GitHub issues from last project week
-   with `curl`!
+1. Produce/Expose Github Issues from the class repo (as in ga-students, not your fork) using `curl`! 
+   - Be aware, you'll get a lot in return. Make sure to read the "title" and "body" to make sure you've found my issue. ;)
+   - You may need to sign in to see this repo… remember, using cURL!
+2. Now use the request package to access an instructor's account - then see if you can access the commits of one of their repos. 
 
-2. Now consume the API data of an issue and use it to access one of
-   the instructor's github accounts (don't be [black hats](https://en.wikipedia.org/wiki/Black_hat)!).
-
+   - __Hint:__ Remember, the urls present in one response body may lead you to the one you're looking for.
 3. Access your partner's project 2 commit log.
 
-4. BONUS: See if you can produce earnagram's "bio" using cURL
+4. BONUS: See if you can produce the "bio" of username "EARnagram", using cURL
    - You'll need to `brew install jsawk`.
    - You'll also need to use the `--silent` flag instead of `-i`
    - Last, you'll need to use `jsawk` by piping in ( ` | ` ) the
      following: `jsawk 'return this.bio'`
 5. DOUBLE BONUS: Change your own github bio using `PATCH`!
 
-## You Must be The Man with the Book!
+## You Must be that Book Person!
 <img src="http://entertainment.inquirer.net/files/2012/10/arnold-schwarzenegger-total-recall-book.jpg" alt="arnold book" height=300px>
 
-Congrats, you've officially become the Messianic Book Person!
+Congrats, you've officially become the Messianic Reading Guy!
 
 You now contain the necessary know how to move through the labyrinth of RESTful
 Web Services!
 
 Let's review:
 
-> What is an API?
-
-> What is CORS?
-
-> Name and explain the 4 ways we access web APIs.
+> - What is an API? 
+> - What is a Restful Web Service? Are they different from APIs?
+> - What is CORS?
+> - Name and explain the 4 primary ways we access web APIs.
 
 ## References
 [GitHub API Docs](https://developer.github.com/v3)
