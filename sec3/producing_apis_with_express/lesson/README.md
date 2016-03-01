@@ -432,7 +432,7 @@ And there you have it - we've created a resource on our very own API! Go ahead a
 
 Now as a commander of the Parrothead nation, you've been awarded an official License to Chill. You will control the ears, stomachs, and MINDS of all island-escapists that grew up watching too much Gilligan's Island. 
 
-We now know how to create a resource for our very own API. While we're using dummy data and storing posts in our browser for this exercise, we'll start using MongoDB later this week and intro nested resources then as well. 
+We now know how to create a resource for our very own API. In this lesson, we used dummy data, storing posts in our browser. __We're most likely never going to do that again.__ We'll add a layer of complexity later in the week with MongoDB.  
 
 Let's close on some questions:
 

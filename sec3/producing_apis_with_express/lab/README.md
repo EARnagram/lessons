@@ -49,8 +49,14 @@ Use Cheeseburgers in Cyberspace as a reference on how to set up your API. Also, 
 
 - You'll also need to create `faygo_data.js` in `data/`. Don't forget to keep track of your ids!
 
-### BONUS - Use Query Strings to Filter Responses
+### BONUS - Create a Nested Resource
+
+  - Make a nested route for `endorsements` using __`data/facepaint_bonus_data.js`__ in place of the previous data.
+
+  - **HINT**: Remember that `:id` is just a variable name we most commonly use - you can call it anything!
+
+### DOUBLE BONUS - Use Query Strings to Filter Responses
 
 - Build a query on the facepaints resource to limit the response to only facepaints that are safe for your skin!
-	- **Hint**: You'll need to look up Query Strings!
-	- **Second Hint**: You'll also need `req.query`!
+	- **HINT**: You'll need to look up Query Strings!
+	- **…ANOTHER HINT**: You'll also need `req.query`!
