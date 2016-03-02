@@ -4,6 +4,7 @@ var request = require('request'),
 
 var pokedex;
 var bulbaURI;
+var jynx;
 
 var bulbasaur;
 
@@ -14,6 +15,19 @@ request('http://pokeapi.co/api/v1/pokedex/1/', function (error, response, body) 
       if (e.name === "bulbasaur") {
         bulbaURI = pokedex.pokemon[i].resource_uri;
         opener('http://www.pokeapi.co/' + bulbaURI);
+      }
+    })
+  }
+});
+
+
+request('http://pokeapi.co/api/v2/pokedex/2', function(error, response, body) {
+  if (!error && response.statusCode == 200) {
+    pokedex = JSON.parse(body);
+    pokedex.pokemon_entries.forEach(function(pokemon) {
+      if (pokemon.pokemon_species.name === 'jynx'){
+        jynx = pokemon;
+        console.log(jynx);
       }
     })
   }
