@@ -9,7 +9,14 @@ var facepaintsController = require('../controllers/facepaints');
 router.get('/', welcomeController.index);
 
 // facepaints resource:
-router.get('/facepaints',     facepaintsController.index);
-router.get('/facepaints/:id', facepaintsController.show);
+router.get('/facepaints',        facepaintsController.index);
+router.get('/facepaints/:id',    facepaintsController.show);
+router.post('/facepaints/',      facepaintsController.create);
+router.put('/facepaints/:id',    facepaintsController.update);
+router.delete('/facepaints/:id', facepaintsController.destroy);
+
+// endorsements resource:
+router.get('/facepaints/:fp_id/endorsements',         facepaintsController.indexEnds);
+router.get('/facepaints/:fp_id/endorsements/:end_id', facepaintsController.showEnd);
 
 module.exports = router;
