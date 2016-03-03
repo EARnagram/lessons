@@ -8,29 +8,25 @@ module.exports = {
 }
 
 //||||||||||||||||||||||||||--
-//  USERS INDEX PAGE - RENDERING VIEWS!
+//  USERS INDEX PAGE - Response with JSON!
 //||||||||||||||||||||||||||--
 function index(req, res, next) {
   User.find({}, function(error, users) {
     if (error) res.json({message: "Could not find users because " + error});
-    res.render(
-      'users/index', {
-        users: users
-    });
+    // LOOK - IT'S JUST JSON!!
+    res.json(users);
   });
 };
 
 //||||||||||||||||||||||||||--
-//  USER SHOW PAGE - RENDERING VIEWS!
+//  USER SHOW PAGE - Response with JSON!
 //||||||||||||||||||||||||||--
 function show(req, res, next){
   var id = req.params.id;
 
   User.findById(id, function(error, user){
     if (error) res.json({message: 'Could not find user because ' + error});
-    res.render(
-      'users/show', {
-        user: user
-      });
+    // LOOK - IT'S JUST JSON!!
+    res.json(user);
   });
 };

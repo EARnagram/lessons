@@ -42,8 +42,9 @@ var mongoose = require('./config/database');
 // requiring separate routes for our welcome view and our user views. Recall
 // routes files in Rails - these are essentially the same. We'll connect them
 // to our server further down.
-var routes = require('./routes/index');
-var users = require('./routes/users');
+var routes   = require('./routes/index');
+var users    = require('./routes/users');
+var APIUsers = require('./routes/api_users');
 
 // Instantiating our express application. This should only be done once per
 // project!
@@ -82,6 +83,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // we're now using the routes we defined earlier.
 app.use('/', routes);
 app.use('/users', users);
+app.use('/api/users', APIUsers);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
