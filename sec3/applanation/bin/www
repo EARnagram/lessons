@@ -3,8 +3,8 @@
 /**
  * Module dependencies.
  */
-// |||||||||||||
-// FOCUS ON THIS PART
+// |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+// FOCUS ON THIS PART BETWEEN THE LINE OF PIPES!!
 var app = require('../server');
 
 // from node - for debuggin' and setting break points.
@@ -38,7 +38,7 @@ server.on('error', onError);
 server.on('listening', onListening);
 
 
-// |||||||||||||
+// |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 /**
  * Normalize a port into a number, string, or false.
  */
