@@ -5,6 +5,7 @@ var router = express.Router();
 var UsersController = require("../controllers/users")
 
 /* GET users listing. */
-router.get('/:id', UsersController.userShow)
+router.get('/',    UsersController.index)
+router.get('/:id', UsersController.show)
 
 module.exports = router;

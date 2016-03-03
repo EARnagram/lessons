@@ -1,4 +1,4 @@
-// Require mongoose to speak to your databse.
+// Require mongoose to speak to your database.
 var mongoose = require('mongoose');
 
 // connect the project to your database

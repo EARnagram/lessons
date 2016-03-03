@@ -3,8 +3,8 @@ var mongoose = require('mongoose');
 
 // Create a schema of your model
 var userSchema = new mongoose.Schema({
-  name:    String,
-  handle:   String
+  name:   String,
+  handle: String
 });
 
 // Create the model using your schema.
