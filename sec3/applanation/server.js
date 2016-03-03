@@ -39,16 +39,22 @@ var bodyParser = require('body-parser');
 // require your database! This is the only way to get data from your db!
 var mongoose = require('./config/database');
 
-// requiring separate routes for our welcome view and our user views. Recall
-// routes files in Rails - these are essentially the same. We'll connect them
-// to our server further down.
-var routes   = require('./routes/index');
-var users    = require('./routes/users');
-var APIUsers = require('./routes/api_users');
+// requiring  routes for our views and our API. Recall the routes file
+// in Rails - these are essentially the same. We'll connect them to our
+// server further down AFTER the middleware.
+var routes = require('./config/routes');
 
 // Instantiating our express application. This should only be done once per
 // project!
 var app = express();
+
+// Grab the environment object - remember that we're extending the
+// process.env object in our environment file!
+var env = require('./config/environment');
+
+// Configure the application (and set it's title!).
+app.set('title', env.TITLE);
+app.set('safe-title', env.SAFE_TITLE);
 
 // view engine setup
 // __dirname is from node's path module, it's always the directory in which the
@@ -61,7 +67,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public - places your favicon
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 // While in the development environment, log out HTTP requests to the terminal
 app.use(logger('dev'));
@@ -82,8 +88,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // we're now using the routes we defined earlier.
 app.use('/', routes);
-app.use('/users', users);
-app.use('/api/users', APIUsers);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

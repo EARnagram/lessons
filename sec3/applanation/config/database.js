@@ -1,8 +1,18 @@
-// Require mongoose to speak to your database.
 var mongoose = require('mongoose');
 
-// connect the project to your database
-mongoose.connect('mongodb://localhost/applanation');
+var env = require('./environment');
 
-// export the connection
+// Use different database URIs based on whether an env var exists.
+var dbUri = 'mongodb://localhost/' + env.SAFE_TITLE;
+
+if (!env.MONGOLAB_URI) {
+  // check that MongoD is running...
+  require('net').connect(27017, 'localhost').on('error', function() {
+    console.log("YOU MUST BOW BEFORE THE MONGOD FIRST, MORTAL!");
+    process.exit(0);
+  });
+}
+
+mongoose.connect(dbUri);
+
 module.exports = mongoose;
