@@ -18,7 +18,7 @@
 5. Deployment
 6. Outro
 
-# Ezra Explains it All!
+## Ezra Explains it All!
 
 We'll be taking up the first couple hours of the day reviewing what we learned this week. 
 
@@ -54,15 +54,23 @@ We'll take 30 minutes to go around and address at least one question from each g
 
 We'll be using Heroku's amazing docs on [Deploying a Node Application](https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction) for the remainder of the class. 
 
-You'll also need to set up an account on [mLab](https://mlab.com/) to set up your database. 
+You'll also need to set up an account on mLab to set up your database. 
 
 After you've signed up, you'll need to:
 
 1. :lightning: Create new DB (select Single-node:Sandbox, aka FREE)
 2. Name your DB
 3. Create a DB User (give full permissions)
-4. Copy the "connect using a driver via …" :point_down:![mlab help](public/images/mlab.png)
-5. Set the heroku config var for `MLAB_URI` to that line
+4. Copy the "connect using a driver via …" :point_down:
+![mlab help](public/images/mlab.png)
+5. Set the heroku config var for MLAB_URI to that line
+
+You may also want to seed your hosted database. Remember how you did it
+with Rails? Heroku's keeps things simple:
+
+`heroku run node config/seeds.js`
+
+You now have a deployed app with seeded data!
 
 ## Outro
 
@@ -70,11 +78,11 @@ Now you know all about what comes from Node in an Express app, and what comes fr
 
 You also know how to deploy! Hopefully this will make the weekend that much easier. Let's review a few things.
 
-> - What is `path`?
-> - What's the major difference between `res.render()` and `res.json()`?
+> - What is path?
+> - What's the major difference between res.render() and res.json()?
 > - What file do we need to point to for Heroku's Procfile?
 
-#### References
+##### References
 
 [Deploying a Node Application](https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction)
 
