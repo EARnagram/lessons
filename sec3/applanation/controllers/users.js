@@ -24,6 +24,9 @@ function index(req, res, next) {
 //  USER SHOW PAGE - RENDERING VIEWS!
 //||||||||||||||||||||||||||--
 function show(req, res, next){
+// Unlike rails, notice that req.params is separate from req.body. You
+// can think of req.params as only the parameters (the url after the
+// domain) and req.body as form data.
   var id = req.params.id;
 
   User.findById(id, function(error, user){
