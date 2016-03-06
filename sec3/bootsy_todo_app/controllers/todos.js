@@ -2,38 +2,27 @@ var Todo = require('../models/todo');
 
 module.exports = {
   index:   index,
-  create:  create,
-  update:  update,
-  destroy: destroy
+  create:  create
 };
 
-function index(req, res) {
-  Todo.find({}, function(err, records) {
-    if (err) res.json(err);
-      res.send(records);
-  });
-};
-
-function create(req, res) {
-  Todo.create(req.body, function(err, record){
-    if(err) {
+function index(req, res, next) {
+  Todo.find({}, function(err, todos) {
+    if (err) {
       res.json(err);
+    } else {
+      res.json(todos);
     }
-    res.send(record);
   });
 };
 
-function update(req, res) {
-  req.record.set(req.body)
-  req.record.save(function (err, record) {
-    if (err) res.json(err);
-    res.send(record);
-  });
-};
+function create(req, res, next) {
+  var newTodo = req.body;
 
-function destroy(req, res) {
-  req.record.remove(function (err, record) {
-    if (err) res.json(err);
-    res.send(record);
+  Todo.create(newTodo, function(err, todo){
+    if (err) {
+      res.json(err);
+    } else {
+      res.json(todo);
+    }
   });
 };
