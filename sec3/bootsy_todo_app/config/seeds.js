@@ -1,32 +1,32 @@
-var mongoose = require('./config/database');
+var mongoose = require('./database');
 
-var Todo = require('./models/todo');
+var Todo = require('../models/todo');
 
-var users = [
+var todos = [
   { // 0
     task:      "Refer to yourself by your bootsified name.",
     bootsyLvL: 3,
-    completed: false
-  },
-  { // 0
-    task:      "Create a Bootsified name for yourself. Try it out.",
-    bootsyLvL: 2,
     completed: false
   },
   { // 1
     task:      "Wear star-shaped glasses.",
     bootsyLvL: 1,
     completed: true
-  }
+  },
+  { // 2
+    task:      "Create a Bootsified name for yourself. Try it out.",
+    bootsyLvL: 2,
+    completed: false
+  },
 ];
 
-User.remove({}, function(err) {
+Todo.remove({}, function(err) {
   if (err) console.log(err);
-  User.create(users, function(err, users) {
+  Todo.create(todos, function(err, todos) {
     if (err) {
       console.log(err);
     } else {
-      console.log("Database seeded with " + users.length  + " users.");
+      console.log("Database seeded with " + todos.length  + " todos.");
       mongoose.disconnect();
     }
   });

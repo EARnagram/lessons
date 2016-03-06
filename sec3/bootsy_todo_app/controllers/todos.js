@@ -8,7 +8,8 @@ module.exports = {
 };
 
 function index(req, res) {
-  Todo.find({}, function(err, records){
+  Todo.find({}, function(err, records) {
+    if (err) res.json(err);
       res.send(records);
   });
 };
@@ -16,7 +17,7 @@ function index(req, res) {
 function create(req, res) {
   Todo.create(req.body, function(err, record){
     if(err) {
-      res.send(err);
+      res.json(err);
     }
     res.send(record);
   });
@@ -25,12 +26,14 @@ function create(req, res) {
 function update(req, res) {
   req.record.set(req.body)
   req.record.save(function (err, record) {
+    if (err) res.json(err);
     res.send(record);
   });
 };
 
 function destroy(req, res) {
   req.record.remove(function (err, record) {
+    if (err) res.json(err);
     res.send(record);
   });
 };
