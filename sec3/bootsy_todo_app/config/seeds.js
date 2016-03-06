@@ -1,15 +1,22 @@
 var mongoose = require('./config/database');
 
-var User = require('./models/user');
+var Todo = require('./models/todo');
 
 var users = [
   { // 0
-    handle: "DunkLord",
-    name:   "Bob Neverdunk"
+    task:      "Refer to yourself by your bootsified name.",
+    bootsyLvL: 3,
+    completed: false
+  },
+  { // 0
+    task:      "Create a Bootsified name for yourself. Try it out.",
+    bootsyLvL: 2,
+    completed: false
   },
   { // 1
-    handle: "MoneyMarge",
-    name:   "Margaret Kalanchoe"
+    task:      "Wear star-shaped glasses.",
+    bootsyLvL: 1,
+    completed: true
   }
 ];
 
