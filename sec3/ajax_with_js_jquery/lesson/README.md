@@ -100,9 +100,9 @@ I'm using this API because it will persist our data, allowing us to make
 lasting changes on the API.  Additionally, we'll have practice pulling from our
 own API.
 
-Make sure you run `mongod` and `nodemon` in separate terminal windows.
+Make sure you `npm install`, then run `mongod` and `nodemon` in separate terminal windows.
 
-If you ever persist too much data or want to restart, you can always run:
+If you ever save too much data or want to restart, you can always run:
 `node config/seeds.js`.
 
 I've also included a basic front end webpage in `starter_code/`. 
@@ -159,7 +159,7 @@ According to the documentation, `request.open` takes 3 arguments - `method`,
 
 Method matches our HTTP verb, URL is obvious, and async is just asking if it
 should perform the function asynchronously - by now, you should have a good idea
-about what the means.
+about what that means.
 
 Then, of course, we've got a function that runs if the requests works, and
 another if it doesn't. Simple `console.log` for now.

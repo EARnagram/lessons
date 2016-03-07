@@ -69,9 +69,9 @@ function editFish($li, fish) {
 $(function() {
   console.log("Let's get fishin'!");
 
-  $fishesUl =   $('#fishes');
+  $fishesUl   = $('#fishes');
   $liTemplate = $('#li-template');
-  renderLi = _.template($liTemplate.html());
+  renderLi    = _.template($liTemplate.html());
 
   $('form#new-fish').on('submit', postFish);
 
