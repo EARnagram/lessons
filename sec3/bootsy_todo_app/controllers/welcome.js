@@ -3,5 +3,7 @@ module.exports = {
 };
 
 function index(req, res, next) {
-  res.render('index', {});
+  res.render('index', {
+    title: "Bootsy's Todo App"
+  });
 };
