@@ -15,7 +15,7 @@ function postFish(e){
 
   // create a new AJAX request
   $.post('http://localhost:3000/fishes', fish)
-    .done(function(fish){
+    .then(function(fish){
       console.log(fish);
       addFish(fish);
     });
@@ -27,7 +27,7 @@ function postFish(e){
 
 function getFishes(){
   var fishes = $.get('http://localhost:3000/fishes')
-    .done(function(fishes){
+    .then(function(fishes){
       fishes.forEach(function(fish){
         addFish(fish);
       });
@@ -48,7 +48,7 @@ function deleteFish(id) {
   $.ajax({
     type: 'DELETE',
     url: 'http://localhost:3000/fishes/' + id
-  }).done(function(data) {
+  }).then(function(data) {
     console.log(data);
   });
 }
@@ -58,7 +58,7 @@ function editFish($li, fish) {
       type: 'PUT',
       url: 'http://localhost:3000/fishes/' + $li.attr('id'),
       data: fish
-    }).done(function(fish) {
+    }).then(function(fish) {
       $li.find('span.name').html(fish.name);
       $li.find('span.category').html(fish.category);
       $li.removeClass('edit');

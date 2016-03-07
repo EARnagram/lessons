@@ -129,26 +129,27 @@ _**Note:** You might want to write the code out in Sublime first and then copy
 it across to your console as it is easier to change typos._
 
 ```js
-  var request = new XMLHttpRequest();
-  request.open('GET', 'http://localhost:3000/fishes', true);
+var request = new XMLHttpRequest();
 
-  request.onload = function() {
-    if (request.status >= 200 && request.status < 400) {
-      // Success!
-      var resp = request.responseText;
-      console.log(resp);
-    } else {
-      // We reached our target server, but it returned an error
-      console.log('Uh oh, an error on the server side');
-    }
-  };
+request.open('GET', 'http://localhost:3000/fishes', true);
 
-  request.onerror = function() {
-    // There was a connection error of some sort
-    console.log('Something went wrong with the client side.');
-  };
+request.onload = function() {
+  if (request.status >= 200 && request.status < 400) {
+    // Success!
+    var resp = request.responseText;
+    console.log(resp);
+  } else {
+    // We reached our target server, but it returned an error
+    console.log('Uh oh, an error on the server side');
+  }
+};
 
-  request.send();
+request.onerror = function() {
+  // There was a connection error of some sort
+  console.log('Something went wrong with the client side.');
+};
+
+request.send();
 ```
 
 Let's walk through this for a second. AJAX uses HTTP to request XML (or JSON),
@@ -179,7 +180,7 @@ AJAX GET request with jQuery, together.
 If you hit `cmd+k` in your browser console, it'll clear it to start fresh.
 
 ```js
-  var ajax = $.get('http://localhost:3000/fishes');
+var ajax = $.get('http://localhost:3000/fishes');
 ```
 
 Let's look at what our `ajax` variable holds now.
@@ -189,7 +190,7 @@ Let's look at what our `ajax` variable holds now.
 That's some awesome info. What's this `responseJSON`? Looks useful:
 
 ```js
-  ajax.responseJSON
+ajax.responseJSON
 ```
 
 Well isn't that just exactly what we need? How handy!
@@ -205,10 +206,12 @@ it `console.log`'s the response when an AJAX request actually succeeds, instead
 of when we type it in the console?
 
 ```js
-  var ajax = $.get('http://localhost:3000/fishes')
-    .done(function(data){
-      console.log(data);
-    });
+var ajax = $.get('http://localhost:3000/fishes')
+.then(function(data){
+  console.log(data);
+}, function(err) {
+  console.log(err);
+});
 ```
 
 Type that with me, and hit enter. If there's any luck, our connection will be a
@@ -216,8 +219,8 @@ little slow, and you'll see the pause between when we hit enter & when it spits
 out our JSON result.
 
 In jQuery's documentation you can find all the chainable callback function
-possibilities – the three you'll probably use a lot are `.done`, `.fail`, and
-`.always`.
+possibilities – the three you'll probably use a lot are `.done`, `.catch`, and
+`.then` most of all (as it is shorthand for the other two).
 
 ## Independent Practice
 
