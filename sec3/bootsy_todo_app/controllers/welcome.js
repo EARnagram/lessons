@@ -3,5 +3,5 @@ module.exports = {
 };
 
 function index(req, res, next) {
-  res.json({msg: "Welcome to Bootsy's Todo App!"});
+  res.render('index', {});
 };

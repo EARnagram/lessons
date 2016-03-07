@@ -18,6 +18,10 @@ var app = express();
 app.set('title', env.TITLE);
 app.set('safe-title', env.SAFE_TITLE);
 
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
+
 // Create local variables for use thoughout the application.
 app.locals.title = app.get('title');
 

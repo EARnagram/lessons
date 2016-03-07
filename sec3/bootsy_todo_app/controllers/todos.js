@@ -10,7 +10,7 @@ function index(req, res, next) {
     if (err) {
       res.json(err);
     } else {
-      res.json(todos);
+      res.send(todos);
     }
   });
 };
