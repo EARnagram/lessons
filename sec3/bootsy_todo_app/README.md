@@ -56,6 +56,10 @@ Some stuff about JQuery UI draggables
 We'll be building this app for the remainder of the day. Here's how I expect we'll start:
 
 1. Set up the back-end to ensure we are delivering data.
+   - Create a todo model
+   - Set up our Todo controller
+   - Set up our routes
+   - Ensure we can persist and access data using Postman
 2. Build our templates
 3. Build our scripts to fill said templates
 4. Bring it all together and do a bit of styling
