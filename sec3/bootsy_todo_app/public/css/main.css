@@ -1,17 +1,37 @@
-*,
-html,
-body {
-  box-sizing: border-box;
-  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+a {
+  color: #00B7FF;
 }
 
 body {
-  font-size: 14px;
-  padding: 50px;
+  background-color: darkgray;
 }
 
-a { color: #00B7FF; }
+header {
+  margin: 30px auto;
+  background-color: black;
+}
 
-h1 {
-  color: dodgerblue;
+.nav-item {
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-bottom: -20px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.heading {
+  background: url(http://d1ya1fm0bicxg1.cloudfront.net/2015/09/promoted-media_55f773384500f.jpg) no-repeat center center fixed;
+  height: 400px;
+  text-align: center;
+  color: white;
+  margin-top: 30px;
+}
+
+.heading > h1 {
+  padding-top: 80px;
+}
+
+.heading > h3 {
+  padding-top: 80px;
 }
