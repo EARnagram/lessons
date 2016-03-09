@@ -21,9 +21,9 @@ $.ajax({
 // Modify that fish by changing it's name and category
 $.ajax({
   url: 'http://localhost:3000/' // + id,
-  type: 'PUT',
+  method: 'PUT',
   dataType: 'json',
-  data: {name: "Minnow", category: "Fish"},
+  data: {name: "Minnow"},
 }).done(function(data){
   console.log(data);
 });
@@ -42,7 +42,7 @@ $.post('http://localhost:3000/fishes', fish)
 // Delete a fish from the list
 $.ajax({
   type: 'DELETE',
-  url: 'http://localhost:3000/fishes/564992856e90580a5b853134'
+  url: 'http://localhost:3000/fishes/' // + id
 }).done(function(data) {
   console.log(data);
 });
