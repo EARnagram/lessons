@@ -1,55 +1,66 @@
+// Step 1: Create editFish function (without $li - use id)
+// Step 2: Create inline form (add $li to editFish function)
+// Step 3: Add CSS for edit forms
+// Step 4: Add $fishesUl = ul#fishes
+// Step 5: Make event listener for edit button
+// Step 6: Make event listener for cancel edit button
+// Step 7: Make event listener for save edit button
+
+
 var renderLi,
     $fishesUl;
 
-
-function postFish(e){
-  e.preventDefault();
-
-  // our API uses JSON, so we need to make a javascript object! There are a lot
-  // of ways to do this, this just a basic example.
-  var fish = {
-    category: $('form#new-fish select#fish-category').val(),
-    name: $('form#new-fish input#fish-name').val()
-  };
-
-  // create a new AJAX request
-  $.post('http://localhost:3000/fishes', fish)
-    .then(function(fish){
-      console.log(fish);
+function getFishes() {
+  var fishes = $.get('http://localhost:3000/fishes')
+  .then(function(fishes) {
+    fishes.forEach(function(fish) {
       addFish(fish);
     });
-
-
-  // clear our input box!
-  $('form#new-fish input#fish-name').val(null)
-}
-
-function getFishes(){
-  var fishes = $.get('http://localhost:3000/fishes')
-    .then(function(fishes){
-      fishes.forEach(function(fish){
-        addFish(fish);
-      });
-    });
+  }, function(err) {
+    console.log(err);
+  });
 }
 
 function addFish(fish) {
   var $fishItem = $(renderLi(fish));
-  $fishItem.find('span.delete-fish').on('click', function(e) {
+  $fishItem.find('span.delete-fish').on('click', function(evt) {
     var deleteId = $(this).parent().attr('id');
     deleteFish(deleteId);
-  })
-  $("ul#fishes").prepend($fishItem);
+  });
+  $('ul#fishes').prepend($fishItem);
+}
+
+function postFish(evt) {
+  evt.preventDefault();
+
+  var fish = {
+    category: $('select#fish-category').val(),
+    name:     $('input#fish-name').val()
+  };
+
+  $.post('http://localhost:3000/fishes', fish)
+    .then(function(fish) {
+      console.log("Reeling in ", fish);
+      addFish(fish);
+    }, function(err) {
+      console.log(err);
+    });
+
+  // clear our input box!
+  $('input#fish-name').val(null);
 }
 
 function deleteFish(id) {
   $('#' + id).remove();
+
   $.ajax({
-    type: 'DELETE',
+    method: 'DELETE',
     url: 'http://localhost:3000/fishes/' + id
-  }).then(function(data) {
-    console.log(data);
-  });
+  }).then(function(msg) {
+    console.log(msg);
+  }, function(err) {
+    console.log(err);
+  })
 }
 
 function editFish($li, fish) {
@@ -58,18 +69,19 @@ function editFish($li, fish) {
       url: 'http://localhost:3000/fishes/' + $li.attr('id'),
       data: fish
     }).then(function(fish) {
+      console.log("That fish gets bigger every time!");
       $li.find('span.name').html(fish.name);
       $li.find('span.category').html(fish.category);
       $li.removeClass('edit');
     });
 }
 
-// JQuery
 $(function() {
-  console.log("Let's get fishin'!");
 
-  $fishesUl   = $('#fishes');
-  renderLi    = _.template(`
+  // attach ul#fishes
+  $fishesUl = $('#fishes');
+  // make template
+  renderLi = _.template(`
     <li id="<%= _id %>">
       <span class="noedit name"><%= name %></span>
       <input class="edit name"/>
@@ -80,7 +92,7 @@ $(function() {
       <span class="btn btn-success btn-xs edit save-edit">Save</span>
       <span class="btn btn-default btn-xs edit cancel-edit">Cancel</span>
     </li>
-    `);
+  `);
 
   $('form#new-fish').on('submit', postFish);
 
@@ -106,5 +118,6 @@ $(function() {
     editFish($li, fish);
   });
 
+  // fill ul#fishes
   getFishes();
 });
