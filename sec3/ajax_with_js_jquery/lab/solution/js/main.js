@@ -1,6 +1,5 @@
 var renderLi,
-    $fishesUl,
-    $liTemplate;
+    $fishesUl;
 
 
 function postFish(e){
@@ -35,7 +34,7 @@ function getFishes(){
 }
 
 function addFish(fish) {
-  $fishItem = $(renderLi(fish));
+  var $fishItem = $(renderLi(fish));
   $fishItem.find('span.delete-fish').on('click', function(e) {
     var deleteId = $(this).parent().attr('id');
     deleteFish(deleteId);
@@ -70,8 +69,18 @@ $(function() {
   console.log("Let's get fishin'!");
 
   $fishesUl   = $('#fishes');
-  $liTemplate = $('#li-template');
-  renderLi    = _.template($liTemplate.html());
+  renderLi    = _.template(`
+    <li id="<%= _id %>">
+      <span class="noedit name"><%= name %></span>
+      <input class="edit name"/>
+      <em><span class="noedit category"><%= category %></span></em>
+      <input class="edit category"/>
+      <span class="btn btn-danger btn-xs delete-fish">X</span>
+      <span class="btn btn-info btn-xs noedit edit-entry">Edit</span>
+      <span class="btn btn-success btn-xs edit save-edit">Save</span>
+      <span class="btn btn-default btn-xs edit cancel-edit">Cancel</span>
+    </li>
+    `);
 
   $('form#new-fish').on('submit', postFish);
 
