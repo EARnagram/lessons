@@ -269,11 +269,11 @@ However, you must can still refer to this mystery object within your controller 
 
 ```html
 <form ng-submit="vm.addHint()">
-          <input ng-model="vm.newHint.wisdom" id="darken-text" class="shade" type="text" placeholder='But think...'>
-        </form>
-        <p class="shade">About to incorporate hint:
-          <strong>{{ vm.newHint.wisdom }}</strong>
-		</p>
+  <input ng-model="vm.newHint.wisdom" id="darken-text" class="shade" type="text" placeholder='But think...'>
+</form>
+<p class="shade">About to incorporate hint:
+  <strong>{{ vm.newHint.wisdom }}</strong>
+</p>
 ```
 
 We can now call to `vm.newHint` in our controller without ever instantiating it!
