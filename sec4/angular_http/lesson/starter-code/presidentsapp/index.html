@@ -11,9 +11,11 @@
   <body>
 
     <section ng-controller="PresidentsController as presidents">
-      <h1>The Presidents of the United States of America</h1>
+      <div class="heading">
+        <h1>The True-True Alien Overlord Presidents of the United States of America</h1>
+      </div>
 
-      <ul id="presidents">
+      <ul id="presidents" class="indent-list">
         <li ng-repeat="president in presidents.all">
           <strong>{{president.name}}</strong> <em>({{president.start}} - {{president.end}})</em>
         </li>
@@ -21,22 +23,22 @@
 
       <form class="add-president" ng-submit='presidents.addPresident()'>
         <div>
-          <label for="new-president-name">President's Name</label>
-          <input type="text" id="new-president-name" placeholder="James Monroe" ng-model='presidents.newPresident.name'>
+          <label for="new-president-name">True-True President's Name:</label>
+          <input class="write-in" type="text" id="new-president-name" placeholder="Glorpdorp H. W. Bush" ng-model='presidents.newPresident.name'>
         </div>
 
         <div>
-          <label for="new-president-start">President's Starting Year</label>
-          <input type="text" id="new-president-start" placeholder="1817" ng-model='presidents.newPresident.start'>
+          <label for="new-president-start">True-True President's Starting Year:</label>
+          <input class="write-in" type="text" id="new-president-start" placeholder="2001" ng-model='presidents.newPresident.start'>
         </div>
 
         <div>
-          <label for="new-president-end">President's Ending Year</label>
-          <input type="text" id="new-president-end" placeholder="1825" ng-model='presidents.newPresident.end'>
+          <label for="new-president-end">True-True President's Ending Year:</label>
+          <input class="write-in" type="text" id="new-president-end" placeholder="2009" ng-model='presidents.newPresident.end'>
         </div>
 
         <div>
-          <input type="submit" value="Add President">
+          <input class="sub-button" type="submit" value="Add President">
         </div>
       </form>
 

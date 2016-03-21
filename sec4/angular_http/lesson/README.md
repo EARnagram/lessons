@@ -1,14 +1,21 @@
-# Angular $http
+# The True-True Alien Overlord Presidents
 
-### Objectives
+![](http://41.media.tumblr.com/b357cacdaac16180a5b99f8dc300b08f/tumblr_inline_nxmvk1EylB1sdh097_1280.jpg)
 
-- Use $http to access an API resource, rather than use hardcoded data
+## Angular $http
 
-### Preparation
+| Lesson Objectives                        |
+| ---------------------------------------- |
+| Use $http to access an API resource      |
+| Incorporate AJAX calls into your Angular application |
 
-- Be able to start up a Node.js app
-- Be able to create an Angular app with controllers
-- Understand AJAX & RESTful routing
+#### Road Map
+
+1. Intro
+2. Demo
+3. Hitting an API with $http
+4. Independent Practice
+5. Outro
 
 ## Intro (10 mins)
 
@@ -24,10 +31,10 @@ Now, real quick – we might want a little seed data. Take a minute and make som
 
 ```json
 [
-  {"name": "George Washington", "start": 1789, "end": 1797 },
-  {"name": "John Adams", "start": 1797, "end": 1801 },
-  {"name": "Thomas Jefferson", "start": 1801, "end": 1809 },
-  {"name": "James Madison", "start": 1809, "end": 1817 }
+  {"name": "Blorp Florp McRichards", "start": 1789, "end": 1790 },
+  {"name": "John MuscleBrain Adams", "start": 1790, "end": 1801 },
+  {"name": "Blogpost Dorgabn", "start": 1801, "end": 1949 },
+  {"name": "Mike", "start": 1949, "end": 1947 }
 ]
 ```
 
@@ -41,7 +48,7 @@ It's our job to mush together this little API we have, and our Angular applicati
 
 We'll do this with two different methods, and this one is the first. The next will be in the next lesson.
 
-<img width="752"  src="https://cloud.githubusercontent.com/assets/25366/9017871/7cf4a79e-378e-11e5-85d8-d018f0a7ab21.png">
+![Stuff]("https://cloud.githubusercontent.com/assets/25366/9017871/7cf4a79e-378e-11e5-85d8-d018f0a7ab21.png")
 
 
 ## Hitting an API with $http - Codealong (30 mins)
@@ -80,7 +87,7 @@ function PresidentsController($http){
   // ...
 ```
 
-The first tells the controller we intend to use this library called `$http`, the second allows us to pass the library in and gives it the name $http. Think of it just like any other argument in a function – because it's the first argument, and we called it $http, we can use it inside our function using that name.
+The first tells the controller we intend to use this library called `$http`, the second allows us to pass the library in and gives it the name $http. Think of it just like any other argument in a function – because it's the first argument, and we called it $http, we can use it inside our function using that name.
 
 ### Using $http is just AJAX!
 
