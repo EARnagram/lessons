@@ -51,8 +51,6 @@ It's our job to mush together this little API we have, and our Angular applicati
 
 ## Hitting an API with $http
 
-![obama](http://photoshopcontest.com/images/large/fh5qnw51g7l5jcq7684qrjl2s9i7jpq961yz.jpg)
-
 The simplest starting point will be to switch our hardcoded array of presidents with the one living in our new API.
 
 Step one – **let's delete our hardcoded data.** In `presidentsController.js`:
@@ -107,6 +105,8 @@ function PresidentsController($http){
       .get('http://localhost:3000/api/presidents')
       .then(function(response){
         vm.all = response.data.presidents;
+    }, function(err) {
+          console.log(err);
     });
   }
 
@@ -127,6 +127,8 @@ function PresidentsController($http){
       .get('http://localhost:3000/api/presidents')
       .then(function(response){
         vm.all = response.data.presidents;
+    }, function(err) {
+          console.log(err);
     });
   }
 
@@ -192,6 +194,8 @@ function PresidentsController($http){
       .get('http://localhost:3000/api/presidents')
       .then(function(response){
         vm.all = response.data.presidents;
+    }, function(err) {
+          console.log(err);
     });
   }
 
@@ -212,8 +216,30 @@ Try refreshing your browser, let's see if it worked!
 
 Now that we've got GETing down, it's time to try POSTing. Just like any RESTful API, you can add a new president by POSTing to the correct URL. We'll need to modify our controller action to send a new president from the form to our API.
 
+We already have an `addPresident` function we can manipulate. Currently, it only takes the data within the form and adds it to the `vm.all` array.  If we want it to post, we'll have to use `$http`.
 
+```javascript
+function PresidentsController($http){
+  var vm = this;
+  vm.all = [];
+  // ...
+  
+  function addPresident(){
+    $http
+    .post('http://localhost:3000/api/presidents', vm.newPresident)
+    .then(function(res) {
+      vm.all.push(res.data.president);
+      vm.newPresident = {};
+    }, function(err) {
+      console.log(err);
+    });
+  }  	
+  
+  // ...
+}
+```
 
+Again, just like ajax! Nothing new here - we're simply taking the data from our `ng-model` attached to our inputs!
 ## Conclusion
 Even though we may not have freed the Sheeple today, we've certainly taken great steps. You should be proud!
 

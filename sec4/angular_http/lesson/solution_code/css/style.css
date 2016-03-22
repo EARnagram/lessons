@@ -24,8 +24,9 @@ h1 {
 }
 
 .heading {
-  background-image: url('http://thefederalistpapers.integratedmarket.netdna-cdn.com/wp-content/uploads/2014/09/00295.jpg');
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/0/09/George_Washington_(Engraved_Portrait).jpg');
   background-size: cover;
+  background-position: 0px -150px;
   height: 400px;
   width: 95%;
   margin: 0 auto;
@@ -33,7 +34,8 @@ h1 {
 }
 
 .heading:hover {
-  background-image: url('http://www.grafikjager.com/wp-content/uploads/2015/01/They-Live-final-Main.jpg')
+  background-image: url('https://s-media-cache-ak0.pinimg.com/736x/b4/6c/6f/b46c6f2061fce292e8ec24917393f7c6.jpg');
+  background-position: 0px -200px;
 }
 
 /*LIST OF PRESIDENTS*/

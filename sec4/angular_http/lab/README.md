@@ -19,7 +19,7 @@ Now the fun part. You'll be working on an interface for our **Infamous Criminals
 
 #### Starter Code
 
-There's an Express-built API ready to run with a simple `npm start`. Don't forget to have Mongo running. There's no seed data, you'll have to save your own criminals.
+There's an Express-built API ready to run with a simple `nodemon`. Don't forget to have Mongo running and to `npm install`. There's no seed data, you'll have to save your own criminals.
 
 #### Deliverable
 
