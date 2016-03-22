@@ -21,7 +21,7 @@ router.route('/presidents/:id')
   .get(presidentsController.getPresident)
 
   // PATCH update existing president
-  .patch(presidentsController.updatePresident)
+  .put(presidentsController.updatePresident)
 
   // DELETE remove specific president from DB
   .delete(presidentsController.removePresident);

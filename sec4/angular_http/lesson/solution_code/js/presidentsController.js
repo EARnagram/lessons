@@ -11,11 +11,11 @@
 
     var vm = this;
 
-    vm.all = [];
-    vm.addPresident = addPresident;
-    vm.newPresident = {};
+    vm.all             = [];
+    vm.addPresident    = addPresident;
+    vm.newPresident    = {};
     vm.deletePresident = deletePresident;
-    vm.uncover = uncover;
+    vm.uncover         = uncover;
 
     getPresidents();
 
@@ -41,13 +41,30 @@
     }
 
     function deletePresident(rmPresident) {
-      console.log(rmPresident);
-    }
+      var id = rmPresident._id;
+      $http
+        .delete(`http://localhost:3000/api/presidents/${id}`)
+        .then(function(res) {
+          console.log(res.data.message);
+          vm.all = vm.all.filter(function(pres) {
+            return pres._id != id;
+          })
+        },
+        function(err) {
+          console.log(err);
+        });
+    };
 
     function uncover(putPresident) {
-      console.log(putPresident);
-    }
-
+      putPresident.uncovered = !putPresident.uncovered;
+      $http
+        .put(`http://localhost:3000/api/presidents/${putPresident._id}`, putPresident)
+        .then(function(res) {
+          console.log(res.data.message);
+        },
+        function(err) {
+          console.log(err);
+        });
+    };
   }
-
 })();

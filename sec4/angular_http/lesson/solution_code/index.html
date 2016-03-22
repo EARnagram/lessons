@@ -15,9 +15,9 @@
         <h1>The True-True Alien Overlord Presidents of the United States of America</h1>
       </div>
 
-      <ul id="vm" class="indent-list">
+      <ul id="presidents" class="indent-list">
         <h3>The Prezzz:</h3>
-        <li ng-repeat="president in vm.all" ng-class="{'uncovered': hint.uncovered}">
+        <li ng-repeat="president in vm.all" ng-class="{'uncovered': president.uncovered}">
           <strong>{{president.name}}</strong> <em>({{president.start}} - {{president.end}})</em>
           <button ng-click="vm.uncover(president)">Uncovered?</button>
           <button class="destroy" ng-click="vm.deletePresident(president)">X</button>
