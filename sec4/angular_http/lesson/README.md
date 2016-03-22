@@ -11,23 +11,25 @@
 
 #### Road Map
 
-1. Intro
+1. Aliens Own Us - Intro
 2. Demo
 3. Hitting an API with $http
 4. Independent Practice
 5. Outro
 
-## Intro (10 mins)
+## Aliens Own Us - Intro
 
-We've only been working with hardcoded data so far. Today that changes; it's time to kick it up a notch.
+Aliens own us. We all know that - no big surprise here, but that's because we're educated programmers who read the Matrix every day.
+
+**It's time to make these overlords public to the sheeple.**
+
+We've only been working with hardcoded data so far. Today that changes; it's time to kick it up a notch if we're going to oust these dang aliens.
 
 We're going to learn a little about two different functionalities in Angular that will allow us to start communicating with real data, accessed through an API. You'll need to dust off your knowledge of RESTful routes & AJAX, but hopefully that's a good thing.
 
 Now, since we're going to be interacting with an API, in an ideal world we'd force you to write one first. You totally could. But _because_ you could, and because we'd rather skip to the new stuff, let's use a pre-built backend for this lesson.
 
-We want to make it fast, so we've already made you a sweet little Node API.
-
-Now, real quick – we might want a little seed data. Take a minute and make some POST requests in CURL or whatever you like to add some presidents to our database. If you need some examples:
+Now, real quick – let's seed a little seed data. Go ahead and run `node config/seeds.js` within `api/` in `starter_code/`. 
 
 ```json
 [
@@ -38,24 +40,22 @@ Now, real quick – we might want a little seed data. Take a minute and make som
 ]
 ```
 
-Once you have some, do a quick `GET` request to `http://localhost:3000/presidents` and make sure you've got some JSON.
+Once you have some, do a quick `GET` request to `http://localhost:3000/api/presidents` and make sure you've got some JSON.
 
-## Demo of Starter Code (5 mins)
+## Demo of Starter Code
 
-Okay, so we've included a bunch of starter code that looks quite a bit like the code you've already written. There's a controller, with some hardcoded data, listing out some of the Presidents in the United States. Hopefully [Wikipedia](https://en.wikipedia.org/wiki/List_of_Presidents_of_the_United_States) is accurate, 'cuz who knows stuff like that off the top of their head?
+Okay, so we've included a bunch of starter code that looks quite a bit like the code you've already written. There's a controller, with some hardcoded data, listing out some of the True-True Overlord Presidents of the United States. Hopefully [Wikipedia](http://uncyclopedia.wikia.com/wiki/Alien_overlords) is accurate, 'cuz who knows stuff like that off the top of their head?
 
 It's our job to mush together this little API we have, and our Angular application.
 
-We'll do this with two different methods, and this one is the first. The next will be in the next lesson.
 
-![Stuff]("https://cloud.githubusercontent.com/assets/25366/9017871/7cf4a79e-378e-11e5-85d8-d018f0a7ab21.png")
+## Hitting an API with $http
 
-
-## Hitting an API with $http - Codealong (30 mins)
+![obama](http://photoshopcontest.com/images/large/fh5qnw51g7l5jcq7684qrjl2s9i7jpq961yz.jpg)
 
 The simplest starting point will be to switch our hardcoded array of presidents with the one living in our new API.
 
-Step one – **let's delete our hardcoded data.** In `presidentsController.js`:
+Step one – **let's delete our hardcoded data.** In `presidentsController.js`:
 
 ```diff
 angular.module('ThePresidentsApp', [])
@@ -63,10 +63,10 @@ angular.module('ThePresidentsApp', [])
 
 function PresidentsController(){
 -  this.all = [
--    {name: 'George Washington', start: 1789, end: 1797 },
--    {name: 'John Adams', start: 1797, end: 1801 },
--    {name: 'Thomas Jefferson', start: 1801, end: 1809 },
--    {name: 'James Madison', start: 1809, end: 1817 }
+-    {name: 'Blorp Florp McRichards', start: 1789, end: 1790 },
+-    {name: 'John MuscleBrain Adams', start: 1790, end: 1801 },
+-    {name: 'Blogpost Dorgabn', start: 1801, end: 1949 },
+-    {name: 'Mike', start: 1949, end: 1947 }
 -  ]
 +  this.all = [];
 }
@@ -76,7 +76,7 @@ With a little setup, we'll do a GET request to our API, and assign `this.all` to
 
 ### Injecting Dependencies
 
-Angular dependencies – like libraries or plugins that other people have built – are defined first in our module (unless they come with Angular by default), and then _injected_ into any controllers that need to use them.
+Angular dependencies – like libraries or plugins that other people have built – are defined first in our module (unless they come with Angular by default), and then _injected_ into any controllers that need to use them.
 
 `$http` happens to come with Angular, so we only need to _inject_ it into our controller. We do that with a simple command, and then by simply passing an argument to our controller function.
 
@@ -87,7 +87,9 @@ function PresidentsController($http){
   // ...
 ```
 
-The first tells the controller we intend to use this library called `$http`, the second allows us to pass the library in and gives it the name $http. Think of it just like any other argument in a function – because it's the first argument, and we called it $http, we can use it inside our function using that name.
+The first tells the controller we intend to use this library called `$http`, the second allows us to pass the library in and gives it the name $http.
+
+Think of it just like any other argument in a function – because it's the first argument, and we called it $http, we can use it inside our function using that name.
 
 ### Using $http is just AJAX!
 
@@ -97,14 +99,14 @@ The first tells the controller we intend to use this library called `$http`, the
 PresidentsController.$inject = ['$http'];
 
 function PresidentsController($http){
-  var self = this;
+  var vm = this;
   self.all = [];
 
   function getPresidents(){
     $http
-      .get('http://localhost:3000/presidents')
+      .get('http://localhost:3000/api/presidents')
       .then(function(response){
-        self.all = response.data.presidents;
+        vm.all = response.data.presidents;
     });
   }
 
@@ -122,9 +124,9 @@ function PresidentsController($http){
 
   function getPresidents(){
     $http
-      .get('http://localhost:3000/presidents')
+      .get('http://localhost:3000/api/presidents')
       .then(function(response){
-        self.all = response.data.presidents;
+        vm.all = response.data.presidents;
     });
   }
 
@@ -134,7 +136,7 @@ function PresidentsController($http){
 }
 ```
 
-We call `$http`, then our favorite HTTP verb, `.get`. There's one for `.post`, too. It's asynchronous, so we'll use `.then` to make sure when it's _done_ it'll do what we want. And what we want is just to overwrite our `.all` array with the response we get back.
+We call `$http`, then our favorite HTTP verb, `.get`. There's one for `.post`, `.put`, and `.delete` too. It's asynchronous, so we'll use `.then` - a promise -to make sure when it's _done_ it'll do what we want. And what we want is just to overwrite our `.all` array with the response we get back.
 
 Feel free to `console.log(response)` and see everything that comes back. `.data` is just the data, `.presidents` is the key inside our JSON holding an array of presidents.
 
@@ -150,8 +152,8 @@ function PresidentsController($http){
 to
 ```js
 function PresidentsController($http){
-  var self = this;
-  self.all = [];
+  var vm = this;
+  vm.all = [];
   // ...
 ```
 
@@ -165,7 +167,7 @@ function PresidentsController($http){
 
   function getPresidents(){
     $http
-      .get('http://localhost:3000/presidents')
+      .get('http://localhost:3000/api/presidents')
       .then(function(response){
         // Where is 'this' scoped to?
         this.all = response.data.presidents;
@@ -181,15 +183,15 @@ So what's a simple way to make sure we're scoped to the right place? A tiny litt
 
 ```js
 function PresidentsController($http){
-  var self = this;
-  self.all = [];
+  var vm = this;
+  vm.all = [];
 // ...
 
   function getPresidents(){
     $http
-      .get('http://localhost:3000/presidents')
+      .get('http://localhost:3000/api/presidents')
       .then(function(response){
-        self.all = response.data.presidents;
+        vm.all = response.data.presidents;
     });
   }
 
@@ -203,17 +205,24 @@ Now we can trust we're talking to the right scope.
 
 Try refreshing your browser, let's see if it worked!
 
-<img width="752"  src="https://cloud.githubusercontent.com/assets/25366/9017871/7cf4a79e-378e-11e5-85d8-d018f0a7ab21.png">
+
+## POSTing Data
+
+![](https://s-media-cache-ak0.pinimg.com/736x/b4/6c/6f/b46c6f2061fce292e8ec24917393f7c6.jpg)
+
+Now that we've got GETing down, it's time to try POSTing. Just like any RESTful API, you can add a new president by POSTing to the correct URL. We'll need to modify our controller action to send a new president from the form to our API.
 
 
-## Independent Practice (20 minutes)
 
-Now that we've got GETing down, it's up to you to try POSTing. Just like any RESTful API, you can add a new president by POSTing to the correct URL. You'll need to modify your controller action to send a new president from the form to our API, and probably look up the Angular documentation to figure out how to do it.
+## Conclusion
+Even though we may not have freed the Sheeple today, we've certainly taken great steps. You should be proud!
 
-We'll be walking around helping you if you get stuck. In the last few minutes we can see how many people got it!
-
-## Conclusion (5 mins)
+Let's wrap up with a few questions:
 - How do you inject dependencies into an Angular controller?
 - How do you use $http to do a GET request?
 - Why did we start using `self` instead of `this`?
 - How do you do a POST request?
+
+##### References
+
+[Angular $http](https://docs.angularjs.org/api/ng/service/$http)

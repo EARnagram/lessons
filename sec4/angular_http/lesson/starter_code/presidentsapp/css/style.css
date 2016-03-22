@@ -24,12 +24,16 @@ h1 {
 }
 
 .heading {
-  background-image: url('http://www.grafikjager.com/wp-content/uploads/2015/01/They-Live-final-Main.jpg');
+  background-image: url('http://thefederalistpapers.integratedmarket.netdna-cdn.com/wp-content/uploads/2014/09/00295.jpg');
   background-size: cover;
   height: 400px;
   width: 95%;
   margin: 0 auto;
   border-radius: 5px;
+}
+
+.heading:hover {
+  background-image: url('http://www.grafikjager.com/wp-content/uploads/2015/01/They-Live-final-Main.jpg')
 }
 
 /*LIST OF PRESIDENTS*/

@@ -15,7 +15,7 @@ function createPresident(request, response) {
   console.log('body:',request.body);
 
   var president = new President(request.body);
-
+  president.uncovered = false;
   president.save(function(error) {
     if(error) response.json({messsage: 'Could not ceate president b/c:' + error});
 
@@ -43,6 +43,7 @@ function updatePresident(request, response) {
     if(request.body.name) president.name = request.body.name;
     if(request.body.start) president.start = request.body.start;
     if(request.body.end) president.end = request.body.end;
+    if(request.body.uncovered) president.uncovered = request.body.uncovered;
 
     president.save(function(error) {
       if(error) response.json({messsage: 'Could not update president b/c:' + error});
