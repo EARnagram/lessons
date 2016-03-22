@@ -14,8 +14,9 @@
 1. Aliens Own Us - Intro
 2. Demo
 3. Hitting an API with $http
-4. Independent Practice
-5. Outro
+4. POSTing Data
+5. PUT and DELETE - Independent Practice
+6. Outro
 
 ## Aliens Own Us - Intro
 
@@ -29,7 +30,7 @@ We're going to learn a little about two different functionalities in Angular tha
 
 Now, since we're going to be interacting with an API, in an ideal world we'd force you to write one first. You totally could. But _because_ you could, and because we'd rather skip to the new stuff, let's use a pre-built backend for this lesson.
 
-Now, real quick – let's seed a little seed data. Go ahead and run `node config/seeds.js` within `api/` in `starter_code/`. 
+Now, real quick – let's seed a little seed data. Go ahead and run `npm install`, `mongod`, then `node config/seeds.js` within `api/` in `starter_code/`. 
 
 ```json
 [
@@ -50,6 +51,8 @@ It's our job to mush together this little API we have, and our Angular applicati
 
 
 ## Hitting an API with $http
+
+![](http://vigilantcitizen.com/wp-content/uploads/2012/04/theylive20.jpg)
 
 The simplest starting point will be to switch our hardcoded array of presidents with the one living in our new API.
 
@@ -212,8 +215,6 @@ Try refreshing your browser, let's see if it worked!
 
 ## POSTing Data
 
-![](https://s-media-cache-ak0.pinimg.com/736x/b4/6c/6f/b46c6f2061fce292e8ec24917393f7c6.jpg)
-
 Now that we've got GETing down, it's time to try POSTing. Just like any RESTful API, you can add a new president by POSTing to the correct URL. We'll need to modify our controller action to send a new president from the form to our API.
 
 We already have an `addPresident` function we can manipulate. Currently, it only takes the data within the form and adds it to the `vm.all` array.  If we want it to post, we'll have to use `$http`.
@@ -240,13 +241,30 @@ function PresidentsController($http){
 ```
 
 Again, just like ajax! Nothing new here - we're simply taking the data from our `ng-model` attached to our inputs!
+
+Notice that in each of the `$http` calls' `.then()` field takes a successful function first, then a failure. If you need to do greater configuration, such as attaching some kind of header, you can do so by passing a config object in place of the second argument (recall something like: `{ method: POST, data: data, url: 'http://localhost:3000/api/presidents }`).
+## PUT and DELETE - Independent Practice
+
+Let's try and implement the other two parts of CRUD.
+
+First, try and attach a delete function using an `ng-click` on the 'X' span tag. Remember to use `$http.delete()`!
+
+Next, try and implement a similar PUT function to yesterday.
+
+1. Create an "uncover" function that switches the president's "uncovered" boolean value.
+2. Make sure that uncover function uses `$http.put()`
+3. Add an `ng-click` directive to the Uncovered? button.
+4. Use `ng-class` and the `uncovered` classname to strike out a true-true president's name if `president.uncovered === true`.
+
 ## Conclusion
+![](http://www.eyeforfilm.co.uk/images/newsite/roddy_piper.jpg)
+
 Even though we may not have freed the Sheeple today, we've certainly taken great steps. You should be proud!
 
 Let's wrap up with a few questions:
 - How do you inject dependencies into an Angular controller?
 - How do you use $http to do a GET request?
-- Why did we start using `self` instead of `this`?
+- Why did we start using `vm` instead of `this`?
 - How do you do a POST request?
 
 ##### References
