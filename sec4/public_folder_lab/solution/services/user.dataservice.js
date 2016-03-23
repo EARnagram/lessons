@@ -10,7 +10,7 @@
   function userDataService() {
     var user = {
       name:        "",
-      phoneNumber: "",
+      century: "",
       isLoggedIn:  isLoggedIn
     };
 

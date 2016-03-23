@@ -19,10 +19,10 @@
         url: "/about",
         templateUrl:  "/templates/about.html"
       })
-      .state("triumphs", {
-        url: "/triumphs",
-        templateUrl: "/templates/triumphs.html",
-        controller: "TriumphsController",
+      .state("pledges", {
+        url: "/pledges",
+        templateUrl: "/templates/pledges.html",
+        controller: "PledgesController",
         controllerAs: "vm"
       });
 

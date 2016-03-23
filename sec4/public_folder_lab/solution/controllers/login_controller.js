@@ -15,7 +15,7 @@
 
     vm.userHold = {
       name: "",
-      phoneNumber: ""
+      century: ""
     };
 
     function logIn(name) {
@@ -23,10 +23,10 @@
 
       // Log in the user by updating the service's .name:
       vm.user.name        = vm.userHold.name;
-      vm.user.phoneNumber = vm.userHold.phoneNumber
+      vm.user.century     = vm.userHold.century;
       vm.userHold.name    = "";
 
-      $state.go("triumphs");
+      $state.go("pledges");
     }
   }
 

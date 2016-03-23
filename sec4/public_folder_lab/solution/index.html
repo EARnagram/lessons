@@ -14,7 +14,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
 </head>
-<body ng-controller="MainController as vm" ng-cloak>
+<body ng-controller="MainController as main" ng-cloak>
 
   <div class="jumbotron">
     <div class="container">
@@ -38,11 +38,11 @@
       <li role="presentation" ui-sref-active="active">
         <a ui-sref="aboutPage">About</a>
       </li>
-      <li role="presentation" ui-sref-active="active" ng-show="vm.user.isLoggedIn()">
-        <a ui-sref="triumphs">Triumphs</a>
+      <li role="presentation" ui-sref-active="active" ng-show="main.user.isLoggedIn()">
+        <a ui-sref="pledges">Pledges</a>
       </li>
-      <li ng-show="vm.user.isLoggedIn()">
-        <a class="btn" ng-click="vm.logOut()">Logout {{ vm.user.name }}</a>
+      <li ng-show="main.user.isLoggedIn()">
+        <a class="btn" ng-click="main.logOut()">Logout {{ main.user.name }}</a>
       </li>
     </ul>
 
@@ -62,6 +62,6 @@
   <script src="/services/user.dataservice.js"></script>
   <script src="/controllers/main_controller.js"></script>
   <script src="/controllers/login_controller.js"></script>
-  <script src="/controllers/triumphs_controller.js"></script>
+  <script src="/controllers/pledges_controller.js"></script>
 </body>
 </html>
