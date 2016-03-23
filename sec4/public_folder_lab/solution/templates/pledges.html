@@ -32,10 +32,10 @@
         </div>
         <select class="form-control" name="pledgeCategory" id="pledge-category" ng-model="vm.editPledge.category">
             <option selected disabled>Choose Category</option>
-            <option value="Pledge">Pledge</option>
-            <option value="Clothing">Clothing</option>
-            <option value="Corpse">Corpse</option>
-            <option value="Trash">Trash</option>
+            <option value="Promotion">Promotion</option>
+            <option value="Decree">Decree</option>
+            <option value="Warning">Warning</option>
+            <option value="Premonition">Premonition</option>
         </select>
         <button class="btn btn-success btn-xs" ng-click="vm.updatePledge(pledge._id)">Save</button>
         <button class="btn btn-default btn-xs" ng-click="showme=false; vm.resetEditForm();">Cancel</button>
