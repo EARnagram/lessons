@@ -16,27 +16,26 @@
 
     vm.newPledge = {
       content: "",
-      category: ""
+      category: "Choose Category"
     };
 
     vm.editPledge = {
       content: "",
-      category: ""
+      category: "Choose Category"
     }
 
-    vm.getPledges   = getPledges;
     vm.deletePledge  = deletePledge;
     vm.updatePledge  = updatePledge;
     vm.postPledge    = postPledge;
     vm.resetEditForm = resetEditForm;
 
-    vm.getPledges();
+    getPledges();
 
     function getPledges() {
       $http.get('http://localhost:3000/api/pledges').then(function(response) {
         vm.pledges = response.data;
       }, function(errRes) {
-        console.error('Error catchin pledge!', errRes);
+        console.error('Error gathering pledges!', errRes);
       });
     }
 
@@ -44,30 +43,38 @@
       $http.delete('http://localhost:3000/api/pledges/' + id).then(function(response) {
         console.log(response);
       }, function(errRes) {
-        console.error('Error deletin pledge!', errRes);
+        console.error('Error deleting pledge!', errRes);
       }).then(getPledges);
     }
 
     function postPledge() {
-      $http.post('http://localhost:3000/api/pledges', vm.newPledge)
+      if (vm.newPledge.category === "Choose Category") {
+        $log.info("You must choose a category!");
+      } else {
+        $http.post('http://localhost:3000/api/pledges', vm.newPledge)
         .then(getPledges)
         .then(function(response) {
           vm.newPledge = {
             content: "",
-            category: ""
+            category: "Choose Category"
           };
         });
+      }
     }
 
     function updatePledge(id) {
-      $http.put('http://localhost:3000/api/pledges/' + id, vm.editPledge).then(function(response) {
-        vm.editPledge = {
-          content: "",
-          category: ""
-        };
-      }, function(errRes) {
-        console.log('Error fixin pledge!', errRes);
-      }).then(getPledges);
+      if (vm.editPledge.category === "Choose Category") {
+        $log.info("You must choose a category!");
+      } else {
+        $http.put('http://localhost:3000/api/pledges/' + id, vm.editPledge).then(function(response) {
+          vm.editPledge = {
+            content: "",
+            category: "Choose Category"
+          };
+        }, function(errRes) {
+          console.log('Error updating pledge!', errRes);
+        }).then(getPledges);
+      }
     }
 
     function resetEditForm() {
@@ -75,7 +82,7 @@
       vm.pledgeName = '';
       vm.editPledge = {
         content: "",
-        category: ""
+        category: "Choose Category"
       };
     }
 
