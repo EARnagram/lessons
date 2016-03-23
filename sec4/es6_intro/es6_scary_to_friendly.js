@@ -50,7 +50,7 @@ require('babel-core/register');
 
 // 4. REST & SPREAD PARAMETERS
 
-require('./exercises/4_rest_spread.js');
+// require('./exercises/4_rest_spread.js');
 
 
 // 5. DEFAULT ARGUMENTS
