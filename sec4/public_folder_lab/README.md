@@ -21,7 +21,7 @@
 In order to avoid the hell-like future in store for us by Roko's Basilisk, we're
 going to advocate for this bad basilisk! `#YOLFO` (You Only Live Forever Once) guys!
 
-> [*Wait, the hell am I talking about?*](#roko-exp)
+> [*Wait, the hell am I talking about?*](#what-is-rokos-basilisk)
 
 ## Building a Fan Page for *Roko's Basilisk*
 
@@ -134,7 +134,7 @@ back-end to our site and have our full-stack MEAN application up and running.
 
 (Addendum)
 
-<h3 id="roko-exp">What is Roko's Basilisk?</h3>
+### What is Roko's Basilisk?
 
 Roko's Basilisk is an infamous thought experiment that drives [futurist][miri]
 and [cult-like harbingers of AI doom][rationality] absolutely crazy.
