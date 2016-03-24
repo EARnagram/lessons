@@ -5,9 +5,11 @@
 		.module("todoApp")
 		.controller("TodosController", TodosController);
 
+	// Don't forget to inject the data service!
 	TodosController.$inject = ['DataService'];
 
-	function TodosController(DataService){
+	// Don't forget to pass in the data service!
+	function TodosController(DataService) {
 		var vm = this;
 
 		// have our local lists point to the Data Service,
@@ -24,25 +26,30 @@
 		vm.remainingTodos = remainingTodos;
 		vm.s = s; // add an s to plural words!
 
+
 		function addTodo() {
+			// CHANGED!
 			DataService.todoList.push({id: vm.todoId, task: vm.text, done: false});
 			DataService.todoId++;
 			vm.text = null;
 		}
 
 		function deleteTodo(todo) {
+			// CHANGED!
 			DataService.todoList = DataService.todoList.filter(function(td) {
 				return td != todo;
 			});
 		}
 
 		function completedTodos() {
+			// CHANGED!
 			return DataService.todoList.filter(function(todo) {
 				return todo.complete;
 			});
 		}
 
 		function remainingTodos() {
+			// CHANGED!
 			return DataService.todoList.filter(function(todo) {
 				return !todo.complete;
 			});

@@ -2,7 +2,7 @@
 
 ## Routes
 
-A route, in general, is just the path you take to get somewhere. That's 
+A route, in general, is just the path you take to get somewhere. That's
 not specific to web development, but it's one of those words we've latched
 on because it's a good description – when you're changing a URL, when that
 location bar changes, you're on a new "route."
@@ -13,17 +13,17 @@ location bar changes, you're on a new "route."
 
 > In a single-page app, how can we have multiple pages?
 
-In Angular, it comes down to storing all our views on our main page and 
+In Angular, it comes down to storing all our views on our main page and
 turning them on and off as we need.
 
-> But what's the benefit? Why even make it single page? 
+> But what's the benefit? Why even make it single page?
 > Why add that complexity?
 
 The main use case for front-end frameworks is twofold:
 
-1.  Added speed – by loading everything upfront, and just switching 
-    sections on and off, our page will seem wonderfully speedy because 
-    we'll be skipping quite a few steps that a more traditional framework 
+1.  Added speed – by loading everything upfront, and just switching
+    sections on and off, our page will seem wonderfully speedy because
+    we'll be skipping quite a few steps that a more traditional framework
     has to run through.
 2.  Better UX - instead of having a HUGE single page, we can break up
     the information of our site to help guide our users.
@@ -39,7 +39,7 @@ The main use case for front-end frameworks is twofold:
     used to having in order to "navigate" a site.
 3.  Shared behavior, when not broken up across multiple pages, can
     overwhelm developers.
-    - Shared and nested view models and resources need some way to be 
+    - Shared and nested view models and resources need some way to be
       managed.
 
 ## `ngRoute` vs `ui-router`
@@ -64,26 +64,26 @@ Let's walk through it!
 
 **Broswer caching is a big problem when working with SPA development.**
 
-Make sure you [deactivate caching][deactivate-caching] and use 
-`⌘⇧R` (or `Ctrl-Shift-R` on Ubuntu) to force a full reload of each 
+Make sure you [deactivate caching][deactivate-caching] and use
+`⌘⇧R` to force a full reload of each
 page!
 
 ### Step 1: Get Up and Running
 
 #### Start a local server
 
-Because the whole structure of SPA routing involves URLs, we need to 
+Because the whole structure of SPA routing involves URLs, we need to
 build our application with reference to syntactically correct HTTP-based
 URLs, not filesystem paths. Therefore, we need to use `server` within
 our angular project.
 
 #### Source `ui-router`
 
-We'll need the UI-Router code. It's not an official, core library, and 
-it's not hosted on Google's site. [CDNJS has it][ui-router-cdn], or you 
+We'll need the UI-Router code. It's not an official, core library, and
+it's not hosted on Google's site. [CDNJS has it][ui-router-cdn], or you
 can download it from GitHub and include it yourself.
 
-However you do it, make sure you add it BEFORE we declare our 
+However you do it, make sure you add it BEFORE we declare our
 application/module.
 
 ```html
@@ -92,10 +92,11 @@ application/module.
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
 
-<script src="/javascripts/app.js"></script>
+<script src="/app.js"></script>
 ```
 
 ### Step 2: Add `ui-router` to Our App
+
 
 #### Add `ui-router` as a dependency
 
@@ -108,11 +109,25 @@ angular
 
 #### Configure `ui-router` with a function
 
+We'll need to create an `/app.routes.js` file to contain our routes and source it to `index.html`.
+
+```html
+<!-- index.html -->
+
+<!-- ... -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+
+	<script src="/app.js"></script>
+    <script src="/app.routes.js"></script>
+	<script src="/controllers/todos_controller.js"></script>
+<!-- ... -->
+```
+
 ```javascript
-// in app.js
+// in app.routes.js
 
 angular
-  .module('todoApp', ['ui.router']) // remove the `;`!
+  .module('todoApp')
   .config(MainRouter);
 
 function MainRouter($stateProvider, $urlRouterProvider) {
@@ -134,7 +149,7 @@ Our function `MainRouter` takes two variables to store our configuration:
 ### Step 3: Add a Route, ie "State"
 
 ```javascript
-// in app.js
+// in app.routes.js
 
 // ...
 
@@ -142,7 +157,7 @@ function MainRouter($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('todoHome', {               // name
       url:          '/',               // URL (after the '#')
-      templateUrl:  'todoHome.html',   // template
+      templateUrl:  'todo_home.html',   // template
       controller:   'TodosController', // controller
       controllerAs: 'vm'               // name for controller in template
     });
@@ -157,7 +172,7 @@ function MainRouter($stateProvider, $urlRouterProvider) {
   state. `'/'` means that this will be the default home for our SPA.
 - **template**: the path, relative to the root of our application, to the
   template (remember, all HTML is a template to Angular) file that represents
-  this state. Usually we will treat these templates like partials from 
+  this state. Usually we will treat these templates like partials from
   server-side rendering.
 - **controller** and **controllerAs**: this sets the `ng-controller`
   directive for the entire template of this state, so we don't need it!
@@ -167,12 +182,14 @@ function MainRouter($stateProvider, $urlRouterProvider) {
 ### Step 4. Create and Include Partials
 
 In our application, we want to keep the `<header>` for each page, but
-update the `<main>` section, so let's do three things:
+update the `<main>` section, so let's do four things:
 
-1.  Copy the contents of our `<main>` tag in to our template:
+1. Create a `/templates` folder and touch a `todo_home.html` within it.
+
+2.  Copy the contents of our `<main>` tag in to our template:
 
     ```html
-    <!-- todoHome.html -->
+    <!-- todo_home.html -->
 
     <!-- begin add new todo -->
     <form class="add-todo" ng-submit="vm.addTodo()">
@@ -193,10 +210,10 @@ update the `<main>` section, so let's do three things:
     <!-- end show all todos -->
     ```
 
-2.  Update our layout page (`index.html`) to load the templates from
+3.  Update our layout page (`index.html`) to load the templates from
     `ui-router`, inside of an element with a directive provided by
     `ui-router` called **`ui-view`**.
-3.  Restructure our `ng-controller` syntax as well so that it wraps any
+4.  Restructure our `ng-controller` syntax as well so that it wraps any
     elements that use it, but *not the template partial*, so that there
     aren't any controller overlaps!
 
@@ -236,13 +253,13 @@ function MainRouter($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('todoHome', {
       url: '/',
-      templateUrl:  'todoHome.html',
+      templateUrl:  'templates/todo_home.html',
       controller:   'TodosController',
       controllerAs: 'vm'
     })
     .state('todoArchive', {
       url: '/archive',
-      templateUrl:  'todoArchive.html',
+      templateUrl:  'templates/todo_archive.html',
       controller:   'TodosController',
       controllerAs: 'vm'
     });
@@ -251,22 +268,22 @@ function MainRouter($stateProvider, $urlRouterProvider) {
 }
 ```
 
-Copy the `todoHome.html` template/partial for the `todoArchive.html`, since 
+Copy the `todo_home.html` template/partial for the `todo_archive.html`, since
 they are almost entirely the same, except:
 
-1.  In `todoArchive.html`, remove the add todo form.
-2.  In `todoIndex.html`, remove the delete todo buttons.
+1.  In `todo_archive.html`, remove the add todo form.
+2.  In `todo_home.html`, remove the delete todo buttons.
 3.  For both templates, update the `ng-repeat` directive to hit the version
     of the list that each should display:
 
     ```html
     <!-- remove: <li ng-repeat="todo in todos.todoList"> -->
 
-    <!-- ... which becomes, in todoHome: -->
-    <li ng-repeat="todo in todos.remainingTodos()">
+    <!-- ... which becomes, in todo_home.html: -->
+    <li ng-repeat="todo in vm.remainingTodos()">
 
-    <!-- ... which becomes, in todoArchive: -->
-    <li ng-repeat="todo in todos.completedTodos()">
+    <!-- ... which becomes, in todo_archive.html: -->
+    <li ng-repeat="todo in vm.completedTodos()">
     ```
 
 ### Step 6: Add Navigation Between States
@@ -299,7 +316,7 @@ That custom directive, `ui-sref` is like ``href``, but references the names of
 
 #### Helpful extra: which state am I on?
 
-`ui.router` actually gives us another really useful custom directive. 
+`ui.router` actually gives us another really useful custom directive.
 Throw it on whichever links are using `ui-sref`:
 
 ```html
@@ -310,19 +327,161 @@ Throw it on whichever links are using `ui-sref`:
 ```
 
 This is a really nice helper that will apply the class of `active`
-(or whatever you put in quotes) to the link that's currently active, 
+(or whatever you put in quotes) to the link that's currently active,
 depending on what state you're looking at.
 
-### Next Steps...
+### There's a Problem!
 
-The above sets up your SPA routing entirely! However, our app still needs
-changes in order to work. Check out the solution for the app to see how
-we need to break out the data stored in the controller in to a shared
-data service, since **each state instantiates its own controller**, even
-if multiple states are using the same controller!
+Our checkboxes don't seem to be acting according to plan.
 
-- [`DataService`][data-service]
-- The updated [`TodosController`][todos-controller]
+> Why do you think the checkboxes seem to remove the todo?
+
+Each state instantiates its own controller, even though they're using the same controller. Therefore, each list of todos is a unique array because there are two instances of the `TodosController`!
+
+Of course, since there's only one controller, we could remove the two controllers from the views, and wrap all of `div.wrapper` again with a single instance of the `TodosController`. However, let's pretend we're using a few different controllers, and use this moment to show how helpful services can be in Angular.
+
+### User Data Service
+
+To start out:
+
+1. Create a `/services` folder
+2. Touch `/services/user_data_service.js`
+3. Add `<script src="/services/user_data_service.js"></script>` above the Todos controller in `/index.html`
+
+We'll now need to set up our data service:
+
+```javascript
+// 		/services/user_data_service.js
+
+(function() {
+  'use strict';
+
+  angular
+    .module('todoApp')
+    .factory('DataService', DataService);
+
+  function DataService() {
+    return {};
+  }
+
+})();
+```
+
+We're returning an object here to plan for multiple keys of data - both `todoId:` and `todoList:`. Let's remove the data from our todos controller:
+
+```javascript
+//		/controllers/todos_controller.js
+
+		// ...
+		var vm = this;
+
+		// POOF! vm.todoId and vm.todoList are gone!
+
+		vm.addTodo        = addTodo;
+		// ...
+```
+
+Then insert it into our user data service, with just a little editing.
+
+```javascript
+//		/services/user_data_service.js
+
+// ...
+
+  function DataService() {
+
+    // remove `vm.` and change them to variables.
+	 var todoId   = 5;
+	 var todoList = [
+		{id: 1, task: "Build an awesome todo app.", complete: false},
+		{id: 2, task: "Get super good at Angular.", complete: true},
+		{id: 3, task: "Party on code.",             complete: false},
+		{id: 4, task: "Take a nap.",                complete: false}
+	 ];
+
+    // return the data!
+    return {
+    	todoId:   todoId,
+    	todoList: todoList
+    };
+  }
+
+```
+
+Then we'll need to update our Todos Controller to accommodate the Data Service.
+
+```javascript
+
+  // ...
+  .controller("TodosController", TodosController);
+
+  // Don't forget to inject the data service!
+  TodosController.$inject = ['DataService'];
+
+  // Don't forget to pass in the data service!
+  function TodosController(DataService) {
+    var vm = this;
+
+    // have our local lists point to the Data Service,
+    // so that our templates watch the original arrays...
+    vm.todoId   = DataService.todoId;
+    vm.todoList = DataService.todoList;
+    // however! when we make changes internally, we change the
+    // Data Service directly (see code below), while reading
+    // from it via the vm's references.
+
+    vm.addTodo        = addTodo;
+    vm.deleteTodo     = deleteTodo;
+    vm.completedTodos = completedTodos;
+    vm.remainingTodos = remainingTodos;
+    vm.s = s; // add an s to plural words!
+
+
+    function addTodo() {
+  	// CHANGED!
+  	DataService.todoList.push({id: vm.todoId, task: vm.text, done: false});
+  	DataService.todoId++;
+  	vm.text = null;
+    }
+
+    function deleteTodo(todo) {
+  	// CHANGED!
+  	DataService.todoList = DataService.todoList.filter(function(td) {
+  	  return td != todo;
+  	});
+    }
+
+    function completedTodos() {
+  	// CHANGED!
+  	return DataService.todoList.filter(function(todo) {
+  	  return todo.complete;
+  	});
+    }
+
+    function remainingTodos() {
+      // CHANGED!
+      return DataService.todoList.filter(function(todo) {
+        return !todo.complete;
+      });
+    }
+
+    function s(vals, capital) {
+      // ...
+```
+
+Our todo application should now be completely functional!
+
+### Conclusion
+
+Congrats on making yet another Todo App - you'll never again have an
+excuse for not remembering small tasks!
+
+Let's review what we've learned about ui.router:
+
+1. Is ui.router part of AngularJS?
+2. What is `ui-sref` and when would I use it?
+3. What directive do we use for feeding templates into our `index.html`?
+4. How can services assist our mutli-state projects?
 
 <!-- LINKS -->
 
@@ -339,6 +498,3 @@ if multiple states are using the same controller!
 [state-machine]: https://en.wikipedia.org/wiki/Finite-state_machine
 
 [installfest]: http://ga.co/installfest
-
-[data-service]: ./todo-app-w-routing-solution/javascripts/DataService.js
-[todos-controller]: ./todo-app-w-routing-solution/javascripts/TodosController.js

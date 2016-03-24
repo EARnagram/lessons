@@ -1,4 +1,4 @@
-(function() { 
+(function() {
 	'use strict';
 
 	angular
@@ -7,7 +7,7 @@
 
 	TodosController.$inject = [];
 
-	function TodosController(){
+	function TodosController() {
 		var vm = this;
 
 		vm.todoId = 5;

@@ -2,25 +2,26 @@
   'use strict';
 
   angular
-    .module('todoApp', ['ui.router'])
+    .module('todoApp')
     .config(MainRouter);
+
+  MainRouter.$inject = ["$stateProvider", "$urlRouterProvider"];
 
   function MainRouter($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('todoHome', {
         url: '/',
-        templateUrl:  'todoHome.html',
+        templateUrl:  'templates/todo_home.html',
         controller:   'TodosController',
         controllerAs: 'vm'
       })
       .state('todoArchive', {
         url: '/archive',
-        templateUrl:  'todoArchive.html',
-        controller:   'TodosController',
+        templateUrl: 'templates/todo_archive.html',
+        controller: 'TodosController',
         controllerAs: 'vm'
       });
 
     $urlRouterProvider.otherwise('/');
   }
-
 })();
