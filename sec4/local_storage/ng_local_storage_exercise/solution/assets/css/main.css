@@ -51,4 +51,6 @@ footer {
   line-height: 15px;
   border-radius: 8px;
   color: white !important;
+  font-size: .75rem;
+  cursor: pointer;
 }

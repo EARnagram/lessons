@@ -13,9 +13,13 @@ Use `localStorage` to persist the data between page refreshes. Use the
 #### Part 2
 
 1. Add remove buttons to each memory.
-  - Attach the following to each `<td>`: `<span class="button-error remove-memory button-xsmall">X</span>`
+  - Attach the following to each `<td>`: `<span class="remove">X</span>`
 2. Add a "Clear" button to the Pensieve that removes all of the memories just outside `<table>`.
-  - `<button class="pure-button button-error" id="clear-all">Clear</button>`
+  - ```
+    <p>
+      <button id="clear-all" class="pure-button button-error">Clear</button>
+    </p>
+    ```
 
 <!-- LINKS -->
 

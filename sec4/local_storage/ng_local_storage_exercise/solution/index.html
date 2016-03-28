@@ -35,7 +35,7 @@
           </tr>
         </thead>
         <tbody id="memories-list" ng-repeat="memory in vm.data.memories">
-          <tr><td>{{memory}} <a class="remove" href="" ng-click="vm.remove(memory)">x</a></td></tr>
+          <tr><td>{{memory}} <span class="remove" ng-click="vm.remove(memory)">x</span></td></tr>
         </tbody>
       </table>
 

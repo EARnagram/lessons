@@ -19,7 +19,7 @@ $(document).ready(function() {
     }
   });
 
-  $memoriesList.on('click', '.remove-memory', function(evt) {
+  $memoriesList.on('click', '.remove', function(evt) {
     var $del = $(this).closest('tr');
 
     console.log("Removing memory: ", $del.text().slice(0, -2));
@@ -37,7 +37,7 @@ $(document).ready(function() {
 });
 
 function renderMemory(memory) {
-  var $delButton = $('<span class="button-error remove-memory button-xsmall">X</span>');
+  var $delButton = $('<span class="remove">X</span>');
   var $memoryEl  = $('<tr>').append($('<td>').text(memory + ' ').append($delButton));
   $memoryEl.appendTo($memoriesList);
 }

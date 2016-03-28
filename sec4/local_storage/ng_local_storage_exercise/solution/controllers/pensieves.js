@@ -20,6 +20,7 @@
       $log.log(vm.currentMemory);
       vm.data.memories.push(vm.currentMemory);
       localStorageService.saveData('pensieve', vm.data.memories);
+      vm.currentMemory = "";
     };
 
     vm.clear = function() {

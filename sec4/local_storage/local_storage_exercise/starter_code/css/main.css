@@ -28,16 +28,29 @@ footer {
   height: 40px;
 }
 
-.button-error {
-  margin-top: 20px;
-  background: rgb(202, 60, 60);
-  color: white;
+.pure-button {
   border-radius: 4px;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 
-.button-xsmall {
-  font-size: 70%;
+.button-error {
+  color: white;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  background: rgb(202, 60, 60); /* this is a maroon */
+}
+
+.remove {
+  position: relative;
+  bottom: 2px;
+  left: 2px;
+  text-decoration: none;
+  border: 1px solid rgb(202, 60, 60);
+  background-color: rgb(202, 60, 60);
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  line-height: 15px;
+  border-radius: 8px;
+  color: white !important;
+  font-size: .75rem;
   cursor: pointer;
-  padding: 3px;
 }
