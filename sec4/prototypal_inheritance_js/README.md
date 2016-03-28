@@ -17,12 +17,12 @@
 1. Prototypal Inheritance - The Last Lock is Always the Biggest
 2. Prototypal vs. Classical Inheritance
 3. `.constructor`, `.__proto__` and `.prototype`
-4. Constructor Functions and `Object.create()` 
-5. Conclusion - Open Up JavaScript and Listen to its Whispers
+4. Constructor Functions and `Object.create()`
+5. Conclusion - Open Up JavaScript and Listen to Her Whispers
 
 ## The Last Lock is Always the Biggest
 
-Prototypal Inheritance in JavaScript is the keystone to understanding the true power available to us as JS programmers. In fact, understanding prototypal inheritance will likely give you the ability to read nearly any JS library and have an idea of what's going on. 
+Prototypal Inheritance in JavaScript is the keystone to understanding the true power available to us as JS programmers. In fact, understanding prototypal inheritance will likely give you the ability to read nearly any JS library and have an idea of what's going on.
 
 JavaScript's prototypal inheritance often gets a bad name, but with greater appreciation of the model we can see that it's actually:
 
@@ -71,14 +71,14 @@ These three parts of JS are essential to having complete understanding of the la
 
 There are two breeds of Prototypal Inheritance - the prototypal pattern and JS' constructor pattern.
 
-Unfortunately, JS was given the `new` keyword because: 
+Unfortunately, JS was given the `new` keyword because:
 
 > …we were pushing it as a little brother to Java, as a complementary language like Visual Basic was to C++ in Microsoft’s language families at the time. — Brendan Eich, Creator of JS
 
 This is bad because when people look at JS, they think classical inheritance. Wrong. Wrong wrong wrong.
 
 > This indirection was intended to make the language seem more familiar to classically trained programmers, but failed to do that, as we can see from the very low opinion Java programmers have of JavaScript. JavaScript’s constructor pattern did not appeal to the classical crowd. It also obscured JavaScript’s true prototypal nature. As a result, there are very few programmers who know how to use the language effectively.
-> 
+>
 > — Douglas Crockford, Creator of JSON
 
 ##### In prototypal inheritance objects inherit from other objects. Constructors never come into the picture. This is what most confuses people.
@@ -90,18 +90,18 @@ Now that we've gone through that necessary bit of explanation, let's look at thi
 ###### Quick Definitions:
 
 1. `Object.prototype.constructor` - Returns a reference (<u>**not**</u> a string of the name) to the Object function that created the instance's prototype.
-2. `Object.prototype` - the prototype object on an object (confused yet?). It is the object that is used to build `__proto__` when you create an object with `new`.
-3. `__proto__` - the actual object that is used in the lookup chain to resolve methods. It's similar to an `attr_accessor` in Ruby. In general, **you should never change or overwrite `.__proto__`** - it can lead to a big break in your inheritance chain.
+2. `Object.prototype` - the prototype object on the constructor. It is the object that is used to build `__proto__` when you create an object with `new`.
+3. [`__proto__`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/proto) - the actual object that is used in the lookup chain to resolve methods. It's similar to an `attr_accessor` in Ruby. In general, **you should never change or overwrite `.__proto__`** - it can lead to a big break in your inheritance chain.
 
 What does all this mean, though!?
 
 Every object has a constructor, all the way up to the Function object constructor. Every constructor function has a prototype that is shared to each of the instances of the constructor. To access the prototype, JS uses `.__proto__` to reach to the constructor's prototype.
 
-Therefore, `prototype` is not available on the instances themselves (or other objects), but only on the constructor functions. 
+Therefore, `prototype` is not available on the instances themselves (or other objects), but only on the constructor functions.
 
-Objects can take from multiple prototypes. This is what is known as the ***Prototype Chain***. 
+Objects can take from multiple prototypes. This is what is known as the ***Prototype Chain***.
 
-> Allow me to draw this on the board with another Wachowski sibling example.
+> Allow me to draw this on the board with another Wachowski sisters example.
 
 ##### Follow Up Questions:
 
@@ -111,16 +111,16 @@ Objects can take from multiple prototypes. This is what is known as the ***Proto
 
 ## Constructor Functions vs `Object.create()`
 
-There are two ways to set a prototype (eventually three with ES2015 classes - but for now, we'll focus on these two). A form of constructor function and `Object.create()`. 
+There are two ways to set a prototype (eventually three with ES2015 classes - but for now, we'll focus on these two). A form of constructor function and `Object.create()`.
 
 ##### Constructor Functions
 
-An object literal is a succinct way of creating a clone of Object.prototype and extending it with new properties. 
+An object literal is a succinct way of creating a clone of Object.prototype and extending it with new properties.
 
 Therefore:
 
 ``` javascript
-var neo = new Object;
+var neo = new Object();
 
 var mrAnderson = {};
 ```
@@ -129,19 +129,19 @@ Object literals are nothing but syntactic sugar. Both may now access the prototy
 
 ##### `Object.create()`
 
-This method comes to us from the great Douglas Crockford. 
+This method comes to us from the great Douglas Crockford.
 
 ``` js
 var trinity = {
-  kickAss: function () {
-    console.log("Oh man, so much ass is kicked!");
+  kickData: function () {
+    console.log("Oh man, so much data is being kicked!");
   }
 };
 
 var morpheus = Object.create(trinity);
 ```
 
-`Object.create()` creates a new object with the specified prototype object and properties. I find this a much more beautiful way to access the prototype of another object due to its functional nature. Additionally it does not obfuscate the power of prototypal inheritance with keywords from other inheritance models.  Another reason to use `Object.create()` is its flexibility (dynamism!!). It makes Objects much more configurable!
+`Object.create()` creates a new object with the specified prototype object and properties. I find this a much more beautiful way to access the prototype, because it does not obfuscate the power of prototypal inheritance with keywords from other inheritance models.  It's also more flexible (mirroring the dynamism of JS!!) making Objects much more configurable!
 
 ## Open Up JavaScript and Listen to Her Whispers
 
