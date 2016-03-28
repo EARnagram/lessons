@@ -1,0 +1,43 @@
+.center {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.container {
+  min-width: 400px;
+}
+
+.pure-table { min-width: 80%; }
+input { width: 80%; }
+
+@media only screen and (max-width: 480px) {
+  .pure-form input[type=text],
+  .pure-table { width: 100%; }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+}
+
+.button-error {
+  margin-top: 20px;
+  background: rgb(202, 60, 60);
+  color: white;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.button-xsmall {
+  font-size: 70%;
+  cursor: pointer;
+  padding: 3px;
+}
