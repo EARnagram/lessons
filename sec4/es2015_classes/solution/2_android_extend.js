@@ -37,8 +37,14 @@ class Android extends Human {
 not believe them.'
   }
 
+  freakOut() {
+    return `Mama Mia! I only have ${this.health} years of life!`;
+  }
+
 }
 
 var lenny = new Android("Lenny", "Construction");
 
 console.log(lenny.roboHate("Buncha Losers!"));
+console.log(lenny.freakOut());
+console.log(lenny.atAParty());

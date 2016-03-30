@@ -45,6 +45,6 @@ You are born to be in ${android.occupation}.
   }
 }
 
-var len = new Android("lenny", "job");
+var len = new Android("Lenny", "Construction");
 
-console.log(Android.memories(len), len.alive);
+console.log(Android.memories(len), "\n", len.alive);
