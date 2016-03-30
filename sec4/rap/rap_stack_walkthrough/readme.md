@@ -97,10 +97,8 @@ Angular is expecting JSON, this works seamlessly. If I were to have forgotten to
 explicitly send back JSON, it would have looked for a view to render, not found
 one, and returned an error.
 
-## Pt. 2: JWT Damn It
-We're switching gears a little. Specifically, we're switching from the front end
-client app over to Postman, to see how to implement something like Token Slinger
-(which we saw yesterday) in Rails. Once again, this isn't even a codealong– this
+## Pt. 2: JWT Dang It!
+We're switching gears a little. Once again, this isn't even a codealong – this
 is an orientation. The code included in `server/derry_backend` is totally ready
 to go.
 
