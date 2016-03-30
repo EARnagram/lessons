@@ -12,7 +12,7 @@
 
 #### Road Map
 
-1. This is the <u>Last Fishin' Time</u>, Derry. - Building and Deploying a MEAN Application Intro
+1. This is the Last <u>Fishin'</u> Time, Derry. - Building and Deploying a MEAN Application Intro
 2. Installing
 3. Set Up
 4. Going through the heroku docs
@@ -117,11 +117,11 @@ Componential Structure:
 
 As we can see, the MVC/MVVM structure mirrors a Rails application. This is often more familiar to developers, and therefore, it will be our structure for this lesson.
 
-However, many MEAN stack developers prefer the components structure when they're working on projects of greater complexity. " As you build more Angular applications, you will see a pattern arise; your site will start to beseparated by sections. For instance, we have a user section and could move forward to create an article section, music, and whatever other resource. …[For the more advanced project,] we can inject the controllers, services, and routes into one main user module and inject that into our entire applications parent module." (MEAN Machine, Sevilleja & Lloyd).
+However, many MEAN stack developers prefer the components structure when they're working on projects of greater complexity. "As you build more Angular applications, you will see a pattern arise; your site will start to be separated by sections. For instance, we have a user section and could move forward to create an article section, music, and whatever other resource. …[For the more advanced project,] we can inject the controllers, services, and routes into one main user module and inject that into our entire applications parent module." (MEAN Machine, Sevilleja & Lloyd).
 
 ## Installing
 
-Copy the starter code outside of the `WDI_DTLA_6` Repository. We'll eventually be using Heroku to launch this app, so we do not want any nested repos!
+Copy the starter code outside of the class repository. We'll eventually be using Heroku to launch this app, so we do not want any nested repos!
 
 Next:
 
@@ -137,7 +137,7 @@ Take the next 5 minutes to read through the app and see how it works.
 
 ## Set Up our App for Deployment
 
-Create `.env` file
+Create `.env` file to plan for using your hosted DB while running the app locally.
 
 Comb through structure for any additional file creations. Eventually we'll also need a `Procfile`.
 
