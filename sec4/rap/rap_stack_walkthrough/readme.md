@@ -7,21 +7,23 @@
 Rails actually works incredibly well to serve up a headless API, but it requires
 a few changes from how we're used to doing things, and it's a good idea to
 slightly modify things. Additionally, if we want to authenticate with JWTs,
-there are a few other things that need to happen. This intro will be divided
-into two parts: first, a field guide to the changes you need to make to your app
-to turn it into a headless API, and second, the infrastructure you need to add
-for token-based authentication.
+there are a few other things that need to happen.
+
+This intro will be divided into two parts:
+  1. a field guide to the changes you need to make to your app to turn it into a
+     headless API
+  2. the infrastructure you need to add for token-based authentication.
 
 ## Pt. 1: Derry Got Back(-end)
 In the `client` folder, please find a very slightly adjusted version of the
 Uncle Derry Angular app from last hour. Note that the only things that have
-changed are the path of the URL– we're going to let Rails have its
-grammatically-correct pluralization– and `_id` in a few places is now
+changed are the path of the URL – we're going to let Rails have its
+grammatically-correct pluralization – and `_id` in a few places is now
 Postgres-approved `id`.
 
 Now, let's check out `server/derry_backend`. Note just how *tiny* this app is
 compared to the Rails apps you're used to: the `app` folder is only
-`controllers` and `models`– no views, no assets. This app exists for one
+`controllers` and `models` – no views, no assets. This app exists for one
  purpose and one purpose only: to serve up fish (?).
 
 Besides taking things away (I took away a *lot* of cruft), there are a few

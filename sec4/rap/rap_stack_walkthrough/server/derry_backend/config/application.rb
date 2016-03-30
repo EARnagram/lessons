@@ -31,8 +31,7 @@ module DerryBackend
         origins '*'
         resource '*',
           :headers => :any,
-          :methods => [:get, :put, :post, :delete, :options],
-          :max_age => 15
+          :methods => [:get, :put, :post, :delete, :options]
       end
     end
   end
