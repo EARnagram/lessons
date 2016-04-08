@@ -1,14 +1,14 @@
 # Common Interview Questions
 
-I asked some past students to send me some questions they were asked as new Devs in their first interviews and any questions their company asks when hiring a Junior Dev. 
+I asked some past students to send me some questions they were asked as new Devs in their first interviews and any questions their company asks when hiring a Junior Dev.
 
-Here are some responses:
+Here are some responses, taken directly from slack:
 
 #### Ben Benjamin
 
-> "Tell them to hit `this` hydro http://code.tutsplus.com/tutorials/fully-understanding-the-codethiscode-keyword--net-21117 and then proceed to learn react if you're already solid with angular - and if they're going for frontend that is.
->
-> React really helps you write better Angularjs and makes you think of SPAs in a much more componential way. Plus, it's rad to know both, bc, you know, options."
+ "Tell them to hit `this` hydro http://code.tutsplus.com/tutorials/fully-understanding-the-codethiscode-keyword--net-21117 and then proceed to learn react if you're already solid with angular - and if they're going for frontend that is.
+
+ react is clutch bc it deepens your understanding of html/css/(mostly)javascript at the same time, it's based on increasingly important JS concepts (like constructors, es6 stuff), and employers seem to value react experience. HOWEVER the biggest reason to learn react imo is to understand isomorphic javascript, which some peeps are calling the future. angular2 seems like it's gonna be more like react than it'll be like angular1! this vid is great https://www.youtube.com/watch?v=tcbcERdxjIc
 
 #### Taylor Harwood
 
@@ -29,7 +29,7 @@ what’s the ordering of the logs?
 
 ##### more generally, what’s an event loop and what’s a callback queue
 
-abstracty things i would ask on the JS side, if i were interviewing:
+abstractly, things i would ask on the JS side, if i were interviewing:
 
 1. what is the difference between `this`, `context`, and `scope`?
 2. what is a callback function?
@@ -50,7 +50,7 @@ for small companies, get really good with css and responsiveness since that’s 
 
 #### Tara Strauss
 
-"I second joey's comment about responsiveness - thats super important. 
+"I second joey's comment about responsiveness - thats super important.
 
 I would also suggest learning a  lot about the command line and setting up your dev environment (like what was done for us on install fest) cause often there's no one to walk you through setting everything up and choosing different technologies that work well together.
 
@@ -60,7 +60,6 @@ oh and one other thing more specific to interviewing - if the job posting lists 
 
 - Fibonacci Sequence (often checking your ability to write a recursive function)
 - Reverse the words within a string but preserve the order
-- Breadth First Search & Depth First Search (an especially "CS" topic - also a good question for recursion)
 - Given a number, tell if it is a power of two
 - FizzBuzz
 - Given code, can you tell what is in scope?
