@@ -1,4 +1,4 @@
-# Common Interview Questions
+# Interview Stories
 
 I asked some past students to send me some questions they were asked as new Devs in their first interviews and any questions their company asks when hiring a Junior Dev.
 
