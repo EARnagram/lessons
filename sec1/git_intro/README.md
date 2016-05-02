@@ -4,11 +4,11 @@
 
 ## Intro to Git and GitHub
 
-| Learning Objectives: SWBAT               |
-| :--------------------------------------- |
+| Learning Objectives: SWBAT (Students Will Be Able To…) |
+| :------------------------------------------------------|
 | Use `git init` to create a repo |
 | Describe what happens when you initialize a new Git repository |
-| Use `git add /dir` and `git add -A` |
+| Use `git add /dir/.file` and `git add -A` |
 | Write git commits using `git commit -m "write commit message"` |
 | Use `man git` and `git --help` to remind you of usage and Git's "subcommands." |
 | Use `git clone` to clone a repo |
@@ -196,9 +196,13 @@ You can take the most recent version of the repository - therefore giving you
 access to all previous commits - and copy it to your disk (_Forking_ simply
 copies a version on gitHub - not to your computer).
 
-Go ahead and try to clone my new repo for learning code:
+Go ahead and try to clone my [new repo for learning code](https://github.com/EARnagram/edu).
 
-`git clone https://github.com/EARnagram/edu`
+Near the center of the screen, underneath "0 releases," you'll see options for
+"your clone URL."
+
+Despite the recommendation, we will always select __SSH__! If you use HTTPS, you
+have to enter in your password every time you update your repo.
 
 And that's all you need to do to get a copy of a repo onto your local machine!
 
@@ -221,6 +225,9 @@ That means there are three steps to update a repo:
 1. `git add -A`
 2. `git commit -m "message explains most recent features"`
 3. `git push origin master`
+
+If you're not sure where you are in those steps, you can always re-add or simply
+check your status with `git status`.
 
 If you want to go directly to your repository on GitHub from the terminal,
 simply type: `hub browse`.
@@ -269,3 +276,5 @@ Now, let's close with a few questions:
 #### References
 
 [Reverting to Previous Commits](http://stackoverflow.com/questions/4114095/revert-git-repo-to-a-previous-commit#answer-4114122)
+
+[Git Command Cheatsheet](https://github.com/ga-students/WDI_DTLA_10/blob/master/resources/cheatsheets/git_command_cheatsheet_github.pdf)
