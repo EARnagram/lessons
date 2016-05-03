@@ -4,11 +4,21 @@
 
 ## HTML/CSS Lab
 
-Well, lemme tell you, my terribly sad Uncle Derry has been projecting onto his dog again, and is determined he needs to help his pup, Bobo, find someone special. 
+My poor ol' Uncle Derry needs your help. I hate pushing him off on you guys
+but he's just more annoying by the minute - constantly calling me about his
+dang dog.
 
-Living alone near a pond more sewage than water leads you to do some crazy things, but it also affords you a lot of thinking time.  Good ol' Uncle Derry has been trying to build website with those lonely hours. 
+I get the feeling he's been projecting onto it again. He's determined he needs
+to help his pup, Bobo, find someone special.
 
-While this seems positive, ever since he found out I was a web developer, he's been *hounding* me for help. Now he needs me to find a date for his dog - it's time to make some dog dating webpages!
+Living alone near a pond more sewage than water leads you to do some crazy
+things, but it also affords you a lot of thinking time, and poor ol' Uncle Derry
+has been trying to build website with those lonely hours.
+
+While this seems like a positive use of time, ever since he found out I was a
+web developer, he's been *hounding* me for help. Now he needs me to him find
+other find other dog's dating profiles - it's time to make some dog dating
+webpages!
 
 #### Final Result
 
@@ -25,7 +35,8 @@ We just need him to believe other dogs are out there.
 This lab will happen in 3 steps.
 
 1. Create profile website. (40 minutes)
-2. Trade webpages with your neighbor. Constructively critique the site, help with syntax, and point out what was confusing. (10 minutes)
+2. Trade webpages with your neighbor. Constructively critique the site, help
+   with syntax, and point out what was confusing. (10 minutes)
 3. Discuss what you found. (5 minutes)
 
 ### Part 1 - Create Profile Website (40 Minutes)
@@ -34,20 +45,22 @@ This lab will happen in 3 steps.
 
 - a `<head>`
 - the necessary metadata for the head: `meta` tags, `title`, etc.
-- a `<body>` with well-structured content
+- a `<body>` with well-structured content, including semantic HTML tags
 
 #### HTML Content
 
-For your HTML content, you must:
+For your HTML content, you must have:
 
-- A page title with a top heading (e.g. Bobo the Bloodhound), and a secondary heading (e.g. Pure Bred, Well-fed and Looking for Love)
+- A page title with a top heading (e.g. Bobo the Bloodhound), and a secondary
+  heading (e.g. Pure Bred, Well-fed and Looking for Love)
 - Images and at least one link
-- Two lists 
+- Two lists
   - Attributes of your pup
   - Attributes of what your pup is looking for
 - Explain a perfect date in at least two paragraphs
 - Emphasize deal breakers!
-- Use comments to divide the sections to assist your neighbor (e.g. `<!-- Deal Breakers -->`)
+- Use comments to divide the sections to assist your neighbor (e.g.
+  `<!-- Deal Breakers -->`)
 
 #### CSS
 
@@ -57,20 +70,21 @@ In your CSS, please incorporate:
 - **No** inline styling
 - A separate stylesheet linked to your html page
 - Place all stylesheets inside a `/css` directory
-- Add color and style to the text and background, edit borders, text, and spacing
+- Color and style to the text and background
 - A Google Font
 
 ### Part 2 - Trade!
 
-Read through your partner's code. 
+Read through your partner's code.
 
-If you find mistakes, fix them, but write down what you do - **we want to help each other find the bugs!**
+If you find mistakes, fix them, but write down what you do - **help each other
+find the bugs!**
 
 Use the following style guide to check the webpage:
 
 **HTML**
 
-- [ ] All necessary boilerplate (`<head>`, `<!DOCTYPE html>`, etc.)
+- [ ] All necessary boilerplate (`<head>`, `<!DOCTYPE html>`, `<body>`, etc.)
 - [ ] HTML structures separated by comments
 - [ ] Semantic tags, both *structural* (e.g. `<footer>`, `<header>`, etc.) and *typographic* (`<strong>`, `<em>`, etc.)
 - [ ] Indentation convention used is 2-space tabs
@@ -84,16 +98,17 @@ Use the following style guide to check the webpage:
 **CSS**
 
 - [ ] Clear syntax
-- [ ] Clear use of classes 
+- [ ] Clear use of classes
 - [ ] No ids
 - [ ] Legible styling
-- [ ] If using CSS Inheritance, it is easily read
+- [ ] If using CSS Inheritance, it is easily readable
 
 ### Part 3 - Discuss
 
-Tell your partner what you found, especially the parts you found difficult to understand in their code. Remember to be specific. Think:
+Tell your partner what you found, especially the parts you liked and the parts
+you found difficult to understand in their code. Remember to be specific! Think:
 
-- Which section was difficult to understand? 
+- Which section was difficult to understand?
 - How could they have improved their naming conventions or tag use?
 - What element of the code prompted your confusion?
 
@@ -103,4 +118,6 @@ Tell your partner what you found, especially the parts you found difficult to un
 
 You've done great work in the land of pup love!
 
-More than that you're making this here pup extremely happy… or at the very least, his lugubrious owner think he is. Be sure to see if your pup matches with anyone else the class!
+More than that you're making this pup extremely happy… or, at the very least,
+his lugubrious owner think he is. Be sure to see if your pup matches with
+anyone else the class!
