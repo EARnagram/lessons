@@ -48,7 +48,7 @@ rectangles.**
 
 We use HTML to decide what rectangles we want and what should go in them.
 
-We use CSS to decide how they should look (recall yesterday's lesson), and
+We use CSS to decide how they should look (recall this morning's lesson), and
 where they should go (welcome to this lesson).
 
 ##### Assets
@@ -79,8 +79,8 @@ follow along with me:
 - **Box-Sizing** - `box-sizing` is an interesting property. By default it's set
   to `content-box`, but we often assume sizing works in terms `border-box`. The
   difference is subtle but important. `content-box` sets the `height` and
-  `width` of a box to the content, whereas `border-box` assigns them to the
-  size of the border.
+  `width` properties of a box to the content, whereas `border-box` assigns them
+  to border, therefore including the border's size and padding.
 
 Let's add to our `.box-model` class and see what these do:
 
@@ -98,7 +98,7 @@ Let's add to our `.box-model` class and see what these do:
 Chrome's Dev Tools are one of the nicest things to ever happen to developers.
 This is because we can alter our webpages __while__ viewing them in the browser!
 
-Take the next 5 minutes to play with the following:
+Take the next few minutes to play with the following:
 
 - **Margins** - Remember that the values for a single margin property works
   clockwise from the top, `margin: Abovepx Rightpx Belowpx Leftpx;`
@@ -117,8 +117,8 @@ At the heart of positioning is the `display` property. There are five values
 that greatly effect our webpage.
 
 1. An **inline** element renders without a line break above or below it, so that
-   other content is right next to it. Inline elements can't be given a width,
-   height, or margins.
+   other content is right next to it. __Inline elements can't be given a width,
+   height, or margins.__
 2. A **block** element renders with a line break above and below it, so they
    don't have anything next to them. By default, they take up the entire width
    of their parent element. Block elements can be given a height and a width.
@@ -137,7 +137,7 @@ that greatly effect our webpage.
    work with browsers IE9 and older).
 
 Lets see the difference between inline, block, and inline-block by adding these
-rules to our CSS.
+rules to our stylesheet.
 
 ``` css
 .inline-vs-block {
@@ -160,8 +160,9 @@ rules to our CSS.
 #### Practice Display
 
 In `<div id="inline-vs-block">`, notice what happens when you change width,
-height, margin, and padding for inline, block, and inline-block elements. Take 5
- minutes to alter these in the Chrome Dev Tools.
+height, margin, and padding for inline, block, and inline-block elements.
+
+Take a few minutes to alter these in the Chrome Dev Tools.
 
 ## Positioning
 
@@ -248,15 +249,14 @@ and contain it's own line.
 ![Float Layout](https://cloud.githubusercontent.com/assets/40461/8234489/3b61ef02-15d4-11e5-8864-435fb6e0c3cc.png)
 
 Note that "absolutely positioned" elements ignore the float property as they are
-removed from the normal document flow.
+removed from the normal document flow - same with "fixed" elements.
 
-Floated elements remain a part of the flow of the web page. This is distinctly
-different than page elements that use absolute positioning.
+Floated elements remain a part of the flow of the web page.
 
 There are four valid values for the float property. "Left" and "right" float
-elements those directions, respectively. "None" (the default) ensures the element
-will not float and "inherit" which will assume the float value from that
-elements parent element.
+elements those directions, respectively. "None" (the default) ensures the
+element will not float and "inherit" which will assume the float value from that
+element's parent element.
 
 ### Clear
 
@@ -288,10 +288,11 @@ Finally, let's see how these floats work!
 
 ## Outro
 
-While positioning can be a struggle early on, consistent practice will
-eventually lead to full grokking. As you can see, viewing html elements as the
-rectangular panels that they are will assist you in conquering this tricky CSS
-beast.
+Like drawing comics, CSS positioning takes time to master. It can be a struggle
+early on, but consistent practice will eventually lead to full grokking.
+
+As you can see, viewing html elements as the rectangular panels that they are
+will assist you in conquering this tricky CSS beast.
 
 ##### Final Questions
 

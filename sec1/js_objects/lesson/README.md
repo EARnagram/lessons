@@ -4,8 +4,8 @@
 
 ## Objects in JavaScript
 
-| Learning Objectives                      |
-| ---------------------------------------- |
+| Lesson Objectives: SWBAT                     |
+| :------------------------------------------- |
 | Create JavaScript Objects using Object Literals |
 | Use JS Objects to Model Real World Objects |
 | Create nested (JS) Objects by referencing other (JS) Objects and Arrays. |
@@ -91,9 +91,15 @@ A _value_ can also be a function. We'll learn more about this later, but just kn
 
 Both _methods_ and _attributes_ are _properties_. Additionally, Objects in JS are dynamic, meaning their properties can be changed, added & removed during runtime.
 
+#### Questions!
+
+1. What is the name for `{}` in `var x = {};`?
+2. A property is made up of a _______ _______ pair.
+3. What's the difference between an attribute and a method?
+
 ## Designing Objects - the Life of Obediah Jecht
 
-<img alt="abner dean meaning" src="images/abnermeaning.jpg" height=280px width=740px>
+![](images/abnermeaning.jpg)
 
 > As time went on, Obediah grew up.
 
@@ -109,7 +115,7 @@ obJecht.callForMomma = function() {
 };
 ```
 
-Just so you know, `obJecht.callForMomma` is a _custom method_ created by us - again, we'll get to methods in MUCH greater depth later.
+`obJecht.callForMomma` is a _custom method_ created by us - it's like any other function, but attached to `obJecht` under the name `callForMomma`.
 
 > His bald head became a thick mane of brown hair:
 
@@ -121,7 +127,9 @@ Just so you know, `obJecht.callForMomma` is a _custom method_ created by us - ag
 
 `obJecht.mind = "beautiful";`
 
-We declared a key and assigned a value to it. Now we have access to the _attribute_ `hairColor: "brown"` as well as the _attribute_ `mind: "beautiful"`. As we see with `obJecht['hair']`, we can access properties of an object with either a period or brackets containing quotes.
+We declared a key and assigned a value to it. Now we have access to the _attribute_ `hairColor: "brown"` as well as the _attribute_ `mind: "beautiful"`. 
+
+As we see with `obJecht['hair']`, we can access properties of an object with either a period or brackets containing quotes.
 
 All of these are _properties_ on Obediah, the `obJecht` object.
 
@@ -143,11 +151,7 @@ var teddy = {
 > He was also given a flashy yo-yo that he also took quite a bit of pride in.
 
 - Can anyone tell me how I would build a `yoYo` object with two custom attributes?
-
-
 - How would we create a friend for Obediah?
-
-
 - Now that Obediah has two toys, how do you think we should store them in `toys` key?
 
 #### Referencing in Javascript Objects
@@ -175,8 +179,6 @@ Since we've put teddy first, his index number is `0`. Remember that in computing
 Let's practice what we've learned:
 
 - Add 10 to the Obediah's age property
-
-
 - Create a _name_ `graduateHS` on the Obediah and set the *value* to `true`.
 
 > There Obediah started to read a lot of existential philosophy and built a set of troubling beliefs.
@@ -185,7 +187,7 @@ Let's practice what we've learned:
 
 ## Removing Properties from Objects - Obediah Jecht's Tragic Epiphany
 
-<img alt="abner dean unreal" src="images/abnerunreal.jpg" height=300px width=620px>
+![](images/abnerunreal.jpg)
 
 > Obediah became obessessed with the idea of being, as he had a sneaking suspicion about reality. One day he tells me:
 > 
@@ -244,7 +246,7 @@ Now you know the great tragedy of Obediah Jecht. We all hope that in time he com
 Let's go over what we learned:
 
 - How do we create an object using an object literal?
-- What is another term for an object property
+- What is another term for an object property?
 - Object properties can contain what kinds of data types?
 
 #### References

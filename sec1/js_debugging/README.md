@@ -12,7 +12,9 @@ In today's exercise, you're going to fix my code!
 
 #### Assets
 
-Please copy the `starter_code/` outside of `instructor/`. You'll be fixing my `all_bugged_up.js` file - after opening up the `index.html` in the browser, you can ignore the html page and work solely in the console. 
+Please copy the `starter_code/` outside of `instructor/`. You'll be fixing my `all_bugged_up.js` file. 
+
+After opening up the `index.html` in the browser, you can ignore the html page and work solely in the console. 
 
 #### Chrome Dev Tools
 
@@ -20,9 +22,9 @@ If you can't figure out why something is messing up, often a great tool is the c
 
 ![](images/all_bugged_up.png)
 
-Please click on the `sources` (blue circle) tab in your chrome developer tools (otherwise known as web inspector).
-
-You can set break points (red circles) and go to the next one using the "resume script execution" button (green circle).
+1. __Blue__ - You'll find the very useful debugging tool in the sources tab.
+2. __Red__ - You can set break points to stop the code and play around at that moment in run time!
+3. __Green__ - Once you'd like to move on, you can click the play-looking button to "resume script execution".
 
 #### References
 
