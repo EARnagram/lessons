@@ -23,20 +23,20 @@
 ## BILLY MAYS HERE!
 
 > ARE YOU TIRED OF YOUR DESIGNS GOING DOWN THE TUBE AS SOON AS SOMEONE OPENS UP YOUR WEBSITE ON A PHONE!?!?!?!?!
-> 
+>
 > WELL, THROW THOSE WORRIES OUT THE DOOR!
-> 
+>
 > WELCOME TO RESPONSIVE CSS!
 
 ![](http://api.ning.com/files/Kk19*2P3xgYqiykJv8EedsK8vZPAaTdJWxTjdO7cYG6obt10sE-tzo0IKGJqFHkfSFqP2-KSn8BJHaV9CnhOfB*Kkzs*ZOX*/BillyMaysPWNSGod.JPG)
 
 #### Intro to Responsive Website Design
 
-Once upon a time, long, long ago, nearly every screen was either 640x480, 800x600, or 1024x768, and you could expect that people had most of their screen occupied by a broswer window.
+Once upon a time, long, long ago, nearly every screen was either 640x480, 800x600, or 1024x768, and you could expect that people had most of their screen occupied by a browser window.
 
-Those were the good old days when Billy Mays (RIP) was still slinging his helpful wares. It's up to us as part of the Billy Mays Tribute Salesmen Collective to followin his footsteps and spread the good word on responsive design.
+Those were the good old days when Billy Mays (RIP) was still slinging his helpful wares. It's up to us as part of the Billy Mays Tribute Salesmen Collective to follow in his footsteps and spread the good word on responsive design.
 
-Now, people will be looking at our websites on phones, tables, browser windows scrunched up all tiny, and maybe even watches (please remember this lesson; it'll be funny to go back and read this README in a few years and ask: "Who the hell is Billy Mays??"). 
+Now, people will be looking at our websites on phones, tablets, browser windows scrunched up all tiny, and maybe even watches (please remember this lesson; it'll be funny to go back and read this README in a few years and ask: "Who the hell is Billy Mays??"). 
 
 You can compare the difference - just resize the width of your browser window:
 
@@ -47,7 +47,7 @@ It's your responsibility, as the web developer, to make your site work as well a
 
 #### Mobile First Design
 
-Due to the rise in use of these alternatives, many developers have considered planning for the smaller devices before they design for the desktop. 
+Due to the rise in use of these alternatives, many developers have considered planning for the smaller devices before they design for the desktop.
 
 Why? Lets look at a few facts (taken from codemyviews.com):
 
@@ -103,7 +103,7 @@ nav ul {
 
 header {
   clear: both;
-  continued…
+  /*continued…*/
 }
 ```
 
@@ -145,10 +145,10 @@ Now, you'll see that the navbar elements will respond well to the resizing of th
 
 Let's get that top Navbar to stack above our `<header>` when the webpage has a width under 600px.
 
-To do this, we'll need to use a **media query**. 
+To do this, we'll need to use a **media query**.
 
 > "A media query consists of a media type and at least one expression that limits the style sheets' scope by using media features, such as width, height, and color."
-> 
+>
 > — Thanks MDN
 
 Essentially, you're telling the webpage to treat content differently according to a certain property.
@@ -208,8 +208,8 @@ This is why the image and header shrink with the page (as well as the `max-heigh
 
 Floats are annoying. Flexible Boxes are significantly less annoying.
 
-> "[The FlexBox] aims at providing a more efficient way to lay out, align and distribute space among items in a container, even when their size is unknown and/or dynamic (thus the word "flex")." 
-> 
+> "[The FlexBox] aims at providing a more efficient way to lay out, align and distribute space among items in a container, even when their size is unknown and/or dynamic (thus the word "flex")."
+>
 > — CSS Tricks
 
 Flexboxes are best at dealing with small portions of an application rather than entire webpages.
@@ -276,7 +276,7 @@ Now we can see the three elements dynamically wrap as soon as the webpage gets t
 
 #### Navbar with Flexbox
 
-Sometimes isolating children of the flex-box is extremely necessary. Below is an example of a navbar made using `display:flex`. 
+Sometimes isolating children of the flex-box is extremely necessary. Below is an example of a navbar made using `display:flex`.
 
 Look how the use of `flex-grow` allows the title to command the majority of real-estate on the navbar.
 

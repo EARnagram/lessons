@@ -14,11 +14,10 @@ Put your tie/pantyhose on and get to your 11th floor cubicle. It's time to take 
 
 ![Media Query 1](assets/media_query1.png)
 
-> Wow, need some coffee! Barry in accounting says we got some new beans from Colombia. You know, Jose in IT is Colombian?...
+> Wow, need some coffee! Barry in accounting says we got some new mugs - hooray! The last ones were too circular for my mouth...
 
 And when taken even smaller:
 
 ![Media Query 2](assets/media_query2.png)
 
 > ...TGIF tomorrow, amiryte? The kids have a tae-kwon-do tournament in the Valley and I can't WAIT to clean out my gutters on Sunday now that the NFL season's done...
-
