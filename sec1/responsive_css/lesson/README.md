@@ -216,9 +216,19 @@ When building for mobile, you need a slightly different media query:
 }
 ```
 
+Or with our previous media query:
+
+``` CSS
+@media only screen and (max-width: 480px), only screen and (max-device-width: 480px) {
+  …
+	}
+```
+
 There's a [subtle difference](http://stackoverflow.com/questions/8549529/what-is-the-difference-between-screen-and-only-screen-in-media-queries#answer-8595600) between the previous media query and the extra properties for mobile.
 
 This new media query checks the screen/device size, not just the window size. Unfortunately, this is not supported in IE8 or before, but because most mobile device don't use old browsers, it shouldn't create any problems.
+
+Plus, the use of `only` keeps older browsers from loading the specific style!
 
 You can also limit certain stylesheets to specific devices, eg:
 
