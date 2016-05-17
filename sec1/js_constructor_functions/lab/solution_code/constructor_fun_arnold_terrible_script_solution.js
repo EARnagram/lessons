@@ -36,7 +36,7 @@ var arnold = {
                "You should not drink and bake."
               ],
   health:    10000,
-  scream:    "You son of a...",
+  scream:    "You son of a…",
   puny:      false,
   friends:   [
               "Carl Weathers"
@@ -44,14 +44,10 @@ var arnold = {
   punch:     function(enemy) {
                enemy.health -= 50;
                if (enemy.health < 0) console.log(enemy.scream);
-  },
-  smilinFace: "images/arnold_yell.jpg"
+  }
 }
 
 /* He was the son of Gustav and Aurelia Schwarzenegger. */
-
-
-
 
     // Create a Schwarzenegger constructor function then create Arnold's parents.
 
@@ -347,6 +343,8 @@ carlWeathers.omegaDestruction = function(enemy) {
 /* Conan goes to the batcave with his cellphone and dynamite. And an enormous
 battle ensues. */
 
+    // Create a fight between Conan and terminators
+    // When Conan's health gets low, bring in his friends!
 
 mikey.laserEyes(arnold);
 m1ke.megaPunch(arnold);
@@ -375,13 +373,10 @@ console.log(carlWeathers.name + ": NOOOO!! DANNY!");
 
 carlWeathers.omegaDestruction(michael);                           // Mr. Weathers exacts revenge!
 
-arnold.dynamite(mikey, m1ke, michael, mich, doug, michel, miike); // Conan destroys them all
-                                                                  // killing mikey and micahel twice
-
-    // Create a fight between Conan and terminators
-    // When Conan's health gets low, bring in his friends!
-
     // Defeat the terminators (bring their health down to 0.)
+
+arnold.dynamite(mikey, m1ke, michael, mich, doug, michel, miike); // Conan destroys them all
+                                                                  // killing mikey and michael twice
 
 /* Conan has batman cornered. He's hurt, and isn't going anywhere.
 

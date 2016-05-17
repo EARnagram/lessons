@@ -109,7 +109,7 @@ header {
 
 We've centered the `<nav>` and `<ul>` element, given it a maximum width of 90% of the page, and removed any additional padding inserted by the browser.
 
-Be aware that the element beneath the navbar has already been given a clear.
+Be aware that the element beneath the navbar has already been given `clear: both` styling.
 
 In order to space our page correctly, and get the navbar to move with the resizing of the window, we'll have to add floats to our elements. First, lets center our `<li>` elements by accessing the class `.nav`, and change it's display to `inline-block`.
 
@@ -153,7 +153,9 @@ To do this, we'll need to use a **media query**.
 
 Essentially, you're telling the webpage to treat content differently according to a certain property.
 
-In general, this is used with the max or min-width property. Let's see how we'd use a media query and the max-width property to change our navbar when the screen is less than 600px:
+In general, this is used with the max or min-width property when developing for desktops/laptops, and max or min-device-width properties for mobile.
+
+Let's see how we'd use a media query and the max-width property to change our navbar when the window is less than 600px:
 
 ``` CSS
 /* ------------- */
@@ -203,6 +205,38 @@ header img {
 ```
 
 This is why the image and header shrink with the page (as well as the `max-height` property in the `<header>`).
+
+#### Planning for Mobile
+
+When building for mobile, you need a slightly different media query:
+
+``` CSS
+@media only screen and (max-device-width: 480px) {
+  …
+}
+```
+
+Or with our previous media query:
+
+``` CSS
+@media only screen and (max-width: 480px), only screen and (max-device-width: 480px) {
+  …
+	}
+```
+
+There's a [subtle difference](http://stackoverflow.com/questions/8549529/what-is-the-difference-between-screen-and-only-screen-in-media-queries#answer-8595600) between the previous media query and the extra properties for mobile.
+
+This new media query checks the screen/device size, not just the window size. Unfortunately, this is not supported in IE8 or before, but because most mobile device don't use old browsers, it shouldn't create any problems.
+
+Plus, the use of `only` keeps older browsers from loading the specific style!
+
+You can also limit certain stylesheets to specific devices, eg:
+
+```html
+<link rel="stylesheet" type="text/css" media="only screen and (max-device-width: 480px)" href="small-device.css" />
+```
+
+Since we're building for laptops and desktops in this lesson, we don't need to incorporate it in this example, but I want you to know the differences.
 
 ## Using the Flex-Box
 
@@ -321,8 +355,11 @@ But a few questions before we leave:
 1. What is mobile first design and how does it relate to responsive CSS?
 2. Explain the differences between `align-content`, `align-items`, and `justify-content`.
 3. What's the difference between a flex child and flex parent attribute?
+4. What's the difference between `max-width` and `max-device-width`?
 
 #### References
+
+[The Only Keyword in Media Queries](http://stackoverflow.com/questions/8549529/what-is-the-difference-between-screen-and-only-screen-in-media-queries/14168210#14168210)
 
 [Mobile First Design: Why It’s Great and Why It Sucks](https://codemyviews.com/blog/mobilefirst)
 
