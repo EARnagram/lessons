@@ -1,1 +1,1 @@
-console.log("WE LOADED!");
+console.log("WARNING: TOO MUCH FUN IS ABOUT TO BE HAD");

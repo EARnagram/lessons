@@ -15,4 +15,10 @@ In this exercise, we will:
 
 #### GH Pages
 
-For this project, we'll be hosting our projects on GH Pages. GitHub has beautiful documentation for setting up your project on [GitHub Pages](https://pages.github.com/).
+For this project, we'll be hosting our projects on GH Pages. All GH Pages have
+the same pattern for urls:
+
+`http://username.github.io/repo_name`
+
+GitHub has beautiful documentation for setting up your project on
+[GitHub Pages](https://pages.github.com/).
