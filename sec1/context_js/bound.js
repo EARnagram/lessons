@@ -6,12 +6,6 @@
 // |||||||| SCOPE ||||||||
 // |||||||||||||||||||||||
 
-for(var i = 0; i < 10; i++) {
-  document.addEventListener('DOMContentLoaded', function() {
-    console.log(i); // returns "10" 10 times in the console bc only available
-  });               // after finshed loading - scope issue
-}
-
 var tiredSoul = "Adam Ewing";
 var futureSelf = "Zachry";
 
