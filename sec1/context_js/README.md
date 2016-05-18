@@ -77,20 +77,22 @@ scooby.sayName();
 // ♫ Pass the Context to the Left Hand Side ♫
 // => "I'm Scooby Doo!"
 
+
 var shaggy = {
   name: "Shaggy",
   sayName: scooby.sayName
 }
 
-// Now, who's this?
+// Could it really be?
 shaggy.sayName();
 
 // ♫ Pass the Context to the Left Hand Side ♫
 // => "I'm Shaggy!"
 
+
 scooby.buddy = shaggy;
 
-// Oh no! Could it really be?
+// Zoinks!
 scooby.buddy.sayName();
 
 // ♫ Pass the Context to the Left Hand Side ♫
@@ -107,30 +109,39 @@ function iveKnownThisAllAlong(guess) {
 }
 ```
 
-Whatever invokes `iveKnownThisAllAlong`, if passed also passed as a parameter, will return `true`.
+Whatever invokes `iveKnownThisAllAlong`, if also passed as a parameter, will return `true`.
 
 ```javascript
-var sleuth = {
-  name:  "Paul Auster",
+var hero = {
+  name:  "Aang",
   detect: iveKnownThisAllAlong
 }
 
-sleuth.detect(sleuth);
+hero.detect(hero);
 // => "It's true!"
 
-sleuth.detect({
-  name: "Paul Auster",
+hero.detect({
+  name: "Aang",
   detect: iveKnownThisAllAlong
 });
 // => "It's false!"
 
-sleuth.detect();
+hero.detect();
 // => "It's false!"
 ```
 
-> Remember, objects have unique ids in JS - just because they have the same keys and values, does not make them the same object!
+> Remember, objects have unique ids in JS - just because they have the same key:value pairs, does not make them the same object!
 
 ## `new` Binding and `window`
+
+```javascript
+function tellMeThis() {
+  return this;
+};
+
+// ??!?!?!?!
+tellMeThis();
+```
 
 #### But What if There's Nothing to the Left!?
 
@@ -139,10 +150,6 @@ There is always something to the left: __The global object__!
 Unless you're in `'use strict';` mode, you always have access to the global object - in the browser, this will be `window`.
 
 ```javascript
-function tellMeThis() {
-  console.log(this)
-}
-
 tellMeThis();
 // => window
 ```
@@ -158,8 +165,8 @@ Let's alter our `tellMeThis` function to see what I mean:
 ```javascript
 function strictlyTellMeThis() {
   'use strict';
-  console.log(this);
-}
+  return this;
+};
 
 strictlyTellMeThis();
 // => undefined
@@ -176,9 +183,9 @@ function Detective(name, psuedonym, character) {
   this.name      = name;
   this.psuedonym = psuedonym;
   this.character = character;
-}
+};
 
-var pI = new Detective("Daniel Quinn", "Paul Auster", "Max Work")
+var pI = new Detective("Daniel Quinn", "Paul Auster", "Max Work");
 
 var clouseau = Detective("Jacque Clouseau", "Jacque Clouseau", "Jacque Clouseau");
 ```
@@ -193,13 +200,14 @@ function Detective(name, psuedonym, character) {
   this.name      = name;
   this.psuedonym = psuedonym;
   this.character = character;
-}
+};
 
 var pI = new Detective("Daniel Quinn", "Paul Auster", "Max Work");
 
 var clouseau = Detective("Jacque Clouseau", "Jacque Clouseau", "Jacque Clouseau");
 // => THROWS ERROR! CANNOT SET PROPERTY "name" ON undefined!
 ```
+
 ## Explicit Binding
 
 Explicit, or functional binding works a little differently. Three functions define explicit binding:
