@@ -23,22 +23,22 @@
 ## Intro - You've Found the Dreamstone!
 ![Dreamstone](http://4.bp.blogspot.com/-xBRVl1u5nB4/T4p8gW1qjGI/AAAAAAAAAEk/UBiKTRslQ7g/s1600/Dreamstone2.jpg)
 
-Doctor Desitny's Materioptikon has been recircuited, and we're lucky enough to 
-be holding the dang thing! We now have the power to access and realize the 
+Doctor Desitny's Materioptikon has been recircuited, and we're lucky enough to
+be holding the dang thing! We now have the power to access and realize the
 dreams of others with Ruby!
 
-You'll be using arrays & hashes all the time in your time as a developer, so 
+You'll be using arrays & hashes all the time in your time as a developer, so
 it's important to know how to manipulate complex data types.
 
-For these Ruby data collections, you'll be reminded of similar ideas in JS. 
-That's fantastic. 
+For these Ruby data collections, you'll be reminded of similar ideas in JS.
+That's fantastic.
 
-Anytime you can draw on that connection to help yourself guess at what methods 
+Anytime you can draw on that connection to help yourself guess at what methods
 might exist, or even just what to Google, you'll be in good shape.
 
 ## Working with Arrays - Everything We've Dreamed Of
 
-Just as a refresher – what are arrays for? What do they do? 
+Just as a refresher – what are arrays for? What do they do?
 
 **They're for holding a collection of values**, that's it.
 
@@ -68,8 +68,8 @@ sheep << "An 80's Haircut" # dreams, man
 
 #### Removing From Arrays
 
-As we see, it's possible to mix data types (Ruby does not care), but why would 
-we want to? 
+As we see, it's possible to mix data types (Ruby does not care), but why would
+we want to?
 
 You wouldn't want to wear a sweater vest of "An 80's Haircut" wool, right?
 
@@ -82,7 +82,7 @@ sheep.delete "An 80's Haircut" # give it the value you want to get rid of
 
 #### Useful Array Methods - Your JS Dreams, a Ruby Reality
 
-There are so many great array methods - here are a few you'll probably use 
+There are so many great array methods - here are a few you'll probably use
 often.
 
 ```ruby
@@ -111,7 +111,7 @@ sheep.sort.reverse # => [5, 4, 3, 2, 1]
 
 #### Iteration you've been dreaming of
 
-Now the good stuff – looping through our array and doing something with each 
+Now the good stuff – looping through our array and doing something with each
 value.
 
 Remember how convoluted iterating was in JS? `for` loops? Not in my dreams!!
@@ -137,10 +137,22 @@ In fact, many methods can iterate:
 sheep.count do |number|
 	if number < 4
 		puts "#{number} sheep"
-	else 
+	else
 		puts "zzzzz"
 	end
 end
+```
+
+But we should stick to `.each` for basic iteration. Even though they can fit,
+it's always preferred to use the exact methods in ruby.
+
+> FYI, `.count` is generally used to return a count of an array:
+
+``` ruby
+sheep.count do |number|
+  number % 2 === 0
+end
+# => 2
 ```
 
 To find more useful array methods, you'll have to look in the [Ruby Docs](http://ruby-doc.org/core-2.2.0/Array.html)!
@@ -149,23 +161,23 @@ To find more useful array methods, you'll have to look in the [Ruby Docs](http:/
 
 <img src="http://4.bp.blogspot.com/-16oiAO4qwj8/VIK4PXSxCOI/AAAAAAAAAr4/w9pwDqH-g2c/s1600/aaaaSandman.jpg" height=300px>
 
-That `do`/`end` thing you're messing with is called a _block_, and it just 
-runs the code in between, almost like a little function without a name - like 
+That `do`/`end` thing you're messing with is called a _block_, and it just
+runs the code in between, almost like a little function without a name - like
 anonymous functions in JavaScript or lambdas in Python.
 
-You'll see blocks all the time, and you'll use `.each` like it's your job 
-(because it will be). It just loops through each value in your array and 
-assigns a local variable (that you decide) to each object. You come up 
-with what you want it called in the "pipes", aka those tall neighbors 
-surrounding the variable: 
+You'll see blocks all the time, and you'll use `.each` like it's your job
+(because it will be). It just loops through each value in your array and
+assigns a local variable (that you decide) to each object. You come up
+with what you want it called in the "pipes", aka those tall neighbors
+surrounding the variable:
 
 `|a_variable_of_my_choosing|`
 
-Think of these pipes as little slides that send the variable directly into 
-your block. 
+Think of these pipes as little slides that send the variable directly into
+your block.
 
-To make it super clear: if `sheep` is a variable holding `[1,2,3,4,5]`, then 
-`sheep.each` will go through each number and do _something_ to each variable. 
+To make it super clear: if `sheep` is a variable holding `[1,2,3,4,5]`, then
+`sheep.each` will go through each number and do _something_ to each variable.
 It's sort of as if the code is doing this:
 
 ```ruby
@@ -189,15 +201,15 @@ number = 5
 puts "i am number #{number}"
 ```
 
-For best practice, always name your `|a_variable_of_my_choosing|` something 
-obvious. In fact, best practice is to use the singular tense of the array 
-you're iterating over: 
+For best practice, always name your `|a_variable_of_my_choosing|` something
+obvious. In fact, best practice is to use the singular tense of the array
+you're iterating over:
 
 ```ruby
 dreams.each do |dream|
-``` 
+```
 
-or 
+or
 
 ```ruby
 insane_clown_possee.each do |insane_clown|
@@ -205,8 +217,8 @@ insane_clown_possee.each do |insane_clown|
 
 Of course, the beauty of loops is that we don't have to write all that out.
 
-And a bonus tip: `do`/`end` is functionally the same as `{`/`}`, so you'll see 
-both. Conventionally the curly braces are for when you want to keep it on one 
+And a bonus tip: `do`/`end` is functionally the same as `{`/`}`, so you'll see
+both. Conventionally the curly braces are for when you want to keep it on one
 line, but it does not matter.
 
 ```ruby
@@ -221,7 +233,7 @@ sheep.each {|shep| puts "i am sheep #{shep}"}
 
 #### Methods - Recurring Dreams
 
-We'll have an entire lesson on this later, but let's learn basic syntax in Ruby 
+We'll have an entire lesson on this later, but let's learn basic syntax in Ruby
 methods.
 
 Much like Javascript functions, we can name our blocks as methods! Unlike JS,
@@ -233,7 +245,7 @@ def go_to_sleep sheep
 	sheep.count do |number|
 		if number < 4
 			puts "#{number} sheep"
-		else 
+		else
 			puts "zzzzz"
 		end
 	end
@@ -268,31 +280,31 @@ Choose your dream themes for your slumber!
 dreams = ['scary', 'funny', 'woah', 'heavy', 'anxious', 'super-powered']
 ```
 
-- Given the following list of dreams, **iterate over them**, **prepending** 
-  "actually " if their name includes an "s" in it. Make a new array if you 
+- Given the following list of dreams, **iterate over them**, **prepending**
+  "actually " if their name includes an "s" in it. Make a new array if you
   need to.
 - Then, **sort the dreams** so that "actually" dreams come first
-- Next, **select just the dreams with "actually"** in their names. Look it up 
+- Next, **select just the dreams with "actually"** in their names. Look it up
   in the [Ruby Docs](http://ruby-doc.org/core-2.2.0/Array.html) if you need to.
 - Finally, **count how many "actually" dreams** you have!
 
 
 ## Working with Hashes - Defining Our Reveries
-<img src="http://a4.files.psmag.com/image/upload/c_fit,cs_srgb,w_940/MTMxNDk3MTU1MDU0NTg1ODY2.png" height=350px>
+![](http://images.popmatters.com/news_art/d/dreams-sp.jpg)
 
-We use hashes constantly. Hashes, like JS objects, are a great way to store 
+We use hashes constantly. Hashes, like JS objects, are a great way to store
 related data of all different kinds, in a way that's super readable.
 
-The key to hashes is that they always house key:value pairs. **The key 
-describes the properties, the value is the information relating to or 
+The key to hashes is that they always house key:value pairs. **The key
+describes the properties, the value is the information relating to or
 describing the property.**
 
 #### Creating a Hash
 
-To see it in action, let's pick something random in the room and try to 
+To see it in action, let's pick something random in the room and try to
 describe it.
 
-> **Note:** just to prove hashes can hold all kinds of great data, let's see 
+> **Note:** just to prove hashes can hold all kinds of great data, let's see
 > how many different data types we can describe our object with!
 
 For example, let's describe a dream I had last night.
@@ -312,8 +324,8 @@ dream = {
 
 Nice! Good work.
 
-Now, based on what you know about how JS objects work, how would you guess we 
-grab data out of here? Let's say we want to know how many `monster_trucks` 
+Now, based on what you know about how JS objects work, how would you guess we
+grab data out of here? Let's say we want to know how many `monster_trucks`
 were present.
 
 ```ruby
@@ -322,15 +334,15 @@ dream[:monster_trucks] # => 7
 
 #### Symbols Are For Memory
 
-> _"Hold up, what's the colon? In JavaScript, we'd use 
->  ``dream['monster_trucks']``. Is my life a lie?"_ - Roughly 
+> _"Hold up, what's the colon? In JavaScript, we'd use
+>  ``dream['monster_trucks']``. Is my life a lie?"_ - Roughly
 >  half the classroom, in their brains.
 
 In Ruby, keys, like those up above, are symbols, not strings.
 
-Symbols are basically just like strings, except they save computer memory. 
-Every string you create is unique and takes up space on your computer, even if 
-they're the same value! When we're busy looking up key/value pairs, we don't 
+Symbols are basically just like strings, except they save computer memory.
+Every string you create is unique and takes up space on your computer, even if
+they're the same value! When we're busy looking up key/value pairs, we don't
 want to be wasting memory - we want it to be fast!
 
 Let's watch:
@@ -349,7 +361,7 @@ Let's watch:
 #=> the same number!
 ```
 
-Symbols on their own don't do much, but they work great as keys. There are two 
+Symbols on their own don't do much, but they work great as keys. There are two
 ways to write them:
 
 ```ruby
@@ -362,8 +374,8 @@ ways to write them:
 }
 ```
 
-Either are fine; you'll see both a lot. Some prefer the "hash rocket" because 
-it reminds them they are programming in Ruby (and it sounds cool). Others 
+Either are fine; you'll see both a lot. Some prefer the "hash rocket" because
+it reminds them they are programming in Ruby (and it sounds cool). Others
 prefer the cleanliness of the colon.
 
 For the record, strings as keys are _possible_ – we just try not to use them.
@@ -404,13 +416,13 @@ dream.delete :pants_on
 
 Now you try it!
 
-- Partner up! Together and **by hand with markers on the desk**, describe a 
+- Partner up! Together and **by hand with markers on the desk**, describe a
   dream as a hash. Use any data types you can think of, because hash values can be anything!
-- When you're done, each of you, independently **open your computer, and write 
-  it out in Pry**. Try   getting each key out, adding in new ones, and 
+- When you're done, each of you, independently **open your computer, and write
+  it out in Pry**. Try   getting each key out, adding in new ones, and
   deleting ones just for fun.
 - In your hashes, try to:
-  - Include one key value with the value as an array 
+  - Include one key value with the value as an array
   - Include one key value with the value as another hash (look to the fan hash from earlier!)
 
 ## Conclusion
