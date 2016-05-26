@@ -35,19 +35,24 @@ Our first app will be deliberately simple so that we can see how Rails works wit
     - Adding some navigational links to make the site easier to use
 
 ##WTF MVC?
+
+![](https://www.jeremymorgan.com/images/what-is-mvc-2.jpg)
+
 Rails is organized around the Model, View, Controller (MVC) design pattern.
 
-* **Models:** (from the Rails docs): "A model represents the information (data) of the application and the rules to manipulate that data. In the case of Rails, models are primarily used for managing the rules of interaction with a corresponding database table. In most cases, one table in your database will correspond to one model in your application. The bulk of your application's business logic will be concentrated in the models."
+* **Models:** (from the Rails docs): "A model represents the information (data) of the application and the rules to manipulate and interact with that data. In the case of Rails, models are primarily used for managing the rules of interaction with a corresponding database table. In most cases, one table in your database will correspond to one model in your application. The bulk of your application's business logic will be concentrated in the models."
 
 * **Views:** (from the Rails docs): "Views represent the user interface of your application. In Rails, views are often HTML files with embedded Ruby code that performs tasks related solely to the presentation of the data."
 
-* **Controllers:** (from the Rails docs): "Controllers provide the 'glue' between models and views. In Rails, controllers are responsible for processing the incoming requests from the web browerser, interrogating the models for data, and passing that data on to the views for presentation."
+* **Controllers:** (from the Rails docs): "Controllers provide the 'glue' between models and views. In Rails, controllers are responsible for processing the incoming requests from the web browser, interrogating the models for data, and passing that data on to the views for presentation."
 
 ##What is Ruby on Rails?
+
 From http://rubyonrails.org/: "Ruby on Rails is an open-source web framework that's optimized for programmer happiness and sustainable productivity.  It lets you write beautiful code by favoring convention over configuration."
 
 ####A Word About Convention Over Configuration
-Ruby on Rails has lots of rules and opinions about how Rails applications should be built. As long as we play by Rails' rules--rules that we'll be learning in the coming weeks--then we can focus our efforts on solving problems and builing great apps instead of writing all of the plumbing code to wire everything up.
+
+Ruby on Rails has lots of rules and opinions about how Rails applications should be built. As long as we play by Rails' rules--rules that we'll be learning in the coming weeks--then we can focus our efforts on solving problems and building great apps instead of writing all of the plumbing code to wire everything up.
 
 ##Let's Do This!
 
@@ -55,7 +60,7 @@ Ruby on Rails has lots of rules and opinions about how Rails applications should
 
 1. `rails new coffeeshop -d postgresql -T`
 
-    This command will create a new Rails app called "coffeeshop".  We use the "--skip-test-unit" flag because we not be using Rails' built-in testing tools for this application.
+    This command will create a new Rails app called "coffeeshop".  We use the `-T` or `--skip-test-unit` flag because we not be using Rails' built-in testing tools for this application. The `-d` stands for _database_ and we're specifying postgresql.
 
 2. `$ cd coffeeshop`
 
@@ -63,11 +68,17 @@ Ruby on Rails has lots of rules and opinions about how Rails applications should
 
 3. `$ subl .` to open our app in Sublime Text.
 
-4. Before we move on, let's spin up a rails server and cruise over to `localhost:3000` in our browser to make sure that everything has gone right so far.
+4. Before we move on, let's spin up a rails server by typing in `rails s` and cruise over to `localhost:3000` in our browser to make sure that everything has gone right so far.
+
+> You may end up getting an error due to a failure to find the database. Do not fear, just type in `rake db:create` into the terminal. All will be explained soon…
 
 #### Scaffold!?
 
 NEVER use scaffolds… except right now.
+
+Scaffolds are quickly generated code that allow you to CRUD a resource. They should be used as a teaching tool, or guidance, but developers can always sense a scaffold.
+
+__Do not use it in your projects.__
 
 `rails g scaffold pastry name type price:float`
 
@@ -75,7 +86,7 @@ Then once we're done looking at this fresh fresh crud app:
 
 `rails d scaffold pastry`
 
-You can always delete a rails generation using rails destroy.
+You can always delete a rails generation using `rails destroy`.
 
 ###Generate a model
 
@@ -107,7 +118,7 @@ You can always delete a rails generation using rails destroy.
     ```ruby
     beans = Bean.create([
         {name: "Jim's Jittery Java", roast: "medium", origin: "The OC Baby", quantity: 100},
-        {name: "Phil's Freaky Brew", roast: "hella strong", origin: "Ohio", quantity: 101}
+        {name: "Phil's FDA-Banned Brew", roast: "hella strong", origin: "Ohio", quantity: 101}
       ])
     ```
 
