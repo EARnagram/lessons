@@ -166,10 +166,9 @@ runs the code in between, almost like a little function without a name - like
 anonymous functions in JavaScript or lambdas in Python.
 
 You'll see blocks all the time, and you'll use `.each` like it's your job
-(because it will be). It just loops through each value in your array and
-assigns a local variable (that you decide) to each object. You come up
-with what you want it called in the "pipes", aka those tall neighbors
-surrounding the variable:
+(because it will be). It loops through each value in your array and assigns a
+local variable (that you decide) to each object. You come up with what you want
+it called in the "pipes", aka those tall neighbors surrounding the variable:
 
 `|a_variable_of_my_choosing|`
 
@@ -242,7 +241,7 @@ block.
 
 ```ruby
 def go_to_sleep sheep
-	sheep.count do |number|
+	sheep.each do |number|
 		if number < 4
 			puts "#{number} sheep"
 		else
@@ -290,7 +289,7 @@ dreams = ['scary', 'funny', 'woah', 'heavy', 'anxious', 'super-powered']
 
 
 ## Working with Hashes - Defining Our Reveries
-![](http://images.popmatters.com/news_art/d/dreams-sp.jpg)
+<img src="http://a4.files.psmag.com/image/upload/c_fit,cs_srgb,w_940/MTMxNDk3MTU1MDU0NTg1ODY2.png" height=350px>
 
 We use hashes constantly. Hashes, like JS objects, are a great way to store
 related data of all different kinds, in a way that's super readable.
@@ -382,7 +381,8 @@ For the record, strings as keys are _possible_ – we just try not to use them.
 
 #### Adding to our hash
 
-Real quick – what if we forgot a key/value pair, or want to add one in after the fact?
+Real quick – what if we forgot a key/value pair, and want to add one in during
+run-time?
 
 ```ruby
 dream[:my_power] = 'righteous high-five'
