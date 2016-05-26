@@ -166,9 +166,17 @@ And now, the meat and potatoes of Rails!  We are going to talk about controller 
 #####Route
 * We need to define a route in our **routes.rb** file, which will tell our app what to do when it receives an HTTP request from a client.  We'll do this in our **config/routes.rb** file:
 
-    ```ruby
-    get "beans/" => "beans#index"
-    ```
+   ```ruby
+   # old syntax
+   get "beans/" => "beans#index"
+	 
+   # new syntax
+   get "beans", to: "beans#index"
+	 
+	# you can also define it as the root path (using either syntax)
+	# each project has only ONE root path
+	root to: "beans#index"
+	```
 
 * Let's break that [route](https://en.wikibooks.org/wiki/Ruby_on_Rails/Routing) definition down:
     * the first thing we declare is the HTTP method to which this route will respond
