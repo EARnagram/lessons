@@ -174,7 +174,53 @@ rails g migration AddExperimentRefToLogs experiment:references
 rake db:migrate
 ```
 
+### Establish Model Relationships
 
+We now need to add our relationships to our models:
+
+```ruby
+# scientist.rb
+class Scientist < ActiveRecord::Base
+  after_initialize :default_spooky
+
+  has_many :experiments, dependent: :destroy
+
+  private
+
+  def default_spooky
+    self.spooky = true if self.spooky.nil?
+  end
+end
+```
+
+```ruby
+# experiment.rb
+class Experiment < ActiveRecord::Base
+  belongs_to :scientist
+  has_many   :logs, dependent: :destroy
+end
+```
+
+```ruby
+# log.rb
+class Log < ActiveRecord::Base
+  belongs_to :experiment
+end
+```
+
+As expected, Scientist has_many Experiments, and Experiment has_many 
+Logs.
+
+Notice in the Scientist model, we default every scientist to a have
+a `true` value for the spooky key. We do this using the after_initialize
+method from ruby - it runs whatever method given, after the model has
+been initialized (important because otherwise the instance would not
+have a method `#spooky=`).
+
+We've also added `dependent: :destroy`, meaning to remove them if the
+parent resource is removed. Don't want a paper trail, amiryte?!
+
+### Nested Routes
 
 
 
