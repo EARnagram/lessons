@@ -1,5 +1,9 @@
-<h1>F.I.S.H.E. Scientists</h1>
+<div class="container scientists">
+  <h1>F.I.S.H.E. Scientists</h1>
 
-<% @scientists.each do |scientist| %>
-  <%= link_to "Dr. #{experiment.scientist.name}", scientist_path(experiment.scientist), class: "list-group-item" %>
-<% end %>
+  <div class="list-group">
+    <% @scientists.each do |scientist| %>
+      <%= link_to "Dr. #{scientist.name} - #{scientist.discipline}", scientist_path(scientist), class: "list-group-item" %>
+    <% end %>
+  </div>
+</div>

@@ -12,13 +12,13 @@
   <div class="container">
     <%= link_to "F.I.S.H.E.", root_path, class: "navbar-brand" %>
     <ul class="nav navbar-nav pull-right">
-      <li class="active">
+      <li role="presentation">
         <%= link_to "Home", root_path %>
       </li>
-      <li>
+      <li role="presentation">
         <%= link_to "Scientists", scientists_path %>
       </li>
-      <li>
+      <li role="presentation">
         <%= link_to "Experiments", experiments_path %>
       </li>
     </ul>
@@ -27,7 +27,10 @@
 <br>
 <br>
 
-<%= yield %>
+
+<div class="container">
+  <%= yield %>
+</div>
 
 </body>
 </html>

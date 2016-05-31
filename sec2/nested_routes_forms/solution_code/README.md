@@ -389,7 +389,33 @@ update/edit logs today.
 
 Now all we need to do is build out our controllers!
 
+For now, let's stick to `index` and `show` routes.
 
+We now have access to all kind of data: let's see how we bring it in, 
+starting with the scientists controller.
+
+```ruby
+class ScientistsController < ApplicationController
+
+  def index
+    @scientists = Scientist.all
+  end
+
+  def show
+    @scientist = Scientist.find(params[:id])
+    @experiments = @scientist.experiments
+  end
+end
+```
+
+Our index looks like any other, but notice that in show, we're grabbing
+all experiments of the specific scientist!
+
+Now, in experiments, we can do the reverse!
+
+```ruby
+
+```
 
 
 

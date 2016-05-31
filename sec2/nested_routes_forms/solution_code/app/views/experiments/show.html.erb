@@ -1,0 +1,19 @@
+<div class="container experiments">
+  <h1>The <%= @experiment.name%> Experiment</h1>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">Budget: $<%= @experiment.budget %></div>
+    <div class="panel-body">
+      <strong>Summary: </strong><br>
+      <p><%= @experiment.summary%><br><br>
+       -- <%= link_to "Dr. #{@scientist.name}", scientist_path(@scientist) %></p>
+    </div>
+
+    <ul class="list-group">
+      <li class="list-group-item disabled">Logs</li>
+      <% @logs.each do |log| %>
+        <li><%= link_to log.comment, scientist_experiment_log_path(@scientist,  @experiment, log), class: "list-group-item" %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
