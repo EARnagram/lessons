@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20160531055627) do
 
   create_table "experiments", force: :cascade do |t|
     t.string   "name"
-    t.string   "summation"
+    t.string   "summary"
     t.integer  "budget"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
@@ -43,9 +43,9 @@ ActiveRecord::Schema.define(version: 20160531055627) do
   create_table "scientists", force: :cascade do |t|
     t.string   "name"
     t.string   "discipline"
-    t.boolean  "spooky"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "spooky",     default: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   add_foreign_key "experiments", "scientists"

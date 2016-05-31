@@ -1,0 +1,8 @@
+<h1>F.I.S.H.E. Experiments</h1>
+
+<div class="list-group">
+  <% @experiments.each do |experiment| %>
+
+    <%= link_to "Dr. #{experiment.scientist.name}", scientist_path(experiment.scientist), class: "list-group-item" %>
+  <% end %>
+</div>

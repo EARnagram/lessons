@@ -3,7 +3,7 @@ class CreateScientists < ActiveRecord::Migration
     create_table :scientists do |t|
       t.string :name
       t.string :discipline
-      t.boolean :spooky
+      t.boolean :spooky, default: true
 
       t.timestamps null: false
     end

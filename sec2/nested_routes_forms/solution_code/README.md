@@ -27,7 +27,7 @@
     1. Welcome to the Institute
     2. Setting Up Relationships
     3. Blocks in resources Routes
-    4. Controllers Sending Data
+    4. Controllers Serving Nested Data
     5. Corresponding Views
 
 2. Forms, Validations, and Nesting
@@ -47,8 +47,8 @@
 > excited to have an esteemed web developer like yourself help us keep
 > track of all our data. Hell, someone has to!
 >
-> But really, I'm sure you'll find there's nothing worth suing over,
-> just make sure you turn in that NDA before you clock in…
+> But really, I'm sure you'll find there's nothing worth suing over…
+> better yet, just make sure you turn in that NDA before you clock in…
 
 You've just been hired to keep track of every scientist's experiments
 and data for the infamous Foundational Institute for Scientific Human 
@@ -113,6 +113,21 @@ reference to our previous model in our migration.
 Our final table column `scientist_id` `references` the `Scientist` model
 we created earlier. We'll see what kinds of sweet methods we get from
 that later on.
+
+##### Default Values
+
+Go ahead and open up that migration file. Since we've yet to `rake db:migrate`,
+we can still edit this file. Add `, default: true` to the end of the 
+spooky column, so it looks like this:
+
+```ruby
+# …create_scientists.rb
+      #…
+      t.boolean :spooky, default: true
+```
+
+Now every new Scientist at FISHE will have a default value of 
+`spooky: true` unless otherwise stated.
 
 #### Log
 
@@ -181,14 +196,14 @@ We now need to add our relationships to our models:
 ```ruby
 # scientist.rb
 class Scientist < ActiveRecord::Base
-  after_initialize :default_spooky
+  after_initialize :default_discipline
 
   has_many :experiments, dependent: :destroy
 
   private
 
-  def default_spooky
-    self.spooky = true if self.spooky.nil?
+  def default_discipline
+    self.discipline ||= "General Science"
   end
 end
 ```
@@ -211,11 +226,22 @@ end
 As expected, Scientist has_many Experiments, and Experiment has_many 
 Logs.
 
-Notice in the Scientist model, we default every scientist to a have
-a `true` value for the spooky key. We do this using the after_initialize
-method from ruby - it runs whatever method given, after the model has
-been initialized (important because otherwise the instance would not
-have a method `#spooky=`).
+Notice in the Scientist model, we set a fallback for every scientist to 
+have `"General Science"` value for the discipline key if none is 
+provided. 
+
+We do this using the after_initialize method from ruby - it 
+runs whatever method given, after the model has been initialized 
+(important because otherwise the instance would not have a method 
+`#discipline=`). 
+
+We also use the orEquals operator from ruby. It first checks if the 
+variable is anything but `false` or `nil`. If it is, then it keeps that
+value, otherwise, it assigns it to the value right of the operator.
+
+Think of it like this:
+
+`a || a = b`
 
 We've also added `dependent: :destroy`, meaning to remove them if the
 parent resource is removed. Don't want a paper trail, amiryte?!
@@ -252,27 +278,27 @@ all logs at:
 
 Let's take a look at what we're hoping for:
 ```
-                   Prefix Verb   URI Pattern                                                             Controller#Action
-                     root GET    /                                                                       static_pages#index
-scientist_experiment_logs POST   /scientists/:scientist_id/experiments/:experiment_id/logs(.:format)     logs#create
- scientist_experiment_log GET    /scientists/:scientist_id/experiments/:experiment_id/logs/:id(.:format) logs#show
-                          DELETE /scientists/:scientist_id/experiments/:experiment_id/logs/:id(.:format) logs#destroy
-    scientist_experiments POST   /scientists/:scientist_id/experiments(.:format)                         experiments#create
- new_scientist_experiment GET    /scientists/:scientist_id/experiments/new(.:format)                     experiments#new
-edit_scientist_experiment GET    /scientists/:scientist_id/experiments/:id/edit(.:format)                experiments#edit
-     scientist_experiment GET    /scientists/:scientist_id/experiments/:id(.:format)                     experiments#show
-                          PATCH  /scientists/:scientist_id/experiments/:id(.:format)                     experiments#update
-                          PUT    /scientists/:scientist_id/experiments/:id(.:format)                     experiments#update
-                          DELETE /scientists/:scientist_id/experiments/:id(.:format)                     experiments#destroy
-               scientists GET    /scientists(.:format)                                                   scientists#index
-                          POST   /scientists(.:format)                                                   scientists#create
-            new_scientist GET    /scientists/new(.:format)                                               scientists#new
-           edit_scientist GET    /scientists/:id/edit(.:format)                                          scientists#edit
-                scientist GET    /scientists/:id(.:format)                                               scientists#show
-                          PATCH  /scientists/:id(.:format)                                               scientists#update
-                          PUT    /scientists/:id(.:format)                                               scientists#update
-                          DELETE /scientists/:id(.:format)                                               scientists#destroy
-              experiments GET    /experiments(.:format)                                                  experiments#index
+Verb   URI Pattern                                                             Controller#Action
+GET    /                                                                       static_pages#index
+POST   /scientists/:scientist_id/experiments/:experiment_id/logs(.:format)     logs#create
+GET    /scientists/:scientist_id/experiments/:experiment_id/logs/:id(.:format) logs#show
+DELETE /scientists/:scientist_id/experiments/:experiment_id/logs/:id(.:format) logs#destroy
+POST   /scientists/:scientist_id/experiments(.:format)                         experiments#create
+GET    /scientists/:scientist_id/experiments/new(.:format)                     experiments#new
+GET    /scientists/:scientist_id/experiments/:id/edit(.:format)                experiments#edit
+GET    /scientists/:scientist_id/experiments/:id(.:format)                     experiments#show
+PATCH  /scientists/:scientist_id/experiments/:id(.:format)                     experiments#update
+PUT    /scientists/:scientist_id/experiments/:id(.:format)                     experiments#update
+DELETE /scientists/:scientist_id/experiments/:id(.:format)                     experiments#destroy
+GET    /scientists(.:format)                                                   scientists#index
+POST   /scientists(.:format)                                                   scientists#create
+GET    /scientists/new(.:format)                                               scientists#new
+GET    /scientists/:id/edit(.:format)                                          scientists#edit
+GET    /scientists/:id(.:format)                                               scientists#show
+PATCH  /scientists/:id(.:format)                                               scientists#update
+PUT    /scientists/:id(.:format)                                               scientists#update
+DELETE /scientists/:id(.:format)                                               scientists#destroy
+GET    /experiments(.:format)                                                  experiments#index
 ```
 
 Holy Human Experiments that's a lotta routes!
@@ -354,6 +380,16 @@ Now, for our final resource, logs:
     end
   end
 ```
+
+We expect our form for adding new logs will be on the Experiment show 
+page. And due to time constraints, we won't be able to get to 
+update/edit logs today.
+
+### Controllers Serving Nested Data
+
+Now all we need to do is build out our controllers!
+
+
 
 
 

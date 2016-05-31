@@ -1,11 +1,11 @@
 class Scientist < ActiveRecord::Base
-  after_initialize :default_spooky
+  after_initialize :default_discipline
 
   has_many :experiments, dependent: :destroy
 
   private
 
-  def default_spooky
-    self.spooky = true if self.spooky.nil?
+  def default_discipline
+    self.discipline ||= "General Science"
   end
 end
