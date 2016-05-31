@@ -1,4 +1,4 @@
-# The Science Institute for Scientific Human Experimentation
+# The Foundational Institute for Scientific Human Experimentation
 
 ![](./app/assets/images/resize_2_heads_kopie.jpg)
 
@@ -25,7 +25,7 @@
 
 1. Nested Resources
     1. Welcome to the Institute
-    2. setting Up Relationships
+    2. Setting Up Relationships
     3. Blocks in resources Routes
     4. Controllers Sending Data
     5. Corresponding Views
@@ -39,7 +39,7 @@
     6. Outro
 
 
-### Welcome to the Institute: Don't Worry, it's Safe!
+### Welcome to F.I.S.H.E. - Don't Worry, it's Safe!
 
 ![](https://rahmalamadingdong.files.wordpress.com/2015/09/the-cabinet-of-dr-caligari.jpg?w=960)
 
@@ -51,8 +51,8 @@
 > just make sure you turn in that NDA before you clock in…
 
 You've just been hired to keep track of every scientist's experiments
-and data for the infamous Science Institute for Scientific Human 
-Experiments.
+and data for the infamous Foundational Institute for Scientific Human 
+Experiments, or F.I.S.H.E.
 
 Let's get started by looking at the legacy code you'll have to be 
 working with.
@@ -222,9 +222,138 @@ parent resource is removed. Don't want a paper trail, amiryte?!
 
 ### Nested Routes
 
+We now have our relationships set up in our database. Now, every 
+scientist has a list of experiments, which each have a list of logs.
 
+We now want to set up our routes based on this kind of inheritance. 
 
+__Remember__: We want to keep things RESTful.
 
+What that means is for the Scientist with the id of 3, we should get all
+his/her experiments at: 
+
+`www.fishe.org/scientists/3/experiments`
+
+And for that scientist's experiment with the id of 7, we should access 
+all logs at:
+
+`www.fishe.org/scientists/3/experiments/7/logs`
+
+#### RESTful Questions:
+
+1. What is the route to get all scientists?
+2. What would our route be to post new experiments by a scientist with 
+   the id of 5?
+3. What would the route be for editing a specific log where 
+   experiment_id = 3 & scientist_id = 5?
+4. What would the route be to find ALL experiments?
+
+### Our Routes
+
+Let's take a look at what we're hoping for:
+```
+                   Prefix Verb   URI Pattern                                                             Controller#Action
+                     root GET    /                                                                       static_pages#index
+scientist_experiment_logs POST   /scientists/:scientist_id/experiments/:experiment_id/logs(.:format)     logs#create
+ scientist_experiment_log GET    /scientists/:scientist_id/experiments/:experiment_id/logs/:id(.:format) logs#show
+                          DELETE /scientists/:scientist_id/experiments/:experiment_id/logs/:id(.:format) logs#destroy
+    scientist_experiments POST   /scientists/:scientist_id/experiments(.:format)                         experiments#create
+ new_scientist_experiment GET    /scientists/:scientist_id/experiments/new(.:format)                     experiments#new
+edit_scientist_experiment GET    /scientists/:scientist_id/experiments/:id/edit(.:format)                experiments#edit
+     scientist_experiment GET    /scientists/:scientist_id/experiments/:id(.:format)                     experiments#show
+                          PATCH  /scientists/:scientist_id/experiments/:id(.:format)                     experiments#update
+                          PUT    /scientists/:scientist_id/experiments/:id(.:format)                     experiments#update
+                          DELETE /scientists/:scientist_id/experiments/:id(.:format)                     experiments#destroy
+               scientists GET    /scientists(.:format)                                                   scientists#index
+                          POST   /scientists(.:format)                                                   scientists#create
+            new_scientist GET    /scientists/new(.:format)                                               scientists#new
+           edit_scientist GET    /scientists/:id/edit(.:format)                                          scientists#edit
+                scientist GET    /scientists/:id(.:format)                                               scientists#show
+                          PATCH  /scientists/:id(.:format)                                               scientists#update
+                          PUT    /scientists/:id(.:format)                                               scientists#update
+                          DELETE /scientists/:id(.:format)                                               scientists#destroy
+              experiments GET    /experiments(.:format)                                                  experiments#index
+```
+
+Holy Human Experiments that's a lotta routes!
+
+Now this may seem intimidating, but let's really look at what we're
+asking for.
+
+1. A full resource for scientists
+2. A nested resource for experiments without `experiments#index`, which
+   has been separated
+3. A partial resource for Logs nested within Experiments. We're using 
+   only show, create, and destroy.
+4. A root page (already done for us) giving us our static homepage.
+
+Let's begin with the route outside of the nesting: `experiments#index`
+
+Create a GET route for the index action:
+
+`get 'experiments', to: 'experiments#index'`
+
+And might as well create an action in our controller to use the page.\
+
+```ruby
+# experiments_controller.rb
+
+class ExperimentsController < ApplicationController
+
+  def index
+    @experiments = Experiment.all
+  end
+end
+```
+
+### Blocks in Our Routes
+
+Generally, blocks stop you from accessing routes in life. But not in 
+ruby.
+
+Blocks help us organize our routes and show inheritance within our 
+routes.  Remember, we can always pull things out if we want, but if we
+want access to the parent model, nested routes can really help us out.
+
+Let's first create our scientists resource:
+
+``` ruby
+# routes.rb
+
+  resources :scientists
+```
+
+Go ahead and `rake routes`. 
+
+We still have no nesting, but let's add the rest of our experiments 
+routes, and see how we can use blocks to create nested routes.
+
+```ruby
+# routes.rb
+
+  resources :scientists do
+    resources :experiments, except: :index
+  end
+```
+
+By simply surrounding our new resource in a block, we've nested our 
+experiments within scientists!
+
+Also, take note of the `except:` method - we're excluding index from the
+nest, because we assume the scientists#show page will show all
+experiments by that scientist. 
+
+Now, for our final resource, logs:
+
+```ruby
+# routes.rb
+
+  resources :scientists do
+    resources :experiments, except: :index do
+      resources :logs, only: [:show, :destroy, :create]
+    end
+  end
+```
 
 
 
