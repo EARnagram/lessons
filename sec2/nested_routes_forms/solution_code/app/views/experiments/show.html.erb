@@ -12,7 +12,7 @@
     <ul class="list-group">
       <li class="list-group-item disabled">Logs</li>
       <% @logs.each do |log| %>
-        <li><%= link_to log.comment, scientist_experiment_log_path(@scientist,  @experiment, log), class: "list-group-item" %></li>
+        <li class="list-group-item"><%= link_to "#{log.created_at.strftime("%m/%d/%Y %l:%M")} - #{log.comment}", scientist_experiment_log_path(@scientist,  @experiment, log)%></li>
       <% end %>
     </ul>
   </div>

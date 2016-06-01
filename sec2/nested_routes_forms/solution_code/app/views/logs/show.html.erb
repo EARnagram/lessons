@@ -1,0 +1,27 @@
+<div class="container logs">
+  <h1>Subject: <%= @log.subject_name %></h1>
+  <h3><%= link_to "The #{@experiment.name} Experiment", scientist_experiment_path(@scientist, @experiment) %></h3>
+  <br>
+  <table class="table table-hover jumbotron">
+    <thead>
+      <tr>
+        <th>Weight</th>
+        <th>Number of Treatments</th>
+        <th>Deceased</th>
+        <th>Dr. <%= @scientist.name %>'s Comment</th>
+        <th>Date of Log</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @logs.each do |log| %>
+        <tr>
+          <td><%= log.weight %></td>
+          <td><%= log.treatments %></td>
+          <td><%= log.deceased %></td>
+          <td><%= log.comment %></td>
+          <td><%= log.created_at.strftime("%m/%d/%Y %l:%M") %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
