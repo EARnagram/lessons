@@ -13,12 +13,16 @@ class ExperimentsController < ApplicationController
   def new
     @scientist = Scientist.find(params[:scientist_id])
     @experiment = @scientist.experiments.new
+    @log = @experiment.logs.new
   end
 
   def create
     @scientist = Scientist.find(params[:scientist_id])
     @experiment = @scientist.experiments.new(experiment_params)
-    @experiment.logs.new(log_params[:log_details])
+    @log = @experiment.logs.new(log_params[:log_details])
+    if deceased_undefined?
+      @log.deceased = false
+    end
     if @experiment.save
       redirect_to scientist_path(params[:scientist_id])
     else
@@ -51,5 +55,9 @@ class ExperimentsController < ApplicationController
 
     def log_params
       params.require(:experiment).permit(log_details: [:subject_name, :weight, :treatments, :deceased, :comment])
+    end
+
+    def deceased_undefined?
+      log_params[:log_details][:deceased].nil?
     end
 end

@@ -39,10 +39,8 @@
             <%= log_form.number_field :treatments %>
           </div>
           <div class="field col-md-2">
-            <%= log_form.label "Still Living? " %>
-            <%= log_form.radio_button :deceased, true  %>
             <%= log_form.label "Deceased? " %>
-            <%= log_form.radio_button :deceased, false  %>
+            <%= check_box_tag("experiment[log_details][deceased]", true, false) %>
           </div>
         </div>
       </div>
