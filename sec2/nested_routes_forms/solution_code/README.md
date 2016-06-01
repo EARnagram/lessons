@@ -24,20 +24,21 @@
 #### Road Map
 
 1. Nested Resources
-    1. Welcome to the Institute
+    1. Welcome to the F.I.S.H.E.
     2. Setting Up Relationships
     3. Blocks in resources Routes
     4. Controllers Serving Nested Data
     5. Corresponding Views
 
 2. Forms, Validations, and Nesting
-    1. Using Edit, Update, New, and Create Routes
-    2. Using params
+    1. Expose the Experiments!
+    2. Using Edit, Update, New, and Create Routes
     3. Validations for Models
     4. Sending Flash Messages
     5. Throw errors
     6. Outro
 
+## Part 1: Nested Resources
 
 ### Welcome to F.I.S.H.E. - Don't Worry, it's Safe!
 
@@ -246,7 +247,33 @@ Think of it like this:
 We've also added `dependent: :destroy`, meaning to remove them if the
 parent resource is removed. Don't want a paper trail, amiryte?!
 
+### Active Record Party!
+
+![](https://s-media-cache-ak0.pinimg.com/736x/52/18/f0/5218f0ebe2f2cdc38cf5fb3cab3fe273.jpg)
+
+It's time to create some seeds of human experimentation!
+
+Let's use `.new` or `.create` to build out some seeds!
+
+Remember you can always use `rake db:drop` (…then `rake db:create`, 
+`rake db:migrate`) if you mess up your database!
+
+Take the next __20 minutes__ to build some seeds for our application!
+
+Build the following:
+
+- 3 scientists 
+- 5 experiments
+- 15 logs 
+
+Try and use the same `subject_name` for _some_ of your `logs` shared 
+by the same experiment. 
+
+Don't forget to use cmd-opt-D to copy sections of code!
+
 ### Nested Routes
+
+![](http://www.sierraclub.org/santacruz/sites/www.sierraclub.org/files/styles/sierra_full_page_width/public/slideshows/slide6.jpg?itok=y-yQF1pc)
 
 We now have our relationships set up in our database. Now, every 
 scientist has a list of experiments, which each have a list of logs.
@@ -414,8 +441,86 @@ all experiments of the specific scientist!
 Now, in experiments, we can do the reverse!
 
 ```ruby
+class ExperimentsController < ApplicationController
 
+  def index
+    @experiments = Experiment.all
+  end
+
+  def show
+    @experiment = Experiment.find(params[:id])
+    @scientist  = @experiment.scientist
+    @logs       = @experiment.logs
+  end
+end
 ```
+
+Remember that active record gives us access to the belonging entity, as
+well as all that depend on it!
+
+Last, our Logs controller will only have a show. Let's make it print
+out all the logs from a user with the same name.
+
+```ruby
+class LogsController < ApplicationController
+
+  def show
+    @log = Log.find(params[:id])
+    @logs = Log.where(subject_name: @log.subject_name)
+    @experiment = @log.experiment
+    @scientist = @log.experiment.scientist
+  end
+end
+```
+
+We're using the `.where` method that takes a key:value pair and finds
+all instances where that is true.  Here, we're pulling out all instances
+that have the same name as our original log.
+
+### Corresponding Views
+
+Take the next 5 minutes reading through the index/show views of our 
+three resources.
+
+Each person come up with one question from the first half of today's
+lesson and write it down on the wall. We'll address them when we're back
+from lunch/break!
+
+---
+
+## Part 2: Forms, Validations, and Nesting
+
+### Expose the Experiments!
+
+![](http://vignette1.wikia.nocookie.net/muppet/images/9/93/Labs.firepaper.jpg/revision/latest?cb=20060619164255)
+
+You've been working at F.I.S.H.E. for a bit now, and you've come to 
+realize these scientists are about as credible as their experiments
+are groundbreaking. The worst of it is that they're hardly villanous - 
+more wildly inept than anything!
+
+It's time to force their hand; make them give you the data you want, 
+__the way you want__, and expose the cold hard facts of their 
+incompetence to the world.
+
+### Using Nested Edit, Update, New, and Create Routes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

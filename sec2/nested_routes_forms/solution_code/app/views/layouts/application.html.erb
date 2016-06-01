@@ -8,29 +8,28 @@
 </head>
 <body>
 
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <div class="container">
-    <%= link_to "F.I.S.H.E.", root_path, class: "navbar-brand" %>
-    <ul class="nav navbar-nav pull-right">
-      <li role="presentation">
-        <%= link_to "Home", root_path %>
-      </li>
-      <li role="presentation">
-        <%= link_to "Scientists", scientists_path %>
-      </li>
-      <li role="presentation">
-        <%= link_to "Experiments", experiments_path %>
-      </li>
-    </ul>
-  </div>
-</nav>
-<br>
-<br>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <%= link_to "F.I.S.H.E.", root_path, class: "navbar-brand" %>
+      <ul class="nav navbar-nav pull-right">
+        <li role="presentation">
+          <%= link_to "Home", root_path %>
+        </li>
+        <li role="presentation">
+          <%= link_to "Scientists", scientists_path %>
+        </li>
+        <li role="presentation">
+          <%= link_to "Experiments", experiments_path %>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <br>
+  <br>
 
 
-<div class="container">
   <%= yield %>
-</div>
+
 
 </body>
 </html>

@@ -46,4 +46,5 @@ class ScientistsController < ApplicationController
     def scientist_params
       params.require(:scientist).permit(:name, :discipline, :spooky)
     end
+
 end
