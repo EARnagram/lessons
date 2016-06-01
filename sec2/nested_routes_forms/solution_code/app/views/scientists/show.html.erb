@@ -3,14 +3,17 @@
 
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h4 class="panel-title">Experiments</h4>
+      <h4 class="panel-title">Experiments in <%= @scientist.discipline %></h4>
     </div>
     <div class="panel-body">
-        <div class="list-group">
-          <% @experiments.each do |experiment| %>
-          <%= link_to "#{experiment.name}", scientist_experiment_path(@scientist, experiment), class: "list-group-item" %>
-          <% end %>
-        </div>
+      <div class="list-group">
+        <% @experiments.each do |experiment| %>
+        <%= link_to "#{experiment.name}", scientist_experiment_path(@scientist, experiment), class: "list-group-item" %>
+        <% end %>
+      </div>
     </div>
   </div>
+  <%= link_to "Add New Experiment", new_scientist_experiment_path(@scientist), class: "btn btn-primary" %>
+  <%= link_to "Edit Scientist", edit_scientist_path(@scientist), class: "btn btn-warning" %>
+  <%= link_to "Delete Scientist", scientist_path(@scientist), method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure you want to revoke Dr. #{@scientist.name} medical liscense?"} %>
 </div>

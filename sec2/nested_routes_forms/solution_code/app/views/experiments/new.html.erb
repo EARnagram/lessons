@@ -1,8 +1,7 @@
 <div class="container experiments">
+  <h1>Add New Experiment for Dr. <%= @scientist.name %></h1>
   <div class="add-background">
-    <h1>Add New Experiment, Dr. <%= @scientist.name %></h1>
     <br>
-
     <div class="row">
       <%= nested_form_for @experiment, url: scientist_experiments_path(@scientist), method: :post do |f| %>
         <div class="field col-md-3">
@@ -40,8 +39,10 @@
             <%= log_form.number_field :treatments %>
           </div>
           <div class="field col-md-2">
-            <%= log_form.label "Deceased: " %><br>
-            <%= log_form.check_box :deceased %>
+            <%= log_form.label "Still Living? " %>
+            <%= log_form.radio_button :deceased, true  %>
+            <%= log_form.label "Deceased? " %>
+            <%= log_form.radio_button :deceased, false  %>
           </div>
         </div>
       </div>

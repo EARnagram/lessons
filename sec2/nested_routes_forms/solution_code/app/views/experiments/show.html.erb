@@ -16,4 +16,6 @@
       <% end %>
     </ul>
   </div>
+  <%= link_to "Edit Experiment", edit_scientist_experiment_path(@scientist, @experiment), class: "btn btn-warning" %>
+  <%= link_to "Delete Experiment", scientist_experiment_path(@scientist, @experiment), method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure you want to delete #{@experiment.name}?"} %>
 </div>

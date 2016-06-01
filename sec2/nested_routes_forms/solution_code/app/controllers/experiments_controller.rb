@@ -22,11 +22,28 @@ class ExperimentsController < ApplicationController
     if @experiment.save
       redirect_to scientist_path(params[:scientist_id])
     else
-      render new_scientist_experiments_path
+      render 'new'
     end
   end
 
-  private
+  def edit
+    @experiment = Experiment.find(params[:id])
+  end
+
+  def update
+    @experiment = Experiment.find(params[:id])
+    if @experiment.update_attributes(experiment_params)
+      redirect_to scientist_path(@experiment.scientist_id)
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @experiment = Experiment.find(params[:id])
+    @experiment.destroy
+    redirect_to experiments_path
+  end
 
     def experiment_params
       params.require(:experiment).permit(:name, :summary, :budget)
