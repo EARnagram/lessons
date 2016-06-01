@@ -38,6 +38,15 @@ h1, h3 {
   background-color: rgba(255, 235, 205, .7);
 }
 
+  .exp-log-comment-text-area {
+    height: 160px;
+    width: 60%;
+  }
+
+  .exp-log-comment-text-field {
+    height: 180px;
+  }
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 

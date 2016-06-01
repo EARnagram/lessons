@@ -20,9 +20,7 @@ class ExperimentsController < ApplicationController
     @scientist = Scientist.find(params[:scientist_id])
     @experiment = @scientist.experiments.new(experiment_params)
     @log = @experiment.logs.new(log_params[:log_details])
-    if deceased_undefined?
-      @log.deceased = false
-    end
+    @log.deceased = false if deceased_undefined?
     if @experiment.save
       redirect_to scientist_path(params[:scientist_id])
     else

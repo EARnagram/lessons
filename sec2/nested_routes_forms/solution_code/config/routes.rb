@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :scientists do
     resources :experiments, except: :index do
-      resources :logs, only: [:show, :create]
+      resources :logs, only: [:show, :create, :new]
     end
   end
 
