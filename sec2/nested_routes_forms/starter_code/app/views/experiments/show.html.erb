@@ -1,0 +1,22 @@
+<div class="container experiments">
+  <h1>The <%= @experiment.name%> Experiment</h1>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">Budget: $<%= @experiment.budget %></div>
+    <div class="panel-body">
+      <strong>Summary: </strong><br>
+      <p><%= @experiment.summary%><br><br>
+       -- <%= link_to "Dr. #{@scientist.name}", scientist_path(@scientist) %></p>
+    </div>
+
+    <ul class="list-group">
+      <li class="list-group-item disabled">Logs</li>
+      <% @logs.each do |log| %>
+        <li class="list-group-item"><%= link_to "#{log.created_at.strftime("%m/%d/%Y %l:%M")} - #{log.comment}", scientist_experiment_log_path(@scientist,  @experiment, log)%></li>
+      <% end %>
+    </ul>
+  </div>
+  <%= link_to "Add New Log", new_scientist_experiment_log_path(@scientist, @experiment), class: "btn btn-primary" %>
+  <%= link_to "Edit Experiment", edit_scientist_experiment_path(@scientist, @experiment), class: "btn btn-warning" %>
+  <%= link_to "Delete Experiment", scientist_experiment_path(@scientist, @experiment), method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure you want to delete #{@experiment.name}?"} %>
+</div>

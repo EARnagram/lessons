@@ -1,0 +1,10 @@
+<div class="container scientists">
+  <h1>F.I.S.H.E. Scientists</h1>
+
+  <div class="list-group">
+    <% @scientists.each do |scientist| %>
+      <%= link_to "Dr. #{scientist.name} - #{scientist.discipline}", scientist_path(scientist), class: "list-group-item" %>
+    <% end %>
+  </div>
+  <%= link_to "Appoint New Scientist", new_scientist_path, class: "btn btn-primary" %>
+</div>
