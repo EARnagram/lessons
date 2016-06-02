@@ -6,37 +6,21 @@
 
 #### Lesson Objectives
 
-| __Lesson 1__ - Nested Resources |
+| __Nested Resources__ |
 | :--- |
 | Nest routes based on Models' relationships |
 | Use rails console to test relationships |
 | Manipulate routes to maximize organization |
 | Follow a RESTful architecture when building nested routes |
 
-| __Lesson 2__ - Forms, Validations, and Nesting |
-| :--- |
-| Create nested forms |
-| Use validations on your Model and forms to ensure proper user interaction |
-| Use flash messages to inform a poor submission |
-| Throw errors when hiding webpages |
-| Access `params` |
 
 #### Road Map
 
-1. Nested Resources
-    1. Welcome to the F.I.S.H.E.
-    2. Setting Up Relationships
-    3. Blocks in resources Routes
-    4. Controllers Serving Nested Data
-    5. Corresponding Views
-
-2. Forms, Validations, and Nesting
-    1. Expose the Experiments!
-    2. Using Edit, Update, New, and Create Routes
-    3. Validations for Models
-    4. Sending Flash Messages
-    5. Throw errors
-    6. Outro
+1. Welcome to the F.I.S.H.E.
+2. Setting Up Relationships
+3. Blocks in resources Routes
+4. Controllers Serving Nested Data
+5. Corresponding Views
 
 ## Part 1: Nested Resources
 
@@ -63,7 +47,6 @@ working with.
 Take 5 minutes to study the starter code. There isn't much there beyond
 a `rails new` in the models and controllers, but you can see there are 
 quite a few views already made.
-
 
 ### Setting up Relationships
 
@@ -304,12 +287,12 @@ all logs at:
 ### Our Routes
 
 Let's take a look at what we're hoping for:
+
 ```
-Verb   URI Pattern                                                             Controller#Action
 GET    /                                                                       static_pages#index
 POST   /scientists/:scientist_id/experiments/:experiment_id/logs(.:format)     logs#create
+GET    /scientists/:scientist_id/experiments/:experiment_id/logs/new(.:format) logs#new
 GET    /scientists/:scientist_id/experiments/:experiment_id/logs/:id(.:format) logs#show
-DELETE /scientists/:scientist_id/experiments/:experiment_id/logs/:id(.:format) logs#destroy
 POST   /scientists/:scientist_id/experiments(.:format)                         experiments#create
 GET    /scientists/:scientist_id/experiments/new(.:format)                     experiments#new
 GET    /scientists/:scientist_id/experiments/:id/edit(.:format)                experiments#edit
@@ -337,7 +320,7 @@ asking for.
 2. A nested resource for experiments without `experiments#index`, which
    has been separated
 3. A partial resource for Logs nested within Experiments. We're using 
-   only show, create, and destroy.
+   only show, create, and new.
 4. A root page (already done for us) giving us our static homepage.
 
 Let's begin with the route outside of the nesting: `experiments#index`
@@ -403,14 +386,14 @@ Now, for our final resource, logs:
 
   resources :scientists do
     resources :experiments, except: :index do
-      resources :logs, only: [:show, :destroy, :create]
+      resources :logs, only: [:show, :new, :create]
     end
   end
 ```
 
 We expect our form for adding new logs will be on the Experiment show 
 page. And due to time constraints, we won't be able to get to 
-update/edit logs today.
+update/edit/destroy logs today.
 
 ### Controllers Serving Nested Data
 
@@ -466,8 +449,8 @@ class LogsController < ApplicationController
 
   def show
     @log = Log.find(params[:id])
-    @logs = Log.where(subject_name: @log.subject_name)
     @experiment = @log.experiment
+    @logs = @experiment.logs.where(subject_name: @log.subject_name)
     @scientist = @log.experiment.scientist
   end
 end
@@ -485,50 +468,4 @@ three resources.
 Each person come up with one question from the first half of today's
 lesson and write it down on the wall. We'll address them when we're back
 from lunch/break!
-
----
-
-## Part 2: Forms, Validations, and Nesting
-
-### Expose the Experiments!
-
-![](http://vignette1.wikia.nocookie.net/muppet/images/9/93/Labs.firepaper.jpg/revision/latest?cb=20060619164255)
-
-You've been working at F.I.S.H.E. for a bit now, and you've come to 
-realize these scientists are about as credible as their experiments
-are groundbreaking. The worst of it is that they're hardly villanous - 
-more wildly inept than anything!
-
-It's time to force their hand; make them give you the data you want, 
-__the way you want__, and expose the cold hard facts of their 
-incompetence to the world.
-
-### Using Nested Edit, Update, New, and Create Routes
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

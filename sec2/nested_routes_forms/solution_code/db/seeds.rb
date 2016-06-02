@@ -86,7 +86,7 @@ scientists[0].experiments[1].logs.create([
     deceased: true
   },
   {
-    subject_name: "John Schiznituz",
+    subject_name: "Dwayne Schiznituz",
     weight: 157,
     treatments: 1,
     comment: "Couldn't breathe - totally died. Something tells me humans need O2.",

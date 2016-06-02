@@ -19,11 +19,13 @@ class ExperimentsController < ApplicationController
   def create
     @scientist = Scientist.find(params[:scientist_id])
     @experiment = @scientist.experiments.new(experiment_params)
-    @log = @experiment.logs.new(log_params[:log_details])
     if @experiment.save
-      redirect_to scientist_path(params[:scientist_id]), notice: "Experiment and first Log were created."
+      redirect_to(
+        scientist_path(params[:scientist_id]),
+        notice: "Experiment and first Log were created."
+      )
     else
-      render 'new', alert: "You messed up the form!"
+      render 'new'
     end
   end
 
@@ -46,11 +48,19 @@ class ExperimentsController < ApplicationController
     redirect_to experiments_path
   end
 
+  private
     def experiment_params
-      params.require(:experiment).permit(:name, :summary, :budget)
-    end
-
-    def log_params
-      params.require(:experiment).permit(log_details: [:subject_name, :weight, :treatments, :deceased, :comment])
+      params.require(:experiment).permit(
+        :name,
+        :summary,
+        :budget,
+        logs_attributes: [
+          :subject_name,
+          :weight,
+          :treatments,
+          :deceased,
+          :comment
+        ]
+      )
     end
 end
