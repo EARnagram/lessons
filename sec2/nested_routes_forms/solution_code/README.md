@@ -543,7 +543,7 @@ that __does not__ pass our validations.
 
 Type in this code and see what you get:
 
-```
+```ruby
 dr_oz = Scientist.new(name: "Mehmet Oz")
 
 dr_oz.errors
