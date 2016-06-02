@@ -1,9 +1,9 @@
 <div class="container experiments">
   <h1>Add New Experiment for Dr. <%= @scientist.name %></h1>
-  <% @experiment.errors.full_messages.each do |message| %>
-    <p class="text-danger"><strong><%= message %></strong></p>
-  <% end %>
   <div class="add-background">
+    <% @experiment.errors.full_messages.each do |message| %>
+      <p class="text-danger"><strong><%= message %></strong></p>
+    <% end %>
     <br>
     <%= form_for @experiment, url: scientist_experiments_path(@scientist), method: :post do |f| %>
       <div class="row">

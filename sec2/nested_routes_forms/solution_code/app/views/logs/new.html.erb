@@ -1,41 +1,46 @@
 <div class="container logs">
-  <h1>Add New Log to The <%= @experiment.name %> Experiment</h1>
-  <%= form_for @log, url: scientist_experiment_logs_path(@scientist, @experiment) do |f| %>
-  <div class="row">
-    <div class="col-md-offset-1">
-      <div class="field col-md-3">
-        <%= f.label "Subject Name: " %><br>
-        <%= f.text_field :subject_name %>
-      </div>
-      <div class="field col-md-3">
-        <%= f.label "Weight: " %><br>
-        <%= f.number_field :weight %>
-      </div>
-      <div class="field col-md-3">
-        <%= f.label "Treatments: " %><br>
-        <%= f.number_field :treatments %>
-      </div>
-      <div class="field col-md-2">
-        <%= f.label "Deceased? " %>
-        <%= f.check_box :deceased %>
-      </div>
-    </div>
-  </div>
-  <br>
-  <div class="row">
-    <div class="col-md-offset-1">
-      <div class="field col-md-10 exp-log-comment-text-field">
-        <%= f.label "Comment: " %>
-        <%= f.text_area :comment, class: 'exp-log-comment-text-area' %>
+  <div class="add-background">
+    <h1>Add New Log to The <%= @experiment.name %> Experiment</h1>
+    <% @log.errors.full_messages.each do |message| %>
+      <p class="text-danger"><strong><%= message %></strong></p>
+    <% end %>
+    <%= form_for @log, url: scientist_experiment_logs_path(@scientist, @experiment) do |f| %>
+    <div class="row">
+      <div class="col-md-offset-1">
+        <div class="field col-md-3">
+          <%= f.label "Subject Name: " %><br>
+          <%= f.text_field :subject_name %>
+        </div>
+        <div class="field col-md-3">
+          <%= f.label "Weight: " %><br>
+          <%= f.number_field :weight %>
+        </div>
+        <div class="field col-md-3">
+          <%= f.label "Treatments: " %><br>
+          <%= f.number_field :treatments %>
+        </div>
+        <div class="field col-md-2">
+          <%= f.label "Deceased? " %>
+          <%= f.check_box :deceased %>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-2">
-      <%= button_tag(type: 'submit', class: "btn btn-success") do %>
-        <i class="icon-ok icon-white"></i> Add Log
-      <% end %>
+    <br>
+    <div class="row">
+      <div class="col-md-offset-1">
+        <div class="field col-md-10 exp-log-comment-text-field">
+          <%= f.label "Comment: " %>
+          <%= f.text_area :comment, class: 'exp-log-comment-text-area' %>
+        </div>
+      </div>
     </div>
+    <div class="row">
+      <div class="col-md-2">
+        <%= button_tag(type: 'submit', class: "btn btn-success") do %>
+          <i class="icon-ok icon-white"></i> Add Log
+        <% end %>
+      </div>
+    </div>
+    <% end %>
   </div>
-  <% end %>
 </div>

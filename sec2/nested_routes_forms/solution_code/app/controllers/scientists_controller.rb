@@ -38,7 +38,7 @@ class ScientistsController < ApplicationController
   def destroy
     @scientist = Scientist.find(params[:id])
     @scientist.destroy
-    redirect_to scientists_path
+    redirect_to scientists_path, alert: "Consider that scientist's medical license revoked!"
   end
 
   private

@@ -22,7 +22,8 @@ class ExperimentsController < ApplicationController
     if @experiment.save
       redirect_to(
         scientist_path(params[:scientist_id]),
-        notice: "Experiment and first Log were created."
+        notice: "Experiment and first Log were created.",
+        alert:  "Don't get too excited!"
       )
     else
       render 'new'
@@ -45,7 +46,7 @@ class ExperimentsController < ApplicationController
   def destroy
     @experiment = Experiment.find(params[:id])
     @experiment.destroy
-    redirect_to experiments_path
+    redirect_to experiments_path, alert: "Dropped that bogus experiment."
   end
 
   private
