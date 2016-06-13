@@ -1,6 +1,6 @@
 # The Foundational Institute for Scientific Human Experimentation
 
-![](./app/assets/images/resize_2_heads_kopie.jpg)
+![](./solution_code/app/assets/images/resize_2_heads_kopie.jpg)
 
 ## Nested Routes and Forms
 

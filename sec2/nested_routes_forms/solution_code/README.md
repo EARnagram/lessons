@@ -1,6 +1,6 @@
 # We Want the Truth!
 
-![](https://cdn.idevie.com/wp-content/uploads/2013/12/d1e19_tutorials_mad-scientist-flatten-550x364.jpg)
+![](http://cdn-www.cracked.com/articleimages/wong/mad/tesla1.jpg)
 
 ## Forms Validations and Nesting
 
