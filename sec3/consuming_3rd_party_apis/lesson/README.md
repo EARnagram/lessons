@@ -25,15 +25,15 @@
 ## Enter the Library of Babel
 
 Borges wrote of a universe in the form of a
-[library](https://libraryofbabel.info/). In this universal library is a
-labriynth of hexaganol rooms, each containing 4 walls of books, each 410 pages
-in length. Supposedly infinite, it's said that all iterations of books
-containing 410 pages were present in the library, and if that were true, there
-could be one _messianiac deliverer_ that has read _the one book_ that catalogs
-the entire libary.
+[library](https://libraryofbabel.info/). In this universal library is
+a labriynth of hexaganol rooms, each containing 4 walls of books, each
+410 pages in length. Supposedly infinite, it's said that all
+iterations of books containing 410 pages were present in the library,
+and if that were true, there could be one _messianiac deliverer_ that
+has read _the one book_ that catalogs the entire libary.
 
-By the end of this lesson, I hope that you are  *"el Hombre del Libro"*, that
-can lead us to the "legible books" of the internet.
+By the end of this lesson, I hope that you are  *"el Hombre del
+Libro"*, that can lead us to the "legible books" of the internet.
 
 #### Using RESTful Web Services
 Web APIs, or RESTful Web Services, can feel a lot like the Library of Babel, but
