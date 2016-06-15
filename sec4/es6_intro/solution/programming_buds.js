@@ -1,28 +1,14 @@
-'use strict';
-
 let scaryNewPeeps = [
-  'Yael Amir',
-  'Oat Asdon',
-  'Ray Chen',
-  'James Coslett',
-  'Michael Duran',
-  'Tony Estese',
-  'Jasmine Guzman',
-  'Demetra Haloutsos',
-  'Tim Kim',
-  'Jerry Lee',
-  'Jerry Ngov',
-  'David Niederhauser',
-  'Adrian Nuyda',
-  'Yel Padillo',
-  'Michael Pascual',
-  'Karen Quan',
-  'Pare Saku',
-  'Claire Savage',
-  'Jonah Sobol',
-  'Duane Than',
-  'Keith To',
-  'Nelson Valdivia'
+  'Alex Aleksanyan',
+  'Jacob Allen',
+  'Adam Berro',
+  'Adrian Delpha',
+  'Kyle Firstenberg',
+  'Wen Jen',
+  'Stephen Kempisty',
+  'Nathan Nguyen',
+  'Stephanie Wilkinson',
+  'Christian Zamora'
 ];
 
 let friends4eva = friends => {
@@ -37,7 +23,6 @@ let friends4eva = friends => {
   return buds4eva;
 }
 
-export default {
-  scaryNewPeeps: scaryNewPeeps,
-  friends4eva: friends4eva
-};
+export {scaryNewPeeps, friends4eva}
+
+export default {scaryNewPeeps, friends4eva}

@@ -1,8 +1,8 @@
 // 6. IMPORT & EXPORT
 
-'use strict';
+import programmin, { scaryNewPeeps, friends4eva } from './programming_buds';
 
-import programmin from './programming_buds';
-
-console.log(programmin.scaryNewPeeps);
-console.log(programmin.friends4eva(programmin.scaryNewPeeps));
+console.log(scaryNewPeeps);
+console.log(friends4eva);
+console.log(programmin);
+console.log(programmin.friends4eva(scaryNewPeeps));

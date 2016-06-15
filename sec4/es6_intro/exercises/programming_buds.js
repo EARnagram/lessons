@@ -1,33 +1,14 @@
-'use strict';
-
-var WDI_DTLA_6 = [
-  'Adam',
-  'Alex',
-  'Andrew',
-  'Anthony',
-  'Ben',
-  'Chris',
-  'Ferdie',
-  'Fernando',
-  'Gev',
-  'James E.',
-  'James M.',
-  'Jason',
-  'Jeffrey',
-  'Jessica',
-  'Joey',
-  'Judd',
-  'Lindsey',
-  'Matt',
-  'Max',
-  'Melissa',
-  'Mike',
-  'Rachel',
-  'Richard',
-  'Taco',
-  'Sebastian',
-  'Tara',
-  'Wayne'
+var scaryNewPeeps = [
+  'Alex Aleksanyan',
+  'Jacob Allen',
+  'Adam Berro',
+  'Adrian Delpha',
+  'Kyle Firstenberg',
+  'Wen Jen',
+  'Stephen Kempisty',
+  'Nathan Nguyen',
+  'Stephanie Wilkinson',
+  'Christian Zamora'
 ];
 
 function friends4eva(friends) {

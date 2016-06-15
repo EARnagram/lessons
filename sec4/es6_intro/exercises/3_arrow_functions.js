@@ -8,12 +8,10 @@
 
 var lydia = {
   esp: function() {
-    this.friends = '';
-    var spookyGirl = this;
-    setImmediate(function() {
-      spookyGirl.friends = "ghosts";
-      console.log(spookyGirl.friends)
-    });
+    this.friends = 'ghosts';
+    setTimeout(function() {
+      console.log(this.friends)
+    }, 100);
   }
 };
 

@@ -8,34 +8,21 @@ Let's learn about some new features in ES6!
 
 In today's exercise:
 
-1. String Interpolation
-2. Block Scope
-3. Arrow Functions
-4. Rest and Spread Parameters
-5. Default Arguments
-6. Import and Export
+1. Block Scope
+2. Arrow Functions
+3. Rest and Spread Parameters
+4. Default Arguments
+5. Import and Export
 
-For each, you must uncomment the `require('./exercises/filename.js');` and work on the corresponding file.
-
-## String Interpolation
-
-Instead of adding variables together with strings, you can simply use embedded Javascript!
-
-You can access other variables within your strings, even methods on those strings.
-
-Ex:
-
-``` javascript
-var thing = "variable";
-
-console.log(`Ceci n'est pas une ${thing.toUpperCase()}!`);
-```
-
+For each, you must uncomment the `require('./exercises/filename.js');` 
+and work on the corresponding file.
 
 
 ## Block Scope
 
-`let` and `const` declare a block scoped variable. `const` also makes the variable a constant. JS will actually throw an error if you try and overwrite a `const` variable.
+`let` and `const` declare a block scoped variable. `const` also makes 
+the variable a constant. JS will actually throw an error if you try and 
+overwrite a `const` variable.
 
 ``` javascript
 function varFoo() {

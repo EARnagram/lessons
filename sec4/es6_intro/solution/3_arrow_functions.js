@@ -3,7 +3,7 @@
 'use strict';
 
 var lydia = {
-  esp: function(){
+  esp: function() {
     this.friends = '';
     setImmediate(() => {
       this.friends = "ghosts";

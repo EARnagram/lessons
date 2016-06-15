@@ -4,8 +4,6 @@
 
 // 6. IMPORT AND EXPORTS
 
-'use strict';
-
 // Include programming buds!
 
 console.log(programmin.scaryNewPeeps);
