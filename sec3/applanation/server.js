@@ -8,8 +8,9 @@
 // facto standard server framework for node.js.
 var express = require('express');
 
-// path is from Node. It makes path manipulation easier. Here's more information
-// on the module: https://docs.nodejitsu.com/articles/file-system/how-to-use-the-path-module
+// path is a core Node.js module. It makes path manipulation easier. Here's more
+// information on the module:
+// https://docs.nodejitsu.com/articles/file-system/how-to-use-the-path-module
 var path = require('path');
 
 // a node package made by the express team to work with express. serve-favicon
@@ -52,7 +53,8 @@ var app = express();
 // process.env object in our environment file!
 var env = require('./config/environment');
 
-// Configure the application (and set it's title!).
+// Configure the application (and set it's title!). Remember, env.TITLE and
+// env.SAFE_TITLE are being defined in '/config/environment.js'.
 app.set('title', env.TITLE);
 app.set('safe-title', env.SAFE_TITLE);
 
@@ -76,10 +78,13 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 
 // to decode a form POST, the content-type must be specified as
-// application/x-www-form-urlencoded.
+// application/x-www-form-urlencoded. extended: true allows for values of any
+// type, whereas false only allows strings and arrays. It defaults to false
+// to reduce data size.
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// applying to cookie parser to the express app as middleware.
+// applying to cookie parser to the express app as middleware (look above for
+// definition)
 app.use(cookieParser());
 
 // Serving files, such as images, CSS, JS and other static files is accomplished

@@ -1,5 +1,7 @@
 # Applanation!
-![Clarissa Explains It All](http://images4.fanpop.com/image/photos/20600000/Clarissa-Explains-It-All-clarissa-explains-it-all-20688951-640-480.png)
+
+![applanation tonometry](http://i.ytimg.com/vi/gHVdnX2IC2g/0.jpg)
+
 ## Explanation Application Review & Deployment
 
 | Lesson Objectives: SWBAT                 |
@@ -18,13 +20,16 @@
 5. Deployment
 6. Outro
 
-## Ezra Explains it All!
+## Checking Clarity - Application Explanation
 
-We'll be taking up the first couple hours of the day reviewing what we learned this week. 
+We'll be taking up the first couple hours of the day reviewing what we learned
+this week.
 
-I've provided an outrageously detailed express application to elucidate any obscured understandings of Node and Express.
+I've provided an outrageously commented express application to elucidate any
+obscured understandings of Node and Express.
 
-After we go through it individually, we'll go through it in a small group, then iron out any final questions together as a class.
+After we go through it individually, we'll go through it in a small group, then
+iron out any final questions together as a class.
 
 After we feel comfortable with the app, we'll learn how to deploy it.
 
@@ -32,13 +37,16 @@ After we feel comfortable with the app, we'll learn how to deploy it.
 
 Read through the application.
 
-**Take note of what doesn't make sense to you.** Either write it on your table or in a markdown.
+**Take note of what doesn't make sense to you.** Either write it on your table
+or in a markdown.
 
 ## Group Time (15 minutes)
 
-![Clarissa Cast](http://hellogiggles.com/wp-content/uploads/2013/07/25/clarissa-explains-it-all-cast.jpg?123)
+![](http://watchmojo.com/uploads/blipthumbs/Fi-M-Top10-Eyepatch-Characters-in-Movies-and-TV-480p30_480.jpg)
 
-In your groups, discuss what didn't make sense. Try and explain concepts that don't make sense to your classmates. Listen to your fellow classmates on topics that didn't make sense to you.
+In your groups, discuss what didn't make sense. Try and explain concepts that
+don't make sense to your classmates. Listen to your fellow classmates on topics
+that didn't make sense to you.
 
 **Are people confused by the same things!?**
 
@@ -48,13 +56,16 @@ If so, write down those questions! We'll address them in the class share!
 
 Let's ask the class about the things we don't understand.
 
-We'll take 30 minutes to go around and address at least one question from each group.
+We'll take 30 minutes to go around and address at least one question from each
+group.
 
 ## Deployment (40 minutes)
 
-We'll be using Heroku's amazing docs on [Deploying a Node Application](https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction) for the remainder of the class. 
+We'll be using Heroku's amazing docs on
+[Deploying a Node Application](https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction)
+for the remainder of the class.
 
-You'll also need to set up an account on mLab to set up your database. 
+You'll also need to set up an account on mLab to set up your database.
 
 After you've signed up, you'll need to:
 
@@ -74,9 +85,10 @@ You now have a deployed app with seeded data!
 
 ## Outro
 
-Now you know all about what comes from Node in an Express app, and what comes from Express! 
+Congrats on deploying for first Node application! You now have a reference to a
+full explanation of all parts of a basic node application.
 
-You also know how to deploy! Hopefully this will make the weekend that much easier. Let's review a few things.
+Let's review a few things.
 
 > - What is path?
 > - What's the major difference between res.render() and res.json()?

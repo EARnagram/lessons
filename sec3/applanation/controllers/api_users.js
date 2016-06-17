@@ -11,6 +11,7 @@ module.exports = {
 //  USERS INDEX PAGE - Response with JSON!
 //||||||||||||||||||||||||||--
 function index(req, res, next) {
+  // Grab all users in the database by sending no options in the config object!
   User.find({}, function(error, users) {
     if (error) res.json({message: "Could not find users because " + error});
     // LOOK - IT'S JUST JSON!!
