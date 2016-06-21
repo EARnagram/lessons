@@ -1,22 +1,24 @@
+// |||||||||||||||||||||||||||||||||||
+// ||||||||| CHANGE TO ES6 |||||||||||
+// |||||||||||||||||||||||||||||||||||
+
 // 2. BLOCK SCOPE
 
-'use strict';
-
 // This variable should not be reassignable.
-const shrek = "ogre";
+var|let|const shrek = "ogre";
 
 // This variable should be accessible outside of the block scope
-var fiona = "princess";
+var|let|const fiona = "princess";
 
 fiona = shrek;
 
 if (fiona === "ogre") {
   // This variable should only be valid in this block.
-  let thePeople = "scared";
+  var|let|const thePeople = "scared";
   console.log(thePeople);  // scared
 
   // This variable should only be valid in this block and should not be reassignable.
-  const farquad = "dufus";
+  var|let|const farquad = "dufus";
   console.log(farquad); // dufus
 }
 

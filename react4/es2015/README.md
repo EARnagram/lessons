@@ -2,27 +2,56 @@
 
 <img src="http://i.dailymail.co.uk/i/pix/2015/02/15/25B321FB00000578-2954536-Healing_a_broken_heart_Mickey_picked_up_the_two_pups_after_his_b-a-46_1424023876938.jpg" width=250px>
 
-## With ES2015
+## ES2015 Additions to JavaScript
 
-Let's learn about some new features in ES6!
+| Lesson Objectives - SWBAT                                |
+| :------------------------------------------------------: |
+| Use string interpolation                                 |
+| Use `let` and `const` for block scoping                  |
+| Use fat arrow functions (`() =>`) as callbacks           |
+| Manipulate context using the fat arrow functions         |
+| Use Rest and Spread Parameters                           |
+| Set default parameter arguments                          |
+| Use `import` and `export` to pass JS modules             |
+| Use destructuring to access nested modules               |
+| Create es2015 classes with custom methods                |
+| Use `extends` to inherit from other constructors/classes |
+| Create static methods                                    |
 
-In today's exercise:
+#### Road Map
 
-1. Block Scope
-2. Arrow Functions
-3. Rest and Spread Parameters
-4. Default Arguments
-5. Import and Export
+1. What is ES2015?
+2. String Interpolation
+3. Block Scope
+4. Arrow Functions
+5. Rest and Spread Parameters
+6. Default Arguments
+7. Import and Export
+8. Destructuring
+9. ES2015 Classes
+10. Outro
+
+
+## What is ES2015?
+
+#### Is it scary!?
+
+Not at all! 
+
+#### What is this .babelrc?
 
 For each, you must uncomment the `require('./exercises/filename.js');`
 and work on the corresponding file.
 
 
+
 ## String Interpolation
 
-Instead of adding variables together with strings, you can simply use embedded Javascript!
+Instead of adding variables together with strings, you can simply use embedded
+Javascript!
 
-You can access other variables within your strings, even methods on those strings.
+You can access other variables within your strings, even methods on those
+strings.
 
 Ex:
 
@@ -31,6 +60,7 @@ var thing = "variable";
 
 console.log(`Ceci n'est pas une ${thing.toUpperCase()}!`);
 ```
+
 
 
 ## Block Scope
@@ -52,12 +82,13 @@ function varFoo() {
 function letBar() {
   let zappa = "Hot Rats";
   if (true) {
-    let zappa = "Jazz From Hell";  // different Zappa!
-    console.log(zappa);  // "Jazz From Hell"
+    let zappa = "Havin' a Bad Day";  // by Dweezil - different Zappa!
+    console.log(zappa);  // "Havin' a Bad Day"
   }
-  console.log(zappa);  // "Hot Rats"
+  console.log(zappa);  // "Hot Rats" - back to Frank!
 }
 ```
+
 
 
 ## Arrow Functions

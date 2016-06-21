@@ -1,14 +1,11 @@
 // 3. ARROW FUNCTIONS
 
-'use strict';
-
 var lydia = {
   esp: function() {
-    this.friends = '';
-    setImmediate(() => {
-      this.friends = "ghosts";
+    this.friends = 'ghosts';
+    setTimeout(() => {
       console.log(this.friends)
-    });
+    }, 100);
   }
 };
 

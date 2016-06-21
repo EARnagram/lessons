@@ -4,7 +4,5 @@
 
 // 6. IMPORT AND EXPORTS
 
-// Include programming buds!
-
-console.log(programmin.scaryNewPeeps);
-console.log(programmin.friends4eva(programmin.scaryNewPeeps));
+// Bring in programming_buds.js!
+// Then run the function passing in the array, both from programming_buds.js

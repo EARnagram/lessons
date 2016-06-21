@@ -41,7 +41,7 @@ require('babel-core/register');
 
 // 2. ARROW FUNCTIONS
 
-require('./exercises/3_arrow_functions.js');
+// require('./exercises/3_arrow_functions.js');
 
 
 // 3. REST & SPREAD PARAMETERS
@@ -56,4 +56,4 @@ require('./exercises/3_arrow_functions.js');
 
 // 5. MODULE IMPORTS & EXPORTS
 
-// require('./solution/6_modules_i_e.js');
+// require('./exercises/6_modules_i_e.js');
