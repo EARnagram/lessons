@@ -5,10 +5,9 @@
 ## ES2015 Additions to JavaScript
 
 | Lesson Objectives - SWBAT                                |
-| :------------------------------------------------------: |
+| :------------------------------------------------------- |
 | Use string interpolation                                 |
 | Use `let` and `const` for block scoping                  |
-| Use fat arrow functions (`() =>`) as callbacks           |
 | Manipulate context using the fat arrow functions         |
 | Use Rest and Spread Parameters                           |
 | Set default parameter arguments                          |
@@ -34,24 +33,46 @@
 
 ## What is ES2015?
 
+ES2015 is a pseudonym for the latest version of the JavaScript, or
+ECMAScript, programming language to be approved by ECMA International, 
+the standards group responsible for vetting and approving different 
+versions of the language, populated by JS heavy hitters like Douglas 
+Crockford. 
+
 #### Is it scary!?
 
-Not at all! 
+Not at all! It's actually extremely helpful, but, as you know, learning 
+any new syntax can be quite a pain.
+
+Most JS developers believe es2015 has been a long time coming. We're 
+finally at a point where the majority of modern browsers have 
+implemented the "key features" (according to me). 
 
 #### What is this .babelrc?
 
-For each, you must uncomment the `require('./exercises/filename.js');`
+While the majority of es2015 has been implemented in browsers and node,
+we need the __babel transpiler__ for the remaining features.
+
+Babel has plugins (eg. `es2015`) you can use to implement 
+non-vanilla features in your code. Babel simply transpiles the code into
+vanilla JS.
+
+#### So how will this lesson work?
+
+For each exercise, you must uncomment the `require('./exercises/filename.js');`
 and work on the corresponding file.
 
+You then run the __main__ file in the terminal: 
 
+##### `$ node es2015_scary_to_friendly.js`
 
 ## String Interpolation
 
-Instead of adding variables together with strings, you can simply use embedded
-Javascript!
+Instead of adding variables together with strings, you can simply use 
+embedded Javascript!
 
-You can access other variables within your strings, even methods on those
-strings.
+You can access other variables within your strings, even methods on 
+those strings.
 
 Ex:
 
@@ -60,8 +81,6 @@ var thing = "variable";
 
 console.log(`Ceci n'est pas une ${thing.toUpperCase()}!`);
 ```
-
-
 
 ## Block Scope
 
