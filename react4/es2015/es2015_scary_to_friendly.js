@@ -28,7 +28,7 @@
 require('babel-core/register');
 
 // SCRATCH FILE FOR LESSON EXAMPLES
-require('./scratch')
+// require('./scratch')
 
 
 // EXERCISES

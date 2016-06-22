@@ -46,7 +46,8 @@ any new syntax can be quite a pain.
 
 Most JS developers believe es2015 has been a long time coming. We're 
 finally at a point where the majority of modern browsers have 
-implemented the "key features" (according to me). 
+implemented the key features - this means sweet JS development from
+here on out!
 
 #### What is this .babelrc?
 
@@ -59,8 +60,9 @@ vanilla JS.
 
 #### So how will this lesson work?
 
-For each exercise, you must uncomment the `require('./exercises/filename.js');`
-and work on the corresponding file.
+For each exercise, you must uncomment the 
+`require('./exercises/filename.js');` and work on the corresponding 
+file.
 
 You then run the __main__ file in the terminal: 
 
@@ -108,8 +110,6 @@ function letBar() {
 }
 ```
 
-
-
 ## Arrow Functions
 
 Arrow functions are a new and relatively cleaner way to write functions. You can
@@ -127,46 +127,56 @@ var beetlejuice = name => {
 }								              // THAT'S A BIG MEATBALL!
 ```
 
+## Rest Parameters & Spread Operators
 
+Rest Parameter: The **rest parameter** syntax allows us to represent an
+indefinite number of arguments as an array. It must be the last argument
+in a function definition.
 
-## Spread Operators & Rest Parameters
+__Remember:__ the rest parameter is used when the function/method is 
+defined!
 
 Spread Operator: The **spread operator** allows an expression to be expanded in
 places where multiple arguments (for function calls) or multiple elements (for
 array literals) are expected.
 
-Rest Parameter: The **rest parameter** syntax allows us to represent an
-indefinite number of arguments as an array.
+__Remember:__ the spread operator is used when the function/method is 
+invoked!
 
-What this means: No need to mess with that awful `arguments` object ever. again.
+What this means: No need to mess with that awful `arguments` object 
+ever. again.
 
 Also, it means we no longer need `Function.prototype.apply()`!
 
 ``` javascript
-function otherMotherVictims(...ghostChildren) {
+// rest parameter
+function otherMotherVictimsCount(...ghostChildren) {
   console.log(ghostChildren.length);
 }
 
-otherMotherVictims();  									// 0
-otherMotherVictims("Margaret"); 						// 1
-otherMotherVictims("Margaret", "Freddie", "Josephine"); // 3
+otherMotherVictimsCount();  									// 0
+otherMotherVictimsCount("Margaret"); 						// 1
+otherMotherVictimsCount("Margaret", "Freddie", "Josephine"); // 3
+
+var children = ["Margaret", "Freddie", "Josephine"];
+
+var otherMotherVictims = [];
+
+// spread operator
+otherMotherVictims.push(...children);
 ```
-
-
 
 ## Default Arguments
 
 In ES2015, we can now give default arguments within our functions. The latter
 arguments can even take from previous arguments!
 
-```
+```javascript
 var misconceptions = function(shark = "JAWS", bodyPart = shark.substring(0,3)) {
   var truth = "Not all sharks are " + shark;
   var lies = "Not all Travoltas have an enormous " + bodyPart;
 }
 ```
-
-
 
 ## Import & Export
 
@@ -224,6 +234,38 @@ Miracles.getUsefulContents("http://www.example.com", data => {
   Miracles.doSomethingUseful(data);
 });
 ```
+
+## Destructuring
+
+"The destructuring assignment syntax is a JavaScript expression that 
+makes it possible to extract data from arrays or objects into distinct 
+variables." —_MDN_
+
+What does this mean??
+
+```javascript
+// with arrays
+
+[gizmo, stripe, ...gremlins] = ["mogwai", "mogwai", "dirty", "slimey", "gross"];
+
+console.log(gizmo);    // "mogwai"
+console.log(stripe);   // "mogwai"
+console.log(gremlins); // ["dirty", "slimey", "gross"]
+
+// with objects
+
+var name = "gizmo";
+var gremlin = false
+
+var mogwai = {name, gremlin};
+
+console.log(mogwai) // { name: "gizmo", gremlin: false }
+```
+
+We use destructuring a lot with ReactJS, and you'll see it reduce our 
+code length considerably.
+
+## Classes
 
 
 

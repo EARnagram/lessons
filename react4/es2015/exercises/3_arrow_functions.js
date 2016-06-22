@@ -4,6 +4,8 @@
 
 // 3. ARROW FUNCTIONS
 
+// Remove the need for `spookyGirl` with a fat arrow
+
 var lydia = {
   esp: function() {
     this.friends = 'ghosts';
