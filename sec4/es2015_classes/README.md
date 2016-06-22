@@ -144,9 +144,10 @@ class Camera extends Eye {
 ### Using `static`, `get`, and `set`
 
 The `static` keyword defines a static method for a class. Static methods 
-are called without their class and are also *not* callable when the 
-class is instantiated. Static methods are often used to create utility 
-functions for an application.
+are called on the class, not on the instances of the class!
+
+Static methods are often used to create utility functions for an 
+application.
 
 ``` javascript
 class Eye {
