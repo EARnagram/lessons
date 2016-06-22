@@ -50,3 +50,23 @@ require('babel-core/register');
 
 // 6. MODULE IMPORTS & EXPORTS
 // require('./exercises/6_modules_i_e');
+
+// 7. DESTRUCTURING
+// require('./exercises/7_destructuring')
+
+//______________      _________     __________
+//___  __ )__  /_____ ______  /____ _____  __ \___  ____________________________
+//__  __  |_  /_  __ `/  __  /_  _ \____  /_/ /  / / /_  __ \_  __ \  _ \_  ___/
+//_  /_/ /_  / / /_/ // /_/ / /  __/___  _, _// /_/ /_  / / /  / / /  __/  /
+///_____/ /_/  \__,_/ \__,_/  \___/ __/_/ |_| \__,_/ /_/ /_//_/ /_/\___//_/
+
+// ES2015 CLASSES!
+
+// 1. CLASSES
+// require('./exercises/classes/1_human_class');
+
+// 2. EXTENDING
+// require('./exercises/classes/2_android_extend');
+
+// 3. STATIC, GET, AND SET
+// require('./exercises/classes/3_tyrell_corp');

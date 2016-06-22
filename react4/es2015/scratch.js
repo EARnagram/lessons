@@ -13,6 +13,6 @@ console.log("\nExample 4: ");
 // 5. DEFAULT ARGUMENTS
 console.log("\nExample 5: ");
 
-// 6. MODULE IMPORTS & EXPORTS
-console.log("\nExample 6: ");
+// 7. DESTRUCTURING
+console.log("\nExample 7: ");
 
