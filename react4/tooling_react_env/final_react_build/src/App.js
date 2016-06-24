@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 
+require('./scss/main.scss');
+
 class App extends Component {
   render() {
     return (
-      <h1>Wushup Errybody!?!</h1>
+      <h1>Wushup Errybudy!?</h1>
     );
   }
 }

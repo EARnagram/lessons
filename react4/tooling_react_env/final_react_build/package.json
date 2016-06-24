@@ -1,24 +1,29 @@
 {
-  "name": "tooling_react_env",
+  "name": "wdi_fe_react_boilerplate",
   "version": "1.0.0",
-  "description": "Lesson on using webpack and dev dependencies!",
-  "main": "src/index.js",
+  "description": "WDI's Front End Boilerplate Code for React App",
+  "main": "index.js",
   "scripts": {
     "start": "node server.js"
   },
   "author": "Ezra Arez Raez",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.10.4",
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
     "css-loader": "^0.23.1",
+    "react-hot-loader": "^1.3.0",
     "sass-loader": "^3.2.1",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
-    "node-sass": "^3.8.0"
+    "node-sass": "^3.8.0",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "react-router": "^2.5.1"
   }
 }
