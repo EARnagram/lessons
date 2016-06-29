@@ -10,7 +10,7 @@
 2. `_.groupBy()`
 3. `_.sortBy()`
 4. `_.reduce()`
- 
+
 #### What is LoDash?
 
 LoDash is a popular "JavaScript utility library delivering modularity, 
@@ -43,6 +43,13 @@ to run the code snippets (__Don't Forget__ to add the lodash library
 from the 'Add library' tab), *__or__* create a scratch file in your 
 project and require lodash inside. 
 
+#### Hi-Phen Skateboards
+
+We'll be using a shipment of the hippest new boards from Hi-Phen for
+data!
+
+Make sure to keep `data.js` open in a tab in sublime to view the array 
+of skateboard objects.
 
 ### `_.filter()`
 
