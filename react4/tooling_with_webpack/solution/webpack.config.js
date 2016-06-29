@@ -1,3 +1,4 @@
+// node path module - for ensuring safe path strings
 var path = require('path');
 var webpack = require('webpack');
 
