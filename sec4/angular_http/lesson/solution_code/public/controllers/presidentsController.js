@@ -34,6 +34,7 @@
         .post('http://localhost:3000/api/presidents', vm.newPresident)
         .then(function(res) {
           vm.all.push(res.data.president);
+          console.log(res.data.message);
           vm.newPresident = {};
         }, function(err) {
           console.log(err);

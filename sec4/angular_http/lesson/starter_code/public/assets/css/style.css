@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: America;
-  src: url("./billy_argel.otf") format("opentype");
+  src: url("../fonts/billy_argel.otf") format("opentype");
 }
 
 body {
