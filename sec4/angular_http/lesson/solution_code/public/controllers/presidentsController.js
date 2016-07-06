@@ -21,7 +21,7 @@
 
     function getPresidents() {
       $http
-        .get('http://localhost:3000/api/presidents')
+        .get('/api/presidents')
         .then(function(res) {
           vm.all = res.data.presidents;
         }, function(err) {
@@ -31,7 +31,7 @@
 
     function addPresident(){
       $http
-        .post('http://localhost:3000/api/presidents', vm.newPresident)
+        .post('/api/presidents', vm.newPresident)
         .then(function(res) {
           vm.all.push(res.data.president);
           console.log(res.data.message);
@@ -44,7 +44,7 @@
     function deletePresident(rmPresident) {
       var id = rmPresident._id;
       $http
-        .delete(`http://localhost:3000/api/presidents/${id}`)
+        .delete(`/api/presidents/${id}`)
         .then(function(res) {
           console.log(res.data.message);
           vm.all = vm.all.filter(function(pres) {
@@ -59,7 +59,7 @@
     function uncover(putPresident) {
       putPresident.uncovered = !putPresident.uncovered;
       $http
-        .put(`http://localhost:3000/api/presidents/${putPresident._id}`, putPresident)
+        .put(`/api/presidents/${putPresident._id}`, putPresident)
         .then(function(res) {
           console.log(res.data.message);
         },
