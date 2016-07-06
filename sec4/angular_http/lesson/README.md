@@ -20,17 +20,29 @@
 
 ## Aliens Own Us - Intro
 
-Aliens own us. We all know that - no big surprise here, but that's because we're educated programmers who read the Matrix every day.
+Aliens own us. We all know that - no big surprise here, but that's 
+because we're educated programmers who read the Matrix every day.
 
 **It's time to make these overlords public to the sheeple.**
 
-We've only been working with hardcoded data so far. Today that changes; it's time to kick it up a notch if we're going to oust these dang aliens.
+We've only been working with hardcoded data so far. Today that changes; 
+it's time to kick it up a notch if we're going to oust these dang 
+aliens.
 
-We're going to learn a little about two different functionalities in Angular that will allow us to start communicating with real data, accessed through an API. You'll need to dust off your knowledge of RESTful routes & AJAX, but hopefully that's a good thing.
+#### Welcome to your First MEAN App!
 
-Now, since we're going to be interacting with an API, in an ideal world we'd force you to write one first. You totally could. But _because_ you could, and because we'd rather skip to the new stuff, let's use a pre-built backend for this lesson.
+We're going to learn a little about two different functionalities in 
+Angular that will allow us to start communicating with real data, 
+accessed through an API. You'll need to dust off your knowledge of 
+RESTful routes & AJAX.
 
-Now, real quick – let's seed a little seed data. Go ahead and run `npm install`, `mongod`, then `node config/seeds.js` within `api/` in `starter_code/`. 
+Now, since we're going to be interacting with an API, in an ideal world 
+we'd force you to write one first. You totally could. But _because_ you 
+could, and because we'd rather skip to the new stuff, let's use a 
+pre-built backend for this lesson.
+
+Now, real quick – let's seed a little seed data. Go ahead and run 
+`npm install`, `mongod`, then `npm run seed`.
 
 ```json
 [
@@ -41,22 +53,39 @@ Now, real quick – let's seed a little seed data. Go ahead and run `npm install
 ]
 ```
 
-Once you have some, do a quick `GET` request to `http://localhost:3000/api/presidents` and make sure you've got some JSON.
+Once you have some, do a quick `GET` request 
+`http://localhost:3000/api/presidents` in postman and make sure you've 
+got some JSON coming back.
 
 ## Demo of Starter Code
 
-Okay, so we've included a bunch of starter code that looks quite a bit like the code you've already written. There's a controller, with some hardcoded data, listing out some of the True-True Overlord Presidents of the United States. Hopefully [Wikipedia](http://uncyclopedia.wikia.com/wiki/Alien_overlords) is accurate, 'cuz who knows stuff like that off the top of their head?
+We've included a bunch of starter code that looks quite a bit like the 
+code you've already written. There's an angular controller, with some 
+hardcoded data, listing out some of the True-True Overlord Presidents of 
+the United States. Hopefully 
+[Wikipedia](http://uncyclopedia.wikia.com/wiki/Alien_overlords) is 
+accurate, 'cuz who knows stuff like that off the top of their head?
 
-It's our job to mush together this little API we have, and our Angular application.
+It's our job to mush together this little API we have, and our Angular 
+application.
 
+Notice the following line in `server.js`:
+
+`app.use(express.static(path.join(__dirname, 'public')));`
+
+This line serves up `index.html` (and only `index.html` - specified by
+expressJS) in `/public`. From there, you can connect your entire app to 
+one html page.
 
 ## Hitting an API with $http
 
 ![](http://vigilantcitizen.com/wp-content/uploads/2012/04/theylive20.jpg)
 
-The simplest starting point will be to switch our hardcoded array of presidents with the one living in our new API.
+The simplest starting point will be to switch our hardcoded array of 
+presidents with the one living in our new API.
 
-Step one – **let's delete our hardcoded data.** In `presidentsController.js`:
+Step one – **let's delete our hardcoded data.** In 
+`presidentsController.js`:
 
 ```diff
 angular.module('ThePresidentsApp', [])
@@ -73,11 +102,16 @@ function PresidentsController(){
 }
 ```
 
-With a little setup, we'll do a GET request to our API, and assign `this.all` to the array we get back. To do that, we're going to have to use an Angular library called `$http`.
+With a little setup, we'll do a GET request to our API, and assign 
+`this.all` to the array we get back. To do that, we're going to have to 
+use an Angular library called `$http`.
 
 ### Injecting Dependencies
 
-Angular dependencies – like libraries or plugins that other people have built – are defined first in our module (unless they come with Angular by default), and then _injected_ into any controllers that need to use them.
+Angular dependencies – like libraries or plugins that other people have 
+built – are defined first in our module (unless they come with Angular 
+by default), and then _injected_ into any controllers that need to use 
+them.
 
 `$http` happens to come with Angular, so we only need to _inject_ it into our controller. We do that with a simple command, and then by simply passing an argument to our controller function.
 
