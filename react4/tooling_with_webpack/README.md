@@ -206,7 +206,6 @@ used.
 
 ```javascript
 module.exports = {
-  devtool: '',
   entry: [],
   output: {},
   plugins: [],
@@ -216,33 +215,248 @@ module.exports = {
 };
 ```
 
-##### Webpack Configuration Fields:
+> ##### Webpack Configuration Fields:
+> 
+> - `entry` - Entry point for code bundling. If given an array, all 
+>             modules are loaded upon startup and the last one is 
+>             exported.
+> - `output` - Give options to how you want to output the newly bundled 
+>              code.
+> - `plugins` - Add additional functionality using webpack plugins.
+> - `module` - An object to specify which transformations to make
+>   - loaders - The dependency modules used to transform code.
+> 
+> Each of these fields has much more within it, but this should give you 
+  a basic overview of the anatomy of a barebones webpack build.
 
-- `devtool` - Choose a developer tool to enhance debugging.
-- `entry` - Entry point for code bundling. If given an array, all 
-            modules are loaded upon startup and the last one is 
-            exported.
-- `output` - Give options to how you want to output the newly bundled 
-             code.
-- `plugins` - Add additional functionality using webpack plugins.
-- `module` - An object to specify which transformations to make
-  - loaders - The dependency modules used to transform code.
+##### __`entry`__
 
-Each of these fields has much more within it, but this should give you a 
-basic overview of the anatomy of a barebones webpack build.
+Webpack allows you to have one or many entry points. 
 
+> Many entry points?!
 
+That's right! If it helps, think of this as a list of things to check 
+before carrying out whatever it is we're going to do. 
 
+__Remember__: The last file is exported!
 
+```js
+  entry: [
+    'webpack-dev-server/client?http://localhost:8080',
+    'webpack/hot/dev-server',
+    './src/js/index'
+  ],
+```
 
+Our first two files are setting up a server. The first establishes a 
+port location to serve the site (in our case http://localhost:8080), and 
+the second ensures we'll use our hot dev-server. However, we'll need to 
+create a `server.js` to use it.
 
+### `server.js`
 
+We'll need to step out of `webpack.config.js` for just a second.
 
+Go ahead and `touch` `server.js` in the base of `/starter`.
 
+It's important to remember, we're doing this because we're building a 
+front end application. If we were making a full stack website, we'd be
+serving this site from our backend, and wouldn't need to include this 
+step.
 
+Let's go ahead and `require` webpack, the config file, and the dev 
+server.
 
+```js
+var webpack = require('webpack');
+var WebpackDevServer = require('webpack-dev-server');
+var config = require('./webpack.config');
+```
+Now we have access to the necessary modules.
 
+`WebpackDevServer` acts as a constructor, so we can build a `new` dev 
+server and fill it in with our necessary fields.
 
+```js
+new WebpackDevServer(webpack(config), { // bundle the js
+  publicPath: config.output.publicPath, // set in the config file
+  hot: true,                            // Now no need to refresh after file changes
+  historyApiFallback: true              // Instead of serving 404 errors, we'll get our index.html
+}).listen(8080, 'localhost', function (err, result) { // Listen and set port! Make sure it agrees with the entry!
+  if (err) {
+    return console.log(err);
+  }
 
+  console.log('Listening at http://localhost:8080/');
+});
+```
 
+This is the server build we'll be using for the course, but feel free to
+look up more customizations!
 
+##### __`output`__
+
+Here's where we specify the location to find bundled code.
+
+```js
+  output: {
+    path: path.join(__dirname, 'dist'),
+    filename: 'bundle.js',
+    publicPath: '/static/'
+  },
+```
+
+We're specifying a new folder, `/dist` (the default name for distributed
+code) to place the code - this will be used for production. Then naming 
+the newly bundled file, `bundle.js`.
+
+And finally, publicPath is the relative path to find bundled js in the 
+browser (served from memory).
+
+This means we'll need to hook up our bundled JS in the index.html.
+
+```html
+<!-- index.html -->
+
+<script src="/static/bundle.js"></script>
+```
+
+##### `plugins`
+
+Use plugins to add functionality typically related to bundles in 
+webpack. For our basic build, we'll be using two built-in plugins.
+
+```js
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin()
+  ],
+```
+
+These are two plugins you'll find in most webpack config files for React
+projects. The first is needed to make the hot reload work. The second is
+to remove failing assets from the bundle. Here's a bit more from 
+webpack's list of plugins on github:
+
+> "When there are errors while compiling this plugin skips the emitting 
+> phase (and recording phase), so there are no assets emitted that 
+> include errors. The emitted flag in the stats is false for all assets. 
+> If you are using the CLI, the webpack process will not exit with an 
+> error code by enabling this plugin. If you want webpack to "fail" when 
+> using the CLI, please check out the bail option."
+>
+> -- [Webpack Plugin Docs](https://github.com/webpack/docs/wiki/list-of-plugins)
+
+##### `modules`
+
+Here's the real quinoa and potatoes of Webpack - this is where we 
+specify what we want changed!
+
+For the most part, you'll be adding different "loaders" to your module 
+to change certain filetypes. For instance, let's start with our babel 
+loader:
+
+```js
+  module: {
+    loaders: [
+      {
+        test: /\.js$/, // use a regex to specify filetype
+        loaders: ['babel'], // specify the loaders to use
+        include: path.join(__dirname, 'src') // tell it where to find said files
+      }
+    ]
+  }
+```
+
+Each loader has the same fields, and you can add multiple loaders within 
+the array.
+
+We'll show that with our css and scss loader:
+
+```js
+  module: {
+    loaders: [
+      {
+        test: /\.js$/,
+        loaders: ['babel'],
+        include: path.join(__dirname, 'src')
+      },
+      {
+        test: /\.scss$/,
+        loader: 'style-loader!css-loader!sass-loader?sourceMap', // these are ! delimited
+        include: path.join(__dirname, 'src/scss')
+      },
+      {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader?sourceMap', // these are ! delimited
+        include: path.join(__dirname, 'src/scss')
+      }
+    ]
+  }
+```
+
+You can also put multiple loaders on each fietype by sending an array 
+(like the `babel` loader for `.js` files), but be certain to read the 
+docs on each loader, to find any special behaviors…
+
+##### `.babelrc`
+
+For instance, the `babel` loader needs a `.babelrc` file in order to 
+specify what to load.
+
+Lets `touch` a `.babelrc` in the base of our project to specify which
+babel dependencies to use.
+
+```JSON
+<!-- .babelrc -->
+{
+  "presets": ["es2015"]
+}
+```
+
+Eventually, we'll throw in a couple more loaders into `.babelrc`, but 
+this is enough for us to start with.
+
+#### Run this Puppy!
+
+We're finally ready to run our webpack. Go ahead and type into terminal,
+`node server.js`.
+
+You should see the file go up and running.
+
+However, let's make a friendlier set up. Go into `package.json` and find
+`"scripts"`. We're going to make a custom command:
+
+```JSON
+  "scripts": {
+    "start": "node server.js"
+  },
+```
+
+Now we can just write `npm run start` and build our webpack. Here are 
+some other important commands you may need for other projects:
+
+`webpack -w`: In the case that you don't want to use webpack with a 
+server, you can always use this command to watch your files and 
+re-execute webpack whenever any of the files change.
+
+`webpack -p`: Build for production.
+
+## Outro
+
+We now have a basic webpack build that we (hopefully) understand!
+
+You can add and remove things as you get more comfortable, but we'll 
+supply you with a webpack build for React projects so you won't need to 
+recreate the wheel each time.
+
+##### Questions
+
+1. Where in `webpack.config.js` do we specify which files to alter?
+2. Is order important for the `entry` points array?
+3. What does a "hot reloader" do?
+
+References
+
+[Pentacode Webpack Video](https://www.youtube.com/watch?v=gZ_lpcxo03k)
+[Webpack docs](http://webpack.github.io/docs/)

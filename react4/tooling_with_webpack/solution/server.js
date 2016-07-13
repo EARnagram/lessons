@@ -1,6 +1,6 @@
-// only need server.js if using hot reload for a front end application.
-// if you have a backend, you should not need webpack dev server because
-// you would serve your site from your backend server!
+// you only need server.js if using hot reload for a front end
+// application. If you have a backend, you should not need webpack dev
+// server because you would serve your site from your backend server!
 
 var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
