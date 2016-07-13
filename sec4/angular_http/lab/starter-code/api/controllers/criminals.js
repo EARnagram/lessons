@@ -19,7 +19,7 @@ function createCriminal(request, response) {
   criminal.save(function(error) {
     if(error) response.json({messsage: 'Could not ceate criminal b/c:' + error});
 
-    response.json({criminal: criminal});
+    response.json({criminal: criminal, message: "Criminal added!"});
   });
 }
 

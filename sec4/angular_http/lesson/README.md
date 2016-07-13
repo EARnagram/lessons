@@ -54,7 +54,7 @@ Now, real quick – let's seed a little seed data. Go ahead and run
 ```
 
 Once you have some, do a quick `GET` request 
-`http://localhost:3000/api/presidents` in postman and make sure you've 
+`http://localhost:3000/api/presidents` in Postman and make sure you've 
 got some JSON coming back.
 
 ## Demo of Starter Code
@@ -74,8 +74,8 @@ Notice the following line in `server.js`:
 `app.use(express.static(path.join(__dirname, 'public')));`
 
 This line serves up `index.html` (and only `index.html` - specified by
-expressJS) in `/public`. From there, you can connect your entire app to 
-one html page.
+expressJS) in `/public`. From there, you can connect your entire Angular
+app to one html page.
 
 ## Hitting an API with $http
 
@@ -113,7 +113,9 @@ built – are defined first in our module (unless they come with Angular
 by default), and then _injected_ into any controllers that need to use 
 them.
 
-`$http` happens to come with Angular, so we only need to _inject_ it into our controller. We do that with a simple command, and then by simply passing an argument to our controller function.
+`$http` happens to come with Angular, so we only need to _inject_ it 
+into our controller. We do that with a simple command, and then by 
+simply passing an argument to our controller function.
 
 In `js/presidentsController.js`:
 ```js
@@ -122,13 +124,19 @@ function PresidentsController($http){
   // ...
 ```
 
-The first tells the controller we intend to use this library called `$http`, the second allows us to pass the library in and gives it the name $http.
+The first tells the controller we intend to use this library called 
+`$http`, the second allows us to pass the library in and gives it the 
+name $http.
 
-Think of it just like any other argument in a function – because it's the first argument, and we called it $http, we can use it inside our function using that name.
+Think of it just like any other argument in a function – because it's 
+the first argument, and we called it $http, we can use it inside our 
+function using that name.
 
 ### Using $http is just AJAX!
 
-`$http` is not very different than how we've used AJAX in the past, especially with JQuery. Let's see it all, then walk through it. In `js/presidentsController.js` again:
+`$http` is not very different than how we've used AJAX in the past, 
+especially with JQuery. Let's see it all, then walk through it. In 
+`js/presidentsController.js` again:
 
 ```js
 PresidentsController.$inject = ['$http'];
@@ -139,7 +147,7 @@ function PresidentsController($http){
 
   function getPresidents(){
     $http
-      .get('http://localhost:3000/api/presidents')
+      .get('/api/presidents')
       .then(function(response){
         vm.all = response.data.presidents;
     }, function(err) {
@@ -153,7 +161,8 @@ function PresidentsController($http){
 }
 ```
 
-There are a few important things to note. Let's cut it down first just to $http:
+There are a few important things to note. Let's cut it down first just 
+to $http:
 
 ```js
 function PresidentsController($http){
@@ -161,7 +170,7 @@ function PresidentsController($http){
 
   function getPresidents(){
     $http
-      .get('http://localhost:3000/api/presidents')
+      .get('/api/presidents')
       .then(function(response){
         vm.all = response.data.presidents;
     }, function(err) {
@@ -175,13 +184,21 @@ function PresidentsController($http){
 }
 ```
 
-We call `$http`, then our favorite HTTP verb, `.get`. There's one for `.post`, `.put`, and `.delete` too. It's asynchronous, so we'll use `.then` - a promise -to make sure when it's _done_ it'll do what we want. And what we want is just to overwrite our `.all` array with the response we get back.
+We call `$http`, then our favorite HTTP verb, `.get`. There's one for 
+`.post`, `.put`, and `.delete` too. It's asynchronous, so we'll use 
+`.then` - a promise -to make sure when it's _done_ it'll do what we 
+want. And what we want is just to overwrite our `.all` array with the 
+response we get back.
 
-Feel free to `console.log(response)` and see everything that comes back. `.data` is just the data, `.presidents` is the key inside our JSON holding an array of presidents.
+Feel free to `console.log(response)` and see everything that comes back. 
+`.data` is just the data, `.presidents` is the key inside our JSON 
+holding an array of presidents.
 
-That's all we're doing in that function. Afterwords, we literally just run the function, which runs when we first load up the app. Easy.
+That's all we're doing in that function. Afterwords, we literally just 
+run the function, which runs when we first load up the app. Easy.
 
-**Now before we move on and you try it yourself, there's an important detail to note.** We've suddenly gone from:
+**Now before we move on and you try it yourself, there's an important 
+detail to note.** We've suddenly gone from:
 
 ```js
 function PresidentsController($http){
@@ -196,7 +213,9 @@ function PresidentsController($http){
   // ...
 ```
 
-**Why?** The answer is JavaScript's _scope_. As you've seen in the past few weeks, `this` means different things depending on how many layers deep your code is.
+**Why?** The answer is JavaScript's _scope_. As you've seen in the past 
+few weeks, `this` means different things depending on how many layers 
+deep your code is.
 
 In the previous example, which function is `this` scoped to?
 
@@ -206,7 +225,7 @@ function PresidentsController($http){
 
   function getPresidents(){
     $http
-      .get('http://localhost:3000/api/presidents')
+      .get('/api/presidents')
       .then(function(response){
         // Where is 'this' scoped to?
         this.all = response.data.presidents;
@@ -216,9 +235,15 @@ function PresidentsController($http){
 }
 ```
 
-We're 3 functions deep when we call `this.all` – `this` is no longer referring to our controller, it's referring to the function inside `.then`. If you left it that way, you'd never see any data, because to see it in the view, that data needs to be attached directly to our _controller_.
+We're 3 functions deep when we call `this.all` – `this` is no longer 
+referring to our controller, it's referring to the function inside 
+`.then`. If you left it that way, you'd never see any data, because to 
+see it in the view, that data needs to be attached directly to our 
+_controller_.
 
-So what's a simple way to make sure we're scoped to the right place? A tiny little variable. The variable you choose is up to you, it's just preference. So if we do:
+So what's a simple way to make sure we're scoped to the right place? A 
+tiny little variable. The variable you choose is up to you, it's just 
+preference. So if we do:
 
 ```js
 function PresidentsController($http){
@@ -228,7 +253,7 @@ function PresidentsController($http){
 
   function getPresidents(){
     $http
-      .get('http://localhost:3000/api/presidents')
+      .get('/api/presidents')
       .then(function(response){
         vm.all = response.data.presidents;
     }, function(err) {
@@ -249,9 +274,14 @@ Try refreshing your browser, let's see if it worked!
 
 ## POSTing Data
 
-Now that we've got GETing down, it's time to try POSTing. Just like any RESTful API, you can add a new president by POSTing to the correct URL. We'll need to modify our controller action to send a new president from the form to our API.
+Now that we've got GETing down, it's time to try POSTing. Just like any 
+RESTful API, you can add a new president by POSTing to the correct URL. 
+We'll need to modify our controller action to send a new president from 
+the form to our API.
 
-We already have an `addPresident` function we can manipulate. Currently, it only takes the data within the form and adds it to the `vm.all` array.  If we want it to post, we'll have to use `$http`.
+We already have an `addPresident` function we can manipulate. Currently, 
+it only takes the data within the form and adds it to the `vm.all` 
+array.  If we want it to post, we'll have to use `$http`.
 
 ```javascript
 function PresidentsController($http){
@@ -261,7 +291,7 @@ function PresidentsController($http){
   
   function addPresident(){
     $http
-    .post('http://localhost:3000/api/presidents', vm.newPresident)
+    .post('/api/presidents', vm.newPresident)
     .then(function(res) {
       vm.all.push(res.data.president);
       vm.newPresident = {};
@@ -274,26 +304,36 @@ function PresidentsController($http){
 }
 ```
 
-Again, just like ajax! Nothing new here - we're simply taking the data from our `ng-model` attached to our inputs!
+Again, just like ajax! Nothing new here - we're simply taking the data 
+from our `ng-model` attached to our inputs!
 
-Notice that in each of the `$http` calls' `.then()` field takes a successful function first, then a failure. If you need to do greater configuration, such as attaching some kind of header, you can do so by passing a config object in place of the second argument (recall something like: `{ method: POST, data: data, url: 'http://localhost:3000/api/presidents }`).
+Notice that in each of the `$http` calls' `.then()` field takes a 
+successful function first, then a failure. If you need to do greater 
+configuration, such as attaching some kind of header, you can do so by 
+passing a config object in place of the second argument (recall 
+something like: `{ method: POST, data: data, url: '/api/presidents }`).
+
 ## PUT and DELETE - Independent Practice
 
 Let's try and implement the other two parts of CRUD.
 
-First, try and attach a delete function using an `ng-click` on the 'X' span tag. Remember to use `$http.delete()`!
+First, try and attach a delete function using an `ng-click` on the 'X' 
+span tag. Remember to use `$http.delete()`!
 
-Next, try and implement a similar PUT function to yesterday.
+Next, try and implement a similar PUT function.
 
-1. Create an "uncover" function that switches the president's "uncovered" boolean value.
+1. Create an "uncover" function that switches the president's 
+   "uncovered" boolean value.
 2. Make sure that uncover function uses `$http.put()`
 3. Add an `ng-click` directive to the Uncovered? button.
-4. Use `ng-class` and the `uncovered` classname to strike out a true-true president's name if `president.uncovered === true`.
+4. Use `ng-class` and the `uncovered` classname to strike out a 
+   true-true president's name if `president.uncovered === true`.
 
 ## Conclusion
 ![](http://www.eyeforfilm.co.uk/images/newsite/roddy_piper.jpg)
 
-Even though we may not have freed the Sheeple today, we've certainly taken great steps. You should be proud!
+Even though we may not have freed the Sheeple today, we've certainly 
+taken great steps. You should be proud!
 
 Let's wrap up with a few questions:
 - How do you inject dependencies into an Angular controller?
