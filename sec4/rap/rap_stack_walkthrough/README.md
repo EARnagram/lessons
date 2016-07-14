@@ -13,6 +13,7 @@ This intro will be divided into two parts:
   1. a field guide to the changes you need to make to your app to turn it into a
      headless API
   2. the infrastructure you need to add for token-based authentication.
+  3. Putting it all together for a full-stack application
 
 ## Pt. 1: Derry Got Back(-end)
 In the `client` folder, please find a very slightly adjusted version of the
@@ -152,3 +153,39 @@ If we look at `UsersController`, we see three methods– `create`, `token`, and
 
 You can interact with these methods using Postman (or Angular!) exactly how you
 interacted with Token Slinger yesterday– at this point, I encourage you to!
+
+## Pt. 3: Fully Stacked Derry
+
+Once you've built these parts, serving them together is actually a 
+breeze.
+
+#### `/public`
+
+First, put the entire angular front end application inside the public 
+directory. You won't need to change much internally.
+
+The only small change I'd recommend, is to remove the domain from your
+$http requests in services and controllers, ie:
+
+```js
+$http('http://localhost:3000/fishes') // => $http('/fishes')
+```
+
+Also, you can move the favicon from `/public/assets/img` to the base of 
+`/public`.
+
+#### CORS
+
+If you're serving from the same location, you can actually remove the
+CORS set up in `/config/application.rb`.
+
+__And that's it!__
+
+## Outro
+
+Now you can use a Rails backend for either a separated angular app (like
+with an ionic app), or a full stack web app.
+
+##### References
+
+[rack-cors gem](https://github.com/cyu/rack-cors)

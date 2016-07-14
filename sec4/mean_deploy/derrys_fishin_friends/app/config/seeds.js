@@ -18,6 +18,11 @@ var users = [
     name: "Ayn Rand Paul Walker",
     phoneNumber: "1001011101",
     password: "objecteav8ism"
+  },
+  { // 3
+    name: "Dude",
+    phoneNumber: "5554445555",
+    password: "abc123"
   }
 ];
 
@@ -50,7 +55,7 @@ Fish.remove({}, function(err) {
         { // 3
           name: "Flounder",
           category: "Fish",
-          user: users[2]._id
+          user: users[3]._id
         },
         { // 4
           name: "Left Boot",

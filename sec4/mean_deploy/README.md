@@ -21,7 +21,14 @@
 
 # This is the Last Fishin' Time, Derry
 
-Uncle Derry is in pretty desperate shape. I made the mistake of answering another one of his calls and he's convinced he finally has an app that will get him some friends at the sewage dump he calls a pond. I'm tired of helping him, but he's twisted my arm one last time to help him deploy his app. He thinks no one has called because he hasn't seemed flashy enough on the internet, so he made his very own MEAN app: *Uncle Derry's Fishin' Friends*. 
+Uncle Derry is in pretty desperate shape. I made the mistake of 
+answering another one of his calls and he's convinced he finally has an 
+app that will get him some friends at the sewage dump he calls a pond. 
+I'm tired of helping him, but he's twisted my arm one last time to help 
+him deploy his app. He thinks no one has called because he hasn't seemed 
+flashy enough on the internet, so he made his very own MEAN app: 
+
+__*Uncle Derry's Fishin' Friends*__. 
 
 Now let's help him deploy it.
 
@@ -113,13 +120,26 @@ Componential Structure:
  - server.js
 ```
 
-As we can see, the MVC/MVVM structure mirrors a Rails application. This is often more familiar to developers, and therefore, it will be our structure for this lesson.
 
-However, many MEAN stack developers prefer the components structure when they're working on projects of greater complexity. "As you build more Angular applications, you will see a pattern arise; your site will start to be separated by sections. For instance, we have a user section and could move forward to create an article section, music, and whatever other resource. …[For the more advanced project,] we can inject the controllers, services, and routes into one main user module and inject that into our entire applications parent module." (MEAN Machine, Sevilleja & Lloyd).
+
+As we can see, the MVC/MVVM structure mirrors a Rails application. This 
+is often more familiar to developers, and therefore, it will be our 
+structure for this lesson.
+
+However, many MEAN stack developers prefer the components structure when 
+they're working on projects of greater complexity. "As you build more 
+Angular applications, you will see a pattern arise; your site will start 
+to be separated by sections. For instance, we have a user section and 
+could move forward to create an article section, music, and whatever 
+other resource. …[For the more advanced project,] we can inject the 
+controllers, services, and routes into one main user module and inject 
+that into our entire applications parent module." 
+(MEAN Machine, Sevilleja & Lloyd).
 
 ## Installing
 
-Copy the starter code outside of the class repository. We'll eventually be using Heroku to launch this app, so we do not want any nested repos!
+Copy the starter code outside of the class repository. We'll eventually 
+be using Heroku to launch this app, so we do not want any nested repos!
 
 Next:
 
@@ -135,25 +155,32 @@ Take the next 5 minutes to read through the app and see how it works.
 
 ## Set Up our App for Deployment
 
-Create `.env` file to plan for using your hosted DB while running the app locally.
+Create `.env` file to plan for using your hosted DB while running the 
+app locally. Of course, this __will not__ be used in the depoloyment.
 
-Comb through structure for any additional file creations. Eventually we'll also need a `Procfile`.
+Comb through structure for any additional file creations. Eventually 
+we'll also need a `Procfile`.
 
 ## Walk Through Heroku Build Process
 
-[Getting Started with Node.js on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction) is a step by step document on how to deploy a Node application to Heroku.
+[Getting Started with Node.js on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction) 
+is a step by step document on how to deploy a Node application to 
+Heroku.
 
 Let's go through it together.
 
 ## Set Up mLab
 
-We have options here. Using the addons method is quick and easy. However, sometimes you may want to hook up an already hosted database.
+We have options here. Using the addons method is quick and easy. 
+However, sometimes you may want to hook up an already hosted database.
 
-If we want to make our own, we'll be following these documentations: [Connecting to Your Database](http://docs.mongolab.com/connecting/#connect-string)
+If we want to make our own, we'll be following these documentations: 
+[Connecting to Your Database](http://docs.mongolab.com/connecting/#connect-string)
 
 ## Good Luck Derry! - Conclusion and Questions
 
-Well, the site is up - I hope him the best, but I think misery suits him.
+Well, the site is up - I hope him the best, but I think misery suits 
+him.
 
 ##### Questions
 
