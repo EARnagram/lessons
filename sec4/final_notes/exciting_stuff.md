@@ -6,6 +6,14 @@
 
 ## List of Cool Programming Stuff
 
+#### Interviews
+
+Interview prep is important - here are some resources to help:
+
+- [Notes from Alums](https://gist.github.com/ezRAez/d36c9d6d168880159d94450d5216fc49)
+- [Front-End Interview Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions#js-questions)
+- [How do you judge a JS dev in 5 questions?](https://www.quora.com/How-do-you-judge-a-JavaScript-programmer-by-only-5-questions)
+
 #### ES2015
 
 Learning all there is to know about the upcoming additions to JS is not only fun and cool, but also a great way to show you're keeping up with the times. Additionally, learning these now will make working in JS easier!
@@ -58,7 +66,8 @@ These are great sites where you can learn more about your favorite frameworks!
 
 If you're itching to try out other front end frameworks, here are the major alternatives in order of popularity.
 
-- [React](http://facebook.github.io/react/)
+- [Angular2](https://angular.io/docs/ts/latest/quickstart.html)
+- [React](http://facebook.github.io/react/) - Use [this](http://www.reactjsprogram.com/) to learn!
 - [Backbone](http://backbonejs.org/)
 - [Ember](http://emberjs.com/)
 - [Handlebars](http://handlebarsjs.com/) - More of a templating language that works with mustache - still cool
@@ -71,7 +80,7 @@ Express is the most used, but perhaps you're interested in seeing what else is o
 - [Koa](http://koajs.com/)
 - [Hapi](http://hapijs.com/)
 - [Meteor](https://www.meteor.com/)
-- [Serverless - formerly known as JAWS](https://github.com/serverless/serverless) - Create serverless applications using AWS Lambda (magic). Literally the hottest thing on Github right now.
+- [Serverless - formerly known as JAWS](https://github.com/serverless/serverless) - Create serverless applications using AWS Lambda (magic). One of the hottest thing on Github right now.
 - [SailsJS](http://sailsjs.org/)
 
 #### Gaming
