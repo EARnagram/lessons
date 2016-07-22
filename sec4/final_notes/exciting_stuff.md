@@ -28,7 +28,7 @@ Hone your skills! You should do one code challenge every morning - trust me, it'
 
 - [CodeWars](http://www.codewars.com/)
 - [Exercism](http://exercism.io/)
-- [HankerRank](https://www.hackerrank.com)
+- [HackerRank](https://www.hackerrank.com)
 - [Interview Cake](https://www.interviewcake.com/)
 
 #### CSS Frameworks
