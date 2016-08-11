@@ -1,119 +1,138 @@
-// Put the following in a file named promises.js
-// and execute by typing "node promises"
+// ||||||||| Using Promises with Asynchronous Code |||||||||
+var locus = require('locus'); // if needed, add `eval(locus);`
 
 // Synchronous getNames()
 
-function getNames() {
-  return ['Fred', 'Wilma'];
+function getBadDads() {
+  return ['Peter', 'Ahnold'];
 }
 
-console.log(getNames());
+// console.log(getBadDads());
 
-// // Asynchronous getNames() implemented using the callback design pattern.
-// // Note: we're using setTimeout to simulate an asynchronous method call.
+// Asynchronous getNames() implemented using the callback design pattern.
+// Note: we're using setTimeout to simulate an asynchronous method call.
 
-function getNamesAsyncCallback(cb) {
+function getBadDadsAsyncCallback(cb) {
   setTimeout(function() {
-    cb(['Fred', 'Wilma']);
+    cb(['Peter', 'Ahnold']);
   }, 2000);
 }
 
-getNamesAsyncCallback(function(names) {
-  console.log(names);
-});
+// getBadDadsAsyncCallback(function(names) {
+//   console.log(names);
+// });
 
-// Asynchronous getNames() implemented using the promises design pattern.
+// Asynchronous getBadDads() implemented using the promises
+// design pattern.
 
-function getNamesAsyncPromise() {
+function getBadDadsAsyncPromise() {
   return new Promise(function(resolve, reject) {
     setTimeout(function() {
-      resolve(['Fred', 'Wilma']);
+      resolve(['Peter', 'Ahnold']);
     }, 3000);
   });
 }
 
-getNamesAsyncPromise().then(function(names) {
-  console.log(names);
-});
+// getBadDadsAsyncPromise().then(function(names) {
+//   console.log(names);
+// });
+
+// ||||||||| Chaining Promises |||||||||
 
 // Control flow using chained promises instead of nested callbacks.
-// First, call getNamesAsyncPromise().
+// First, call getBadDadsAsyncPromise().
 // Second, call addName(), which is also asynchronous.
 
-var nameList = ['Fred', 'Wilma'];
+var badDads = ["Peter", "Ahnold"];
 
 function addName(name) {
   return new Promise(function(resolve, reject) {
-    nameList.push(name);
+    badDads.push(name);
+    if (badDads.indexOf("Philip Banks") > -1) {
+      reject("Don't you dare call Uncle Phil a bad dad!");
+    }
     setTimeout(function() {
-      resolve(nameList);
+      resolve(badDads);
     }, 2000);
   });
 }
 
-getNamesAsyncPromise()
-.then(function(names) {
-  console.log(names);
-})
-.then(function() {
-  console.log('Adding Betty...');
-  return addName('Betty');
-})
-.then(function(names) {
-  console.log(names);
-})  // Removed semicolon for .catch chaining below
+// getBadDadsAsyncPromise()
+// .then(function(names) {
+//   console.log(names);
+// })
+// .then(function() {
+//   console.log('Adding Jim Carrey...');
+//   return addName('Jim Carrey');
+// })
+// .then(function(names) {
+//   console.log(names);
+// })  // Removed semicolon for .catch chaining below
 
-// Error handling
-// Use catch instead of second error function on then
+// // Error handling
+// // Use catch instead of second error function on then
 
-.catch(function(err) {
-  console.error('Bummer, error: ', err);
-});
+// .catch(function(err) {
+//   console.error('Dad fail: ', err);
+// });
 
-// Using Promise.all()
+// ||||||||| Using Promise.all() |||||||||
 // Use when you want to run multiple asynchronous functions
 // in parallel and do something after all have completed.
 
-var p1 = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    console.log('p1 resolved');
-    resolve('p1 result');
-  }, 2000);
-});
+// var p1 = new Promise(function(resolve, reject) {
+//   setTimeout(function() {
+//     console.log('Attending Soccer Game…');
+//     resolve('You see your daughter score a goal!');
+//   }, 3000);
+// });
 
-var p2 = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    console.log('p2 resolved');
-    resolve('p2 result');
-  }, 1000);
-});
+// var p2 = new Promise(function(resolve, reject) {
+//   setTimeout(function() {
+//     console.log('Purchasing birthday cake…');
+//     resolve('You get a photo of her face in the cake!');
+//   }, 1000);
+// });
 
-var p3 = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    console.log('p3 resolved');
-    resolve('p3 result');
-  }, 3000);
-});
+// var p3 = new Promise(function(resolve, reject) {
+//   setTimeout(function() {
+//     console.log("Running through dialogue…");
+//     resolve('She delivers her lines perfectly in the play!');
+//   }, 2000);
+// });
 
-Promise.all([p1, p2, p3]).then(result => {
-  console.log('All promises resolved with a result of: ', result);
-});
+// Promise.all([p1, p2, p3]).then(function(result) {
+//   console.log('Good Dad Results: ', result);
+// })
+//   .catch(function(err) {
+//     console.error("You screwed up Dad: ", err);
+//   });
 
-// Converting callbacks to promises in MongooseJS
+// ||||||||| Converting callbacks to promises in MongooseJS |||||||||
 
 // Ensure you are in a working directory and npm install mongoose.
 // No need for a package.json
 // Ensure that mongod is running
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/promises');
+// mongoose.connect('mongodb://localhost/promises');
 
-var userSchema = new mongoose.Schema({
+// mpromise is being deprecated, so we set mongoose's promises to native
+// es6 promises!
+mongoose.Promise = Promise;
+
+var dadSchema = new mongoose.Schema({
   name: String,
-  email: String
+  occupation: String,
+  good: Boolean
 });
 
-var User = mongoose.model('User', userSchema);
+var Dad = mongoose.model('Dad', dadSchema);
+
+var badDads = [
+  { name: "Ahnold", occupation: 'Mattress Salesman', good: false},
+  { name: "Peter", occupation: 'Corporate Lawyer', good: false}
+];
 
 // Using callbacks to:
 //   Remove all users,
@@ -123,18 +142,15 @@ var User = mongoose.model('User', userSchema);
 //   then console.log all users,
 //   finally, close the Mongoose connection
 
-// User.remove({}, function(err) {
-//   User.create([
-//     { name: 'Fred', email: 'fred@email.com'},
-//     { name: 'Wilma', email: 'wilma@email.com'}
-//   ], function(err, users) {
-//     console.log('Created Users: ', users);
-//     // could use User.findOneAndUpdate instead of find() + update()
-//     User.findOne({name: 'Wilma'}, function(err, user) {
-//       user.name = 'Barney';
-//       user.save(function(err) {
-//         User.find({}, function(err, users) {
-//           console.log('Users after update: ', users);
+// Dad.remove({}, function(err) {
+//   Dad.create(badDads, function(err, dads) {
+//     console.log('Created Dads: ', dads);
+//     // could use Dad.findOneAndUpdate instead of find() + update()
+//     Dad.findOne({occupation: 'Mattress Salesman'}, function(err, dad) {
+//       dad.good = true;
+//       dad.save(function(err) {
+//         Dad.find({}, function(err, dads) {
+//           console.log('Dads after update: ', dads);
 //           mongoose.disconnect();
 //         });
 //       });
@@ -144,30 +160,63 @@ var User = mongoose.model('User', userSchema);
 
 // Same process as above but with promises instead of callbacks.
 
-User.remove({})
-.then(function() {
-  return User.create([
-    { name: 'Fred', email: 'fred@email.com'},
-    { name: 'Wilma', email: 'wilma@email.com'}
-  ]);
-})
-.then(function(users) {
-  console.log('Created Users: ', users);
-  // See docs about returning "full-fledged" promises
-  // using exec() on queries.
-  return User.findOne({name: 'Wilma'}).exec();
-})
-.then(function(user) {
-  user.name = 'Barney';
-  return user.save();
-})
-.then(function() {
-  return User.find({}).exec();
-})
-.then(function(users) {
-  console.log('Users after update: ', users);
-  mongoose.disconnect();
-})
-.catch(function(err) {
-  console.log('Error: ', err);
-});
+// Dad.remove({})
+// .then(function() {
+//   return Dad.create(badDads);
+// })
+// .then(function(dads) {
+//   console.log('Created Dads: ', dads);
+//   // See docs about returning "full-fledged" promises
+//   // using exec() on queries: http://mongoosejs.com/docs/promises
+//   return Dad.findOne({name: 'Peter'}).exec();
+// })
+// .then(function(dad) {
+//   dad.good = true;
+//   return dad.save();
+// })
+// .then(function() {
+//   return Dad.find({}).exec();
+// })
+// .then(function(dads) {
+//   console.log('Dads after update: ', dads);
+//   mongoose.disconnect();
+// })
+// .catch(function(err) {
+//   console.log('Mama Mia! ', err);
+// });
+
+// ||||||||| Using Promises with APIs |||||||||
+
+var request = require('request');
+
+function getPokemon(number) {
+  return new Promise(function(resolve, reject) {
+    request(`http://pokeapi.co/api/v2/pokemon/${number}`, function (err, response, body) {
+      if (!err && response.statusCode == 200) {
+        resolve(JSON.parse(body));
+      } else {
+        reject("There's a problem!");
+      }
+    });
+  });
+};
+
+getPokemon(1)
+  .then(function(bulba) {
+    console.log(bulba);
+    return bulba.name;
+  })
+  .then(function(bulbaName) {
+    console.log(`Hi, my name is ${bulbaName}`);
+  })
+  .catch(function(err) {
+    console.error(err);
+  });
+
+
+
+
+
+
+
+

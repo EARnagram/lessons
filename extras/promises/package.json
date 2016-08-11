@@ -1,0 +1,17 @@
+{
+  "name": "promises",
+  "version": "1.0.0",
+  "description": "Practice JS promises",
+  "main": "promises.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ezra Ráez",
+  "license": "ISC",
+  "dependencies": {
+    "locus": "^1.2.0",
+    "mongoose": "^4.5.8",
+    "request": "^2.74.0"
+  }
+}
