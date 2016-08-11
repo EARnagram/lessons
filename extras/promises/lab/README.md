@@ -1,12 +1,16 @@
 # Promises Promises
 
-![](http://i4.mirror.co.uk/incoming/article6472506.ece/ALTERNATES/s615b/Lamar-Odom-and-Khloe-Kardashian.jpg)
+![](http://images.intouchweekly.com/uploads/images/file/25592/kris-humphries-and-kim-kardashian-wedding-shopping.jpg?fit=crop&w=680)
 
 ## Promises Lab
 
 We've just learned how to create native promises in JavaScript.
 
 Now it's time to put what we've learned to the test.
+
+If you're still feeling lost with Promises, go ahead and check out 
+[Promisees](https://bevacqua.github.io/promisees/) - a stellar promises
+visualizer.
 
 #### Requirements
 
@@ -16,7 +20,6 @@ Now it's time to put what we've learned to the test.
 
 #### References
 
-[Promisees](https://bevacqua.github.io/promisees/)
 
 [MDN Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 

@@ -183,6 +183,14 @@ Promise.all([p1, p2, p3]).then(function(result) {
 
 Notice that the final console log only happens once p1 is resolved.
 
+---
+
+##### Questions:
+
+1. How can Promises help a JS developer?
+2. What are the parameters for a promise called? What is passed to each?
+3. What methods are used to chain a promise? 
+
 ### Using Promises with Mongoose
 
 ![Armageddon](https://ivyarchenland.files.wordpress.com/2011/01/movi_arma0108.jpg)
@@ -298,7 +306,7 @@ function getPokemon(number) {
       if (!err && response.statusCode == 200) {
         resolve(JSON.parse(body));
       } else {
-        reject("There's a problem!");
+        reject("There's a problem: ", err);
       }
     });
   });
@@ -331,8 +339,9 @@ parents!
 Let's go over some of what we learned:
 
 1. When would we want to use `Promise.all()`?
-2. What is the signature for all Promises?
+2. What are the two parameters for all Promises?
 3. How do we handle errors with Promises?
+4. What do we need to do to use Promises with Mongoose?
 
 ##### References
 
