@@ -196,19 +196,19 @@ You can take the most recent version of the repository - therefore giving you
 access to all previous commits - and copy it to your disk (_Forking_ simply
 copies a version on gitHub - not to your computer).
 
-Go ahead and try to clone my [new repo for learning code](https://github.com/EARnagram/edu).
+Go ahead and try to clone my [new repo for learning code](https://github.com/ezRAez/reactjs_program).
 
-Near the center of the screen, underneath "0 releases," you'll see options for
+Near the center of the screen, underneath "1 contributor," you'll see options for
 "your clone URL."
 
-Despite the recommendation, we will always select __SSH__! If you use HTTPS, you
-have to enter in your password every time you update your repo.
+Despite the recommendation, we will generally select __SSH__! If you use HTTPS, 
+you have to enter in your password every time you update your repo.
 
 And that's all you need to do to get a copy of a repo onto your local machine!
 
 #### Putting Your Repo on GitHub
 
-![](http://nerdist.com/wp-content/uploads/2015/10/RickBurpFeature.png)
+![rick and morty](http://nerdist.com/wp-content/uploads/2015/10/RickBurpFeature.png)
 
 Here at GA, we've given you a quick commands in the terminal to speed up the
 process of adding a new repo on GitHub.
@@ -234,7 +234,7 @@ simply type: `hub browse`.
 
 #### GitHub and Security
 
-![](http://tansyrr.com/tansywp/wp-content/uploads/2015/01/jason-musketeer.jpg)
+![jason musketeer](http://tansyrr.com/tansywp/wp-content/uploads/2015/01/jason-musketeer.jpg)
 
 Sometimes there are things we don't want pushed to GitHub.
 
@@ -254,7 +254,7 @@ simply `touch .keep` to add a file to keep the otherwise empty folder.
 
 ## Outro
 
-![](http://www.cinema52.com/2013/wp-content/uploads/2013/10/20131002-010711.jpg)
+![bttf](http://www.telegraph.co.uk/content/dam/film/backtothefuture/backtofuture-large.jpg)
 
 You can now move through the space-time continuum like a swimming pool full of
 jello. Return to previous molds of yourself whenever you want!
@@ -277,4 +277,4 @@ Now, let's close with a few questions:
 
 [Reverting to Previous Commits](http://stackoverflow.com/questions/4114095/revert-git-repo-to-a-previous-commit#answer-4114122)
 
-[Git Command Cheatsheet](https://github.com/ga-students/WDI_DTLA_10/blob/master/resources/cheatsheets/git_command_cheatsheet_github.pdf)
+[Git Command Cheatsheet](https://github.com/ga-students/WDI_DTLA_37/blob/master/resources/cheatsheets/git_command_cheatsheet_github.pdf)
