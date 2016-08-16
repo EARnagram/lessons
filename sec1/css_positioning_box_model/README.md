@@ -40,7 +40,8 @@ First, for the comparison:
 Now for the wild assumption: open chrome and visit any site.
 
 Now, if you'll relax your eyes as you stare into that website, I'm sure you'll
-make out a number of rectangles in that site - go ahead, count them!
+make out a number of rectangles in that site - go ahead, count them! In fact,
+turn on your chrome inspector to prove it!
 
 I can assume this because, much like comics - predominantly relying on the
 rectangular panel for the majority of their page layout - **the web is made of
@@ -49,12 +50,11 @@ rectangles.**
 We use HTML to decide what rectangles we want and what should go in them.
 
 We use CSS to decide how they should look (recall this morning's lesson), and
-where they should go (welcome to this lesson).
+where they should go.
 
 ##### Assets
 
-Today we'll be working from the `starter_code/` directory in the repo. Please
-copy the code outside of the `instructor/` folder.
+Today we'll be working from the `starter_code/` directory.
 
 ## The Box Model and its Components
 
@@ -65,8 +65,7 @@ You may be familiar with the following diagram:
 Open Chrome's Dev Tools by using cmd+opt+i.
 
 Click "Elements" (in the dev tools toolbar), then `<div id="box-model">` in the
-page source. Find the multicolored rectangles at the bottom of "Styles," then
-follow along with me:
+page source. Find the multicolored rectangles at the bottom of "Styles."
 
 - **Margin** - The empty area around a border, where we don't want anything else
   on the page to render.
@@ -128,20 +127,20 @@ that greatly effect our webpage.
    same line.
 4. If you assign **none** as the value of the display, this will make the
    element and its content disappear from the page entirely!
-5. **flex** is a new and interesting display option for CSS3. I'm planning to
-   cover it in greater detail in a later lesson on responsive CSS, so I don't
-   want to spend too much time on it now. However just to mention, it obviates
-   the need for floats (see below in "Positioning") and removes the margins
-   between things. It essentially makes your positioning more *flexible*, while
-   simultaneously making your site less accommodating (`display: flex;` will not
-   work with browsers IE9 and older).
+5. **flex** is a new and interesting display option for CSS3. We'll cover it in 
+   greater detail in a later lesson on responsive CSS, so I don't want to spend 
+   too much time on it now. However just to mention, it reduces the need for 
+   floats (see below in "Positioning") and removes the margins between things. 
+   It essentially makes your positioning more *flexible*, while simultaneously 
+   making your site less accommodating (`display: flex;` will not work with 
+   browsers IE9 and older).
 
 Lets see the difference between inline, block, and inline-block by adding these
 rules to our stylesheet.
 
 ``` css
 .inline-vs-block {
-  border: 1px dotted gray;
+  border: 3px dotted gray;
 }
 
 .inline {
@@ -166,7 +165,7 @@ Take a few minutes to alter these in the Chrome Dev Tools.
 
 ## Positioning
 
-![](http://www.forbiddenplanet.co.uk/blog/wp-content/uploads/2010/08/what01.gif)
+![](http://66.media.tumblr.com/tumblr_lmvr2tIqya1qi9hg0o1_500.gif)
 
 The `position` property in CSS allows the content to move around the page in
 four separate fashions: static, relative, absolute, and fixed.
