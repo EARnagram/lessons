@@ -64,7 +64,7 @@ Afterwards, go to your terminal and type:
 
 Next, open that file in sublime (in the terminal: `subl ~/.eslintrc`).
 
-###### Paste the following code into it:
+##### Paste the following code into it:
 
 ```json
 {
