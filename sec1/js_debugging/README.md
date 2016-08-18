@@ -11,9 +11,15 @@ I figured I could use the practice and did the same thing. However, I
 never checked my code while writing, and when I ran it, oh boy did I 
 have some errors!
 
-In today's exercise, do you think you could help me fix my code.
+In today's exercise, do you think you could help me fix my code?
 
-#### Assets
+#### Assignment
+
+- Go line by line, uncommenting as you go, and fixing the given problem.
+
+- Use the tools below to help you find the error!
+
+#### Getting Started
 
 Inside `starter_code/` you'll find my `all_bugged_up.js`. We'll be using
 this messed up file for today's exercise.
@@ -21,13 +27,9 @@ this messed up file for today's exercise.
 After opening up the `index.html` in the browser, you can ignore the 
 html page and work solely in `all_bugged_up.js` and the Chrome console.
 
-#### Assignment
-
-Go line by line, uncommenting as you go, and fixing the given problem.
-
-Use the tools below to help you find the error!
-
 ## Tools for Debugging:
+
+<img src="https://avatars3.githubusercontent.com/u/6019716?v=3&s=300" alt="eslint">
 
 #### ESLint
 
@@ -54,14 +56,14 @@ packages often make our lives as developers infinitely easier.
 
 Look for the `Package Control: install package` option, select it, and 
 search for `SublimeLinter` and `SublimeLinter-contrib-eslint`. Install
-each of them by selecting the option.
+one after the other.
 
 Afterwards, go to your terminal and type:
 
 `touch ~/.eslintrc`
 
 Next, open that file in sublime (in the terminal: `subl ~/.eslintrc`),
-and paste the following code into it:
+and paste the <span id="config-obj">following code</span> into it:
 
 ```json
 {
@@ -99,25 +101,41 @@ If you can't figure out why something is messing up, and the linter
 isn't catching anything, often a great tool is the chrome debugger. 
 
 Where linters help us with typos and code style, the chrome debugger 
-helps us with logic issues.
-
-Inside any function or statement, you can put `debugger;` and it will
-pause your parser at the moment, so you can inspect the code in the 
-chrome console.
-
-Pretty cool, huh!?
+helps us with logic issues and unexpected values.
 
 ![](images/all_bugged_up.png)
 
-1. __Blue__  - You'll find the very useful debugging tool in the sources 
-               tab.
+1. __Blue__  - You'll find the very useful debugging tool in the 
+               __sources__ tab.
 2. __Red__   - You can set break points to stop the code and play around 
                at that moment in run time!
 3. __Green__ - Once you'd like to move on, you can click the 
                play-looking button to "resume script execution".
+
+Inside any function or statement, you can put `debugger;` and it will
+add a break point, pausing your parser at the moment in the code, so you 
+can inspect the code in the chrome console.
+
+Pretty cool, huh!?
 
 #### References
 
 [ESLint](http://eslint.org/)
 
 [Chrome Dev Tools](https://developers.google.com/web/tools/chrome-devtools/?hl=en)
+
+---
+
+#### tl;dr for eslint Installation
+
+1. `npm install -g eslint`
+2. `touch .eslintrc`
+3. `subl ~/.eslintrc`
+4. Copy over the [configuration object above](#config-obj)
+
+
+
+
+
+
+
