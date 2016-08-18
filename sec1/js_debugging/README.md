@@ -63,7 +63,7 @@ Afterwards, go to your terminal and type:
 `touch ~/.eslintrc`
 
 Next, open that file in sublime (in the terminal: `subl ~/.eslintrc`),
-and paste the <span id="config-obj">following code</span> into it:
+and paste the <span id="cobj">following code</span> into it:
 
 ```json
 {
@@ -131,7 +131,7 @@ Pretty cool, huh!?
 1. `npm install -g eslint`
 2. `touch .eslintrc`
 3. `subl ~/.eslintrc`
-4. Copy over the [configuration object above](#config-obj)
+4. Copy over the [configuration object above](#cobj)
 
 
 
