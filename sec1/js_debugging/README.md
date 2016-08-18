@@ -111,13 +111,21 @@ helps us with logic issues and unexpected values.
 2. __Red__   - You can set break points to stop the code and play around 
                at that moment in run time!
 3. __Green__ - Once you'd like to move on, you can click the 
-               play-looking button to "resume script execution".
+               play button to "resume script execution".
 
-Inside any function or statement, you can put `debugger;` and it will
-add a break point, pausing your parser at the moment in the code, so you 
-can inspect the code in the chrome console.
+Inside any function or statement, you can put `debugger;` (see example
+below) and it will add a break point, pausing your parser at the moment 
+in the code, so you can inspect the code in the chrome console.
 
-Pretty cool, huh!?
+```js
+function whereIsHe(beetle) {
+    var juice = "grody";
+    debugger;  // this will create a break point!
+};
+
+whereIsHe("Got Him!");  // in chrome, we'll be able to view the values 
+                        // of beetle and juice - pretty cool, huh?!
+```
 
 #### References
 
@@ -130,13 +138,17 @@ Pretty cool, huh!?
 #### tl;dr for eslint Installation
 
 1. `npm install -g eslint`
-2. `touch .eslintrc`
-3. `subl ~/.eslintrc`
-4. Copy over the configuration object [above](#paste-the-following-code-into-it)
+2. Open Package Control: `⌘ + ⇧ + p`
+3. Select `Package Control: install package`
+4. Select and install: `SublimeLinter` and `SublimeLinter-contrib-eslint`
+5. `touch .eslintrc`
+6. `subl ~/.eslintrc`
+7. Copy over the configuration object [above](#paste-the-following-code-into-it)
+8. Save and close `.eslintrc`
 
+#### Using ESLint:
 
+You can select ESLint's appearance in the bottom of tools.
 
-
-
-
-
+1. `^ + ⌘ + l` - Lint this view. Show the warnings and errors.
+2. `^ + ⌘ + a` - View all errors. List each of ESLint's full complaints.
