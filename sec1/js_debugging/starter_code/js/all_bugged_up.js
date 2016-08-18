@@ -38,7 +38,7 @@ conosole.log("hello");
 // 6. NUMBERS
 //||||||||||||||||||||||||||||
 
-// var number = 900719925474099222;
+// var number = "123456789";
 // console.log(number);
 
 //||||||||||||||||||||||||||||
@@ -53,7 +53,7 @@ conosole.log("hello");
 //||||||||||||||||||||||||||||
 
 // var n = '128';
-// console.log(n.toString());
+// console.log(parseInt(n));
 
 //||||||||||||||||||||||||||||
 // 9. IF STATEMENT
@@ -87,15 +87,6 @@ conosole.log("hello");
 // console.log(pizzaTopings);
 
 //||||||||||||||||||||||||||||
-// 12. ARRAY FILTERING
-//||||||||||||||||||||||||||||
-
-// var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-// console.log(numbers.filter(n => {
-//   if (n % 2 || 0) return n;
-// }));
-
-//||||||||||||||||||||||||||||
 // 13. ACCESSING ARRAY VALUES
 //||||||||||||||||||||||||||||
 
@@ -113,25 +104,3 @@ conosole.log("hello");
 // }
 
 // console.log(pets);
-
-//||||||||||||||||||||||||||||
-// 15. OBJECTS
-//||||||||||||||||||||||||||||
-
-// var pizza = {
-//   toppings: ['cheese', 'sauce', 'pepperoni'],
-//   crust: 'deep dish'
-//   serves: 2
-// };
-
-// console.log(pizza);
-
-//||||||||||||||||||||||||||||
-// 16. OBJECT PROPERTIES
-//||||||||||||||||||||||||||||
-
-// var food = {
-//   types = "only pizza"
-// }
-
-// console.log(food.types);

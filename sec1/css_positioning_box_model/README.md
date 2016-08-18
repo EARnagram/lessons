@@ -117,7 +117,7 @@ that greatly effect our webpage.
 
 1. An **inline** element renders without a line break above or below it, so that
    other content is right next to it. __Inline elements can't be given a width,
-   height, or margins.__
+   height, or E/W margins.__
 2. A **block** element renders with a line break above and below it, so they
    don't have anything next to them. By default, they take up the entire width
    of their parent element. Block elements can be given a height and a width.
@@ -185,7 +185,7 @@ left, or right relative to where it would normally occur.
 
 Setting `position: absolute` on an element lets you position it according to
 the edges of its parent element. This has the side effect of removing it from
-the flow– that is, other elements will act like it isn't there.
+the flow – that is, other elements will act like it isn't there.
 
 ##### Fixed Positioning
 
