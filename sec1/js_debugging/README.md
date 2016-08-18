@@ -63,7 +63,7 @@ Afterwards, go to your terminal and type:
 `touch ~/.eslintrc`
 
 Next, open that file in sublime (in the terminal: `subl ~/.eslintrc`),
-and paste the <span id="cobj">following code</span> into it:
+and paste the <span name="cobj">following code</span> into it:
 
 ```json
 {
