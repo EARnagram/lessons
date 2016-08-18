@@ -62,8 +62,9 @@ Afterwards, go to your terminal and type:
 
 `touch ~/.eslintrc`
 
-Next, open that file in sublime (in the terminal: `subl ~/.eslintrc`),
-and paste the <span name="cobj">following code</span> into it:
+Next, open that file in sublime (in the terminal: `subl ~/.eslintrc`).
+
+###### Paste the following code into it:
 
 ```json
 {
@@ -131,7 +132,7 @@ Pretty cool, huh!?
 1. `npm install -g eslint`
 2. `touch .eslintrc`
 3. `subl ~/.eslintrc`
-4. Copy over the [configuration object above](#cobj)
+4. Copy over the configuration object [above](#paste-the-following-code-into-it)
 
 
 
