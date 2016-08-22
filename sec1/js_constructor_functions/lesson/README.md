@@ -13,6 +13,7 @@
 | Describe the need for constructor functions in OOP |
 | Explain how `this` is used in constructor functions |
 | Explain the difference between the returned values of regular functions and constructor functions |
+| Use ES2015 Class syntax as a constructor |
 
 ## Roadmap
 
@@ -283,7 +284,8 @@ var Henchman = function(puny, scream, health, fear) {
 var sully = new Henchman(true, "Gyahahahhhhh", 65, arnold);
 ```
 
-Now, if we were to type `sully.fear;` into our chrome console, we'd see that we get an object back, referencing our `arnold` object.
+Now, if we were to type `sully.fear;` into our chrome console, we'd see that we 
+get an object back, referencing our `arnold` object.
 
 > What if I wanted to reference their boss, the `headVillain`?
 
@@ -333,6 +335,36 @@ function.
 
 `dyanmo.alarm(arnold);`
 
+#### A New Syntax Approaches…
+
+In ES2015, there's a new way to create custom constructor functions: CLASSES!
+
+That's right, hot off the press, JS got classes. We'll play with them more later
+on, but lets look at the syntax:
+
+```js
+class Henchman {
+  constructor(puny, scream, health, fear) {
+    this.fear = fear;
+    this.health = health;
+    this.puny = puny;
+    this.scream = scream;    
+  }
+
+  shoot(enemy) {
+    enemy.health -= 100;
+    if (enemy.health <= 0) return enemy.oneLiners[0];
+  }
+
+  alarm(enemy) {
+    alert("Intruder! It's " + enemy.name + "!");
+  }
+}
+```
+
+These methods we define are placed on the prototype, the same as above! In fact,
+this is literally identical to the previous constructor we made!
+
 ## Arnold the Machine
 
 ![terminators](assets/terminators.jpg)
@@ -356,6 +388,8 @@ pays dividends in the box office:
   - Create your own `terminator` constructor function and make the Arnold object
   into a variable constructor function. Make sure he has all the awesome
   properties we know and expect from Arnold.
+
+_BONUS_: Rewrite one of your constructor functions as a class!
 
 ## That's a Wrap!
 
