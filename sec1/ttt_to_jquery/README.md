@@ -4,12 +4,18 @@
 
 ## Tic-Tac-Toe with jQuery
 
-In this directory, you'll find a version of Phil's tic tac toe from yesterday.
+In this directory, you'll find a solution for tic tac toe.
 
-Using what you learned today, please attempt to **translate the vanilla JS into jQuery**!
+Using what you learned today, please attempt to 
+**translate the vanilla JS into jQuery**!
 
-If everything goes well, you should see the length of your code drop dramatically.
+If everything goes well, you should see the length of your code drop 
+dramatically.
 
-Don't forget to include a jQuery CDN: `https://code.jquery.com/jquery-2.2.0.min.js`
+Don't forget to include a jQuery CDN: 
+
+```html
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+```
 
 Good Luck!
