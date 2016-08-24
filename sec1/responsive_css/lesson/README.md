@@ -8,7 +8,7 @@
 | ---------------------------------------- |
 | Describe media queries and how to write them |
 | Create rules that adjust styles for phones, tablets, and computers |
-| Describe mobile first design             |
+| Describe mobile first design |
 | Use `display:flex` for a responsive design |
 | Manipulate flexible boxes with `flex-direction`, `flex-wrap`, `justify-content`, `align-items`, and `align-content` properties |
 
@@ -22,7 +22,8 @@
 
 ## BILLY MAYS HERE!
 
-> ARE YOU TIRED OF YOUR DESIGNS GOING DOWN THE TUBE AS SOON AS SOMEONE OPENS UP YOUR WEBSITE ON A PHONE!?!?!?!?!
+> ARE YOU TIRED OF YOUR DESIGNS GOING DOWN THE TUBE AS SOON AS SOMEONE 
+> OPENS UP YOUR WEBSITE ON A PHONE!?!?!?!?!
 >
 > WELL, THROW THOSE WORRIES OUT THE DOOR!
 >
@@ -32,59 +33,93 @@
 
 #### Intro to Responsive Website Design
 
-Once upon a time, long, long ago, nearly every screen was either 640x480, 800x600, or 1024x768, and you could expect that people had most of their screen occupied by a browser window.
+Once upon a time, long, long ago, nearly every screen was either 
+640x480, 800x600, or 1024x768, and you could expect that people had most 
+of their screen occupied by a browser window.
 
-Those were the good old days when Billy Mays (RIP) was still slinging his helpful wares. It's up to us as part of the Billy Mays Tribute Salesmen Collective to follow in his footsteps and spread the good word on responsive design.
+Those were the good old days when Billy Mays (RIP) was still slinging
+his helpful wares. It's up to us as part of the Billy Mays Tribute
+Salesmen Collective to follow in his footsteps and spread the good
+word on responsive design.
 
-Now, people will be looking at our websites on phones, tablets, browser windows scrunched up all tiny, and maybe even watches (please remember this lesson; it'll be funny to go back and read this README in a few years and ask: "Who the hell is Billy Mays??"). 
+Now, people will be looking at our websites on phones, tablets,
+browser windows scrunched up all tiny, and maybe even watches (please
+remember this lesson; it'll be funny to go back and read this README
+in a few years and ask: "Who the hell is Billy Mays??").
 
-You can compare the difference - just resize the width of your browser window:
+You can compare the difference - just resize the width of your browser
+window:
 
 - [Limited Responsiveness](https://streetcleaner.bandcamp.com/album/payback)
 - [Fully Fledged Responsiveness](http://www.piedpiper.com/)
 
-It's your responsibility, as the web developer, to make your site work as well as you can for as many people as you can– including people viewing on phones, tablets, and yes, even watches.
+It's your responsibility, as the web developer, to make your site work 
+as well as you can for as many people as you can– including people 
+viewing on phones, tablets, and yes, even watches.
 
 #### Mobile First Design
 
-Due to the rise in use of these alternatives, many developers have considered planning for the smaller devices before they design for the desktop.
+Due to the rise in use of these alternatives, many developers have 
+considered planning for the smaller devices before they design for the 
+desktop.
 
 Why? Lets look at a few facts (taken from codemyviews.com):
 
 - There are over **1.2 billion** mobile web users worldwide
-- In the U.S., 25% of mobile Web users are mobile-only (they rarely use a desktop to access the web)
+- In the U.S., 25% of mobile Web users are mobile-only (they rarely use 
+  a desktop to access the web)
 - Mobile apps have been downloaded 10.9 billion times
-- Mobile device sales are increasing across the board with over 85 percent of new handsets able to access the mobile Web
+- Mobile device sales are increasing across the board with over 85 
+  percent of new handsets able to access the mobile Web
 
-Due to these reasons - and big shot, Eric Schmidt claiming it was the future for Google - a lot of people are considering this a viable option.
+Due to these reasons - and big shot, Eric Schmidt claiming it was the 
+future for Google - a lot of people are considering this a viable 
+option.
 
-Now there are plenty of positives and negatives to each design approach, but they boil down to this  pithy saying: ***Graceful Degradation vs. Progressive Enhancement***.
+Now there are plenty of positives and negatives to each design approach, 
+but they boil down to this  pithy saying: 
 
-**Graceful Degradation**: Desktop first. Explore the full capabilities of a desktop and remove selectively, cutting away the fat and leaving an elegant core.
+##### ***Graceful Degradation vs. Progressive Enhancement***.
 
-**Progressive Enhancement**: Mobile first. Start with the most core features first, then add features as they become necessary.
+**Graceful Degradation**: Desktop first. Explore the full capabilities 
+of a desktop and remove selectively, cutting away the fat and leaving an 
+elegant core.
+
+**Progressive Enhancement**: Mobile first. Start with the most core 
+features first, then add features as they become necessary.
 
 For the most part, *mobile first design is "better"*.
 
-I put this in quotes because while it makes you solve the difficult task of a responsive design with a limited real estate first, **it makes you solve the difficult part first**.
+I put this in quotes because while it makes you solve the difficult task 
+of a responsive design with a limited real estate first, 
+**it makes you solve the difficult part first**.
 
-Solving the limiting, difficult aspects first can be a negative for creativity! Some developers feel it gets in the way of their best design motives.
+Solving the limiting, difficult aspects first can be a negative for 
+creativity! Some developers feel it gets in the way of their best design 
+motives.
 
-Since we're learning, we'll be doing today's lesson as a *Graceful Degradation*, but stay open to the idea of mobile first design in future projects.
+Since we're learning, we'll be doing today's lesson as a 
+*Graceful Degradation*, but stay open to the idea of mobile first design 
+in future projects.
 
 ##### Assets for Lesson
 
-Go ahead and copy the `starter_code/` directory out of the repository. We'll be working in that for the class.
+Go ahead and copy the `starter_code/` directory out of the repository. 
+We'll be working in that for the class.
 
 ## Navbars with Floats
 
-Floats are the old school method to creating a well-spaced, responsive navbar. Recall that floats and clears are used in tandem to place html elements to the left or right of a webpage.
+Floats are the old school method to creating a well-spaced, responsive 
+navbar. Recall that floats and clears are used in tandem to place html 
+elements to the left or right of a webpage.
 
-Therefore, we're going to need a fair amount of margin and padding play to figure out the best spacing for our navbars.
+Therefore, we're going to need a fair amount of margin and padding play 
+to figure out the best spacing for our navbars.
 
 Lets look at the top navbar in the `starter_code/`.
 
-First, lets isolate and examine the code already written for our website:
+First, lets isolate and examine the code already written for our 
+website:
 
 ``` CSS
 /* Top Navbar */
@@ -107,11 +142,17 @@ header {
 }
 ```
 
-We've centered the `<nav>` and `<ul>` element, given it a maximum width of 90% of the page, and removed any additional padding inserted by the browser.
+We've centered the `<nav>` and `<ul>` element, given it a maximum width 
+of 90% of the page, and removed any additional padding inserted by the 
+browser.
 
-Be aware that the element beneath the navbar has already been given `clear: both` styling.
+Be aware that the element beneath the navbar has already been given 
+`clear: both` styling.
 
-In order to space our page correctly, and get the navbar to move with the resizing of the window, we'll have to add floats to our elements. First, lets center our `<li>` elements by accessing the class `.nav`, and change it's display to `inline-block`.
+In order to space our page correctly, and get the navbar to move with 
+the resizing of the window, we'll have to add floats to our elements. 
+First, lets center our `<li>` elements by accessing the class `.nav`, 
+and change it's display to `inline-block`.
 
 ``` CSS
 nav .nav {
@@ -120,9 +161,13 @@ nav .nav {
 }
 ```
 
-We're changing the display to ease our use of floats. Now, we'll float the `.nav-strong` element left, and the `.container-ul` right. We then must float all the `.nav-menu-items` left so they don't display in reverse on our document.
+We're changing the display to ease our use of floats. Now, we'll float 
+the `.nav-strong` element left, and the `.container-ul` right. We then 
+must float all the `.nav-menu-items` left so they don't display in 
+reverse on our document.
 
-We'll need to add padding to the left of each of the `.nav-menu-items` `<li>` elements so they don't bunch up on one another.
+We'll need to add padding to the left of each of the `.nav-menu-items` 
+`<li>` elements so they don't bunch up on one another.
 
 ``` CSS
 nav .container-ul {
@@ -139,23 +184,31 @@ nav .nav-strong {
 }
 ```
 
-Now, you'll see that the navbar elements will respond well to the resizing of the browser (until the browser is under about 600px...).
+Now, you'll see that the navbar elements will respond well to the 
+resizing of the browser (until the browser is under about 600px...).
 
 ## Media Queries and the Min/Max Width
 
-Let's get that top Navbar to stack above our `<header>` when the webpage has a width under 600px.
+Let's get that top Navbar to stack above our `<header>` when the webpage 
+has a width under 600px.
 
 To do this, we'll need to use a **media query**.
 
-> "A media query consists of a media type and at least one expression that limits the style sheets' scope by using media features, such as width, height, and color."
+> "A media query consists of a media type and at least one expression 
+> that limits the style sheets' scope by using media features, such as 
+> width, height, and color."
 >
 > — Thanks MDN
 
-Essentially, you're telling the webpage to treat content differently according to a certain property.
+Essentially, you're telling the webpage to treat content differently 
+according to a certain property.
 
-In general, this is used with the max or min-width property when developing for desktops/laptops, and max or min-device-width properties for mobile.
+In general, this is used with the max or min-width property when 
+developing for desktops/laptops, and max or min-device-width properties 
+for mobile.
 
-Let's see how we'd use a media query and the max-width property to change our navbar when the window is less than 600px:
+Let's see how we'd use a media query and the max-width property to 
+change our navbar when the window is less than 600px:
 
 ``` CSS
 /* ------------- */
@@ -178,7 +231,8 @@ Let's see how we'd use a media query and the max-width property to change our na
 }
 ```
 
-Notice how the navbar stacks when we skinny the webpage. We had to float it left because before it was pushing to the right side.
+Notice how the navbar stacks when we skinny the webpage. We had to float 
+it left because before it was pushing to the right side.
 
 Take note of the `<header>`'s use of the `max-width` property as well.
 
@@ -204,7 +258,8 @@ header img {
 }
 ```
 
-This is why the image and header shrink with the page (as well as the `max-height` property in the `<header>`).
+This is why the image and header shrink with the page (as well as the 
+`max-height` property in the `<header>`).
 
 #### Planning for Mobile
 
@@ -224,11 +279,16 @@ Or with our previous media query:
 	}
 ```
 
-There's a [subtle difference](http://stackoverflow.com/questions/8549529/what-is-the-difference-between-screen-and-only-screen-in-media-queries#answer-8595600) between the previous media query and the extra properties for mobile.
+There's a [subtle difference](http://stackoverflow.com/questions/8549529/what-is-the-difference-between-screen-and-only-screen-in-media-queries#answer-8595600) 
+between the previous media query and the extra properties for mobile.
 
-This new media query checks the screen/device size, not just the window size. Unfortunately, this is not supported in IE8 or before, but because most mobile device don't use old browsers, it shouldn't create any problems.
+This new media query checks the screen/device size, not just the window 
+size. Unfortunately, this is not supported in IE8 or before, but because 
+most mobile device don't use old browsers, it shouldn't create any 
+problems.
 
-Plus, the use of `only` keeps older browsers from loading the specific style!
+Plus, the use of `only` keeps older browsers from loading the specific 
+style!
 
 You can also limit certain stylesheets to specific devices, eg:
 
@@ -236,29 +296,42 @@ You can also limit certain stylesheets to specific devices, eg:
 <link rel="stylesheet" type="text/css" media="only screen and (max-device-width: 480px)" href="small-device.css" />
 ```
 
-Since we're building for laptops and desktops in this lesson, we don't need to incorporate it in this example, but I want you to know the differences.
+Since we're building for laptops and desktops in this lesson, we don't 
+need to incorporate it in this example, but I want you to know the 
+differences.
 
 ## Using the Flex-Box
 
 Floats are annoying. Flexible Boxes are significantly less annoying.
 
-> "[The FlexBox] aims at providing a more efficient way to lay out, align and distribute space among items in a container, even when their size is unknown and/or dynamic (thus the word "flex")."
+> "[The FlexBox] aims at providing a more efficient way to lay out, 
+> align and distribute space among items in a container, even when their 
+> size is unknown and/or dynamic (thus the word "flex")."
 >
 > — CSS Tricks
 
-Flexboxes are best at dealing with small portions of an application rather than entire webpages.
+Flexboxes are best at dealing with small portions of an application 
+rather than entire webpages.
 
-Things like small media objects and navbars are perfect for flexboxes, as they deal with the shifting sizes of a webpage much better than any block, inline, or inline-block element.
+Things like small media objects and navbars are perfect for flexboxes, 
+as they deal with the shifting sizes of a webpage much better than any 
+block, inline, or inline-block element.
 
-Unfortunately, the flexbox has too many feautres for us to go through every single one, but we're going to try and hit the essentials.
+Unfortunately, the flexbox has too many feautres for us to go through 
+every single one, but we're going to try and hit the essentials.
 
-First, there are two major families of flexbox properties: *parent and child*.
+First, there are two major families of flexbox properties: 
+*parent and child*.
 
-The parent properties go on the enclosing box. They determine how the children will interact with each other.
+The parent properties go on the enclosing box. They determine how the 
+children will interact with each other.
 
-The child properties isolate one element *inside* the flexbox. These will change how that one child element will act in regards to its siblings.
+The child properties isolate one element *inside* the flexbox. These 
+will change how that one child element will act in regards to its 
+siblings.
 
-Let's use a [flexbox property demonstrator](http://codepen.io/justd/pen/yydezN?editors=1100) to understand what options are available to us with `display: flex`.
+Let's use a [flexbox property demonstrator](http://codepen.io/justd/pen/yydezN?editors=1100) 
+to understand what options are available to us with `display: flex`.
 
 #### Parent Flex Properties
 
@@ -283,7 +356,8 @@ Let's use a [flexbox property demonstrator](http://codepen.io/justd/pen/yydezN?e
 
 #### Try out the FlexBox with Our Media Objects
 
-Now that we're a little familiar with the flex-box, let's see it in action!
+Now that we're a little familiar with the flex-box, let's see it in 
+action!
 
 Lets first change that `<main>` element and the 3 enclosing `<div>`.
 
@@ -306,13 +380,16 @@ main > div {
 }
 ```
 
-Now we can see the three elements dynamically wrap as soon as the webpage gets thinner.
+Now we can see the three elements dynamically wrap as soon as the 
+webpage gets thinner.
 
 #### Navbar with Flexbox
 
-Sometimes isolating children of the flex-box is extremely necessary. Below is an example of a navbar made using `display:flex`.
+Sometimes isolating children of the flex-box is extremely necessary. 
+Below is an example of a navbar made using `display:flex`.
 
-Look how the use of `flex-grow` allows the title to command the majority of real-estate on the navbar.
+Look how the use of `flex-grow` allows the title to command the majority 
+of real-estate on the navbar.
 
 ``` css
 /* ------------------- */
@@ -344,20 +421,26 @@ footer > ul {
 }
 ```
 
-Take note of the media query used here: we're changing the direction to columns instead of row so they stack in the same fashion as our navbar at the top of the page.
+Take note of the media query used here: we're changing the direction to 
+columns instead of row so they stack in the same fashion as our navbar 
+at the top of the page.
 
 ## But Wait, There's More!
 
-You are now an honorary Billy Mays Tribute Salesperson. Please share your responsive wares across the Internet responsibly.
+You are now an honorary Billy Mays Tribute Salesperson. Please share 
+your responsive wares across the Internet responsibly.
 
 But a few questions before we leave:
 
 1. What is mobile first design and how does it relate to responsive CSS?
-2. Explain the differences between `align-content`, `align-items`, and `justify-content`.
+2. Explain the differences between `align-content`, `align-items`, and 
+   `justify-content`.
 3. What's the difference between a flex child and flex parent attribute?
 4. What's the difference between `max-width` and `max-device-width`?
 
 #### References
+
+[FlexBox Froggy](http://flexboxfroggy.com/)
 
 [The Only Keyword in Media Queries](http://stackoverflow.com/questions/8549529/what-is-the-difference-between-screen-and-only-screen-in-media-queries/14168210#14168210)
 
