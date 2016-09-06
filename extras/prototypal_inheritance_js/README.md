@@ -106,8 +106,6 @@ inheritance. Wrong. Wrong wrong wrong.
 > — Douglas Crockford, Creator of JSON
 
 ##### In prototypal inheritance objects inherit from other objects.
-__Constructors never come into the picture. This is what most confuses 
-people.__
 
 #### All about `.__proto__`, `.prototype` and `.constructor`
 
@@ -152,9 +150,8 @@ Objects can take from multiple prototypes. This is what is known as the
 
 ## Constructor Functions vs `Object.create()`
 
-There are two ways to set a prototype (eventually three with ES2015 
-classes - but for now, we'll focus on these two). A form of constructor 
-function and `Object.create()`.
+There are three primary ways to set a prototype: a constructor function, 
+an es2015 `class` and `Object.create()`.
 
 ##### Constructor Functions
 
@@ -192,7 +189,7 @@ access the prototype, because it does not obfuscate the power of
 prototypal inheritance with keywords from other inheritance models. It's
 also a simple option to clone objects.
 
-## Open Up JavaScript and Listen to Her Whispers
+## Open Up JavaScript and Listen to the Whispers
 
 <img src="https://s-media-cache-ak0.pinimg.com/736x/af/d4/9f/afd49f25cf0311700f23f062d2ebdb0d.jpg" width=300px>
 
