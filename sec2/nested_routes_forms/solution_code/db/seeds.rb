@@ -10,7 +10,7 @@ Scientist.destroy_all
 
 scientists = Scientist.create([
   {name: "Horg Lycanthropolyp", discipline: "Moon Studies"},
-  {name: "Etheline Methyline", discipline: "Expedient Anesthetics"},
+  {name: "Etheline Methyline",  discipline: "Expedient Anesthetics"},
   {name: "Alistair M. Brungus", discipline: "Brungling Botany"}
 ])
 
