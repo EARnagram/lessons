@@ -114,12 +114,29 @@ sheep.sort.reverse # => [5, 4, 3, 2, 1]
 Now the good stuff – looping through our array and doing something with each
 value.
 
-Remember how convoluted iterating was in JS? `for` loops? Not in my dreams!!
+Remember how convoluted JS' syntax was for iterating over a collection? 
+`for` loops? Not in my dreams!!
+
+```javascript
+var numbers = [1, 2, 3, 4, 5];
+
+numbers.forEach(function(number) {
+  console.log("I am sheep " + number);
+});
+
+// I am sheep 1
+// I am sheep 2
+// I am sheep 3
+// I am sheep 4
+// I am sheep 5
+```
 
 We can do for loops in Ruby, too, but we've got something _much_ nicer:
 
 ```ruby
-sheep.each do |number|
+numbers = [1, 2, 3, 4, 5]
+
+numbers.each do |number|
   puts "i am sheep #{number}"
 end
 
@@ -128,34 +145,10 @@ end
 # i am sheep 3
 # i am sheep 4
 # i am sheep 5
-
 ```
 
-In fact, many methods can iterate:
-
-```ruby
-sheep.count do |number|
-	if number < 4
-		puts "#{number} sheep"
-	else
-		puts "zzzzz"
-	end
-end
-```
-
-But we should stick to `.each` for basic iteration. Even though they can fit,
-it's always preferred to use the exact methods in ruby.
-
-> FYI, `.count` is generally used to return a count of an array:
-
-``` ruby
-sheep.count do |number|
-  number % 2 === 0
-end
-# => 2
-```
-
-To find more useful array methods, you'll have to look in the [Ruby Docs](http://ruby-doc.org/core-2.2.0/Array.html)!
+To find more useful array methods, you'll have to look in the 
+[Ruby Docs](http://ruby-doc.org/core-2.2.0/Array.html)!
 
 ## Block the Bad Dreams with Blocks!!
 
@@ -180,7 +173,9 @@ To make it super clear: if `sheep` is a variable holding `[1,2,3,4,5]`, then
 It's sort of as if the code is doing this:
 
 ```ruby
-# sheep.each do |number|
+numbers = [1, 2, 3, 4, 5]
+
+# numbers.each do |number|
 #   puts "i am sheep #{number}"
 # end
 
@@ -222,12 +217,12 @@ line, but it does not matter.
 
 ```ruby
 # totally the same
-sheep.each do |shep|
-  puts "i am sheep #{shep}"
+numbers.each do |number|
+  puts "i am sheep #{number}"
 end
 
 # totally the same
-sheep.each {|shep| puts "i am sheep #{shep}"}
+numbers.each {|number| puts "i am sheep #{number}"}
 ```
 
 #### Methods - Recurring Dreams
@@ -240,8 +235,8 @@ we use the `def` keyword to _define_ methods in Ruby, and `end` to close our
 block.
 
 ```ruby
-def go_to_sleep sheep
-	sheep.each do |number|
+def go_to_sleep numbers
+	numbers.each do |number|
 		if number < 4
 			puts "#{number} sheep"
 		else
@@ -250,8 +245,13 @@ def go_to_sleep sheep
 	end
 end
 
+sheep = [1, 2, 3, 4, 5]
 # To call the method:
 go_to_sleep sheep
+
+# Or
+
+go_to_sleep(sheep)
 ```
 
 Again, recall that parentheses are optional. We can now access `go_to_sleep` later
@@ -269,7 +269,6 @@ go_to_sleep goats
 # "zzzzz"
 # "zzzzz"
 ```
-
 
 ## Independent Practice - DREAM THEME!
 
